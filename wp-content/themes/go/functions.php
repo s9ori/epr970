@@ -12,6 +12,13 @@ define( 'GO_VERSION', '1.7.3' );
 define( 'GO_PLUGIN_DIR', get_template_directory( __FILE__ ) );
 define( 'GO_PLUGIN_URL', get_template_directory_uri( __FILE__ ) );
 
+function my_theme_scripts() {
+    // Enqueue other styles and scripts
+	wp_enqueue_style( 'new-styles', get_template_directory_uri() . '/dist/css/new-styles.css', array(), '1.0.0' );
+    // Enqueue the school.js script
+}
+add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
+
 /**
  * AMPP setup, hooks, and filters.
  */
