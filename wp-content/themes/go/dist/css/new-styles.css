@@ -1,4 +1,11 @@
 body {
-    background: linear-gradient(45deg, #C0ACA3, #726A63, #DAC5BA);
+    background: linear-gradient(45deg, #C0ACA3, #726A63, #DAC5BA),
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 10px,
+        rgb(255, 255, 255) 10px,
+        rgb(255, 255, 255) 20px
+      );
     background-size: 8000vh;
-}  
+  }
