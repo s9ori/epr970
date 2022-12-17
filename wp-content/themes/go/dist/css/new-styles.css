@@ -5,7 +5,7 @@ body {
     width: 100%;
     height: 100vh;
    
-    background: linear-gradient(45deg, #C0ACA3, #726A63, #DAC5BA);
-    background-image: linear-gradient(rgb(255, 255, 255) .1em, transparent .1em), linear-gradient(90deg, rgba(0, 255, 0, .7) .1em, transparent .1em);
+    background: #DAC5BA;
+    background-image: linear-gradient(rgba(250, 250, 250, .7) .1em, transparent .1em), linear-gradient(90deg, rgba(250, 250, 250, .7) .1em, transparent .1em);
     background-size: 3em 3em;
   }
