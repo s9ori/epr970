@@ -9,7 +9,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="wrapper" class="hfeed">
-<header id="header" role="banner">
+<!--<header id="header" role="banner">-->
     <!--<div id="branding">
         <div id="site-title">
             <?php /* if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; } */ ?>
@@ -23,6 +23,6 @@
         <!-- This needs to remain in the code in order to render the menu! -->
         <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
     </nav>
-</header>
+<!--</header>-->
 <div id="container">
 <main id="content" role="main">
