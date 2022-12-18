@@ -14,7 +14,5 @@
   </a>
 </div>
 <div id="wrapper" class="hfeed">
-<header>
-</header>
 <div id="container">
 <main id="content" role="main">
