@@ -1,7 +1,7 @@
 <?php
 
 function enqueue_magnetic_border_script() {
-  wp_enqueue_script( 'magnetic-border', get_template_directory_uri() . '/magnetic-border.js', array(), '1.0.0', true );
+  wp_enqueue_script( 'magnet-mouse', get_template_directory_uri() . '/magnet-mouse.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_magnetic_border_script' );
 
