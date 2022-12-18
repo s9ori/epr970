@@ -17,21 +17,9 @@ BlankSlate WordPress Theme © 2011-2023 TidyThemes
 BlankSlate is distributed under the terms of the GNU GPL
 */
 body {
-  background: linear-gradient(to right, #C8C5D9, #DAC5BA, #F2F2F2);
-  animation: gradient-animation 5s linear infinite;
+  background:#F2F2F2;
 }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
 h1,
 h2,
@@ -42,14 +30,16 @@ font-family: kepler-std, serif;
 font-weight: 400;
 font-style: normal;
 }
-  .entry-content {
-    padding: 50px;
-    width: 800px;
-    color: black;
-    height: 600px;
-    font-size: 25px;
-    line-height: 2rem;
-    font-family: "kepler-std";
-    margin: 100px auto;
-    overflow: auto;
+.entry-content {
+  padding: 50px;
+  width: 600px;
+  color: black;
+  height: 600px;
+  font-size: 25px;
+  line-height: 2rem;
+  font-family: "kepler-std";
+  margin: 100px auto;
+  overflow: auto;
+  background: #ffffff;
+  border: 2px dashed #6E6373;
   }
