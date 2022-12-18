@@ -5,9 +5,8 @@ element.addEventListener('mousemove', (event) => {
   const y = event.clientY;
   const width = element.offsetWidth;
   const height = element.offsetHeight;
+  const distance = Math.sqrt(Math.pow(x - width / 2, 2) + Math.pow(y - height / 2, 2));
 
-  element.style.transform = `translate(${(x - width / 35) / (width / 35)}px, ${(y - height / 35) / (height / 35)}px)`;
-  element.style.transition = 'transform 0.5s';
+  element.style.transform = `translate(${(x - width / 2) / (distance / 15)}px, ${(y - height / 2) / (distance / 15)}px)`;
   element.style.pointerEvents = 'none';
-  element.style.clipPath = `circle(50px at ${x}px ${y}px)`;
 });
