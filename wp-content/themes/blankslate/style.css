@@ -24,7 +24,7 @@ body.home h1.entry-title[itemprop="name"] {
   display: none;
 }
 
-
+a,
 h1,
 h2,
 h3,
@@ -33,6 +33,8 @@ p {
 font-family: kepler-std, serif;
 font-weight: 400;
 font-style: normal;
+text-decoration: none;
+color: black;
 }
 .entry-content {
   padding: 50px;
