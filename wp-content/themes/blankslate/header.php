@@ -10,8 +10,9 @@
 <?php wp_body_open(); ?>
 <div id="wrapper" class="hfeed">
 <header>
-    <!--<div id="branding">
-        <div id="site-title">
+<div id="branding">
+    <img src="wp-content/themes/blankslate/images/matissespe.png">
+        <!--<div id="site-title">
             <?php /* if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; } */ ?>
             <a href="<?php /* echo esc_url( home_url( '/' ) ); */ ?>" title="<?php /* echo esc_html( get_bloginfo( 'name' ) ); */ ?>" rel="home"><?php /* echo esc_html( get_bloginfo( 'name' ) ); */ ?></a>
             <?php /* if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; } */ ?>
@@ -19,7 +20,7 @@
         <div id="site-description"><?php /* bloginfo( 'description' ); */ ?></div>
     </div>-->
     <nav id="menu">
-        <!--<div id="search"><?php /* get_search_form(); */ ?></div>-->
+        <div id="search"><?php /* get_search_form(); */ ?></div>-->
         <!-- This needs to remain in the code in order to render the menu! -->
         <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
     </nav>
