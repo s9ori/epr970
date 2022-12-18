@@ -13,11 +13,6 @@
     <img class="head-image" src="wp-content/themes/blankslate/images/matissespe.png">
   </a>
 </div>
-    <nav id="menu">
-        <div id="search"><?php /* get_search_form(); */ ?></div>
-        <!-- This needs to remain in the code in order to render the menu! -->
-        <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-    </nav>
 <div id="wrapper" class="hfeed">
 <header>
 </header>

@@ -6,4 +6,9 @@
 <?php if ( !is_search() ) { get_template_part( 'entry', 'meta' ); } ?>
 <?php get_template_part( 'entry', ( is_front_page() || is_home() || is_front_page() && is_home() || is_archive() || is_search() ? 'summary' : 'content' ) ); ?>
 <?php if ( is_singular() ) { get_template_part( 'entry-footer' ); } ?>
+<nav id="menu">
+        <div id="search"><?php /* get_search_form(); */ ?></div>
+        <!-- This needs to remain in the code in order to render the menu! -->
+        <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+    </nav>
 </article>
