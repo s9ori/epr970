@@ -5,6 +5,11 @@ function enqueue_magnetic_border_script() {
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_magnetic_border_script' );
 
+function enqueue_magnet_mouse_script() {
+    wp_enqueue_script( 'magnet-mouse', get_template_directory_uri() . '/magnet-mouse.js', array(), '1.0.0', true );
+  }
+  add_action( 'wp_enqueue_scripts', 'enqueue_magnet_mouse_script' );  
+
 add_action( 'after_setup_theme', 'blankslate_setup' );
 function blankslate_setup() {
 load_theme_textdomain( 'blankslate', get_template_directory() . '/languages' );
