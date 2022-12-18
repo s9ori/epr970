@@ -21,5 +21,3 @@
 <?php the_content(); ?>
 <div class="entry-links"><?php wp_link_pages(); ?></div>
 </div>
-<script src="wp-content/themes/blankslate/magnet-mouse.min.js"></script>
-<script scr="wp-content/themes/blankslate/magnetic-border.js"></script>
