@@ -20,7 +20,8 @@ body {
   background:#F2F2F2;
 }
 
-header {
+body.home h1.entry-title[itemprop="name"] {
+  display: none;
 }
 
 
