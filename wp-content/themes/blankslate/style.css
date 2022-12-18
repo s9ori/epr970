@@ -58,6 +58,14 @@ color: black;
   overflow: hidden;
   transition: border 0.3s ease;
 }
+.magnet-mouse {
+  border: 2px dashed #000000;
+  transition: border .2s ease;
+}
+
+.magnet-mouse-active {
+  border: 2px dashed #000000;
+}
 
   .head-image {
     width: 200px;
