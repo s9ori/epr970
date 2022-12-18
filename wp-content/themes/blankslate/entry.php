@@ -1,19 +1,4 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<div class="hold">
-<div id="branding">
-  <a href="/">
-    <img class="head-image" src="wp-content/themes/blankslate/images/matissespe.png">
-  </a>
-</div>
-<div class="title1">
-  <a href="/">
-    <h1>personal website</h1>
-  </a>
-</div>
-</div>
-<div id="wrapper" class="hfeed">
-<div id="container">
-<main id="content" role="main">
 <?php if ( is_singular() ) { echo '<h1 class="entry-title" itemprop="headline">'; } else { echo '<h2 class="entry-title">'; } ?>
 <!--<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a>
 <?php if ( is_singular() ) { echo '</h1>'; } else { echo '</h2>'; } ?>
