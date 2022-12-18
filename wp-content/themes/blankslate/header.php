@@ -13,7 +13,7 @@
 <main id="content" role="main">
 <div class="hold">
 <div id="branding">
-    <img class="head-image" onclick="window.location.href='/'" src="wp-content/themes/blankslate/images/matissespe.png">
+    <img class="head-image" onclick="window.location.href='/' src="wp-content/themes/blankslate/images/matissespe.png">
 </div>
 <div class="title1">
   <a href="/">
