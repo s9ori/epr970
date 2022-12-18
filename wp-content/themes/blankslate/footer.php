@@ -9,6 +9,8 @@
 </div>
 <?php wp_footer(); ?>
 <script src="wp-content/themes/blankslate/magnet-mouse.js"></script>
+<script src="magnet-mouse.min.js"></script>
 <script scr="wp-content/themes/blankslate/magnetic-border.js"></script>
+
 </body>
 </html>
