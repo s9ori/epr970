@@ -23,7 +23,7 @@ body {
     width: 100%;
     height: 100vh;
    
-    background: #DAC5BA;
+    background: #F2F2F2;
     background-image: linear-gradient(#251B0F .1em, transparent .1em), linear-gradient(90deg, #251B0F .1em, transparent .1em);
     background-size: 1em 1em;
   }
