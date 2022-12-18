@@ -59,6 +59,14 @@ color: black;
 
   .head-image {
     width: 200px;
+    transition: all 0.5s;
+  }
+
+  .head-image:hover {
+    cursor: pointer;
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);  
+      transition: all 0.5s;
   }
 
   .title1 {
