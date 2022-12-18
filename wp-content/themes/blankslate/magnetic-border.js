@@ -6,5 +6,5 @@ element.addEventListener('mousemove', (event) => {
   const width = element.offsetWidth;
   const height = element.offsetHeight;
 
-  element.style.transform = `translate(${(x - width / 2) / (width / 2)}px, ${(y - height / 2) / (height / 2)}px)`;
+  element.style.transform = `translate(${(x - width / 1.2) / (width / 1.2)}px, ${(y - height / 1.2) / (height / 1.2)}px)`;
 });
