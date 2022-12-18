@@ -8,8 +8,6 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="wrapper" class="hfeed">
-<header>
 <div id="branding">
   <a href="/">
     <img class="head-image" src="wp-content/themes/blankslate/images/matissespe.png">
@@ -20,6 +18,8 @@
         <!-- This needs to remain in the code in order to render the menu! -->
         <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
     </nav>
+<div id="wrapper" class="hfeed">
+<header>
 </header>
 <div id="container">
 <main id="content" role="main">
