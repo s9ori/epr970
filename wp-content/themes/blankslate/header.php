@@ -8,6 +8,9 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<div id="wrapper" class="hfeed">
+<div id="container">
+<main id="content" role="main">
 <div class="hold">
 <div id="branding">
   <a href="/">
@@ -20,6 +23,3 @@
   </a>
 </div>
 </div>
-<div id="wrapper" class="hfeed">
-<div id="container">
-<main id="content" role="main">
