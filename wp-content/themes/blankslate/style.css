@@ -59,6 +59,12 @@ color: black;
   transition: border .2s ease;
 }
 
+.entry-content.magnet-active {
+  /* Styles for the magnet-active class */
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
   .head-image {
     width: 200px;
     transition: all 0.5s;
