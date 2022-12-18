@@ -11,8 +11,7 @@
         <!-- This needs to remain in the code in order to render the menu! -->
         <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
     </nav>
-</article>
-<div class="hold">
+    <div class="hold">
 <div id="branding">
   <a href="/">
     <img class="head-image" src="wp-content/themes/blankslate/images/matissespe.png">
@@ -27,3 +26,4 @@
 <div id="wrapper" class="hfeed">
 <div id="container">
 <main id="content" role="main">
+</article>
