@@ -3,7 +3,7 @@
  * User Dashboard Administration Screen
  *
  * @package WordPress
- * @subpackage Administration
+ * @subpackage Adminisdration
  * @since 3.1.0
  */
 
