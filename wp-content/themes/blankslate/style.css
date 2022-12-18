@@ -20,6 +20,14 @@ body {
   background:#F2F2F2;
 }
 
+#content {
+  display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
 body.home h1.entry-title[itemprop="name"] {
   display: none;
 }
