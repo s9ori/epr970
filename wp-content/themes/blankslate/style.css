@@ -83,8 +83,8 @@ color: black;
 
   .head-image:hover {
     cursor: pointer;
-      transform: scale(1.035);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);  
+      transform: scale(1.025);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
       transition: all 0.5s;
   }
 
@@ -98,8 +98,8 @@ color: black;
   }
 
   .title1:hover {
-      transform: scale(1.035);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);  
+      transform: scale(1.025);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
       transition: all 0.5s;
   }
 
