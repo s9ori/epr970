@@ -24,7 +24,7 @@ body {
     height: 100vh;
    
     background: #F2F2F2;
-    background-image: linear-gradient(#251B0F .01em, transparent .015em), linear-gradient(90deg, #251B0F .01em, transparent .015em);
+    background-image: linear-gradient(#251B0F .01em, transparent .025em), linear-gradient(90deg, #251B0F .01em, transparent .025em);
     background-size: 0.5em 0.5em;
   }
 
