@@ -6,7 +6,9 @@ let mm = new MagnetMouse({
       distance: 40,
       position: 'bottom-right'
     },
-    // Other configuration options
+    inCallback: function(data) {
+      data.elem.node.classList.add('magnet-active');
+    }
   });
   
   mm.init();
