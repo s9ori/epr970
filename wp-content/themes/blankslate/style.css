@@ -43,3 +43,7 @@ font-style: normal;
   background: #F2F2F2;
   border: 2px dashed #6E6373;
   }
+
+  .head-image {
+    width: 200px;
+  }
