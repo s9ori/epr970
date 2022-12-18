@@ -56,15 +56,18 @@ color: black;
   border: 2px dashed #000000;
   position: relative;
   overflow: hidden;
-  transition: border 0.3s ease;
-}
-.magnet-mouse {
-  border: 2px dashed #000000;
-  transition: border .2s ease;
+  transition: transform 0.3s ease;
 }
 
-.magnet-mouse-active {
-  border: 2px dashed #000000;
+.follow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #f0d647;
+  border-radius: 100%;
+  transition: transform .1s ease;
 }
 
   .head-image {
