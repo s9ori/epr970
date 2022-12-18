@@ -24,10 +24,19 @@ body {
     height: 100vh;
    
     background: #F2F2F2;
-    background-image: linear-gradient(#251B0F .01em, transparent .05em), linear-gradient(90deg, #251B0F .01em, transparent .05em);
+    background-image: linear-gradient(#251B0F .01em, transparent .015em), linear-gradient(90deg, #251B0F .01em, transparent .015em);
     background-size: 0.5em 0.5em;
   }
 
+h1,
+h2,
+h3,
+h4,
+p {
+font-family: kepler-std, serif;
+font-weight: 400;
+font-style: normal;
+}
   .entry-content {
     background: #251B0F;
     padding: 50px;
