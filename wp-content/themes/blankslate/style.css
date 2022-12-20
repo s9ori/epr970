@@ -31,6 +31,10 @@ header {
   gap: 50px;
 }
 
+article {
+  display: flex;
+}
+
 body {
   background:#F2F2F2;
 }
