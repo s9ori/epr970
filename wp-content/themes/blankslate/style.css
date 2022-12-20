@@ -23,12 +23,14 @@ header {
     flex-direction: column;
     width: 200px;
     height: 100vh;
+    padding: 10px;
     border: 2px dashed black;
 }
 
 #wrapper {
   display: flex;
   gap: 50px;
+  margin: 5px;
 }
 
 article {
