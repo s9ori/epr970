@@ -12,6 +12,15 @@ global $content_width;
 if ( !isset( $content_width ) ) { $content_width = 1920; }
 register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'blankslate' ) ) );
 }
+
+function my_theme_scripts() {
+    wp_enqueue_style( 'main.e6c13ad2', get_template_directory_uri() . 'wp-content/themes/blankslate/static/css/main.e6c13ad2.css' );
+    wp_enqueue_script( '787.c1112931.chunk', get_template_directory_uri() . 'wp-content/themes/blankslate/static/js/787.c1112931.chunk.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'main.37c71802', get_template_directory_uri() . 'wp-content/themes/blankslate/static/js/main.37c71802.js', array(), '1.0.0', true );
+}
+ add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
+
+ 
 add_action( 'admin_notices', 'blankslate_notice' );
 function blankslate_notice() {
 $user_id = get_current_user_id();
