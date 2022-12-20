@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TodoApp extends React.Component {
+class App extends React.Component {
     constructor(props) {
       super(props);
       this.state = { items: [], text: '' };
@@ -61,7 +61,5 @@ class TodoApp extends React.Component {
       );
     }
   }
-  
-  root.render(<TodoApp />);
 
-  export default TodoApp;
+  export default App;
