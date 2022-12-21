@@ -12,34 +12,6 @@ global $content_width;
 if ( !isset( $content_width ) ) { $content_width = 1920; }
 register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'blankslate' ) ) );
 }
-function enqueue_react_scripts() {
-    wp_enqueue_script(
-      'react',
-      'https://unpkg.com/react@17/umd/react.development.js',
-      array(),
-      '17',
-      true
-    );
-    wp_enqueue_script(
-      'react-dom',
-      'https://unpkg.com/react-dom@17/umd/react-dom.development.js',
-      array('react'),
-      '17',
-      true
-    );
-  }
-  add_action('wp_enqueue_scripts', 'enqueue_react_scripts');  
-  function enqueue_react_app() {
-    wp_enqueue_script(
-      'tabs',
-      get_template_directory_uri() . 'wp-content/themes/blankslate/js/tabs',
-      array('react', 'react-dom'),
-      '1.0',
-      true
-    );
-  }
-  add_action('wp_enqueue_scripts', 'enqueue_react_app');
-  
 add_action( 'admin_notices', 'blankslate_notice' );
 function blankslate_notice() {
 $user_id = get_current_user_id();
