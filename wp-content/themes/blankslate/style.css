@@ -60,7 +60,7 @@ body.post-template-default article {
   flex-direction: column;
   max-height: 100vh;
   overflow: scroll;
-  padding: 50px;
+  padding: 25px;
   width: 600px;
   color: black;
   border: 2px dashed #000000;
