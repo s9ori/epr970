@@ -58,10 +58,8 @@ body.post-template-default article {
 
 .entry-content p {
   max-width: 600px !important;
-  width: 50%;
   line-height: 1.8rem;
   height: 100%;
-  flex-grow: 1;
 }
 
 .entry-content {
