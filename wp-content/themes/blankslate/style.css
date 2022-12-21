@@ -122,6 +122,13 @@ html {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
+    transition: all 1s ease-in-out;
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0);
+}
+
+#content:hover {
+    box-shadow: 2px 4px 8px 10px #00000020;
+    transition: all 1s ease-in-out;
 }
 
 body.home h1.entry-title[itemprop="name"] {
@@ -264,12 +271,16 @@ background: white;
   padding: 25px;
   border: 2px dashed #000000;
   transform: translateX(-100px);
-  transition: opacity 0.8s ease-in-out, transform 1s ease-in-out;
+  transition: opacity 0.8s ease-in-out, transform 1s ease-in-out, box-shadow 1s ease-in-out;
 }
 #comments.open {
   transform: translateX(525px);
   opacity: 1;
   transition: opacity 0.8s ease-in-out, transform 1s ease-in-out;
+}
+#comments:hover {
+box-shadow: 2px 4px 8px 10px #00000020;
+transition: all 1s ease-in-out;
 }
 
 .attachment-full {
@@ -279,6 +290,11 @@ background: white;
 body.post-template-default #sidebar {
   margin-left: 0px;
   transition: margin-left 1s ease-in-out;
+}
+
+#sidebar:hover {
+  box-shadow: 2px 4px 8px 10px #00000020;
+  transition: all 1s ease-in-out;
 }
 
 .entry-meta {
