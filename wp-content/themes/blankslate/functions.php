@@ -12,6 +12,7 @@ global $content_width;
 if ( !isset( $content_width ) ) { $content_width = 1920; }
 register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'blankslate' ) ) );
 }
+include 'latest-post-block.php';
 add_action( 'admin_notices', 'blankslate_notice' );
 function blankslate_notice() {
 $user_id = get_current_user_id();
