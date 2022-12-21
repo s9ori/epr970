@@ -24,6 +24,7 @@ header {
     width: 200px;
     height: 99vh;
     margin: 5px;
+    background: white;
     padding: 10px;
     border: 2px dashed black;
 }
