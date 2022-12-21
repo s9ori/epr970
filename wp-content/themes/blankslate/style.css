@@ -62,7 +62,6 @@ body.post-template-default article {
 .entry-content p {
   max-width: 600px !important;
   line-height: 1.8rem;
-  height: 100%;
 }
 
 .entry-content {
