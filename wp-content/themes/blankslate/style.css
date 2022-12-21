@@ -78,6 +78,9 @@ body.post-template-default .entry-content {
 
 body {
   background:#F2F2F2;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 #content {
