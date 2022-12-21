@@ -81,6 +81,7 @@ body.post-template-default .entry-content {
 
 .entry-content {
   display: flex;
+  gap: 50px;
 }
 
 body {
@@ -238,7 +239,7 @@ background: white;
 }
 
 #sidebar {
-  margin-left: 300px;
+  margin-left: 0px;
   transition: margin-left 0.5s;
 }
 
