@@ -46,6 +46,11 @@ article {
   display: flex;
 }
 
+body.post-template-default article {
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   background:#F2F2F2;
 }
