@@ -254,6 +254,7 @@ transition: background-color .5s ease-in-out;
 
 #comments {
   position: absolute;
+  opacity: 0;
   top: 5px;
   left: 400px;
   width: 500px;
@@ -263,10 +264,12 @@ background: white;
   padding: 25px;
   border: 2px dashed #000000;
   transform: translateX(-100px);
-  transition: transform 0.5s;
+  transition: all 0.5s ease-in-out;
 }
 #comments.open {
   transform: translateX(525px);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }
 
 body.post-template-default #sidebar {
