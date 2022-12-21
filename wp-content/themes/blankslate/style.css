@@ -247,6 +247,11 @@ textarea {
   width: 100%
 }
 
+.entry-content > div:last-child {
+  margin-right: 0;
+}
+
+
 #twitter-widget-0{
   width: 100% !important;
 }
