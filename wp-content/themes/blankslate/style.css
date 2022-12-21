@@ -48,6 +48,9 @@ article {
   max-height: 100vh;
   overflow: scroll;
 }
+.logo {
+  max-width: 100%;
+}
 
 body.home .entry-basics {
   display: none !important;
