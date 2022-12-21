@@ -100,7 +100,6 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 50px;
 }
 
 body.home h1.entry-title[itemprop="name"] {
@@ -187,7 +186,7 @@ color: black;
   align-items: center;
 }
 
-content {
+#content {
   gap: 50px;
   display: flex;
   flex-direction: row;
