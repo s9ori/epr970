@@ -361,7 +361,7 @@ textarea {
   width: 100%
 }
 
-entry-socials {
+.entry-socials {
   display: flex;
     flex-direction: column;
     gap: 50px;
