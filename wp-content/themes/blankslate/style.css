@@ -237,6 +237,11 @@ background: white;
   transform: translateX(500px);
 }
 
+#sidebar {
+  margin-left: 300px;
+  transition: margin-left 0.5s;
+}
+
 textarea {
   width: 100%
 }

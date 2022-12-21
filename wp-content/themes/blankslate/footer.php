@@ -19,6 +19,14 @@ tab.addEventListener('click', () => {
   }
   isOpen = !isOpen;
 });
+if (isOpen) {
+  comments.classList.remove('open');
+  sidebar.style.marginLeft = '300px';
+} else {
+  comments.classList.add('open');
+  sidebar.style.marginLeft = '0';
+}
+
 </script>
 </body>
 </html>
