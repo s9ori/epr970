@@ -274,7 +274,7 @@ background: white;
 
 body.post-template-default #sidebar {
   margin-left: 0px;
-  transition: margin-left 0.5s;
+  transition: margin-left 1s;
 }
 
 article .entry-content {
