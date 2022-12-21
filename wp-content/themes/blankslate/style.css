@@ -89,7 +89,8 @@ color: black;
 
 .widget-container.widget_block {
   padding: 50px;
-  width: 600px;
+  width: 500px;
+  height: 500px;
   color: black;
   font-size: 25px;
   line-height: 2rem;
