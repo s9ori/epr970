@@ -1,17 +1,38 @@
-function makeCommentTab() {
-  // Get the article and comments elements
-  var article = document.querySelector('article');
-  var comments = document.getElementById('comments');
+import React, { useState } from 'react';
 
-  // Create the tab element
-  var tab = document.createElement('div');
-  tab.id = 'comments-tab';
-  tab.innerHTML = 'Comments';
-  tab.addEventListener('click', function() {
-    // Toggle the 'open' class on the comments element
-    comments.classList.toggle('open');
-  });
+function Container() {
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Append the tab to the article element
-  article.appendChild(tab);
+  function handleClick() {
+    setIsOpen(!isOpen);
+  }
+
+  return (
+    <div className="container">
+      {/* Container content goes here */}
+      <div className="tab" onClick={handleClick}></div>
+      <ContentBlock isOpen={isOpen} />
+    </div>
+  );
 }
+
+function ContentBlock({ isOpen }) {
+  return (
+    <div
+      className={`content${isOpen ? ' open' : ''}`}
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: '400px',
+        width: '300px',
+        height: '300px',
+        backgroundColor: 'lightblue',
+        transform: `translateX(${isOpen ? '0' : '-300px'})`,
+        transition: 'transform 0.5s',
+      }}
+    >
+      <p>love is my heart</p>
+    </div>
+  );
+}
+render(<Container />, document.getElementById('root'));

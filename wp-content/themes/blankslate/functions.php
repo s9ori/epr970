@@ -29,6 +29,17 @@ function enqueue_react_scripts() {
     );
   }
   add_action('wp_enqueue_scripts', 'enqueue_react_scripts');  
+  function enqueue_react_app() {
+    wp_enqueue_script(
+      'tabs',
+      get_template_directory_uri() . 'wp-content/themes/blankslate/js/tabs',
+      array('react', 'react-dom'),
+      '1.0',
+      true
+    );
+  }
+  add_action('wp_enqueue_scripts', 'enqueue_react_app');
+  
 add_action( 'admin_notices', 'blankslate_notice' );
 function blankslate_notice() {
 $user_id = get_current_user_id();
