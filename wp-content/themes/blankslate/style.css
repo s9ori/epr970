@@ -52,7 +52,6 @@ body.post-template-default #content {
   display: flex;
   gap: 50px;
   background-color: transparent;
-  background-image:       linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
 height:100%;
 background-size:50px 50px;
 }
@@ -105,16 +104,12 @@ body {
   background-size: 0.4em 0.4em;
   overflow-x: scroll;
   overflow-y: hidden;
-}
-html {
-  height: 100%;
-}
-body {
   margin: 0;
   padding: 0;
   height: 100%;
-    background-color: #F2F2F2;
-    background-image:linear-gradient(#F2F2F2, #dfdfdf);
+}
+html {
+  height: 100%;
 }
 
 #site-title h1 {
