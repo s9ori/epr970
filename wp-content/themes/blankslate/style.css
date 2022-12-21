@@ -62,7 +62,7 @@ background: white;
 display: flex;
   flex-direction: column;
   min-height: 500px;
-  overflow: hidden;
+  overflow: scroll;
   padding: 25px;
   width: 600px;
   color: black;
