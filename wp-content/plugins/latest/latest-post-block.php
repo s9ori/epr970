@@ -1,4 +1,4 @@
-<?php
+<script>
 function register_latest_post_block() {
   // Enqueue the block's assets (JS and CSS files)
   wp_register_script(
@@ -47,4 +47,4 @@ function render_latest_post_block() {
     </div>
   </div>';
 }
-?>
+</script>
