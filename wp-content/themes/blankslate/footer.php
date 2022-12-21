@@ -18,14 +18,17 @@ tab.addEventListener('click', () => {
     comments.classList.add('open'); // Update the class of the div element
   }
   isOpen = !isOpen;
+
+  // Indent this block of code correctly and enclose it within curly braces
+  if (isOpen) {
+    comments.classList.remove('open');
+    sidebar.style.marginLeft = '300px';
+  } else {
+    comments.classList.add('open');
+    sidebar.style.marginLeft = '0';
+  }
 });
-if (isOpen) {
-  comments.classList.remove('open');
-  sidebar.style.marginLeft = '300px';
-} else {
-  comments.classList.add('open');
-  sidebar.style.marginLeft = '0';
-}
+
 
 </script>
 </body>
