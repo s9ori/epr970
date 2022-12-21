@@ -238,7 +238,7 @@ background: white;
   transform: translateX(500px);
 }
 
-#sidebar {
+body.post-template-default #sidebar {
   margin-left: 0px;
   transition: margin-left 0.5s;
 }
