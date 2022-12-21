@@ -99,7 +99,9 @@ body.post-template-default .entry-content {
 }
 
 body {
-  background:#F2F2F2;
+  background: #f2f2f2;
+  background-image: linear-gradient(#ccc 0.03em, transparent 0.03em), linear-gradient(90deg, #ccc 0.03em, transparent 0.03em);
+  background-size: 0.4em 0.4em;
   overflow-x: scroll;
   overflow-y: hidden;
 }
