@@ -38,11 +38,14 @@ figcaption {
 font-family: kepler-std-caption,serif;
 font-weight: 300;
 font-style: italic;
-font-size: 10px;
 }
 
 .header {
   display: none;
+}
+
+body.post-template-default #content {
+  gap: 0px !important
 }
 
 #wrapper {
