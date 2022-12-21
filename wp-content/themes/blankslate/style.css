@@ -77,7 +77,6 @@ color: black;
   padding: 50px;
   width: 600px;
   color: black;
-  height: 600px;
   font-size: 25px;
   line-height: 2rem;
   font-family: "kepler-std";
@@ -85,6 +84,20 @@ color: black;
   border: 2px dashed #000000;
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.widget-container {
+  padding: 50px;
+  width: 600px;
+  color: black;
+  font-size: 25px;
+  line-height: 2rem;
+  font-family: "kepler-std";
+  background: #F2F2F2;
+  border: 2px dashed #000000;
+  position: relative;
+  overflow: scroll;
   transition: transform 0.3s ease;
 }
 
