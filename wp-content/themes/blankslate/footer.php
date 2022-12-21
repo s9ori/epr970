@@ -25,7 +25,7 @@ tab.addEventListener('click', () => {
 
   // Indent this block of code correctly and enclose it within curly braces
   if (isOpen) {
-    sidebar.style.marginLeft = '300px';
+    sidebar.style.marginLeft = '500px';
   } else {
     sidebar.style.marginLeft = '0px';
   }
