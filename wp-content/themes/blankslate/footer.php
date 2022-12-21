@@ -34,5 +34,17 @@ tab.addEventListener('click', () => {
 
 
 </script>
+
+<script>fetch('/wp-json/wp/v2/posts?per_page=1')
+  .then(response => response.json())
+  .then(posts => {
+    const latestPost = posts[0];
+    const featuredImageUrl = latestPost.featured_image_url;
+    const title = latestPost.title.rendered;
+
+    document.getElementById('latest-post-image').style.backgroundImage = `url(${featuredImageUrl})`;
+    document.getElementById('latest-post-title').innerHTML = title;
+  });
+</script>
 </body>
 </html>

@@ -253,6 +253,28 @@ transition: background-color .5s ease-in-out;
   background-color: #5b8d55;
 }
 
+#latest-post-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 16px 0;
+}
+
+#latest-post-image {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+#latest-post-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+
 #comments {
   position: absolute;
   opacity: 0;
