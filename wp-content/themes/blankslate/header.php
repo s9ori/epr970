@@ -10,7 +10,7 @@
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <div id="branding">
-    <img class="logo" src="wp-content/themes/blankslate/images/matissespe.png">
+    <img class="logo" src="http://0nx.17b.myftpupload.com/wp-content/uploads/2022/12/cropped-DALL·E-2022-12-17-22.21.36-a-lady-dior-hand-bag-a-journal-and-a-lip-stick-on-a-table-oil-painting-by-matisse.png">
 <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 <?php
 if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }
