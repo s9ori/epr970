@@ -152,6 +152,8 @@ color: black;
   border: 2px dashed #000000;
   position: relative;
   overflow: hidden;
+  box-shadow: 0px #ffffff00;
+  transition: box-shadow 0.6s;
   transition: transform 0.3s ease;
 }
 
@@ -173,6 +175,8 @@ color: black;
   position: relative;
   overflow: scroll;
   transition: transform 0.3s ease;
+  box-shadow: 0px #ffffff00;
+  transition: box-shadow 0.6s;
 }
 
   .head-image {
@@ -248,6 +252,7 @@ background: white;
   padding: 25px;
   border: 2px dashed #000000;
   transform: translateX(-100px);
+  box-shadow: 0px #ffffff00;
   transition: opacity 0.8s ease-in-out, transform 1s ease-in-out, box-shadow 0.6s;
 }
 #comments.open {
@@ -271,7 +276,7 @@ body.post-template-default #sidebar {
 
 .widget-container.widget_block:hover {
   box-shadow: 2px 4px 8px 10px #00000020;
-  transition: all 0.6s;
+  transition: box-shadow 0.6s;
 }
 
 .entry-meta {
