@@ -49,7 +49,7 @@ article {
   overflow: scroll;
 }
 
-body.home entry-basics {
+body.home .entry-basics {
   display: none !important;
 }
 body.post-template-default article {
@@ -59,7 +59,7 @@ body.post-template-default article {
   overflow: scroll;
 }
 
-body.post-template-default entry-content {
+body.post-template-default .entry-content {
   display: flex;
   flex-wrap: wrap;
 }
