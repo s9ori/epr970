@@ -46,6 +46,9 @@ article {
   display: flex;
 }
 
+body.home entry-basics {
+  display: none !important;
+}
 body.post-template-default article {
   display: flex;
   flex-direction: column;
