@@ -273,12 +273,6 @@ textarea {
   width: 100%
 }
 
-.entry-content > div:last-child {
-  margin-right: 0;
-  gap: 0 !important;
-}
-
-
 #twitter-widget-0{
   width: 100% !important;
 }
