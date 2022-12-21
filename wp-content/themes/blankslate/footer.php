@@ -22,10 +22,10 @@ tab.addEventListener('click', () => {
   // Indent this block of code correctly and enclose it within curly braces
   if (isOpen) {
     comments.classList.remove('open');
-    sidebar.style.marginLeft = '0px';
+    sidebar.style.marginLeft = '300px';
   } else {
     comments.classList.add('open');
-    sidebar.style.marginLeft = '300px';
+    sidebar.style.marginLeft = '0px';
   }
 });
 
