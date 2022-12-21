@@ -10,6 +10,7 @@
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <div id="branding">
+    <img src="wp-content/themes/blankslate/images/matissespe.png">
 <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 <?php
 if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }
