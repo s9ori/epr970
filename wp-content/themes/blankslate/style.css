@@ -61,7 +61,7 @@ body.post-template-default article {
 background: white;
 display: flex;
   flex-direction: column;
-  min-height: 500px;
+  max-height: 99vh;
   overflow: scroll;
   padding: 25px;
   width: 600px;
