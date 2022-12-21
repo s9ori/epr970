@@ -277,6 +277,10 @@ body.post-template-default #sidebar {
   transition: margin-left 1s;
 }
 
+.entry-meta {
+  margin-bottom: 20px;
+}
+
 article .entry-content {
   gap: 50px;
   row-gap: 0px;
