@@ -1,17 +1,17 @@
 function makeCommentTab() {
-  // Get the article element
-  const article = document.querySelector('article');
+  // Get the article and comments elements
+  var article = document.querySelector('article');
+  var comments = document.getElementById('comments');
+
   // Create the tab element
-  const tab = document.createElement('div');
+  var tab = document.createElement('div');
   tab.id = 'comments-tab';
   tab.innerHTML = 'Comments';
-  // Get the comments element
-  const comments = document.getElementById('comments');
-  // Add the tab to the article element
-  article.appendChild(tab);
-  // Add a click event listener to the tab
-  tab.addEventListener('click', () => {
+  tab.addEventListener('click', function() {
     // Toggle the 'open' class on the comments element
     comments.classList.toggle('open');
   });
+
+  // Append the tab to the article element
+  article.appendChild(tab);
 }
