@@ -12,22 +12,25 @@ const comments = document.querySelector('#comments'); // Update the ID of the di
 let isOpen = false;
 
 tab.addEventListener('click', () => {
-  if (isOpen) {
-    comments.classList.remove('open'); // Update the class of the div element
+  // Check if the open class is already applied to the comments element
+  if (!comments.classList.contains('open')) {
+    // If the open class is not applied, add it and set the isOpen flag to true
+    comments.classList.add('open');
+    isOpen = true;
   } else {
-    comments.classList.add('open'); // Update the class of the div element
+    // If the open class is already applied, toggle it and flip the isOpen flag
+    comments.classList.toggle('open');
+    isOpen = !isOpen;
   }
-  isOpen = !isOpen;
 
   // Indent this block of code correctly and enclose it within curly braces
   if (isOpen) {
-    comments.classList.remove('open');
     sidebar.style.marginLeft = '300px';
   } else {
-    comments.classList.add('open');
     sidebar.style.marginLeft = '0px';
   }
 });
+
 
 
 </script>
