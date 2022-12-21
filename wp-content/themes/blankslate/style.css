@@ -231,11 +231,30 @@ background: white;
   height: 500px;
   overflow: scroll;
   padding: 25px;
-  width: 600px;
+  width: 350px;
   color: black;
   box-shadow: 0px #ffffff00;
   transition: box-shadow 0.5s;
   border: 2px dashed #000000;
+}
+
+.wp-block-embed {
+  overflow-wrap: break-word;
+  position: relative;
+  background: white;
+  height: 500px;
+  overflow: scroll;
+  padding: 25px;
+  width: 350px;
+  color: black;
+  transition: box-shadow 0.5s;
+  box-shadow: 0px #ffffff00;
+  border: 2px dashed #000000;
+}
+
+.wp-block-embed:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
+  transition: all 0.5s;
 }
 
 .entry-twit:hover {
