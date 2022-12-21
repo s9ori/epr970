@@ -44,6 +44,8 @@ header {
 
 article {
   display: flex;
+  max-height: 100vh;
+  overflow: scroll;
 }
 
 body.home entry-basics {
