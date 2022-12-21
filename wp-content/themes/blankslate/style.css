@@ -82,6 +82,11 @@ body {
   overflow-y: hidden;
 }
 
+#site-title h1 {
+  font-size: 24px;
+}
+
+
 #content {
   display: flex;
     flex-direction: row;
