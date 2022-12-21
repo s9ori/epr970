@@ -60,7 +60,8 @@ body.post-template-default article {
 }
 
 body.post-template-default entry-content {
-flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .entry-content p {
