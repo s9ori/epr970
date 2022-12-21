@@ -27,6 +27,10 @@ header {
     border: 2px dashed black;
 }
 
+.header {
+  display: none;
+}
+
 #wrapper {
   display: flex;
   gap: 50px;
