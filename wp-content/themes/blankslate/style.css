@@ -266,7 +266,8 @@ background: white;
   border: 2px dashed #000000;
   transform: translateX(-100px);
   box-shadow: 0px #ffffff00;
-  transition: opacity 0.8s ease-in-out, transform 1s ease-in-out, box-shadow 0.5s;
+  transition: opacity 0.8s ease-in-out, transform 1s ease-in-out;
+  transition: box-shadow 0.5s;
 }
 #comments.open {
   transform: translateX(525px);
