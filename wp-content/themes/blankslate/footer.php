@@ -6,5 +6,6 @@
 </footer>
 </div>
 <?php wp_footer(); ?>
+<script src="wp-content/themes/blankslate/js/tabs"></script>
 </body>
 </html>
