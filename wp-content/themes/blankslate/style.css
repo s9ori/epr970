@@ -361,6 +361,24 @@ textarea {
   width: 100%
 }
 
+.latest-post-block-container {
+  position: relative;
+background: white;
+  height: 500px;
+  overflow: scroll;
+  padding: 25px;
+  width: 500px;
+  color: black;
+  box-shadow: 0px #ffffff00;
+  transition: box-shadow 0.5s;
+  border: 2px dashed #000000;
+}
+
+.latest-post-block-container:hover {
+  box-shadow: 2px 4px 8px 10px #00000020;
+  transition: all 0.5s;
+}
+
 .entry-socials {
   display: flex;
     flex-direction: column;
