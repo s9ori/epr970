@@ -96,6 +96,7 @@ body.post-template-default .entry-content {
 .entry-content {
   display: flex;
   gap: 50px;
+  background: white;
 }
 
 body {
@@ -276,6 +277,10 @@ background: white;
 body.post-template-default #sidebar {
   margin-left: 0px;
   transition: margin-left 0.5s;
+}
+
+#sidebar {
+  background: white;
 }
 
 article .entry-content {
