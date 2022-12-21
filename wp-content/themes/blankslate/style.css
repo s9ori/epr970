@@ -31,6 +31,7 @@ header {
 #container {
   display: flex;
   margin: 5px;
+  gap: 50px;
 }
 
 .header {
@@ -272,6 +273,12 @@ article .entry-content {
 textarea {
   width: 100%
 }
+
+.entry-content > div:last-child {
+  margin-right: 0;
+  gap: 0 !important;
+}
+
 
 #twitter-widget-0{
   width: 100% !important;
