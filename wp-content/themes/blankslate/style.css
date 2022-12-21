@@ -27,12 +27,19 @@ header {
     background: white;
     padding: 10px;
     border: 2px dashed black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    
 }
 
 #container {
   display: flex;
   margin: 5px;
   gap: 50px;
+  padding-left: 250px;
 }
 
 figcaption {
@@ -281,7 +288,6 @@ transition: background-color .5s ease-in-out;
   font-weight: bold;
   margin: 0;
 }
-
 
 
 #comments {
