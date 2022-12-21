@@ -349,7 +349,7 @@ body.post-template-default #sidebar {
 }
 
 .entry-meta {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 article .entry-content {
@@ -361,9 +361,15 @@ textarea {
   width: 100%
 }
 
+entry-socials {
+  display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
 .entry-content > div:last-child {
   margin-right: 0;
-  gap: 0 !important;
+  column-gap: 0 !important;
 }
 
 
