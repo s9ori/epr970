@@ -266,7 +266,7 @@ background: white;
   transition: transform 0.5s;
 }
 #comments.open {
-  transform: translateX(500px);
+  transform: translateX(525px);
 }
 
 body.post-template-default #sidebar {
