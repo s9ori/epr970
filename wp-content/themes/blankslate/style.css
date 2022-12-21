@@ -29,6 +29,7 @@ header {
 
 #container {
   display: flex;
+  gap: 50px;
 }
 
 .header {
@@ -105,6 +106,10 @@ color: black;
   .head-image {
     width: 200px;
     transition: all 0.5s;
+  }
+
+  .wp-block-image {
+    max-width: 600px;
   }
 
   .head-image:hover {
