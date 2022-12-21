@@ -1,5 +1,5 @@
-<div class="tab"></div>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="tab"></div>
 <?php get_template_part( 'nav', 'below-single' ); ?>
 <div class="entry-basics">
 <?php if ( is_singular() ) { echo '<h1 class="entry-title" itemprop="headline">'; } else { echo '<h2 class="entry-title">'; } ?>
