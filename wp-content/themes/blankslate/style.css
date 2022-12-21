@@ -254,7 +254,7 @@ body.post-template-default #sidebar {
 }
 
 article .entry-content {
-  gap: 0 !important;
+  gap: 50px;
 }
 
 textarea {
