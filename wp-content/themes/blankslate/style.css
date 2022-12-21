@@ -51,6 +51,10 @@ body.post-template-default article {
   flex-direction: column;
 }
 
+.entry-content p {
+  max-width: 600px !important;
+}
+
 body {
   background:#F2F2F2;
 }
