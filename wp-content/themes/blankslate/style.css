@@ -233,10 +233,10 @@ transition: background-color .5s ease-in-out;
 
 #comments {
   position: absolute;
-  top: 0;
+  top: 5px;
   left: 400px;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
 background: white;
   overflow: scroll;
   padding: 25px;
