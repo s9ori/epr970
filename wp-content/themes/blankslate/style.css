@@ -455,6 +455,11 @@ span[class$="hd"], span[class$="ft"] {
 display: none !important;
 }
 
+span[class$="bd"] {
+  height: 100% !important;
+  }
+  
+
 
 span.PIN_1671678831873_embed_grid .PIN_1671678831873_hd .PIN_1671678831873_img {
   position: absolute;
