@@ -279,17 +279,18 @@ transition: background-color .5s ease-in-out;
   background-color: #5b8d55;
 }
 
+
 .latest-post-block {
   display: flex;
-  align-items: center;
-  margin: 20px 0;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .latest-post-block__featured-image-container {
-  width: 100px;
-  height: 100px;
+  width: 100%;
   overflow: hidden;
-  margin-right: 20px;
 }
 
 .latest-post-block__featured-image {
@@ -299,13 +300,15 @@ transition: background-color .5s ease-in-out;
 
 .latest-post-block__title-container {
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .latest-post-block__title {
   font-size: 18px;
   font-weight: bold;
   margin: 0;
+  text-align: right;
 }
 
 
@@ -363,8 +366,7 @@ textarea {
 
 .latest-post-block-container {
   position: relative;
-background: white;
-  height: 500px;
+  background: white;
   overflow: scroll;
   padding: 25px;
   width: 500px;
