@@ -166,6 +166,7 @@ color: black;
   width: 600px;
   color: black;
   line-height: 2rem;
+  margin-bottom: 50px !important;
   font-family: "kepler-std";
   background: white;
   border: 2px dashed #000000;
@@ -247,7 +248,6 @@ background: white;
 .entry-main {
   display: flex;
   flex-direction: column;
-  column-gap: 50px !important;
 }
 
 .wp-block-embed {
