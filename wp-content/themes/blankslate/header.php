@@ -43,30 +43,24 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
       'post_status' => 'publish'
     ) );
 
-    // Get the featured image URL
-    $featured_image_url = get_the_post_thumbnail_url( $latest_post[0]->ID );
-    // Get the post title
-    $title = $latest_post[0]->post_title;
-  ?>
+    // Loop through the posts
+    foreach ( $latest_post as $post ) {
+      // Get the featured image URL
+      $featured_image_url = get_the_post_thumbnail_url( $post->ID );
+      // Get the post title
+      $title = $post->post_title;
 
-  <!-- Use the values in the HTML structure -->
-  <div class="latest-post-block">
-    <div class="latest-post-block__featured-image-container">
-      <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
+      // Output the HTML structure for each post
+      ?>
+            <div class="latest-post-block">
+        <div class="latest-post-block__featured-image-container">
+          <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
+        </div>
+        <div class="latest-post-block__title-container">
+          <h3 class="latest-post-block__title"><?php echo $title; ?></h3>
+        </div>
+      </div>
+    <?php } ?>
     </div>
-    <div class="latest-post-block__title-container">
-      <h3 class="latest-post-block__title"><?php echo $title; ?></h3>
-    </div>
-  </div>
-</div>
-<div class="latest-post-block">
-    <div class="latest-post-block__featured-image-container">
-      <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
-    </div>
-    <div class="latest-post-block__title-container">
-      <h3 class="latest-post-block__title"><?php echo $title; ?></h3>
-    </div>
-  </div>
-</div>
 </aside>
 <main id="content" role="main">
