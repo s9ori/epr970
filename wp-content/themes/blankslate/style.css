@@ -451,6 +451,11 @@ a[data-pin-do="embedBoard"] {
   border-color: transparent !important;
 }
 
+span[class$="hd"] {
+display: none !important;
+}
+
+
 span.PIN_1671678831873_embed_grid .PIN_1671678831873_hd .PIN_1671678831873_img {
   position: absolute;
   top: 10px;
