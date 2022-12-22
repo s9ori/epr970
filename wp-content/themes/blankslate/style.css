@@ -39,7 +39,6 @@ header {
   display: flex;
   margin: 5px;
   gap: 50px;
-  padding-left: 250px;
 }
 
 figcaption {
@@ -354,6 +353,10 @@ transition: all 0.5s;
 
 .attachment-full {
   max-width: 600px;
+}
+
+#sidebar {
+  padding-left: 250px;
 }
 
 body.post-template-default #sidebar {
