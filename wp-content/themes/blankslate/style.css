@@ -130,6 +130,13 @@ html {
   font-size: 24px;
 }
 
+.entry-title {
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  font-family: kepler-std-subhead,serif;
+  font-weight: 300 !important;
+  font-style: normal;
+}
 
 #content {
   display: flex;
