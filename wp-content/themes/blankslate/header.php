@@ -49,18 +49,23 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
       $featured_image_url = get_the_post_thumbnail_url( $post->ID );
       // Get the post title
       $title = $post->post_title;
+      // Get the post URL
+      $post_url = get_permalink( $post->ID );
 
       // Output the HTML structure for each post
       ?>
-            <div class="latest-post-block">
-        <div class="latest-post-block__featured-image-container">
-          <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
+      <a href="<?php echo $post_url; ?>" class="latest-post-block-link">
+        <div class="latest-post-block">
+          <div class="latest-post-block__featured-image-container">
+            <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
+          </div>
+          <div class="latest-post-block__title-container">
+            <h3 class="latest-post-block__title"><?php echo $title; ?></h3>
+          </div>
         </div>
-        <div class="latest-post-block__title-container">
-          <h3 class="latest-post-block__title"><?php echo $title; ?></h3>
-        </div>
-      </div>
+      </a>
     <?php } ?>
-    </div>
+</div>
+
 </aside>
 <main id="content" role="main">
