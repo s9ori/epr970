@@ -19,20 +19,16 @@ BlankSlate is distributed under the terms of the GNU GPL
 
 header {
   display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 200px;
-    height: 99vh;
-    margin: 5px;
-    background: white;
-    padding: 10px;
-    border: 2px dashed black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
 }
 
 #container {
