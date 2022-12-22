@@ -386,7 +386,7 @@ textarea {
   color: black;
 }
 
-.latest-post-block-container:hover {
+.latest-post-block:hover {
   box-shadow: 2px 4px 8px 10px #00000020;
   transition: all 0.5s;
 }
