@@ -17,6 +17,10 @@ BlankSlate WordPress Theme © 2011-2023 TidyThemes
 BlankSlate is distributed under the terms of the GNU GPL
 */
 
+img {
+  border-radius: 2% !important;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -30,7 +34,8 @@ header {
   left: 0;
   top: 0;
   overflow-y: auto;
-  border: 1px solid black
+  border: 1px dashed black;
+  border-radius: 2%;
 }
 
 #container {
@@ -84,7 +89,8 @@ display: flex;
   padding: 25px;
   width: 600px;
   color: black;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
+  border-radius: 2%;
   box-shadow: 0px #ffffff00;
   transition: box-shadow 0.5s;
 }
@@ -168,7 +174,8 @@ color: black;
   margin-bottom: 50px !important;
   font-family: "kepler-std";
   background: white;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
+  border-radius: 2%;
   position: relative;
   overflow: hidden;
   box-shadow: 0px rgba(255, 255, 255, 0);
@@ -190,7 +197,8 @@ color: black;
   line-height: 2rem;
   font-family: "kepler-std";
   background: white;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
+  border-radius: 2%;
   position: relative;
   overflow: scroll;
   transition: transform 0.3s ease;
@@ -209,7 +217,8 @@ color: black;
 
 .hold {
   height: 100vh;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
+  border-radius: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,8 +249,9 @@ background: white;
   width: 350px;
   color: black;
   box-shadow: 0px #ffffff00;
+  border-radius: 2%;
   transition: box-shadow 0.5s;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
 }
 
 .entry-main {
@@ -267,7 +277,7 @@ width: 350px;
 color: black;
 transition: box-shadow 0.5s;
 box-shadow: 0px #ffffff00;
-border: 1px solid #000000;
+border: 1px dashed #000000;
 }
 
 .wp-block-spotify:hover {
@@ -283,10 +293,11 @@ border: 1px solid #000000;
   overflow: scroll;
   padding: 25px;
   width: 600px;
+  border-radius: 2%;
   color: black;
   transition: box-shadow 0.5s;
   box-shadow: 0px #ffffff00;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
 }
 
 .wp-block-embed:hover {
@@ -326,8 +337,9 @@ transition: background-color .5s ease-in-out;
   width: 400px;
   background: white;
   overflow: scroll;
+  border-radius: 2%;
   padding: 25px;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
   box-shadow: 0px #ffffff00;
   transition: opacity 0.8s, transform 1s ease-in-out, box-shadow 0.5s;
 }
@@ -366,7 +378,8 @@ transition: background-color .5s ease-in-out;
 background: white;
   overflow: scroll;
   padding: 25px;
-  border: 1px solid #000000;
+  border: 1px dashed #000000;
+  border-radius: 2%;
   transform: translateX(400px);
   box-shadow: 0px #ffffff00;
   transition: opacity 0.8s, transform 1s ease-in-out, box-shadow 0.5s;
@@ -575,7 +588,8 @@ header {
   left: 0;
   right: 0;
   background: #fff;
-  border: 1px solid #333;
+  border-radius: 2%;
+  border: 1px dashed #333;
 }
 
 .dropdown-menu a {
