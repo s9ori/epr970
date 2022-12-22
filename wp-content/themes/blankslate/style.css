@@ -343,12 +343,12 @@ background: white;
   overflow: scroll;
   padding: 25px;
   border: 2px dashed #000000;
-  transform: translateX(-100px);
+  transform: translateX(400px);
   box-shadow: 0px #ffffff00;
   transition: opacity 0.8s, transform 1s ease-in-out, box-shadow 0.5s;
 }
 #comments.open {
-  transform: translateX(525px);
+  transform: translateX(950px);
   opacity: 1;
   transition: opacity 0.8s, transform 1s ease-in-out;
 }
