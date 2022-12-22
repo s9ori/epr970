@@ -451,7 +451,7 @@ a[data-pin-do="embedBoard"] {
   border-color: transparent !important;
 }
 
-span[class$="hd"] {
+span[class$="hd"], span[class$="ft"] {
 display: none !important;
 }
 
