@@ -32,9 +32,38 @@ header {
 }
 
 #container {
-  display: flex;
-  margin: 5px;
-  gap: 50px;
+  min-height: 0px;
+  --l_display: unset;
+  height: auto;
+  min-width: 0px;
+  width: auto;
+  top: calc(var(--top) + var(--sticky-top) + var(--wix-ads-top-height) * var(--is-sticky));
+  align-self: stretch;
+  justify-self: stretch;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  grid-area: 1/2/2/3;
+  position: relative;
+  --is-sticky: 0;
+  --sticky-top: 0px;
+  --top: 0px;
+}
+
+subcontainer {
+  position: relative;
+    box-sizing: border-box;
+    padding-top: 2%;
+    padding-right: 20px;
+    padding-left: 19.92px;
+    padding-bottom: 0%;
+    row-gap: 60px;
+    column-gap: 20px;
+    display: var(--l_display,var(--container-display));
+    grid-template-rows: minmax(max-content,24.3%) max-content max-content max-content;
+    grid-template-columns: 0.9999163024508718fr 1.0000449018394644fr 0.9999190733693516fr 1.0000476731143122fr 1fr 1fr 0.9999152173452268fr 1.0000423913273866fr 1.000050129400475fr 0.9999213405738575fr 1fr 1fr;
+    --container-display: grid;
 }
 
 figcaption {

@@ -26,6 +26,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 </nav>
 </header>
 <div id="container">
+    <div id="subcontainer">
 <aside id="sidebar" role="complementary">
 <div id="primary" class="widget-area">
 <ul class="xoxo">
@@ -65,6 +66,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
         </div>
       </a>
     <?php } ?>
+    </div>
 </div>
 
 </aside>
