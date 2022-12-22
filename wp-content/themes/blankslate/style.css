@@ -440,9 +440,9 @@ span.PIN_1671678831873_embed_grid * {
 }
 
 a[data-pin-do="embedBoard"] {
-  border: 0;
-  border-style: none;
-  border-color: transparent;
+  border: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
 }
 
 span.PIN_1671678831873_embed_grid .PIN_1671678831873_hd .PIN_1671678831873_img {
