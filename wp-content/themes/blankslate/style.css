@@ -264,6 +264,10 @@ background: white;
   flex-direction: column;
 }
 
+#logo-link {
+  text-align: center;
+}
+
 #branding {
   display: flex;
   flex-direction: column;
