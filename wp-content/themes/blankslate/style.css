@@ -293,6 +293,14 @@ transition: background-color .5s ease-in-out;
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
+  width: 400px;
+background: white;
+  overflow: scroll;
+  padding: 25px;
+  border: 2px dashed #000000;
+  transform: translateX(-100px);
+  box-shadow: 0px #ffffff00;
+  transition: opacity 0.8s, transform 1s ease-in-out, box-shadow 0.5s;
 }
 
 .latest-post-block__featured-image-container {
@@ -373,14 +381,9 @@ textarea {
 
 .latest-post-block-container {
   position: relative;
-  background: white;
-  overflow: scroll;
   padding: 25px;
   width: 500px;
   color: black;
-  box-shadow: 0px #ffffff00;
-  transition: box-shadow 0.5s;
-  border: 2px dashed #000000;
 }
 
 .latest-post-block-container:hover {
