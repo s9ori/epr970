@@ -282,6 +282,7 @@ width: 350px;
 color: black;
 transition: box-shadow 0.5s;
 box-shadow: 0px #ffffff00;
+border-radius: 2%;
 border: 1px dashed #000000;
 }
 
