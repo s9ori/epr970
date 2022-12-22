@@ -247,6 +247,7 @@ background: white;
 .entry-main {
   display: flex;
   flex-direction: column;
+  column-gap: 50px !important;
 }
 
 .wp-block-embed {
