@@ -259,6 +259,22 @@ background: white;
   height: 100%;
 }
 
+.wp-block-spotify {
+position: relative;
+background: white;
+padding: 15px;
+width: 350px;
+color: black;
+transition: box-shadow 0.5s;
+box-shadow: 0px #ffffff00;
+border: 1px solid #000000;
+}
+
+.wp-block-spotify:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
+  transition: all 0.5s;
+}
+
 .wp-block-embed {
   overflow-wrap: break-word;
   position: relative;
