@@ -247,7 +247,7 @@ background: white;
   flex-direction: column;
 }
 
-.branding {
+#branding {
   display: flex;
   flex-direction: column;
   align-items: center;
