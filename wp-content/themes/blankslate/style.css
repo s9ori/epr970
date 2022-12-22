@@ -293,7 +293,7 @@ transition: background-color .5s ease-in-out;
   justify-content: center;
   flex-wrap: wrap;
   width: 400px;
-background: white;
+  background: white;
   overflow: scroll;
   padding: 25px;
   border: 2px dashed #000000;
@@ -383,9 +383,12 @@ textarea {
 
 .latest-post-block-container {
   position: relative;
-  padding: 25px;
-  width: 500px;
   color: black;
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .latest-post-block:hover {
