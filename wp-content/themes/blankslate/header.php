@@ -58,7 +58,9 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
       <h3 class="latest-post-block__title"><?php echo $title; ?></h3>
     </div>
   </div>
+</div>
 
+<div class="latest-post-block-container">
   <?php
     // Retrieve the latest post
     $latest_post = get_posts( array(
