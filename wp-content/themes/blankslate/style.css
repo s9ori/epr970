@@ -465,6 +465,10 @@ span[class$="bd"] {
   padding: 0px !important;
   }
   
+  span[class$="img"] {
+   border-radius: 0 !important;
+    }
+    
 
 
 span.PIN_1671678831873_embed_grid .PIN_1671678831873_hd .PIN_1671678831873_img {
