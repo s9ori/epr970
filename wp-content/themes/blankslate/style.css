@@ -504,3 +504,77 @@ html,body,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,sma
 .skip-link{left:-9999rem;top:2.5rem;z-index:999999999;text-decoration:underline}
 .skip-link:focus{display:block;left:6px;top:7px;font-size:14px;font-weight:600;text-decoration:none;line-height:normal;padding:15px 23px 14px;z-index:100000;right:auto}
 .visually-hidden:not(:focus):not(:active), .form-allowed-tags:not(:focus):not(:active){position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px, 1px, 1px, 1px);white-space:nowrap}
+
+@media only screen and (max-width: 768px) {
+  /* Style rules specific to mobile devices go here */
+
+#container {
+  /* Other style rules */
+  width: 100%;
+}
+
+#wrapper {
+  /* Other style rules */
+  width: 100%;
+}
+
+article {
+  /* Other style rules */
+  width: 100%;
+}
+figcaption {
+  /* Other style rules */
+  font-size: 14px;
+}
+.header {
+  display: none;
+}
+.entry-content p {
+  /* Other style rules */
+  max-width: 100%;
+}
+/* Hide the fixed side menu on mobile devices */
+header {
+  display: none;
+}
+
+/* Add a hamburger menu button */
+.menu-button {
+  display: block;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background: #333;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+}
+
+/* Style the dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #333;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background: #eee;
+}
+
+/* Show the dropdown menu when the hamburger menu is clicked */
+.menu-button.active + .dropdown-menu {
+  display: block;
+}
+}
