@@ -29,6 +29,7 @@ header {
   left: 0;
   top: 0;
   overflow-y: auto;
+  z-index:199;
 }
 
 #container {
