@@ -247,6 +247,16 @@ background: white;
   flex-direction: column;
 }
 
+.branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+
 .wp-block-embed {
   overflow-wrap: break-word;
   position: relative;
