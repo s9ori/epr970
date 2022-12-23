@@ -35,7 +35,6 @@ header {
   top: 0;
   overflow-y: auto;
   border: 1px dashed black;
-  border-radius: 2%;
 }
 
 #container {
@@ -292,7 +291,7 @@ color: black;
   height: 100%;
   overflow: scroll;
   padding: 25px;
-  border-radius: 5px;
+  border-radius: 10px;
   color: black;
   transition: box-shadow 0.5s;
   box-shadow: 0px #ffffff00;
