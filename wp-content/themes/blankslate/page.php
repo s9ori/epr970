@@ -1,3 +1,4 @@
+<!--Pages, including hp-->
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -13,7 +14,7 @@
   <?php
     // Retrieve the most recent post
     $latest_post = get_posts( array(
-      'numberposts' => 1,
+      'numberposts' => 3,
       'orderby' => 'post_date',
       'order' => 'DESC',
       'post_type' => 'post',
