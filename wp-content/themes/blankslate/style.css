@@ -234,16 +234,8 @@ color: black;
 
 .entry-twit {
   position: relative;
-  background: white;
-  max-height: 100%;
-  overflow: scroll;
-  padding: 25px;
   width: 100%;
   color: black;
-  box-shadow: 0px #ffffff00;
-  border-radius: 10px;
-  transition: box-shadow 0.5s;
-  border: 1px dashed #000000;
   flex: 1;
 }
 
