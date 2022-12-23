@@ -40,8 +40,11 @@ header {
 
 #container {
   display: flex;
-  margin: 5px;
-  gap: 50px;
+  margin: 2%;
+  gap: 25px;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
 }
 
 figcaption {
@@ -56,14 +59,6 @@ font-style: italic;
 
 body.post-template-default #content {
   gap: 0px !important
-}
-
-#wrapper {
-  display: flex;
-  gap: 50px;
-  background-color: transparent;
-height:100%;
-background-size:50px 50px;
 }
 
 article {
@@ -120,8 +115,7 @@ body {
   background: #f2f2f2;
   background-image: linear-gradient(#ccc 0.03em, transparent 0.03em), linear-gradient(90deg, #ccc 0.03em, transparent 0.03em);
   background-size: 0.4em 0.4em;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -148,11 +142,12 @@ html {
 }
 
 #content {
-  display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    transition: all 1s ease-in-out;
+  gap: 25px;
+  display: grid;
+  align-items: stretch;
+  align-content: stretch;
+  margin-left: 250px;
+  transition: all 1s ease-in-out;
 }
 
 body.home h1.entry-title[itemprop="name"] {
@@ -439,10 +434,11 @@ textarea {
   position: relative;
   color: black;
   display: flex;
-  flex-direction: column;
-  row-gap: 50px;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
+  gap: 25px;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .latest-post-block:hover {
