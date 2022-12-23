@@ -39,7 +39,6 @@
 <h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
 </div>
 <div class="entry-content" itemprop="mainContentOfPage">
-<?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'full', array( 'itemprop' => 'image' ) ); } ?>
 <?php the_content(); ?>
 </div>
 </article>
