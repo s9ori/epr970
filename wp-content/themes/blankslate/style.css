@@ -235,16 +235,17 @@ color: black;
 
 .entry-twit {
   position: relative;
-background: white;
-  height: 500px;
+  background: white;
+  max-height: 800px;
   overflow: scroll;
   padding: 25px;
-  width: 350px;
+  width: 100%;
   color: black;
   box-shadow: 0px #ffffff00;
   border-radius: 2%;
   transition: box-shadow 0.5s;
   border: 1px dashed #000000;
+  flex: 1;
 }
 
 .entry-main {
@@ -267,15 +268,16 @@ background: white;
 }
 
 .wp-block-spotify {
-position: relative;
-background: white;
-padding: 15px;
-width: 350px;
-color: black;
-transition: box-shadow 0.5s;
-box-shadow: 0px #ffffff00;
-border-radius: 2%;
-border: 1px dashed #000000;
+  position: relative;
+  background: white;
+  padding: 15px;
+  width: 100%;
+  color: black;
+  transition: box-shadow 0.5s;
+  box-shadow: 0px #ffffff00;
+  border-radius: 2%;
+  border: 1px dashed #000000;
+  flex: 1;
 }
 
 .wp-block-spotify:hover {
