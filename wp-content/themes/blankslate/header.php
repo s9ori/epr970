@@ -7,7 +7,6 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <div id="branding">
 <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
@@ -24,5 +23,6 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 <div id="search"><?php get_search_form(); ?></div>
 </nav>
 </header>
+<div id="wrapper" class="hfeed">
 <div id="container">
 <main id="content" role="main">
