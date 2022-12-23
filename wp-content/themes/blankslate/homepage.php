@@ -41,5 +41,22 @@ get_header();
     <?php } ?>
 </div>
 
+<div class="wp-block-embed">
+<a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
+</div>
+
+<!-- wp:html -->
+<div class="entry-socials">
+<div class="twitter">
+<div class="entry-twit"><a class="twitter-timeline" href="https://twitter.com/esperosenbaum?ref_src=twsrc%5Etfw">Tweets by esperosenbaum</a> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="wp-block-spotify">
+
+</div>
+<!-- /wp:html -->
+
 <?php
 get_footer();
