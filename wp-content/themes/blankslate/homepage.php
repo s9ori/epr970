@@ -41,15 +41,14 @@ get_header();
     <?php } ?>
 </div>
 
+<!-- wp:html -->
+<div class="entry-socials">
 <div class="wp-block-embed">
 <a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
 </div>
-
-<!-- wp:html -->
-<div class="entry-socials">
 <div class="twitter">
 <div class="entry-twit"><a class="twitter-timeline" href="https://twitter.com/esperosenbaum?ref_src=twsrc%5Etfw">Tweets by esperosenbaum</a> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-</div>
+
 <!-- /wp:html -->
 
 <!-- wp:html -->
@@ -57,6 +56,7 @@ get_header();
 <!-- wp:embed {"url":"https://open.spotify.com/show/39nL5PQP2w5PBhnN9wGmHG?si=0fd4f212595d499d","type":"rich","providerNameSlug":"spotify","responsive":true,"className":"wp-embed-aspect-21-9 wp-has-aspect-ratio","animation":"fadeIn"} -->	 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/39nL5PQP2w5PBhnN9wGmHG?utm_source=generator&t=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>	 
 <!-- /wp:embed -->	 
+</div>
 </div>
 <!-- /wp:html -->
 

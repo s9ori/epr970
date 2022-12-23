@@ -144,9 +144,10 @@ html {
 #content {
   gap: 25px;
   display: grid;
-  align-items: stretch;
+  justify-items: stretch;
   align-content: stretch;
-  margin-left: 250px;
+  align-items: stretch;
+  justify-content: space-around;
   transition: all 1s ease-in-out;
 }
 
