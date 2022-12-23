@@ -25,14 +25,4 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 </nav>
 </header>
 <div id="container">
-    <div id="subcontainer">
-<aside id="sidebar" role="complementary">
-<div id="primary" class="widget-area">
-<ul class="xoxo">
-<?php dynamic_sidebar( 'primary-widget-area' ); ?>
-</ul>
-</div>
-</div>
-
-</aside>
 <main id="content" role="main">
