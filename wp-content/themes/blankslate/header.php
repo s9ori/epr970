@@ -34,8 +34,8 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 </div>
 <div class="latest-post-block-container">
   <?php
-    // Retrieve the latest post
-    $latest_post = get_posts( array(
+    // Retrieve the latest posts
+    $latest_posts = get_posts( array(
       'numberposts' => 3,
       'orderby' => 'post_date',
       'order' => 'DESC',
@@ -46,6 +46,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
     // Loop through the posts
     for ( $i = 1; $i < 3; $i++ ) {
       $post = $latest_posts[$i];
+
       // Get the featured image URL
       $featured_image_url = get_the_post_thumbnail_url( $post->ID );
       // Get the post title
@@ -66,7 +67,8 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
         </div>
       </a>
     <?php } ?>
-    </div>
+</div>
+<div class="latest-post-block-container">
 </div>
 
 </aside>
