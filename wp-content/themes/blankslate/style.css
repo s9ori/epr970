@@ -247,6 +247,16 @@ color: black;
   flex: 1;
 }
 
+iframe:not(:root) {
+  background: white;
+  max-height: 200px;
+  width: 100%;
+  color: black;
+  border-radius: 10px;
+  border: 1px dashed #000000;
+}
+
+
 .entry-main {
   display: flex;
   flex-direction: column;
