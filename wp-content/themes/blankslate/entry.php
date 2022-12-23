@@ -15,7 +15,7 @@
   <?php
     // Retrieve the most recent post
     $latest_post = get_posts( array(
-      'numberposts' => 1,
+      'numberposts' => 3,
       'orderby' => 'post_date',
       'order' => 'DESC',
       'post_type' => 'post',
