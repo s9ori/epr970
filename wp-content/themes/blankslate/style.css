@@ -495,17 +495,17 @@ span[class$="board"] {
   }
 
   span[class$="col"] {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
   }
 
   span[class$="ct"] {
-  display: flex;
-  flex-direction: row;
-  gap: 20
-  px;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
   }
+
 span[class$="bd"] {
   height: 100% !important;
   padding: 0px !important;
