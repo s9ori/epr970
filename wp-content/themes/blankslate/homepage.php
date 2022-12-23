@@ -53,8 +53,10 @@ get_header();
 <!-- /wp:html -->
 
 <!-- wp:html -->
-<div class="wp-block-spotify">
-
+<div class="wp-block-spotify">	Unchanged: <div class="wp-block-spotify">
+<!-- wp:embed {"url":"https://open.spotify.com/show/39nL5PQP2w5PBhnN9wGmHG?si=0fd4f212595d499d","type":"rich","providerNameSlug":"spotify","responsive":true,"className":"wp-embed-aspect-21-9 wp-has-aspect-ratio","animation":"fadeIn"} -->	 
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/39nL5PQP2w5PBhnN9wGmHG?utm_source=generator&t=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>	 
+<!-- /wp:embed -->	 
 </div>
 <!-- /wp:html -->
 
