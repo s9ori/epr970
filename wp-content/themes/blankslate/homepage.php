@@ -46,7 +46,7 @@ get_header();
 <div class="wp-block-embed">
 <a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
 </div>
-<div class="twitter">
+<div class="twitter-entry">
 <div class="entry-twit"><a class="twitter-timeline" href="https://twitter.com/esperosenbaum?ref_src=twsrc%5Etfw">Tweets by esperosenbaum</a> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 
 <!-- /wp:html -->
