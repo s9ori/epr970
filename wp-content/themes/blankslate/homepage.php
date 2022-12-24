@@ -50,42 +50,22 @@ get_header();
 <div id="tweet-container"></div>
 
 <script>
-const API_KEY = 'hqkNlE24A5BiKlyLxqDvBasAk';
-const API_SECRET_KEY = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
+let userId = '2819050825'; 
+let bearerToken ='AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
 
-// Generate a base64-encoded bearer token from the API key and secret key
-const bearerToken ='AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
-
-// Replace USER_ID with the user ID of the user whose Tweets you want to retrieve
-const userId = '2819050825';
-
-// Make the request to the user Tweet timeline endpoint
-fetch(`https://api.twitter.com/2/users/${userId}/tweets`, bearerToken)
-  .then((response) => response.json())
-  .then((data) => {
-    // Extract the full text of the latest user tweet from the response
-    const latestTweet = data.data[0];
-    const fullText = latestTweet.text;
-    const date = latestTweet.created_at;
-
-    // Extract the preview image URL if it exists
-    let previewImageUrl;
-    if (latestTweet.attachments && latestTweet.attachments.media) {
-      const media = latestTweet.attachments.media[0];
-      previewImageUrl = media.preview_image_url;
-    }
-
-    // Display the full text, date, and preview image on the page
-    const tweetContainer = document.getElementById('tweet-container');
-    tweetContainer.innerHTML = `
-      <p>${fullText}</p>
-      <p>${date}</p>
-      ${previewImageUrl ? `<img src="${previewImageUrl}" alt="Tweet preview image">` : ''}
-    `;
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+fetch(`https://api.twitter.com/2/users/${userId}/tweets`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${bearerToken}`
+        }
+    })
+    .then(res => res.json())
+    .then(res => {
+        // The full text of the latest user tweet is in the 'text' property of the first item in the response data
+        let latestTweet = res.data[0].text;
+        console.log(latestTweet);
+    })
+    .catch(err => console.log(err));
 
 </script>
 
