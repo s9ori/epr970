@@ -49,15 +49,6 @@ get_header();
 <div class="twitter-entry">
 <div class="entry-twit">
 <div id="tweet-container"></div>
-<script>
-// Loop through the tweets and output them on the DOM
-for (var i = 0; i < tweets.data.length; i++) {
-  var tweet = tweets.data[i];
-  var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['text'];
-  document.getElementById('tweet-container').appendChild(tweetElement);
-}
-</script>
 
 <?php
 
@@ -91,6 +82,15 @@ echo 'var tweets = ' . json_encode($tweets) . ';';
 echo '</script>';
 
 ?>
+<script>
+// Loop through the tweets and output them on the DOM
+for (var i = 0; i < tweets.data.length; i++) {
+  var tweet = tweets.data[i];
+  var tweetElement = document.createElement('div');
+  tweetElement.innerHTML = tweet['text'];
+  document.getElementById('tweet-container').appendChild(tweetElement);
+}
+</script>
 </div>
 
 
