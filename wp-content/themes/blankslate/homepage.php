@@ -59,50 +59,40 @@ $bearer_token = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3
 // Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
 $user_id = '2819050825';
 
-// Use the curl function to make a GET request to the user Tweet timeline endpoint
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  "Authorization: Bearer $bearer_token",
-  "x-api-key: $api_key",
-  "x-api-secret-key: $api_secret_key"
-));
+function fetchTweets() {
+  global $api_key, $api_secret_key, $bearer_token, $user_id;
 
-$response = curl_exec($ch);
-curl_close($ch);
+  // Use the curl function to make a GET request to the user Tweet timeline endpoint
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    "Authorization: Bearer $bearer_token",
+    "x-api-key: $api_key",
+    "x-api-secret-key: $api_secret_key"
+  ));
 
-// Parse the JSON response
-$tweets = json_decode($response, true);
+  $response = curl_exec($ch);
+  curl_close($ch);
 
-// Output the tweets as a JavaScript array
-echo '<script>';
-echo 'var tweets = ' . json_encode($tweets) . ';';
-echo '</script>';
+  // Parse the JSON response
+  $tweets = json_decode($response, true);
 
-?>
-<script>
-// Loop through the tweets and output them on the DOM
-for (var i = 0; i < 30; i++) {
-  var tweet = tweets.data[i];
-  var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['text'];
-  tweetElement.classList.add('tweet');
-
-  // Set the background color of the element to blue
-  tweetElement.style.backgroundColor = 'white';
-  // Set the font size to 24px
-  tweetElement.style.fontSize = '24px';
-  // Set the text color to white
-  tweetElement.style.color = 'black';
-  tweetElement.style.border = '1px dashed black';
-  tweetElement.style.margin = '25px';
-
-  document.getElementById('tweet-container').appendChild(tweetElement);
+  // Loop through the tweets and output them on the page
+  foreach ($tweets as $tweet) {
+    echo "<div class='tweet'>";
+    echo "<h2>" . $tweet['text'] . "</h2>";
+    echo "<p>" . $tweet['created_at'] . "</p>";
+    if (isset($tweet['preview_image'])) {
+      echo "<img src='" . $tweet['preview_image'] . "'>";
+    }
+    echo "</div>";
+  }
 }
 
-</script>
+?>
 
+<?php fetchTweets(); ?>
 
 <!-- /wp:html -->
 
