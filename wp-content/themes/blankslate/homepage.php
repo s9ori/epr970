@@ -90,11 +90,13 @@ for (var i = 0; i < 30; i++) {
   tweetElement.classList.add('tweet');
 
   // Set the background color of the element to blue
-  tweetElement.style.backgroundColor = 'blue';
+  tweetElement.style.backgroundColor = 'white';
   // Set the font size to 24px
   tweetElement.style.fontSize = '24px';
   // Set the text color to white
-  tweetElement.style.color = 'white';
+  tweetElement.style.color = 'black';
+  tweetElement.style.border = '1px dashed black';
+  tweetElement.style.margin = '25px';
 
   document.getElementById('tweet-container').appendChild(tweetElement);
 }
