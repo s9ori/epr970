@@ -70,10 +70,11 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 ));
 
 $response = curl_exec($ch);
+$response_data = json_decode($response);
 curl_close($ch);
 
-// Parse the JSON response
-$tweets = json_decode($response, true);
+// Get the first tweet in the response
+$tweet = $response_data[0];
 
 // Output the tweets as a JavaScript array
 echo '<script>';
@@ -83,7 +84,7 @@ echo '</script>';
 ?>
 <script>
 // Loop through the tweets and output them on the DOM
-for (var i = 0; i < 30; i++) {
+for (var i = 0; i < 1; i++) {
   var tweet = tweets.data[i];
   var tweetElement = document.createElement('div');
   tweetElement.innerHTML = tweet['text'];
