@@ -246,9 +246,9 @@ color: black;
   border-radius: 10px;
 }
 
-.entry-twit article {
-  border: 1px dashed #000000;
-  border-radius: 10px;
+[aria-labelledby][role="article"] {
+  border: 1px dashed #000000 !important;
+  border-radius: 10px !important;
 }
 
 
