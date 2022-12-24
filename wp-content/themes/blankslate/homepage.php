@@ -49,52 +49,73 @@ get_header();
 <div class="twitter-entry">
 <div id="tweet-container"></div>
 
+<?php
+
+// Replace these values with your own API key and secret
+$api_key = 'hqkNlE24A5BiKlyLxqDvBasAk';
+$api_secret = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
+
+// Use the API key and secret to get a Bearer token
+$bearer_token = base64_encode("$api_key:$api_secret");
+$response = file_get_contents("https://api.twitter.com/oauth2/token", false, stream_context_create(array(
+  'http' => array(
+    'method' => 'POST',
+    'header' => "Authorization: Basic $bearer_token\r\nContent-type: application/x-www-form-urlencoded;charset=UTF-8",
+    'content' => 'grant_type=client_credentials',
+  ),
+)));
+$response = json_decode($response, true);
+$bearer_token = $response['access_token'];
+
+// Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
+$user_id = '2819050825';
+
+// Make a GET request to the user Tweet timeline endpoint
+$response = file_get_contents("https://api.twitter.com/2/users/$user_id/tweets", false, stream_context_create(array(
+  'http' => array(
+    'method' => 'GET',
+    'header' => "Authorization: Bearer $bearer_token",
+  ),
+)));
+$tweets = json_decode($response, true);
+
+// Output the tweets as a JavaScript array
+echo '<script>';
+echo 'var tweets = ' . json_encode($tweets) . ';';
+echo '</script>';
+
+?>
+
 <script>
+// Select the element where the tweets will be displayed
+const tweetContainer = document.querySelector('.tweet-container');
 
-function fetchAndDisplayTweets() {
-  // Replace these values with your own API key, API secret key, and Bearer token
-  const apiKey = 'hqkNlE24A5BiKlyLxqDvBasAk';
-  const apiSecretKey = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
-  const bearerToken = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
-  
+tweets.forEach((tweet) => {
+  // Create a new div element for the tweet
+  const tweetElement = document.createElement('div');
+  tweetElement.classList.add('tweet');
 
-  // Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
-  const userId = '2244994945';
+  // Display the full text of the tweet
+  const tweetTextElement = document.createElement('h2');
+  tweetTextElement.innerText = tweet.text;
+  tweetElement.appendChild(tweetTextElement);
 
-  // Use the fetch function to make a GET request to the user Tweet timeline endpoint
-  fetch(`https://api.twitter.com/2/users/${userId}/tweets`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${bearerToken}`,
-      'x-api-key': apiKey,
-      'x-api-secret-key': apiSecretKey
-    }
-  })
-    .then((response) => response.json())
-    .then((tweets) => {
-      // Loop through the tweets and display them on the page
-      for (let tweet of tweets.data) {
-        let tweetElement = document.createElement('div');
-        tweetElement.classList.add('tweet');
+  // Display the creation date of the tweet
+  const tweetDateElement = document.createElement('p');
+  tweetDateElement.innerText = tweet.created_at;
+  tweetElement.appendChild(tweetDateElement);
 
-        let tweetTitle = document.createElement('h2');
-        tweetTitle.innerText = tweet['text'];
-        tweetElement.appendChild(tweetTitle);
+  // Check if the tweet has a preview image
+  if (tweet.attachments && tweet.attachments.media_keys) {
+// If the tweet has a preview image, display it
+const tweetImageElement = document.createElement('img');
+tweetImageElement.src = tweet.attachments.preview_image_url;
+tweetElement.appendChild(tweetImageElement);
+  }
+  // Append the tweet element to the tweet container
+  tweetContainer.appendChild(tweetElement);
+});
 
-        let tweetDate = document.createElement('p');
-        tweetDate.innerText = tweet['created_at'];
-        tweetElement.appendChild(tweetDate);
-
-        document.body.appendChild(tweetElement);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-
-// Call the fetchAndDisplayTweets function to retrieve and display the tweets
-fetchAndDisplayTweets();
 </script>
 
 <!-- /wp:html -->
