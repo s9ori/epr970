@@ -47,7 +47,6 @@ get_header();
 <a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
 </div>
 <div class="twitter-entry">
-<div id="tweet-container"></div>
 <div class="entry-twit">
 <?php
 
@@ -81,7 +80,7 @@ echo 'var tweets = ' . json_encode($tweets) . ';';
 echo '</script>';
 
 ?>
-
+<div id="tweet-container"></div>
 <script>
 // Loop through the tweets and output them on the DOM
 for (var i = 0; i < tweets.length; i++) {
