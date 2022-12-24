@@ -61,7 +61,7 @@ $user_id = '2819050825';
 
 // Use the curl function to make a GET request to the user Tweet timeline endpoint
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?count=1");
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
@@ -82,29 +82,31 @@ echo '</script>';
 
 ?>
 <script>
-// Get the most recent tweet
-var tweets = <?php echo json_encode($tweets); ?>;
-  // Loop through the tweets and output them on the DOM
-  for (var i = 0; i < 1; i++) {
-    var tweet = tweets.data[i];
-    var tweetElement = document.createElement('div');
-    tweetElement.innerHTML = tweet['text'];
-    tweetElement.classList.add('tweet');
+// Loop through the tweets and output them on the DOM
+for (var i = 0; i < 30; i++) {
+  var tweet = tweets.data[i];
+  var tweetElement = document.createElement('div');
+  tweetElement.innerHTML = tweet['text'];
+  tweetElement.classList.add('tweet');
 
-    // Set the background color of the element to blue
-    tweetElement.style.backgroundColor = 'white';
-    // Set the font size to 24px
-    tweetElement.style.fontSize = '24px';
-    // Set the text color to white
-    tweetElement.style.color = 'black';
-    tweetElement.style.border = '1px dashed black';
-    tweetElement.style.margin = '25px';
+  // Set the background color of the element to blue
+  tweetElement.style.backgroundColor = 'white';
+  // Set the font size to 24px
+  tweetElement.style.fontSize = '24px';
+  // Set the text color to white
+  tweetElement.style.color = 'black';
+  tweetElement.style.border = '1px dashed black';
+  tweetElement.style.margin = '25px';
 
-    document.getElementById('tweet-container').appendChild(tweetElement);
-  }
+  document.getElementById('tweet-container').appendChild(tweetElement);
+}
 
 </script>
 
+
+<!-- /wp:html -->
+
+<!-- wp:html -->
 <div class="wp-block-spotify">
 <!-- wp:embed {"url":"https://open.spotify.com/show/39nL5PQP2w5PBhnN9wGmHG?si=0fd4f212595d499d","type":"rich","providerNameSlug":"spotify","responsive":true,"className":"wp-embed-aspect-21-9 wp-has-aspect-ratio","animation":"fadeIn"} -->	 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/39nL5PQP2w5PBhnN9wGmHG?utm_source=generator&t=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>	 
