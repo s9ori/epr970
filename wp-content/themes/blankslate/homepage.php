@@ -73,8 +73,8 @@ $response = curl_exec($ch);
 $response_data = json_decode($response);
 curl_close($ch);
 
-// Get the first tweet in the response
-$tweet = $response_data[0];
+// Parse the JSON response
+$tweets = json_decode($response, true);
 
 // Output the tweets as a JavaScript array
 echo '<script>';
