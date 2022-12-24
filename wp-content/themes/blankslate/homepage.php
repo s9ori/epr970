@@ -49,7 +49,6 @@ get_header();
 <div class="twitter-entry">
 <div class="entry-twit">
 <?php include 'wp-content/themes/blankslate/twitter-api.php'; ?>
-<div class="tweet-container"></div>
 <div id="tweet-container"></div>
 
 <script>
@@ -62,6 +61,7 @@ for (var i = 0; i < tweets.length; i++) {
 }
 </script>
 </div>
+
 
 <!-- /wp:html -->
 
