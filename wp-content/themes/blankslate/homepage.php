@@ -62,7 +62,7 @@ $user_id = '2819050825';
 
 // Use the curl function to make a GET request to the user Tweet timeline endpoint
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets");
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
