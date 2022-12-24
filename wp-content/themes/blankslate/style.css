@@ -247,9 +247,9 @@ color: black;
 }
 
 article{ 
-   box-shadow: 0px #ffffff00;
-  border-radius: 2%;
-  border: 1px dashed #000000;
+  box-shadow: 0px #ffffff00;
+  border-radius: 2% !important;
+  border: 1px dashed #000000 !important;
 }
 
 
