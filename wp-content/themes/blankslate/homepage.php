@@ -87,7 +87,7 @@ echo '</script>';
 for (var i = 0; i < 30; i++) {
   var tweet = tweets[i];
   var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['full_text'];
+  tweetElement.innerHTML = tweet['text'];
   tweetElement.classList.add('tweet');  // add a class to the element
 
   // Set the background color of the element to blue
