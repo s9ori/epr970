@@ -246,10 +246,12 @@ color: black;
   border-radius: 10px;
 }
 
-[aria-labelledby][role="article"] {
-  border: 1px dashed #000000 !important;
-  border-radius: 10px !important;
+article{ 
+   box-shadow: 0px #ffffff00;
+  border-radius: 2%;
+  border: 1px dashed #000000;
 }
+
 
 
 .entry-main {
