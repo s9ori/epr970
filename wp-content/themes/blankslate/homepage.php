@@ -49,57 +49,43 @@ get_header();
 <div class="twitter-entry">
 <div id="tweet-container"></div>
 
-<?php
-
-// Replace these values with your own API key, API secret key, and Bearer token
-$api_key = 'hqkNlE24A5BiKlyLxqDvBasAk';
-$api_secret_key = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
-$bearer_token = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
-
-// Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
-$user_id = '2819050825';
-
-// Use the curl function to make a GET request to the user Tweet timeline endpoint
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  "Authorization: Bearer $bearer_token",
-  "x-api-key: $api_key",
-  "x-api-secret-key: $api_secret_key"
-));
-
-$response = curl_exec($ch);
-curl_close($ch);
-
-// Parse the JSON response
-$tweets = json_decode($response, true);
-
-// Output the tweets as a JavaScript array
-echo '<script>';
-echo 'var tweets = ' . json_encode($tweets) . ';';
-echo '</script>';
-
-?>
 <script>
-// Loop through the tweets and output them on the DOM
-for (var i = 0; i < 30; i++) {
-  var tweet = tweets.data[i];
-  var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['text'];
-  tweetElement.classList.add('tweet');
+const API_KEY = 'hqkNlE24A5BiKlyLxqDvBasAk';
+const API_SECRET_KEY = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
 
-  // Set the background color of the element to blue
-  tweetElement.style.backgroundColor = 'white';
-  // Set the font size to 24px
-  tweetElement.style.fontSize = '24px';
-  // Set the text color to white
-  tweetElement.style.color = 'black';
-  tweetElement.style.border = '1px dashed black';
-  tweetElement.style.margin = '25px';
+// Generate a base64-encoded bearer token from the API key and secret key
+const bearerToken ='AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
 
-  document.getElementById('tweet-container').appendChild(tweetElement);
-}
+// Replace USER_ID with the user ID of the user whose Tweets you want to retrieve
+const userId = '2819050825';
+
+// Make the request to the user Tweet timeline endpoint
+fetch(`https://api.twitter.com/2/users/${userId}/tweets`, bearerToken)
+  .then((response) => response.json())
+  .then((data) => {
+    // Extract the full text of the latest user tweet from the response
+    const latestTweet = data.data[0];
+    const fullText = latestTweet.text;
+    const date = latestTweet.created_at;
+
+    // Extract the preview image URL if it exists
+    let previewImageUrl;
+    if (latestTweet.attachments && latestTweet.attachments.media) {
+      const media = latestTweet.attachments.media[0];
+      previewImageUrl = media.preview_image_url;
+    }
+
+    // Display the full text, date, and preview image on the page
+    const tweetContainer = document.getElementById('tweet-container');
+    tweetContainer.innerHTML = `
+      <p>${fullText}</p>
+      <p>${date}</p>
+      ${previewImageUrl ? `<img src="${previewImageUrl}" alt="Tweet preview image">` : ''}
+    `;
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 </script>
 
