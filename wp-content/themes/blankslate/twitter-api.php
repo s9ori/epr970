@@ -17,27 +17,30 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "x-api-key: $api_key",
   "x-api-secret-key: $api_secret_key"
 ));
+
 $response = curl_exec($ch);
 curl_close($ch);
 
-// Use json_decode to parse the response
-$data = json_decode($response, true);
+// Parse the JSON response
+$tweets = json_decode($response, true);
 
-// Loop through the data and extract the values you need
-foreach ($data['data'] as $tweet) {
-  $tweet_id = $tweet['id'];
-  $tweet_text = $tweet['text'];
-  
-  // Use the wp_insert_post function to create a new post with the tweet text as the content
-  $post_id = wp_insert_post(array(
-    'post_title' => 'Tweet',
-    'post_content' => $tweet_text,
-    'post_status' => 'publish',
-    'post_type' => 'tweet'
-  ));
-  
-  // Use the update_post_meta function to store the tweet ID as a custom field for the post
-  update_post_meta($post_id, 'tweet_id', $tweet_id);
+// Output the tweets as a JavaScript array
+echo '<script>';
+echo 'var tweets = ' . json_encode($tweets) . ';';
+echo '</script>';
+
+?>
+
+<div id="tweet-container"></div>
+
+<script>
+// Loop through the tweets and output them on the DOM
+for (var i = 0; i < tweets.length; i++) {
+  var tweet = tweets[i];
+  var tweetElement = document.createElement('div');
+  tweetElement.innerHTML = tweet['text'];
+  document.getElementById('tweet-container').appendChild(tweetElement);
 }
+</script>
 
 ?>

@@ -49,6 +49,7 @@ get_header();
 <div class="twitter-entry">
 <div class="entry-twit">
 <?php include 'wp-content/themes/blankslate/twitter-api.php'; ?>
+<div class="tweet-container"></div>
 </div>
 
 <!-- /wp:html -->
