@@ -49,50 +49,53 @@ get_header();
 <div class="twitter-entry">
 <div id="tweet-container"></div>
 
-<?php
+<script>
 
-// Replace these values with your own API key, API secret key, and Bearer token
-$api_key = 'hqkNlE24A5BiKlyLxqDvBasAk';
-$api_secret_key = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
-$bearer_token = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
+function fetchAndDisplayTweets() {
+  // Replace these values with your own API key, API secret key, and Bearer token
+  const apiKey = 'hqkNlE24A5BiKlyLxqDvBasAk';
+  const apiSecretKey = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
+  const bearerToken = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
+  
 
-// Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
-$user_id = '2819050825';
+  // Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
+  const userId = '2244994945';
 
-function fetchTweets() {
-  global $api_key, $api_secret_key, $bearer_token, $user_id;
-
-  // Use the curl function to make a GET request to the user Tweet timeline endpoint
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets");
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    "Authorization: Bearer $bearer_token",
-    "x-api-key: $api_key",
-    "x-api-secret-key: $api_secret_key"
-  ));
-
-  $response = curl_exec($ch);
-  curl_close($ch);
-
-  // Parse the JSON response
-  $tweets = json_decode($response, true);
-
-  // Loop through the tweets and output them on the page
-  foreach ($tweets as $tweet) {
-    echo "<div class='tweet'>";
-    echo "<h2>" . $tweet['text'] . "</h2>";
-    echo "<p>" . $tweet['created_at'] . "</p>";
-    if (isset($tweet['preview_image'])) {
-      echo "<img src='" . $tweet['preview_image'] . "'>";
+  // Use the fetch function to make a GET request to the user Tweet timeline endpoint
+  fetch(`https://api.twitter.com/2/users/${userId}/tweets`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${bearerToken}`,
+      'x-api-key': apiKey,
+      'x-api-secret-key': apiSecretKey
     }
-    echo "</div>";
-  }
+  })
+    .then((response) => response.json())
+    .then((tweets) => {
+      // Loop through the tweets and display them on the page
+      for (let tweet of tweets.data) {
+        let tweetElement = document.createElement('div');
+        tweetElement.classList.add('tweet');
+
+        let tweetTitle = document.createElement('h2');
+        tweetTitle.innerText = tweet['text'];
+        tweetElement.appendChild(tweetTitle);
+
+        let tweetDate = document.createElement('p');
+        tweetDate.innerText = tweet['created_at'];
+        tweetElement.appendChild(tweetDate);
+
+        document.body.appendChild(tweetElement);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
-?>
-
-<?php fetchTweets(); ?>
+// Call the fetchAndDisplayTweets function to retrieve and display the tweets
+fetchAndDisplayTweets();
+</script>
 
 <!-- /wp:html -->
 
