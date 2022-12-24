@@ -47,15 +47,6 @@ get_header();
 <a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
 </div>
 <div class="twitter-entry">
-<!-- Output the tweet data to the DOM -->
-<div id="tweet-container">
-  <p>Full text: <span id="full-text"></span></p>
-  <img id="preview-image" src="" alt="">
-
-<p>Date: <span id="date"></span></p>
-<p>User handle: <span id="user-handle"></span></p>
-</div>
-
 <?php
 
 // Replace these values with your own API key, API secret key, and Bearer token
@@ -107,6 +98,15 @@ document.getElementById('date').innerHTML = tweetData.created_at;
 // Set the inner HTML of the user-handle element to the user_handle field of the tweetData object
 document.getElementById('user-handle').innerHTML = tweetData.user_handle;
 </script>
+
+<!-- Output the tweet data to the DOM -->
+<div id="tweet-container">
+  <p>Full text: <span id="full-text"></span></p>
+  <img id="preview-image" src="" alt="">
+
+<p>Date: <span id="date"></span></p>
+<p>User handle: <span id="user-handle"></span></p>
+</div>
 
 
 <!-- /wp:html -->
