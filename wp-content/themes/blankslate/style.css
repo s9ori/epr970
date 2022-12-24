@@ -278,6 +278,15 @@ color: black;
   flex: 1;
 }
 
+.tweet {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 2%;
+  border: 1px dashed #000000;
+  background: white;
+}
+
+
 .wp-block-spotify:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
   transition: all 0.5s;

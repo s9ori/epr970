@@ -84,10 +84,11 @@ echo '</script>';
 ?>
 <script>
 // Loop through the tweets and output them on the DOM
-for (var i = 0; i < tweets.data.length; i++) {
-  var tweet = tweets.data[i];
+for (var i = 0; i < tweets.length; i++) {
+  var tweet = tweets[i];
   var tweetElement = document.createElement('div');
   tweetElement.innerHTML = tweet['text'];
+  tweetElement.classList.add('tweet');  // add a class to the element
   document.getElementById('tweet-container').appendChild(tweetElement);
 }
 </script>
