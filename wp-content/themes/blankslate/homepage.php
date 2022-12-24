@@ -61,7 +61,7 @@ $user_id = '2819050825';
 
 // Use the curl function to make a GET request to the user Tweet timeline endpoint
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30&tweet_mode=extended");
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
@@ -80,15 +80,14 @@ echo '<script>';
 echo 'var tweets = ' . json_encode($tweets) . ';';
 echo '</script>';
 
-
 ?>
 <script>
 // Loop through the tweets and output them on the DOM
 for (var i = 0; i < 30; i++) {
-  var tweet = tweets[i];
+  var tweet = tweets.data[i];
   var tweetElement = document.createElement('div');
   tweetElement.innerHTML = tweet['text'];
-  tweetElement.classList.add('tweet');  // add a class to the element
+  tweetElement.classList.add('tweet');
 
   // Set the background color of the element to blue
   tweetElement.style.backgroundColor = 'white';
