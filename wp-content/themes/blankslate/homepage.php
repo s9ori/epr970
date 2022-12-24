@@ -101,8 +101,6 @@ tweetElement.style.margin = '25px';
 
 document.getElementById('tweet-container').appendChild(tweetElement);
 
-}
-
 </script>
 
 
