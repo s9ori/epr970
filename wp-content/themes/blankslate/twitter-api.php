@@ -30,17 +30,3 @@ echo 'var tweets = ' . json_encode($tweets) . ';';
 echo '</script>';
 
 ?>
-
-<div id="tweet-container"></div>
-
-<script>
-// Loop through the tweets and output them on the DOM
-for (var i = 0; i < tweets.length; i++) {
-  var tweet = tweets[i];
-  var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['text'];
-  document.getElementById('tweet-container').appendChild(tweetElement);
-}
-</script>
-
-?>
