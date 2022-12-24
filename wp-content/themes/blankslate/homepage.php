@@ -61,13 +61,14 @@ $user_id = '2819050825';
 
 // Use the curl function to make a GET request to the user Tweet timeline endpoint
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30&media.fields=preview_image_url&expansions=attachments.media_keys");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
   "x-api-key: $api_key",
   "x-api-secret-key: $api_secret_key"
 ));
+
 
 $response = curl_exec($ch);
 curl_close($ch);
@@ -88,6 +89,22 @@ for (var i = 0; i < 30; i++) {
   var tweetElement = document.createElement('div');
   tweetElement.innerHTML = tweet['text'];
   tweetElement.classList.add('tweet');
+ 
+    // Check if the tweet has any attachments (such as images)
+    if (tweet['attachments']) {
+    // Loop through the attachments
+    for (var j = 0; j < tweet['attachments'].length; j++) {
+      var attachment = tweet['attachments'][j];
+      // Check if the attachment is an image
+      if (attachment['type'] === 'image') {
+        // Create an image element and set its source to the image URL
+        var imageElement = document.createElement('img');
+        imageElement.src = attachment['preview_image_url'];
+        // Add the image to the tweet element
+        tweetElement.appendChild(imageElement);
+      }
+    }
+  }
 
   // Set the background color of the element to blue
   tweetElement.style.backgroundColor = 'white';
@@ -99,6 +116,10 @@ for (var i = 0; i < 30; i++) {
   tweetElement.style.margin = '25px';
 
   document.getElementById('tweet-container').appendChild(tweetElement);
+  var imageElement = document.createElement('img');
+imageElement.src = imageURL;
+document.getElementById('tweet-container').appendChild(imageElement);
+
 }
 
 </script>
