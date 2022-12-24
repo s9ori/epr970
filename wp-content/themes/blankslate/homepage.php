@@ -47,7 +47,13 @@ get_header();
 <a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
 </div>
 <div class="twitter-entry">
-<div id="tweet-container"></div>
+<div id="tweet-container">
+  <p>Full text: <span id="full-text"></span></p>
+  <img id="preview-image" src="" alt="">
+
+<p>Date: <span id="date"></span></p>
+<p>User handle: <span id="user-handle"></span></p>
+</div>
 
 <?php
 
@@ -84,6 +90,7 @@ $created_at = $tweet->created_at;
 $user_handle = $tweet->user->screen_name;
 
 ?>
+
 <script>
   // Output the tweet data as a JavaScript object
   var tweetData = {
@@ -94,14 +101,6 @@ $user_handle = $tweet->user->screen_name;
   };
 </script>
 
-<!-- Output the tweet data to the DOM -->
-<div id="tweet-container">
-  <p>Full text: <span id="full-text"></span></p>
-  <img id="preview-image" src="" alt="">
-
-<p>Date: <span id="date"></span></p>
-<p>User handle: <span id="user-handle"></span></p>
-</div>
 <!-- Use JavaScript to output the tweet data to the DOM -->
 <script>
 // Set the inner HTML of the full-text element to the full_text field of the tweetData object
@@ -113,7 +112,6 @@ document.getElementById('date').innerHTML = tweetData.created_at;
 // Set the inner HTML of the user-handle element to the user_handle field of the tweetData object
 document.getElementById('user-handle').innerHTML = tweetData.user_handle;
 </script>
-
 
 <!-- /wp:html -->
 
