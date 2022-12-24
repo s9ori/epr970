@@ -90,7 +90,8 @@ echo '</script>';
 // Select the element where the tweets will be displayed
 const tweetContainer = document.querySelector('.tweet-container');
 
-tweets.forEach((tweet) => {
+// Iterate over the properties of the tweets object
+for (const tweet of tweets) {
   // Create a new div element for the tweet
   const tweetElement = document.createElement('div');
   tweetElement.classList.add('tweet');
@@ -107,14 +108,15 @@ tweets.forEach((tweet) => {
 
   // Check if the tweet has a preview image
   if (tweet.attachments && tweet.attachments.media_keys) {
-// If the tweet has a preview image, display it
-const tweetImageElement = document.createElement('img');
-tweetImageElement.src = tweet.attachments.preview_image_url;
-tweetElement.appendChild(tweetImageElement);
+    // If the tweet has a preview image, display it
+    const tweetImageElement = document.createElement('img');
+    tweetImageElement.src = tweet.attachments.media_keys[0].url;
+    tweetElement.appendChild(tweetImageElement);
   }
-  // Append the tweet element to the tweet container
+
+  // Add the tweet element to the tweet container
   tweetContainer.appendChild(tweetElement);
-});
+}
 
 </script>
 
