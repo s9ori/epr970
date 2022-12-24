@@ -59,9 +59,9 @@ $bearer_token = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3
 // Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
 $user_id = '2819050825';
 
-// Set up the cURL resource for the user timeline API request
+// Use the curl function to make a GET request to the user Tweet timeline endpoint
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=$user_id&count=1&tweet_mode=extended&expansions=attachments.media_keys&media.fields=preview_image_url");
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
@@ -69,42 +69,25 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "x-api-secret-key: $api_secret_key"
 ));
 
-// Send the request and parse the response
 $response = curl_exec($ch);
-$response_data = json_decode($response);
 curl_close($ch);
 
-// Get the first tweet in the response
-$tweet = $response_data[0];
+// Parse the JSON response
+$tweets = json_decode($response, true);
 
-// Extract the relevant data from the tweet
-$full_text = $tweet->full_text;
-$preview_image_url = $tweet->entities->media[0]->media_url;
-$created_at = $tweet->created_at;
-$user_handle = $tweet->user->screen_name;
+// Output the tweets as a JavaScript array
+echo '<script>';
+echo 'var tweets = ' . json_encode($tweets) . ';';
+echo '</script>';
 
 ?>
-
 <script>
-  // Output the tweet data as a JavaScript object
-  var tweetData = {
-    full_text: '<?php echo $full_text; ?>',
-    preview_image_url: '<?php echo $preview_image_url; ?>',
-    created_at: '<?php echo $created_at; ?>',
-    user_handle: '<?php echo $user_handle; ?>'
-  };
-
-  // Create a new element to contain the tweet data
+// Loop through the tweets and output them on the DOM
+for (var i = 0; i < 30; i++) {
+  var tweet = tweets.data[i];
   var tweetElement = document.createElement('div');
-
-  // Set the inner HTML of the element to the full_text field of the tweetData object
-  tweetElement.innerHTML = tweetData.full_text;
-  // Set the src attribute of the element to the preview_image_url field of the tweetData object
-  tweetElement.innerHTML = '<img src="' + tweetData.preview_image_url + '">';
-  // Set the inner HTML of the element to the created_at field of the tweetData object
-  tweetElement.innerHTML += '<br>Date: ' + tweetData.created_at;
-  // Set the inner HTML of the element to the user_handle field of the tweetData object
-  tweetElement.innerHTML += '<br>User handle: ' + tweetData.user_handle;
+  tweetElement.innerHTML = tweet['text'];
+  tweetElement.classList.add('tweet');
 
   // Set the background color of the element to blue
   tweetElement.style.backgroundColor = 'white';
@@ -115,8 +98,9 @@ $user_handle = $tweet->user->screen_name;
   tweetElement.style.border = '1px dashed black';
   tweetElement.style.margin = '25px';
 
-  // Add the element to the tweet-container element
   document.getElementById('tweet-container').appendChild(tweetElement);
+}
+
 </script>
 
 
