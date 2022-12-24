@@ -82,23 +82,25 @@ echo '</script>';
 
 ?>
 <script>
-// Loop through the tweets and output them on the DOM
-for (var i = 0; i < tweet.data.length; i++) {
-  var tweet = tweets.data[i];
-  var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['text'];
-  tweetElement.classList.add('tweet');
+// Get the most recent tweet
+var tweet = tweets.data[0];
 
-  // Set the background color of the element to blue
-  tweetElement.style.backgroundColor = 'white';
-  // Set the font size to 24px
-  tweetElement.style.fontSize = '24px';
-  // Set the text color to white
-  tweetElement.style.color = 'black';
-  tweetElement.style.border = '1px dashed black';
-  tweetElement.style.margin = '25px';
+// Output the tweet on the DOM
+var tweetElement = document.createElement('div');
+tweetElement.innerHTML = tweet['text'];
+tweetElement.classList.add('tweet');
 
-  document.getElementById('tweet-container').appendChild(tweetElement);
+// Set the background color of the element to blue
+tweetElement.style.backgroundColor = 'white';
+// Set the font size to 24px
+tweetElement.style.fontSize = '24px';
+// Set the text color to white
+tweetElement.style.color = 'black';
+tweetElement.style.border = '1px dashed black';
+tweetElement.style.margin = '25px';
+
+document.getElementById('tweet-container').appendChild(tweetElement);
+
 }
 
 </script>
