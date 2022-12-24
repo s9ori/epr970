@@ -50,25 +50,28 @@ get_header();
 <div id="tweet-container"></div>
 
 <script>
-let userId = '2819050825'; 
-let bearerToken ='AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
+function getLatestTweet(userId, bearerToken) {
+  fetch(`https://api.twitter.com/2/users/${userId}/tweets`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${bearerToken}`
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Do something with the data, for example, display the full text of the latest tweet
+      const latestTweet = data.data[0];
+      console.log(latestTweet.text);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 
-fetch(`https://api.twitter.com/2/users/${userId}/tweets`, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${bearerToken}`
-        }
-    })
-    .then(res => res.json())
-    .then(res => {
-        // The full text of the latest user tweet is in the 'text' property of the first item in the response data
-        let latestTweet = res.data[0].text;
-        console.log(latestTweet);
-    })
-    .catch(err => console.log(err));
+// Example usage:
+getLatestTweet('2244994945', 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz'); // Replace with the user ID and bearer token of the user whose Tweets you want to retrieve
 
 </script>
-
 
 <!-- /wp:html -->
 
