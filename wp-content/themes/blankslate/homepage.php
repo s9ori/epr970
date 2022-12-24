@@ -61,7 +61,7 @@ $user_id = '2819050825';
 
 // Set up the cURL resource for the user timeline API request
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=1&tweet_mode=extended&expansions=attachments.media_keys&media.fields=preview_image_url');
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=$user_id&count=1&tweet_mode=extended&expansions=attachments.media_keys&media.fields=preview_image_url");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
@@ -80,32 +80,38 @@ $tweet = $response_data[0];
 // Extract the relevant data from the tweet
 $full_text = $tweet->full_text;
 $preview_image_url = $tweet->entities->media[0]->media_url;
-$date = $tweet->created_at;
+$created_at = $tweet->created_at;
 $user_handle = $tweet->user->screen_name;
 
-?>    <script>
-var tweetData = {
-  full_text: '<?php echo $full_text; ?>',
-  preview_image_url: '<?php echo $preview_image_url; ?>',
-  created_at: '<?php echo $created_at; ?>',
-  user_handle: '<?php echo $user_handle; ?>'
-};
+?>
+<script>
+  // Output the tweet data as a JavaScript object
+  var tweetData = {
+    full_text: '<?php echo $full_text; ?>',
+    preview_image_url: '<?php echo $preview_image_url; ?>',
+    created_at: '<?php echo $created_at; ?>',
+    user_handle: '<?php echo $user_handle; ?>'
+  };
 </script>
 
 <!-- Output the tweet data to the DOM -->
 <div id="tweet-container">
   <p>Full text: <span id="full-text"></span></p>
   <img id="preview-image" src="" alt="">
-  <p>Date: <span id="date"></span></p>
-  <p>User handle: <span id="user-handle"></span></p>
-</div>
 
+<p>Date: <span id="date"></span></p>
+<p>User handle: <span id="user-handle"></span></p>
+</div>
 <!-- Use JavaScript to output the tweet data to the DOM -->
 <script>
-  document.getElementById('full-text').innerHTML = tweetData.full_text;
-  document.getElementById('preview-image').src = tweetData.preview_image_url;
-  document.getElementById('date').innerHTML = tweetData.created_at;
-  document.getElementById('user-handle').innerHTML = tweetData.user_handle;
+// Set the inner HTML of the full-text element to the full_text field of the tweetData object
+document.getElementById('full-text').innerHTML = tweetData.full_text;
+// Set the src attribute of the preview-image element to the preview_image_url field of the tweetData object
+document.getElementById('preview-image').src = tweetData.preview_image_url;
+// Set the inner HTML of the date element to the created_at field of the tweetData object
+document.getElementById('date').innerHTML = tweetData.created_at;
+// Set the inner HTML of the user-handle element to the user_handle field of the tweetData object
+document.getElementById('user-handle').innerHTML = tweetData.user_handle;
 </script>
 
 
