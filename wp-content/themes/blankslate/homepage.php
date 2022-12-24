@@ -59,9 +59,9 @@ $bearer_token = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3
 // Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
 $user_id = '2819050825';
 
-// Use the curl function to make a GET request to the user Tweet timeline endpoint
+// Set up the cURL resource for the user timeline API request
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30&media.fields=preview_image_url&expansions=attachments.media_keys");
+curl_setopt($ch, CURLOPT_URL, 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=1&tweet_mode=extended&expansions=attachments.media_keys&media.fields=preview_image_url');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
@@ -69,59 +69,43 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "x-api-secret-key: $api_secret_key"
 ));
 
-
+// Send the request and parse the response
 $response = curl_exec($ch);
+$response_data = json_decode($response);
 curl_close($ch);
 
-// Parse the JSON response
-$tweets = json_decode($response, true);
+// Get the first tweet in the response
+$tweet = $response_data[0];
 
-// Output the tweets as a JavaScript array
-echo '<script>';
-echo 'var tweets = ' . json_encode($tweets) . ';';
-echo '</script>';
+// Extract the relevant data from the tweet
+$full_text = $tweet->full_text;
+$preview_image_url = $tweet->entities->media[0]->media_url;
+$date = $tweet->created_at;
+$user_handle = $tweet->user->screen_name;
 
-?>
+?>    <script>
+var tweetData = {
+  full_text: '<?php echo $full_text; ?>',
+  preview_image_url: '<?php echo $preview_image_url; ?>',
+  created_at: '<?php echo $created_at; ?>',
+  user_handle: '<?php echo $user_handle; ?>'
+};
+</script>
+
+<!-- Output the tweet data to the DOM -->
+<div id="tweet-container">
+  <p>Full text: <span id="full-text"></span></p>
+  <img id="preview-image" src="" alt="">
+  <p>Date: <span id="date"></span></p>
+  <p>User handle: <span id="user-handle"></span></p>
+</div>
+
+<!-- Use JavaScript to output the tweet data to the DOM -->
 <script>
-// Loop through the tweets and output them on the DOM
-for (var i = 0; i < 30; i++) {
-  var tweet = tweets.data[i];
-  var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['text'];
-  tweetElement.classList.add('tweet');
- 
-    // Check if the tweet has any attachments (such as images)
-    if (tweet['attachments']) {
-    // Loop through the attachments
-    for (var j = 0; j < tweet['attachments'].length; j++) {
-      var attachment = tweet['attachments'][j];
-      // Check if the attachment is an image
-      if (attachment['type'] === 'image') {
-        // Create an image element and set its source to the image URL
-        var imageElement = document.createElement('img');
-        imageElement.src = attachment['preview_image_url'];
-        // Add the image to the tweet element
-        tweetElement.appendChild(imageElement);
-      }
-    }
-  }
-
-  // Set the background color of the element to blue
-  tweetElement.style.backgroundColor = 'white';
-  // Set the font size to 24px
-  tweetElement.style.fontSize = '24px';
-  // Set the text color to white
-  tweetElement.style.color = 'black';
-  tweetElement.style.border = '1px dashed black';
-  tweetElement.style.margin = '25px';
-
-  document.getElementById('tweet-container').appendChild(tweetElement);
-  var imageElement = document.createElement('img');
-imageElement.src = imageURL;
-document.getElementById('tweet-container').appendChild(imageElement);
-
-}
-
+  document.getElementById('full-text').innerHTML = tweetData.full_text;
+  document.getElementById('preview-image').src = tweetData.preview_image_url;
+  document.getElementById('date').innerHTML = tweetData.created_at;
+  document.getElementById('user-handle').innerHTML = tweetData.user_handle;
 </script>
 
 
