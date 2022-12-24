@@ -47,7 +47,14 @@ get_header();
 <a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
 </div>
 <div class="twitter-entry">
-<div id="tweet-container"></div>
+<!-- Output the tweet data to the DOM -->
+<div id="tweet-container">
+  <p>Full text: <span id="full-text"></span></p>
+  <img id="preview-image" src="" alt="">
+
+<p>Date: <span id="date"></span></p>
+<p>User handle: <span id="user-handle"></span></p>
+</div>
 
 <?php
 
@@ -61,7 +68,7 @@ $user_id = '2819050825';
 
 // Use the curl function to make a GET request to the user Tweet timeline endpoint
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=$user_id&count=1&tweet_mode=extended&expansions=attachments.media_keys&media.fields=preview_image_url");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
   "Authorization: Bearer $bearer_token",
@@ -70,37 +77,35 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 ));
 
 $response = curl_exec($ch);
+$response_data = json_decode($response);
 curl_close($ch);
 
 // Parse the JSON response
-$tweets = json_decode($response, true);
+$tweet = $response_data[0];
 
-// Output the tweets as a JavaScript array
-echo '<script>';
-echo 'var tweets = ' . json_encode($tweets) . ';';
-echo '</script>';
+// Extract the relevant data from the tweet
+$full_text = $tweet->full_text;
+$preview_image_url = $tweet->entities->media[0]->media_url;
+$created_at = $tweet->created_at;
+$user_handle = $tweet->user->screen_name;
 
 ?>
 <script>
-// Loop through the tweets and output them on the DOM
-for (var i = 0; i < 30; i++) {
-  var tweet = tweets.data[i];
-  var tweetElement = document.createElement('div');
-  tweetElement.innerHTML = tweet['text'];
-  tweetElement.classList.add('tweet');
-
-  // Set the background color of the element to blue
-  tweetElement.style.backgroundColor = 'white';
-  // Set the font size to 24px
-  tweetElement.style.fontSize = '24px';
-  // Set the text color to white
-  tweetElement.style.color = 'black';
-  tweetElement.style.border = '1px dashed black';
-  tweetElement.style.margin = '25px';
-
-  document.getElementById('tweet-container').appendChild(tweetElement);
-}
-
+  // Output the tweet data as a JavaScript object
+  var tweetData = {
+    full_text: '<?php echo $full_text; ?>',
+    preview_image_url: '<?php echo $preview_image_url; ?>',
+    created_at: '<?php echo $created_at; ?>',
+    user_handle: '<?php echo $user_handle; ?>'
+  };
+//Set the inner HTML of the full-text element to the full_text field of the tweetData object
+document.getElementById('full-text').innerHTML = tweetData.full_text;
+// Set the src attribute of the preview-image element to the preview_image_url field of the tweetData object
+document.getElementById('preview-image').src = tweetData.preview_image_url;
+// Set the inner HTML of the date element to the created_at field of the tweetData object
+document.getElementById('date').innerHTML = tweetData.created_at;
+// Set the inner HTML of the user-handle element to the user_handle field of the tweetData object
+document.getElementById('user-handle').innerHTML = tweetData.user_handle;
 </script>
 
 
