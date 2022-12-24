@@ -94,7 +94,7 @@ tweetElement.classList.add('tweet');
 tweetElement.style.backgroundColor = 'white';
 // Set the font size to 24px
 tweetElement.style.fontSize = '24px';
-// Set the text color to white
+// Set the text color to hite
 tweetElement.style.color = 'black';
 tweetElement.style.border = '1px dashed black';
 tweetElement.style.margin = '25px';
@@ -103,10 +103,6 @@ document.getElementById('tweet-container').appendChild(tweetElement);
 
 </script>
 
-
-<!-- /wp:html -->
-
-<!-- wp:html -->
 <div class="wp-block-spotify">
 <!-- wp:embed {"url":"https://open.spotify.com/show/39nL5PQP2w5PBhnN9wGmHG?si=0fd4f212595d499d","type":"rich","providerNameSlug":"spotify","responsive":true,"className":"wp-embed-aspect-21-9 wp-has-aspect-ratio","animation":"fadeIn"} -->	 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/39nL5PQP2w5PBhnN9wGmHG?utm_source=generator&t=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>	 
