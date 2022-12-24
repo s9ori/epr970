@@ -49,29 +49,60 @@ get_header();
 <div class="twitter-entry">
 <div id="tweet-container"></div>
 
+<?php
+
+// Replace these values with your own API key, API secret key, and Bearer token
+$api_key = 'hqkNlE24A5BiKlyLxqDvBasAk';
+$api_secret_key = '1TYvepd0sfGoSlGnW6BABCggeoCTV8oJ4ib2NoPvCpOdKnYOVK';
+$bearer_token = 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz';
+
+// Replace this value with the user ID of the user whose Tweet timeline you want to retrieve
+$user_id = '2819050825';
+
+// Use the curl function to make a GET request to the user Tweet timeline endpoint
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://api.twitter.com/2/users/$user_id/tweets?max_results=30");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+  "Authorization: Bearer $bearer_token",
+  "x-api-key: $api_key",
+  "x-api-secret-key: $api_secret_key"
+));
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+// Parse the JSON response
+$tweets = json_decode($response, true);
+
+// Output the tweets as a JavaScript array
+echo '<script>';
+echo 'var tweets = ' . json_encode($tweets) . ';';
+echo '</script>';
+
+?>
 <script>
-function getLatestTweet(userId, bearerToken) {
-  fetch(`https://api.twitter.com/2/users/${userId}/tweets`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${bearerToken}`
-    }
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Do something with the data, for example, display the full text of the latest tweet
-      const latestTweet = data.data[0];
-      console.log(latestTweet.text);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+// Loop through the tweets and output them on the DOM
+for (var i = 0; i < 30; i++) {
+  var tweet = tweets.data[i];
+  var tweetElement = document.createElement('div');
+  tweetElement.innerHTML = tweet['text'];
+  tweetElement.classList.add('tweet');
+
+  // Set the background color of the element to blue
+  tweetElement.style.backgroundColor = 'white';
+  // Set the font size to 24px
+  tweetElement.style.fontSize = '24px';
+  // Set the text color to white
+  tweetElement.style.color = 'black';
+  tweetElement.style.border = '1px dashed black';
+  tweetElement.style.margin = '25px';
+
+  document.getElementById('tweet-container').appendChild(tweetElement);
 }
 
-// Example usage:
-getLatestTweet('2244994945', 'AAAAAAAAAAAAAAAAAAAAAKIRkwEAAAAAeVhsMtlHxrov4PRP%2BFfKEofomyk%3DEi95GrqqmrkRqPzFvhn0PbzQW6CiEWx3LlHGzBDpNjfucjQ2jz'); // Replace with the user ID and bearer token of the user whose Tweets you want to retrieve
-
 </script>
+
 
 <!-- /wp:html -->
 
