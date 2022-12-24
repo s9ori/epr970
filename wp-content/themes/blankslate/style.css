@@ -232,10 +232,9 @@ color: black;
   width: 100%
 }
 
-.entry-twit {
+#tweet-container {
   position: relative;
   width: 100%;
-  color: black;
   flex: 1;
 }
 

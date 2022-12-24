@@ -47,7 +47,6 @@ get_header();
 <a data-pin-do="embedBoard" data-pin-board-width="550" data-pin-scale-height="650" data-pin-scale-width="250" href="https://www.pinterest.com/esper_anza_/website/"></a>
 </div>
 <div class="twitter-entry">
-<div class="entry-twit">
 <div id="tweet-container"></div>
 
 <?php
@@ -101,7 +100,6 @@ for (var i = 0; i < 30; i++) {
 }
 
 </script>
-</div>
 
 
 <!-- /wp:html -->
