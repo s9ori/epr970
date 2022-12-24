@@ -83,23 +83,25 @@ echo '</script>';
 ?>
 <script>
 // Get the most recent tweet
-var tweet = tweets.data[0];
+var tweets = <?php echo json_encode($tweets); ?>;
+  // Loop through the tweets and output them on the DOM
+  for (var i = 0; i < 1; i++) {
+    var tweet = tweets.data[i];
+    var tweetElement = document.createElement('div');
+    tweetElement.innerHTML = tweet['text'];
+    tweetElement.classList.add('tweet');
 
-// Output the tweet on the DOM
-var tweetElement = document.createElement('div');
-tweetElement.innerHTML = tweet['text'];
-tweetElement.classList.add('tweet');
+    // Set the background color of the element to blue
+    tweetElement.style.backgroundColor = 'white';
+    // Set the font size to 24px
+    tweetElement.style.fontSize = '24px';
+    // Set the text color to white
+    tweetElement.style.color = 'black';
+    tweetElement.style.border = '1px dashed black';
+    tweetElement.style.margin = '25px';
 
-// Set the background color of the element to blue
-tweetElement.style.backgroundColor = 'white';
-// Set the font size to 24px
-tweetElement.style.fontSize = '24px';
-// Set the text color to hite
-tweetElement.style.color = 'black';
-tweetElement.style.border = '1px dashed black';
-tweetElement.style.margin = '25px';
-
-document.getElementById('tweet-container').appendChild(tweetElement);
+    document.getElementById('tweet-container').appendChild(tweetElement);
+  }
 
 </script>
 
