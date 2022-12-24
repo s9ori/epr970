@@ -48,6 +48,7 @@ get_header();
 </div>
 <div class="twitter-entry">
 <div class="entry-twit">
+<div id="tweet-container"></div>
 <?php
 
 // Replace these values with your own API key, API secret key, and Bearer token
