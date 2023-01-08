@@ -17,10 +17,6 @@ BlankSlate WordPress Theme © 2011-2023 TidyThemes
 BlankSlate is distributed under the terms of the GNU GPL
 */
 
-img {
-  border-radius: 2% !important;
-}
-
 header {
   display: flex;
   flex-direction: column;
@@ -112,8 +108,6 @@ body.post-template-default .entry-content {
 
 body {
   background: #f2f2f2;
-  background-image: linear-gradient(#ccc 0.03em, transparent 0.03em), linear-gradient(90deg, #ccc 0.03em, transparent 0.03em);
-  background-size: 0.4em 0.4em;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -340,7 +334,7 @@ transition: background-color .5s ease-in-out;
   overflow: scroll;
   border-radius: 2%;
   padding: 25px;
-  border: 1px dashed #000000;
+  border: 1px solid #000000;
   box-shadow: 0px #ffffff00;
   transition: opacity 0.8s, transform 1s ease-in-out, box-shadow 0.5s;
   height: 100%;
@@ -380,9 +374,9 @@ transition: background-color .5s ease-in-out;
 
 .latest-post-block__title {
   font-size: 18px;
-  font-weight: bold;
   margin: 0;
   text-align: right;
+  text-transform: capitalize;
 }
 
 
