@@ -30,7 +30,7 @@ header {
   left: 0;
   top: 0;
   overflow-y: auto;
-  border: 1px dashed black;
+  border-right: 2.5px solid black;
 }
 
 #container {
@@ -79,8 +79,7 @@ display: flex;
   padding: 25px;
   width: 600px;
   color: black;
-  border: 1px dashed #000000;
-  border-radius: 2%;
+  border: 2.5px dashed #000000;
   box-shadow: 0px #ffffff00;
   transition: box-shadow 0.5s;
 }
@@ -119,7 +118,8 @@ html {
 
 #site-title {
   font-size: 24px;
-  margin-top: 20px;
+  margin-top: 40px;
+  font-style: italic;
 }
 
 #site-description {
