@@ -79,7 +79,6 @@ display: flex;
   padding: 25px;
   width: 600px;
   color: black;
-  border: 2.5px dashed #000000;
   box-shadow: 0px #ffffff00;
   transition: box-shadow 0.5s;
 }
@@ -333,7 +332,6 @@ transition: background-color .5s ease-in-out;
   background: white;
   overflow: scroll;
   padding: 25px;
-  border: 2.5px solid #000000;
   box-shadow: 0px #ffffff00;
   transition: opacity 0.8s, transform 1s ease-in-out, box-shadow 0.5s;
   height: 100%;
