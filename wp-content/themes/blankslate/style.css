@@ -42,8 +42,8 @@ header {
 }
 
 figcaption {
-font-family: sandoll-gongbyunggaktab, sans-serif;
-font-weight: 500;
+font-family: basic-sans, sans-serif;
+font-weight: 400;
 font-style: normal;
 }
 
@@ -128,8 +128,8 @@ html {
 .entry-title {
   text-transform: capitalize;
   letter-spacing: .9px;
-  font-family: sandoll-gongbyunggaktab, sans-serif;
-  font-weight: 500;
+  font-family: basic-sans, sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -153,7 +153,7 @@ h2,
 h3,
 h4,
 p {
-font-family: sandoll-gongbyunggaktab, sans-serif;
+font-family: basic-sans, sans-serif;
 font-weight: 400;
 font-style: normal;
 text-decoration: none;
@@ -165,7 +165,7 @@ color: black;
   color: black;
   line-height: 2rem;
   margin-bottom: 50px !important;
-  font-family: sandoll-gongbyunggaktab, sans-serif;
+  font-family: basic-sans, sans-serif;
   background: white;
   border: 1px dashed #000000;
   border-radius: 2%;
@@ -188,7 +188,7 @@ color: black;
   color: black;
   font-size: 25px;
   line-height: 2rem;
-  font-family: sandoll-gongbyunggaktab, sans-serif;
+  font-family: basic-sans, sans-serif;
   background: white;
   border: 1px dashed #000000;
   border-radius: 2%;
