@@ -322,6 +322,11 @@ transition: background-color .5s ease-in-out;
   background-color: #5b8d55;
 }
 
+.hoverable {
+  cursor: none;
+}
+
+
 
 .latest-post-block {
   display: flex;
