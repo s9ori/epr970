@@ -335,6 +335,7 @@ a:-webkit-any-link {
   box-shadow: 0px #ffffff00;
   transition: opacity 0.8s, transform 1s ease-in-out, box-shadow 0.5s;
   height: 100%;
+  gap: 10px;
   align-content: stretch;
 }
 
