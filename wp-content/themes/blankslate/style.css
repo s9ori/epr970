@@ -385,10 +385,8 @@ a:-webkit-any-link {
 }
 
 .latest-post-block__title-container {
-  display: flex;
-  justify-content: flex-end;
-  text-align: right;
-}
+display: block;
+text-align: left;}
 
 .latest-post-block__title {
   font-size: 40px;
