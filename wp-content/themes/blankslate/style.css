@@ -351,10 +351,9 @@ a:-webkit-any-link {
   top: 0;
   left: 0;
   z-index: 1000;
-  mix-blend-mode: difference;
 }
 .cursor__ball circle {
-  fill: white;
+  fill: rgba(0,0,0,0) 0;
 }
 
 
