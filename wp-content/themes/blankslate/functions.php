@@ -103,10 +103,8 @@ function onMouseHover() {
   })
 }
 
-function onTitleMouseHover() {
-  for (let i = 0; i < $titleHoverables.length; i++) {
-    $titleHoverables[i].style.background = 'blue';
-  }
+function onTitleMouseHover(e) {
+  e.target.style.background = 'blue';
 }
 
 function onMouseHoverOut() {
@@ -121,10 +119,8 @@ function onMouseHoverOut() {
   })
 }
 
-function onTitleMouseHoverOut() {
-  for (let i = 0; i < $titleHoverables.length; i++) {
-    $titleHoverables[i].style.background = 'transparent';
-  }
+function onTitleMouseHoverOut(e) {
+  e.target.style.background = 'transparent';
 }
 
 </script>
