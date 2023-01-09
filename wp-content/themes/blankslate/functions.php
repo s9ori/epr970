@@ -87,7 +87,7 @@ function onMouseHover() {
     opacity: 1,
     fill: '#E0BEC9',
   });
-  $bigBall.style.mixBlendMode = 'multiply';
+  $bigBall.style.mixBlendMode = 'screen';
   TweenMax.to($smallBall, .3, {
     fill: '#0A1E7A'
   })
