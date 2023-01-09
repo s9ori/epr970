@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> <?php blankslate_schema_type(); ?>>
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 <?php wp_head(); ?>
