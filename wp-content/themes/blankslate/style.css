@@ -36,7 +36,7 @@ header {
   display: flex;
   margin: 2%;
   gap: 25px;
-  flex-direction: column;
+  flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
 }
