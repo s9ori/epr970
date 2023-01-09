@@ -354,7 +354,7 @@ a:-webkit-any-link {
   mix-blend-mode: difference;
 }
 .cursor__ball circle {
-  fill: rgba(0,0,0,0) 0;
+  fill: white;
 }
 
 
