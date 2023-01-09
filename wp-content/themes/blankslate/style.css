@@ -383,7 +383,7 @@ a:-webkit-any-link {
 .cursor {
   display: none !important
 }
-.latest-post-block img {
+.latest-post-block img, .latest-post-block__featured-image-container {
   border-radius: 0 !important;
 }
 }
