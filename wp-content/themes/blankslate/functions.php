@@ -45,15 +45,25 @@ function blankslate_footer() {
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
-<script>const $bigBall = document.querySelector('.cursor__ball--big');
+<script>
+const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
 const $hoverables = document.querySelectorAll('a[href]');
+const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
+
 
 // Listeners
 document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $hoverables.length; i++) {
   $hoverables[i].addEventListener('mouseenter', onMouseHover);
   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+}
+
+// Listeners Other
+document.body.addEventListener('mousemove', onMouseMove);
+for (let i = 0; i < $titleHoverables.length; i++) {
+  $titleHoverables[i].addEventListener('mouseenter', onMouseHover);
+  $titleHoverables[i].addEventListener('mouseleave', onMouseHoverOut);
 }
 
 // Move the cursor
