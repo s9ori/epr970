@@ -78,6 +78,22 @@ function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1
   })
+}
+
+// Hover an element
+function onMouseHover() {
+  TweenMax.to($bigBall, .3, {
+    scale: 2.5,
+    opacity: .7,
+    fill: '#E0BEC9',
+  })
+}
+function onMouseHoverOut() {
+  TweenMax.to($bigBall, .3, {
+    scale: 1,
+    opacity: 1,
+    fill: '#00000'
+  })
 }</script>
 <script>
 jQuery(document).ready(function($) {
