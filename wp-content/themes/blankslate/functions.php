@@ -67,23 +67,18 @@ function onMouseMove(e) {
     y: e.pageY - 7
   })
 }
+
 // Hover an element
 function onMouseHover() {
   TweenMax.to($bigBall, .3, {
-    scale: 2.5,
-    opacity: .7,
-    fill: '#E0BEC9',
+    scale: 4
   })
 }
 function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
-    scale: 1,
-    opacity: 1,
-    fill: '#00000'
+    scale: 1
   })
-}
-
-</script>
+}</script>
 <script>
 jQuery(document).ready(function($) {
 var deviceAgent = navigator.userAgent.toLowerCase();
