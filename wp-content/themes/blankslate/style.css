@@ -358,6 +358,7 @@ a:-webkit-any-link {
 
 .latest-post-block__featured-image-container {
   width: 100%;
+  border-radius: 50%;
   overflow: hidden;
 }
 
@@ -476,7 +477,7 @@ textarea {
   flex: 1;
 }
 
-.latest-post-block:hover {
+.latest-post-block__featured-image-container:hover {
   box-shadow: 2px 4px 8px 10px #00000020;
   transition: all 0.5s;
 }
