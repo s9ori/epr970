@@ -35,15 +35,16 @@ get_header();
     </a>
   </div>
   <div class="latest-post-block__title-container">
-    <?php
-    $tags = get_the_tags();
-    if ($tags) {
-      foreach($tags as $tag) {
-        echo '<h3 class="latest-post-block__title">' . $tag->name . '</h3>';
-      }
+  <?php
+  $tags = get_the_tags();
+  if ($tags) {
+    foreach($tags as $tag) {
+      $tag_link = get_tag_link($tag->term_id);
+      echo '<h3 class="latest-post-block__title"><a href="' . $tag_link . '">' . $tag->name . '</a></h3>';
     }
-    ?>
-  </div>
+  }
+  ?>
+</div>
 </div>
 
     <?php } ?>
