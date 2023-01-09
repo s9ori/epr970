@@ -352,8 +352,12 @@ a:-webkit-any-link {
   left: 0;
   z-index: 1000;
 }
-.cursor__ball circle {
+.cursor__ball--big circle {
   fill: rgba(0,0,0,0) 0;
+}
+
+.cursor__ball--small circle {
+  fill: #f2f2f2;
 }
 
 
