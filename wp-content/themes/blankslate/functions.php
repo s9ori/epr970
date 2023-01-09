@@ -84,17 +84,27 @@ function onMouseHoverOut() {
 function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 2.5,
-    opacity: .7,
+    opacity: 1,
     fill: '#E0BEC9',
+  });
+  $bigBall.style.mixBlendMode = 'multiply';
+  TweenMax.to($smallBall, .3, {
+    fill: '#0A1E7A'
   })
 }
+
 function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1,
     opacity: 1,
     fill: '#00000'
+  });
+  $bigBall.style.mixBlendMode = 'normal';
+  TweenMax.to($smallBall, .3, {
+    fill: '#00000'
   })
-}</script>
+}
+</script>
 <script>
 jQuery(document).ready(function($) {
 var deviceAgent = navigator.userAgent.toLowerCase();
