@@ -72,7 +72,7 @@ function onMouseMove(e) {
 function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 2.5,
-    opacity: .7,
+    opacity: 1,
     fill: '#E0BEC9',
   });
     $bigBall.style.mixBlendMode = 'multiply';
@@ -82,7 +82,8 @@ function onMouseHoverOut() {
     scale: 1,
     opacity: 1,
     fill: '#00000'
-  })
+});
+    $bigBall.style.mixBlendMode = 'none';
 }
 
 </script>
