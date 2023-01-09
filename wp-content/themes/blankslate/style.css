@@ -322,10 +322,9 @@ transition: background-color .5s ease-in-out;
   background-color: #5b8d55;
 }
 
-.hoverable {
-  cursor: none;
+a:-webkit-any-link {
+  cursor: none !important;
 }
-
 
 
 .latest-post-block {
