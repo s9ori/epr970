@@ -48,7 +48,7 @@ function blankslate_footer() {
 <script>
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
-const $hoverables = document.querySelectorAll('a[href]');
+const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__title a[href])');
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
 
 
