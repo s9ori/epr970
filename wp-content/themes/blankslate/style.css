@@ -339,10 +339,15 @@ a:-webkit-any-link {
   align-content: stretch;
 }
 
+.latest-post-block-link {
+  /* Other styles for the link */
+  clip-path: inset(0); /* Constrains click area to the entire link element */
+}
+
 .latest-post-block__featured-image {
   /* Other styles for the image */
-  clip-path: inset(0); /* Constrains click area to the entire image */}
-
+  clip-path: inset(50%); /* Constrains click area to the area of the image */
+}
 
 .latest-post-block img {
   border-radius: 50%;
