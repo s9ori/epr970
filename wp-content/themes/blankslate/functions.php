@@ -105,6 +105,9 @@ function onMouseHover() {
 
 function onTitleMouseHover(e) {
   e.target.style.background = 'blue';
+  TweenMax.to($bigBall, .3, {
+    fill: 'transparent'
+})
 }
 
 function onMouseHoverOut() {
@@ -121,6 +124,9 @@ function onMouseHoverOut() {
 
 function onTitleMouseHoverOut(e) {
   e.target.style.background = 'transparent';
+  TweenMax.to($bigBall, .3, {
+    fill: '#00000'
+})
 }
 
 </script>
