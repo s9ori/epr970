@@ -366,8 +366,10 @@ a:-webkit-any-link {
   gap: 25px;
 }
 
-#wrapper { 
+@media screen and (min-width: 600px){
+  #wrapper { 
   margin-left: 250px
+}
 }
 
 .latest-post-block__featured-image {
