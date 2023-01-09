@@ -50,7 +50,7 @@ const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
 const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__title a[href])');
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
-
+const $tagHoverables = document.querySelectorAll('.latest-post-block__title a.tag-link');
 
 // Listeners
 document.body.addEventListener('mousemove', onMouseMove);
@@ -64,6 +64,13 @@ document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $titleHoverables.length; i++) {
   $titleHoverables[i].addEventListener('mouseenter', onTitleMouseHover);
   $titleHoverables[i].addEventListener('mouseleave', onTitleMouseHoverOut);
+}
+
+// Listeners Other
+document.body.addEventListener('mousemove', onMouseMove);
+for (let i = 0; i < $titleHoverables.length; i++) {
+  $tagHoverables[i].addEventListener('mouseenter', onTagMouseHover);
+  $tagHoverables[i].addEventListener('mouseleave', onTagMouseHoverOut);
 }
 
 // Move the cursor
@@ -108,9 +115,10 @@ function onTitleMouseHover(e) {
   TweenMax.to($bigBall, .3, {
     fill: 'transparent'
 });
-const currentColor = e.target.style.getPropertyValue('color');
-  e.target.style.setProperty('color', '#f2f2f2', 'important');
-  e.target.dataset.color = currentColor;
+}
+
+function onTagMouseHover(e) {
+  e.target.style.color = '#f2f2f2'
 }
 
 function onMouseHoverOut() {
@@ -129,8 +137,11 @@ function onTitleMouseHoverOut(e) {
   e.target.style.background = 'transparent';
   TweenMax.to($bigBall, .3, {
     fill: '#00000'
-});
-e.target.style.setProperty('color', e.target.dataset.color, 'important');
+})
+}
+
+function onTagMouseHoverOut(e) {
+  e.target.style.color = 'black'
 }
 
 </script>
