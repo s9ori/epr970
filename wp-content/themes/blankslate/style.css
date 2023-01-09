@@ -70,7 +70,6 @@ body.home .entry-basics {
 body.post-template-default article {
   position: relative;
   z-index: 100; /* Add a higher z-index */
-background: white;
 display: flex;
   flex-direction: column;
   max-height: 99vh;
