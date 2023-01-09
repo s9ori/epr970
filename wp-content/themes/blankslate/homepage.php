@@ -28,24 +28,24 @@ get_header();
 
       // Output the HTML structure for the post
       ?>
-      <a href="<?php echo $post_url; ?>" class="latest-post-block-link">
-        <div class="latest-post-block">
-          <div class="latest-post-block__featured-image-container">
-            <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
-          </div>
-          <div class="latest-post-block__title-container">
-  <?php
-  $tags = get_the_tags();
-  if ($tags) {
-    foreach($tags as $tag) {
-      echo '<h3 class="latest-post-block__title">' . $tag->name . '</h3>';
+      <div class="latest-post-block">
+  <div class="latest-post-block__featured-image-container">
+    <a href="<?php echo $post_url; ?>" class="latest-post-block-link">
+      <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
+    </a>
+  </div>
+  <div class="latest-post-block__title-container">
+    <?php
+    $tags = get_the_tags();
+    if ($tags) {
+      foreach($tags as $tag) {
+        echo '<h3 class="latest-post-block__title">' . $tag->name . '</h3>';
+      }
     }
-  }
-  ?>
+    ?>
+  </div>
 </div>
 
-        </div>
-      </a>
     <?php } ?>
 </div>
 <!-- /wp:html -->
