@@ -62,8 +62,8 @@ for (let i = 0; i < $hoverables.length; i++) {
 // Listeners Other
 document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $titleHoverables.length; i++) {
-  $titleHoverables[i].addEventListener('mouseenter', onMouseHover);
-  $titleHoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+  $titleHoverables[i].addEventListener('mouseenter', onTitleMouseHover);
+  $titleHoverables[i].addEventListener('mouseleave', onTitleMouseHoverOut);
 }
 
 // Move the cursor
@@ -100,7 +100,10 @@ function onMouseHover() {
   $bigBall.style.mixBlendMode = 'screen';
   TweenMax.to($smallBall, .3, {
     fill: '#0A1E7A'
-  });
+  })
+}
+
+function onTitleMouseHover() {
   for (let i = 0; i < $titleHoverables.length; i++) {
     $titleHoverables[i].style.background = 'blue';
   }
@@ -113,13 +116,17 @@ function onMouseHoverOut() {
     fill: '#00000'
   });
   $bigBall.style.mixBlendMode = 'normal';
-  for (let i = 0; i < $titleHoverables.length; i++) {
-    $titleHoverables[i].style.background = 'transparent';
-  }
   TweenMax.to($smallBall, .3, {
     fill: '#00000'
   })
 }
+
+function onTitleMouseHoverOut() {
+  for (let i = 0; i < $titleHoverables.length; i++) {
+    $titleHoverables[i].style.background = 'transparent';
+  }
+}
+
 </script>
 <script>
 jQuery(document).ready(function($) {
