@@ -106,6 +106,7 @@ body.post-template-default .entry-content {
 
 body {
   background: #f2f2f2;
+  cursor: none;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
