@@ -99,7 +99,7 @@ function onMouseHoverOut() {
     opacity: 1,
     fill: '#00000'
   });
-  $bigBall.style.mixBlendMode = 'normal';
+  $bigBall.style.mixBlendMode = 'difference';
   TweenMax.to($smallBall, .3, {
     fill: '#00000'
   })
