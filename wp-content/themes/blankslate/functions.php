@@ -47,7 +47,7 @@ function blankslate_footer() {
 </script>
 <script>const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
-const $hoverables = document.querySelectorAll('img');
+const $hoverables = document.querySelectorAll('a[href]');
 
 // Listeners
 document.body.addEventListener('mousemove', onMouseMove);
