@@ -326,6 +326,9 @@ a:-webkit-any-link {
   cursor: none !important;
 }
 
+.wp-block-coblocks-gallery-collage {
+  width: 100%
+}
 
 .latest-post-block {
   display: flex;
