@@ -105,10 +105,12 @@ function onMouseHover() {
 
 function onTitleMouseHover(e) {
   e.target.style.background = 'black';
-  e.target.style.color = '#f2f2f2';
   TweenMax.to($bigBall, .3, {
     fill: 'transparent'
-})
+});
+const currentColor = e.target.style.getPropertyValue('color');
+  e.target.style.setProperty('color', '#f2f2f2', 'important');
+  e.target.dataset.color = currentColor;
 }
 
 function onMouseHoverOut() {
@@ -125,10 +127,10 @@ function onMouseHoverOut() {
 
 function onTitleMouseHoverOut(e) {
   e.target.style.background = 'transparent';
-  e.target.style.color = 'black';
   TweenMax.to($bigBall, .3, {
     fill: '#00000'
-})
+});
+e.target.style.setProperty('color', e.target.dataset.color, 'important');
 }
 
 </script>
