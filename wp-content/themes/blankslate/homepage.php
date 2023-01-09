@@ -34,8 +34,16 @@ get_header();
             <img src="<?php echo $featured_image_url; ?>" alt="Featured image" class="latest-post-block__featured-image">
           </div>
           <div class="latest-post-block__title-container">
-            <h3 class="latest-post-block__title"><?php echo $title; ?></h3>
-          </div>
+  <?php
+  $tags = get_the_tags();
+  if ($tags) {
+    foreach($tags as $tag) {
+      echo '<h3 class="latest-post-block__title">' . $tag->name . '</h3>';
+    }
+  }
+  ?>
+</div>
+
         </div>
       </a>
     <?php } ?>
