@@ -129,7 +129,7 @@ function onMouseHoverOut() {
   });
   $bigBall.style.mixBlendMode = 'normal';
   TweenMax.to($smallBall, .3, {
-    fill: '#f2f2f2'
+    fill: '#F2B705'
   })
 }
 
