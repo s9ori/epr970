@@ -100,7 +100,10 @@ function onMouseHover() {
   $bigBall.style.mixBlendMode = 'screen';
   TweenMax.to($smallBall, .3, {
     fill: '#0A1E7A'
-  })
+  });
+  for (let i = 0; i < $titleHoverables.length; i++) {
+    $titleHoverables[i].style.background = 'blue';
+  }
 }
 
 function onMouseHoverOut() {
@@ -110,6 +113,9 @@ function onMouseHoverOut() {
     fill: '#00000'
   });
   $bigBall.style.mixBlendMode = 'normal';
+  for (let i = 0; i < $titleHoverables.length; i++) {
+    $titleHoverables[i].style.background = 'transparent';
+  }
   TweenMax.to($smallBall, .3, {
     fill: '#00000'
   })
