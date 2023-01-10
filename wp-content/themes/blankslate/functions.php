@@ -126,13 +126,13 @@ function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1,
     opacity: 1,
-    fill: '#f2f2f2',
+    fill: '#f7f8fa',
   });
-  $bigBall.style.cssText = 'mix-blend-mode: normal; fill: #f2f2f2';
+  $bigBall.style.cssText = 'mix-blend-mode: difference; fill: #f7f8fa';
   TweenMax.to($smallBall, .3, {
-    fill: '#f2f2f2'
+    fill: '#f7f8fa'
   });
-  $smallBall.style.cssText = 'mix-blend-mode: normal; fill: #f2f2f2';
+  $smallBall.style.cssText = 'mix-blend-mode: difference; fill: #f7f8fa';
 }
 
 function onTitleMouseHoverOut(e) {
