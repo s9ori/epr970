@@ -102,20 +102,18 @@ function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 2.5,
     opacity: 1,
-    fill: '#EACFD8',
+    fill: '#f7f8fa',
   });
-  $bigBall.style.cssText = 'mix-blend-mode: screen; fill: #EACFD8';
   TweenMax.to($smallBall, .3, {
-    fill: 'black'
-  });
-  $smallBall.style.cssText = 'mix-blend-mode: normal; fill: black';
+    fill: 'f7f8fa'
+  })
 }
 
 function onTitleMouseHover(e) {
   e.target.style.background = 'black';
   TweenMax.to($bigBall, .3, {
     fill: 'transparent'
-});
+})
 }
 
 function onTagMouseHover(e) {
@@ -128,11 +126,9 @@ function onMouseHoverOut() {
     opacity: 1,
     fill: '#f7f8fa',
   });
-  $bigBall.style.cssText = 'mix-blend-mode: difference; fill: #f7f8fa';
   TweenMax.to($smallBall, .3, {
     fill: '#f7f8fa'
-  });
-  $smallBall.style.cssText = 'mix-blend-mode: difference; fill: #f7f8fa';
+  })
 }
 
 function onTitleMouseHoverOut(e) {
