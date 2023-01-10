@@ -105,7 +105,7 @@ function onMouseHover() {
     fill: '#f7f8fa',
   });
   TweenMax.to($smallBall, .3, {
-    fill: 'f7f8fa'
+    fill: '#f7f8fa'
   })
 }
 

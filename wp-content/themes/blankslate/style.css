@@ -353,14 +353,6 @@ a:-webkit-any-link {
   z-index: 1000;
   mix-blend-mode: difference;
 }
-.cursor__ball--big circle {
-  fill: #f7f8fa;
-}
-
-.cursor__ball--small circle {
-  fill: #f7f8fa;
-}
-
 
 .latest-post-block__featured-image-container {
   width: 100%;
