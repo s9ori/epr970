@@ -125,11 +125,11 @@ function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1,
     opacity: 1,
-    fill: '#00000'
+    fill: '#f7f8fa'
   });
   $bigBall.style.mixBlendMode = 'normal';
   TweenMax.to($smallBall, .3, {
-    fill: 'black'
+    fill: '#f7f8fa'
   })
 }
 

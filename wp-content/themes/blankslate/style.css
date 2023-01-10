@@ -351,15 +351,14 @@ a:-webkit-any-link {
   top: 0;
   left: 0;
   z-index: 1000;
+  mix-blend-mode: difference;
 }
 .cursor__ball--big circle {
-  fill: rgba(0,0,0,0) 0;
-  mix-blend-mode: difference;
+  fill: #f7f8fa;
 }
 
 .cursor__ball--small circle {
-  fill: #F2B705;
-  mix-blend-mode: difference;
+  fill: #f7f8fa;
 }
 
 
