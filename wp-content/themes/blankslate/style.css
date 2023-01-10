@@ -354,10 +354,12 @@ a:-webkit-any-link {
 }
 .cursor__ball--big circle {
   fill: rgba(0,0,0,0) 0;
+  mix-blend-mode: difference;
 }
 
 .cursor__ball--small circle {
   fill: #F2B705;
+  mix-blend-mode: difference;
 }
 
 

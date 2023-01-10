@@ -106,7 +106,7 @@ function onMouseHover() {
   });
   $bigBall.style.mixBlendMode = 'screen';
   TweenMax.to($smallBall, .3, {
-    fill: '#0A1E7A'
+    fill: 'black'
   })
 }
 
@@ -129,7 +129,7 @@ function onMouseHoverOut() {
   });
   $bigBall.style.mixBlendMode = 'normal';
   TweenMax.to($smallBall, .3, {
-    fill: '#F2B705'
+    fill: 'black'
   })
 }
 
