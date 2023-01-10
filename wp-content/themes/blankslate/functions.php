@@ -105,10 +105,10 @@ function onMouseHover() {
     fill: '#EACFD8'
   });
   $bigBall.style.mixBlendMode = 'screen';
-  $smallBall.style.mixBlendMode = 'normal';
   TweenMax.to($smallBall, .3, {
-    fill: 'black !important'
-  })
+    fill: 'black'
+  });
+  $smallBall.style.mixBlendMode = 'normal';
 }
 
 function onTitleMouseHover(e) {
@@ -129,10 +129,10 @@ function onMouseHoverOut() {
     fill: '#f7f8fa'
   });
   $bigBall.style.mixBlendMode = 'difference';
-  $smallBall.style.mixBlendMode = 'difference';
   TweenMax.to($smallBall, .3, {
     fill: '#f7f8fa'
-  })
+  });
+  $smallBall.style.mixBlendMode = 'difference';
 }
 
 function onTitleMouseHoverOut(e) {
