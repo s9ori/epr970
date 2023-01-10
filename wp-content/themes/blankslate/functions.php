@@ -102,11 +102,12 @@ function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 2.5,
     opacity: 1,
-    fill: '#E0BEC9',
+    fill: '#EACFD8 !important',
   });
   $bigBall.style.mixBlendMode = 'screen';
+  $smallBall.style.mixBlendMode = 'normal';
   TweenMax.to($smallBall, .3, {
-    fill: 'black'
+    fill: 'black !important'
   })
 }
 
@@ -127,7 +128,8 @@ function onMouseHoverOut() {
     opacity: 1,
     fill: '#f7f8fa'
   });
-  $bigBall.style.mixBlendMode = 'normal';
+  $bigBall.style.mixBlendMode = 'difference';
+  $smallBall.style.mixBlendMode = 'difference';
   TweenMax.to($smallBall, .3, {
     fill: '#f7f8fa'
   })
