@@ -48,6 +48,8 @@ function blankslate_footer() {
 <script>
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
+const $bigBallCircle = document.querySelector('.cursor__ball--big circle');
+const $smallBallCircle = document.querySelector('.cursor__ball--small circle');
 const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__title a[href])');
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
 
@@ -82,14 +84,16 @@ function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 4
   });
-  fill: '#EACFD8';
+  $bigBallCircle.style.fill = '#EACFD8'
+  document.querySelector('.cursor__ball').style.mixBlendMode = 'screen';
 }
 
 function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1
   });
-  fill: 'black';
+  $bigBallCircle.style.fill = '#f7f8fa'
+  document.querySelector('.cursor__ball').style.mixBlendMode = 'difference';
 }
 
 function onTitleMouseHover(e) {
