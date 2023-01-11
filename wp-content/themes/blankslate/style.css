@@ -361,14 +361,14 @@ a:-webkit-any-link {
     width: 50px;
     height: 50px;
     border-radius: 25px;
-    transition: border-radius 0.3s ease-out, height 0.3s ease-out;
+    transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out;
 }
 
 .square--small {
   border-radius: 0;
   height: 30px;
   width: 50px;
-  transition: border-radius 0.3s ease-out, height 0.3s ease-out;
+  transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out;
 }
 
 .tag-link {
@@ -382,7 +382,7 @@ a:-webkit-any-link {
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  transition: border-radius 0.3s ease-out, height 0.3s ease-out;
+  transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out;
 }
 
 
