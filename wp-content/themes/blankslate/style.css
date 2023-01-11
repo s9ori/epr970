@@ -364,7 +364,7 @@ a:-webkit-any-link {
     transition: border-radius 0.3s ease-out, height 0.3s ease-out;
 }
 
-.square--big {
+.square--small {
   border-radius: 0;
   height: 30px;
   transition: border-radius 0.3s ease-out, height 0.3s ease-out;
@@ -375,7 +375,7 @@ a:-webkit-any-link {
 }
 
 .shape--small {
-  fill: #f7f8fa;
+  background: #f7f8fa;
   top: 0;
   left: 0;
   width: 10px;
