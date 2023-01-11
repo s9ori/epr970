@@ -134,12 +134,13 @@ function onMouseHoverOut() {
 function onTitleMouseHoverOut(e) {
   e.target.style.background = 'transparent';
   TweenMax.to($bigBall, .3, {
-    fill: '#00000'
+    fill: '#f7f8fa'
 })
 }
 
 function onTagMouseHoverOut(e) {
-  e.target.style.color = 'black'
+  e.target.style.color = 'black';
+
 }
 
 </script>
