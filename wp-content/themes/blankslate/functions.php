@@ -107,7 +107,7 @@ function onTitleMouseHover(e) {
   e.target.style.background = 'black';
   TweenMax.to($bigBall, .3, {
     fill: 'transparent'
-});
+})
 }
 
 function onMouseHoverOut() {
@@ -118,7 +118,7 @@ function onMouseHoverOut() {
   });
   $bigBall.style.mixBlendMode = 'normal';
   TweenMax.to($smallBall, .3, {
-    fill: '#f2f2f2'
+    fill: '#00000'
   })
 }
 
