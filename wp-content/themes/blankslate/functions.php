@@ -60,15 +60,11 @@ for (let i = 0; i < $paragraphs.length; i++) {
   $paragraphs[i].addEventListener('mouseleave', onTextMouseOut);
 }
 
-// Listeners
-document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $hoverables.length; i++) {
   $hoverables[i].addEventListener('mouseenter', onMouseHover);
   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
 }
 
-// Listeners Other
-document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $titleHoverables.length; i++) {
   $titleHoverables[i].addEventListener('mouseenter', onTitleMouseHover);
   $titleHoverables[i].addEventListener('mouseleave', onTitleMouseHoverOut);
