@@ -50,7 +50,7 @@ const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
 const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__title a[href])');
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
-
+const $tagHoverables = document.querySelectorAll('.latest-post-block__title a.tag-link');
 
 // Listeners
 document.body.addEventListener('mousemove', onMouseMove);
@@ -64,6 +64,13 @@ document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $titleHoverables.length; i++) {
   $titleHoverables[i].addEventListener('mouseenter', onTitleMouseHover);
   $titleHoverables[i].addEventListener('mouseleave', onTitleMouseHoverOut);
+}
+
+// Listeners Other
+document.body.addEventListener('mousemove', onMouseMove);
+for (let i = 0; i < $titleHoverables.length; i++) {
+  $tagHoverables[i].addEventListener('mouseenter', onTagMouseHover);
+  $tagHoverables[i].addEventListener('mouseleave', onTagMouseHoverOut);
 }
 
 // Move the cursor
@@ -95,11 +102,10 @@ function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 2.5,
     opacity: 1,
-    fill: '#E0BEC9',
+    fill: '#f7f8fa',
   });
-  $bigBall.style.mixBlendMode = 'screen';
   TweenMax.to($smallBall, .3, {
-    fill: '#0A1E7A'
+    fill: '#f7f8fa'
   })
 }
 
@@ -110,23 +116,34 @@ function onTitleMouseHover(e) {
 })
 }
 
+function onTagMouseHover(e) {
+  e.target.style.color = '#f2f2f2';
+  TweenMax.to($bigBall, .3, {
+    fill: 'transparent'
+})
+}
+
 function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1,
     opacity: 1,
-    fill: '#00000'
+    fill: '#f7f8fa',
   });
-  $bigBall.style.mixBlendMode = 'normal';
   TweenMax.to($smallBall, .3, {
-    fill: '#00000'
+    fill: '#f7f8fa'
   })
 }
 
 function onTitleMouseHoverOut(e) {
   e.target.style.background = 'transparent';
   TweenMax.to($bigBall, .3, {
-    fill: '#00000'
+    fill: '#f7f8fa'
 })
+}
+
+function onTagMouseHoverOut(e) {
+  e.target.style.color = 'black';
+
 }
 
 </script>
