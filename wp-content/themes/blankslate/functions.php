@@ -100,7 +100,7 @@ function onMouseHover() {
       scale: 1,
       delay: .5
     });
-  }, 1000);
+  }, 100);
 }
 
 function onMouseHoverOut() {
