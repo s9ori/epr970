@@ -91,6 +91,7 @@ function onMouseHover() {
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
   $smallBallCircle.style.background = 'black'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'normal';
+  $bigBall.classList.add('bigBall--hover');
 }
 
 function onMouseHoverOut() {
@@ -101,6 +102,8 @@ function onMouseHoverOut() {
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'difference';
   $smallBallCircle.style.background = '#f7f8fa'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'difference';
+  $bigBall.classList.remove('bigBall--hover');
+  $bigBall.style.animation = 'none';
 }
 
 function onTitleMouseHover(e) {

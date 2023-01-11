@@ -343,6 +343,19 @@ a:-webkit-any-link {
   border-radius: 50%;
 }
 
+@keyframes grow-big {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+.bigBall--hover {
+  animation: grow-big .5s ease-in-out infinite;
+}
+
 .cursor {
   pointer-events: none;
 }
