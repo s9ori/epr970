@@ -117,7 +117,10 @@ function onTitleMouseHover(e) {
 }
 
 function onTagMouseHover(e) {
-  e.target.style.color = '#f2f2f2'
+  e.target.style.color = '#f2f2f2';
+  TweenMax.to($bigBall, .3, {
+    fill: 'transparent'
+})
 }
 
 function onMouseHoverOut() {
