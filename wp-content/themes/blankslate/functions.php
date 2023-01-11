@@ -130,7 +130,7 @@ function onTextMouseHover(e) {
 }
 
 function onTextMouseOut(e) {
-  $smallBallCircle.style.fill = 'black';
+  $smallBallCircle.style.fill = '#f7f8fa';
 }
 
 
