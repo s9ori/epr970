@@ -59,16 +59,14 @@ for (let i = 0; i < $hoverables.length; i++) {
   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
 }
 
-// Listeners Other
-document.body.addEventListener('mousemove', onMouseMove);
+// Title Hover Listeners
 for (let i = 0; i < $titleHoverables.length; i++) {
   $titleHoverables[i].addEventListener('mouseenter', onTitleMouseHover);
   $titleHoverables[i].addEventListener('mouseleave', onTitleMouseHoverOut);
 }
 
-// Listeners Other
-document.body.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $titleHoverables.length; i++) {
+// Tag Hover Listeners
+for (let i = 0; i < $tagHoverables.length; i++) {
   $tagHoverables[i].addEventListener('mouseenter', onTagMouseHover);
   $tagHoverables[i].addEventListener('mouseleave', onTagMouseHoverOut);
 }
@@ -88,21 +86,10 @@ function onMouseMove(e) {
 // Hover an element
 function onMouseHover() {
   TweenMax.to($bigBall, .3, {
-    scale: 4
-  })
-}
-function onMouseHoverOut() {
-  TweenMax.to($bigBall, .3, {
-    scale: 1
-  })
-}
-
-// Hover an element
-function onMouseHover() {
-  TweenMax.to($bigBall, .3, {
     scale: 2.5,
     opacity: 1,
-    fill: '#f7f8fa',
+    fill: 'transparent',
+    className: "-=cursor__ball"
   });
   TweenMax.to($smallBall, .3, {
     fill: '#f7f8fa'
@@ -128,22 +115,25 @@ function onMouseHoverOut() {
     scale: 1,
     opacity: 1,
     fill: '#f7f8fa',
+    className: "+=cursor__ball"
   });
   TweenMax.to($smallBall, .3, {
     fill: '#f7f8fa'
-  })
+  });
 }
 
 function onTitleMouseHoverOut(e) {
-  e.target.style.background = 'transparent';
-  TweenMax.to($bigBall, .3, {
-    fill: '#f7f8fa'
-})
+e.target.style.background = 'transparent';
+TweenMax.to($bigBall, .3, {
+fill: '#f7f8fa'
+});
 }
 
 function onTagMouseHoverOut(e) {
-  e.target.style.color = 'black';
-
+e.target.style.color = 'black';
+TweenMax.to($bigBall, .3, {
+fill: '#f7f8fa'
+});
 }
 
 </script>
