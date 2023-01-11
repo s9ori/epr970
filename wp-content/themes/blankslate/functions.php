@@ -69,6 +69,7 @@ for (let i = 0; i < $titleHoverables.length; i++) {
   $titleHoverables[i].addEventListener('mouseenter', onTitleMouseHover);
   $titleHoverables[i].addEventListener('mouseleave', onTitleMouseHoverOut);
 }
+let bigBallAnimation;
 
 // Move the cursor
 function onMouseMove(e) {
@@ -91,7 +92,15 @@ function onMouseHover() {
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
   $smallBallCircle.style.background = 'black'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'normal';
-  $bigBall.style.animation = 'grow-big .5s ease-in-out infinite';
+  bigBallAnimation = setInterval(function() {
+    TweenMax.to($bigBall, .5, {
+      scale: 1.5
+    });
+    TweenMax.to($bigBall, .5, {
+      scale: 1,
+      delay: .5
+    });
+  }, 1000);
 }
 
 function onMouseHoverOut() {
@@ -102,7 +111,11 @@ function onMouseHoverOut() {
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'difference';
   $smallBallCircle.style.background = '#f7f8fa'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'difference';
-  $bigBall.style.animation = 'none';
+  clearInterval(bigBallAnimation);
+  $bigBallCircle.style.background = '#f7f8fa'
+  document.querySelector('.cursor__ball--big').style.mixBlendMode = 'difference';
+  $smallBallCircle.style.background = '#f7f8fa'
+  document.querySelector('.cursor__ball--small').style.mixBlendMode = 'difference';
 }
 
 function onTitleMouseHover(e) {
