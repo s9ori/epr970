@@ -362,8 +362,18 @@ a:-webkit-any-link {
     width: 50px;
     height: 50px;
     border-radius: 25px;
-    transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out, opacity 0.8s ease-out;
+    transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out, opacity 0.8s ease-out;
 }
+
+.shape--big--square {
+  background: none;
+  opacity: 0;
+    width: 0px;
+    height: 0px;
+    border-radius: 0px;
+    transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out, opacity 0.8s ease-out;
+}
+
 
 .shape--small.square {
   border-radius: 0;

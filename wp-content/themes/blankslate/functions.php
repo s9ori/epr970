@@ -126,12 +126,12 @@ function onTitleMouseHoverOut(e) {
 }
 
 function onTextMouseHover(e) {
-  $bigBallCircle.style.opacity = '0';
+  document.querySelector('.shape--big').classList.add('square');
   document.querySelector('.shape--small').classList.add('square');
 }
 
 function onTextMouseOut(e) {
-  $bigBallCircle.style.opacity = '1';
+  document.querySelector('.shape--big').classList.add('square');
   document.querySelector('.shape--small').classList.remove('square');
 }
 
