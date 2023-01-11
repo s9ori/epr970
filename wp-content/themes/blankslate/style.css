@@ -359,6 +359,10 @@ a:-webkit-any-link {
   left: 0;
 }
 
+.tag-link {
+  color: black;
+}
+
 .cursor__ball--small circle {
   fill: #f7f8fa;
   top: 0;
