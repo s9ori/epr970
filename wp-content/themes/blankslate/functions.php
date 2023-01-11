@@ -87,7 +87,7 @@ function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 4
   });
-  $bigBallCircle.style.fill = '#EACFD8'
+  $bigBallCircle.style.background = '#EACFD8'
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
   $smallBallCircle.style.fill = 'black'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'normal';
@@ -97,7 +97,7 @@ function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1
   });
-  $bigBallCircle.style.fill = '#f7f8fa'
+  $bigBallCircle.style.background = '#f7f8fa'
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'difference';
   $smallBallCircle.style.fill = '#f7f8fa'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'difference';

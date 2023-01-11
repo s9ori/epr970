@@ -355,7 +355,7 @@ a:-webkit-any-link {
  
 }
 .shape {
-  fill: #f7f8fa;
+  background: #f7f8fa;
   top: 0;
   left: 0;
     width: 50px;
