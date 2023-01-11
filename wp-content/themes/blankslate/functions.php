@@ -126,13 +126,13 @@ function onTitleMouseHoverOut(e) {
 }
 
 function onTextMouseHover(e) {
-  $smallBallCircle.style.fill = 'transparent';
-  document.querySelector('.shape').classList.add('square');
+  $bigBallCircle.style.background = 'transparent';
+  document.querySelector('.shape--small').classList.add('square');
 }
 
 function onTextMouseOut(e) {
-  $smallBallCircle.style.fill = '#f7f8fa';
-  document.querySelector('.shape').classList.remove('square');
+  $bigBallCircle.style.background = '#f7f8fa';
+  document.querySelector('.shape--small').classList.remove('square');
 }
 
 
