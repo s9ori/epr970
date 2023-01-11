@@ -54,6 +54,7 @@ const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__t
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
 const $paragraphs = document.querySelectorAll('p');
 
+document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $paragraphs.length; i++) {
   $paragraphs[i].addEventListener('mouseenter', onTextMouseHover);
   $paragraphs[i].addEventListener('mouseleave', onTextMouseOut);
