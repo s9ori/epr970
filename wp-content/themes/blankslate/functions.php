@@ -49,7 +49,7 @@ function blankslate_footer() {
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
 const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__title a[href])');
-const $titleHoverables = document.querySelectorAll('.latest-post-block__title', '.tag-link');
+const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
 
 // Listeners
 document.body.addEventListener('mousemove', onMouseMove);
@@ -96,19 +96,22 @@ function onMouseHoverOut() {
 
 function onTitleMouseHover(e) {
   e.target.style.background = 'black';
+  if(e.target.classList.contains("tag-link"))
   e.target.style.color = '#f2f2f2';
   TweenMax.to($bigBall, .3, {
     fill: 'none'
-})
+  })
 }
 
 function onTitleMouseHoverOut(e) {
   e.target.style.background = 'transparent';
+  if(e.target.classList.contains("tag-link"))
   e.target.style.color = 'black';
   TweenMax.to($bigBall, .3, {
     fill: '#f7f8fa'
-})
+  })
 }
+
 </script>
 <script>
 jQuery(document).ready(function($) {
