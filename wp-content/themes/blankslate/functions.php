@@ -99,7 +99,7 @@ function onTitleMouseHover(e) {
     tagLink.style.color = '#f2f2f2';
   }
   TweenMax.to($bigBall, .3, {
-    fill: 'none'
+    fill: 'transparent'
   })
 }
 
