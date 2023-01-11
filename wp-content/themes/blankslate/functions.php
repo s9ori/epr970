@@ -83,7 +83,6 @@ function onMouseHover() {
     scale: 4
   });
   fill: '#EACFD8';
-  $bigBall.style.mixBlendMode = 'screen';
 }
 
 function onMouseHoverOut() {
@@ -91,7 +90,6 @@ function onMouseHoverOut() {
     scale: 1
   });
   fill: 'black';
-  $bigBall.style.mixBlendMode = 'none';
 }
 
 function onTitleMouseHover(e) {
