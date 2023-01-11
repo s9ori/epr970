@@ -363,6 +363,10 @@ a:-webkit-any-link {
     border-radius: 25px;
 }
 
+.square {
+  border-radius: 0;
+}
+
 .tag-link {
   color: black;
 }

@@ -127,10 +127,12 @@ function onTitleMouseHoverOut(e) {
 
 function onTextMouseHover(e) {
   $smallBallCircle.style.fill = 'transparent';
+  document.querySelector('.shape').classList.add('square');
 }
 
 function onTextMouseOut(e) {
   $smallBallCircle.style.fill = '#f7f8fa';
+  document.querySelector('.shape').classList.remove('square');
 }
 
 
