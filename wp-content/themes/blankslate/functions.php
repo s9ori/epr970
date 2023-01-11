@@ -83,7 +83,7 @@ function onMouseHover() {
     scale: 4
   });
   fill: '#EACFD8';
-  mixBlendMode: 'screen';
+  $bigBall.style.mixBlendMode = 'screen';
 }
 
 function onMouseHoverOut() {
@@ -91,13 +91,15 @@ function onMouseHoverOut() {
     scale: 1
   });
   fill: 'black';
-  mixBlendMode: 'none';
+  $bigBall.style.mixBlendMode = 'none';
 }
 
 function onTitleMouseHover(e) {
   e.target.style.background = 'black';
-  if(e.target.classList.contains("tag-link"))
-  e.target.style.color = '#f2f2f2 !important';
+  const tagLink = e.target.querySelector('.tag-link');
+  if (tagLink) {
+    tagLink.style.color = '#f2f2f2';
+  }
   TweenMax.to($bigBall, .3, {
     fill: 'none'
   })
@@ -105,12 +107,15 @@ function onTitleMouseHover(e) {
 
 function onTitleMouseHoverOut(e) {
   e.target.style.background = 'transparent';
-  if(e.target.classList.contains("tag-link"))
-  e.target.style.color = 'black';
+  const tagLink = e.target.querySelector('.tag-link');
+  if (tagLink) {
+    tagLink.style.color = 'black';
+  }
   TweenMax.to($bigBall, .3, {
     fill: '#f7f8fa'
-  })
+  });
 }
+
 
 </script>
 <script>
