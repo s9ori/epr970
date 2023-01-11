@@ -126,12 +126,12 @@ function onTitleMouseHoverOut(e) {
 }
 
 function onTextMouseHover(e) {
-  $bigBallCircle.style.background = 'transparent';
+  $bigBallCircle.style.opacity = '0';
   document.querySelector('.shape--small').classList.add('square');
 }
 
 function onTextMouseOut(e) {
-  $bigBallCircle.style.background = '#f7f8fa';
+  $bigBallCircle.style.opacity = '0';
   document.querySelector('.shape--small').classList.remove('square');
 }
 
