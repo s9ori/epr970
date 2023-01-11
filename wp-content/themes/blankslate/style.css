@@ -355,10 +355,14 @@ a:-webkit-any-link {
 }
 .cursor__ball--big circle {
   fill: #f7f8fa;
+  top: 0;
+  left: 0;
 }
 
 .cursor__ball--small circle {
   fill: #f7f8fa;
+  top: 0;
+  left: 0;
 }
 
 
