@@ -48,8 +48,8 @@ function blankslate_footer() {
 <script>
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
-const $bigBallCircle = document.querySelector('.shape');
-const $smallBallCircle = document.querySelector('.cursor__ball--small circle');
+const $bigBallCircle = document.querySelector('.shape--big');
+const $smallBallCircle = document.querySelector('.shape--small');
 const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__title a[href])');
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
 const $paragraphs = document.querySelectorAll('p');
@@ -89,7 +89,7 @@ function onMouseHover() {
   });
   $bigBallCircle.style.background = '#EACFD8'
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
-  $smallBallCircle.style.fill = 'black'
+  $smallBallCircle.style.background = 'black'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'normal';
 }
 
@@ -99,7 +99,7 @@ function onMouseHoverOut() {
   });
   $bigBallCircle.style.background = '#f7f8fa'
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'difference';
-  $smallBallCircle.style.fill = '#f7f8fa'
+  $smallBallCircle.style.background = '#f7f8fa'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'difference';
 }
 

@@ -38,13 +38,11 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 <main id="content" role="main">
 <div class="cursor">
 <div class="cursor__ball cursor__ball--big ">
-  <div class="shape"></div>
+  <div class="shape--big"></div>
 </div>
 
   
   <div class="cursor__ball cursor__ball--small">
-    <svg height="10" width="10">
-      <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
-    </svg>
+  <div class="shape--small"></div>
   </div>
 </div>
