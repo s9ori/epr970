@@ -48,13 +48,11 @@ function blankslate_footer() {
 <script>
 const $bigBall = document.querySelector('.cursor__ball--big');
 const $smallBall = document.querySelector('.cursor__ball--small');
-const $bigBallCircle = document.querySelector('.cursor__ball--big rect');
+const $bigBallCircle = document.querySelector('.cursor__ball--big circle');
 const $smallBallCircle = document.querySelector('.cursor__ball--small circle');
 const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__title a[href])');
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
 const $paragraphs = document.querySelectorAll('p');
-const $bigBallRect = document.querySelector('.cursor__ball--big rect');
-
 
 document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $paragraphs.length; i++) {
@@ -129,12 +127,10 @@ function onTitleMouseHoverOut(e) {
 
 function onTextMouseHover(e) {
   $smallBallCircle.style.fill = 'transparent';
-  $bigBallRect.style.borderRadius = '0';
 }
 
 function onTextMouseOut(e) {
   $smallBallCircle.style.fill = '#f7f8fa';
-  $bigBallRect.style.borderRadius = '50%';
 }
 
 
