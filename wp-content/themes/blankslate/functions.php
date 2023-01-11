@@ -81,43 +81,25 @@ function onMouseMove(e) {
 function onMouseHover() {
   TweenMax.to($bigBall, .3, {
     scale: 4
-  })
+  });
+  fill: '#EACFD8';
+  mixBlendMode: 'screen';
 }
+
 function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1
-  })
-}
-
-// Hover an element
-function onMouseHover() {
-  TweenMax.to($bigBall, .3, {
-    scale: 2.5,
-    opacity: 1,
-    fill: '#f7f8fa',
   });
-  TweenMax.to($smallBall, .3, {
-    fill: '#f7f8fa'
-  })
+  fill: 'black';
+  mixBlendMode: 'none';
 }
 
 function onTitleMouseHover(e) {
   e.target.style.background = 'black';
   e.target.style.color = '#f2f2f2';
   TweenMax.to($bigBall, .3, {
-    fill: 'transparent'
+    fill: 'none'
 })
-}
-
-function onMouseHoverOut() {
-  TweenMax.to($bigBall, .3, {
-    scale: 1,
-    opacity: 1,
-    fill: '#f7f8fa',
-  });
-  TweenMax.to($smallBall, .3, {
-    fill: '#f7f8fa'
-  })
 }
 
 function onTitleMouseHoverOut(e) {
