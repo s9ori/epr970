@@ -91,7 +91,6 @@ function onMouseHover() {
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
   $smallBallCircle.style.background = 'black'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'normal';
-  $bigBall.style.animation = 'grow-big .5s ease-in-out infinite';
 }
 
 function onMouseHoverOut() {
@@ -102,7 +101,6 @@ function onMouseHoverOut() {
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'difference';
   $smallBallCircle.style.background = '#f7f8fa'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'difference';
-  $bigBall.style.animation = 'none';
 }
 
 function onTitleMouseHover(e) {
