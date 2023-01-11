@@ -355,7 +355,7 @@ a:-webkit-any-link {
  
 }
 .cursor__ball--big circle {
-  fill: black;
+  fill: #f7f8fa;
   top: 0;
   left: 0;
 
