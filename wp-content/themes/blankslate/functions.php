@@ -97,7 +97,7 @@ function onMouseHoverOut() {
 function onTitleMouseHover(e) {
   e.target.style.background = 'black';
   if(e.target.classList.contains("tag-link"))
-  e.target.style.color = '#f2f2f2';
+  e.target.style.color = '#f2f2f2 !important';
   TweenMax.to($bigBall, .3, {
     fill: 'none'
   })
