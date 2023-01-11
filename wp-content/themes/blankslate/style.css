@@ -362,14 +362,14 @@ a:-webkit-any-link {
     width: 50px;
     height: 50px;
     border-radius: 25px;
-    transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out, opacity 0.3s ease-out;
+    transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out, opacity 0.8s ease-out;
 }
 
 .shape--small.square {
   border-radius: 0;
   height: 40px;
   width: 50px;
-  transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out;
+  transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out;
 }
 
 .tag-link {
@@ -383,7 +383,7 @@ a:-webkit-any-link {
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  transition: border-radius 0.3s ease-out, height 0.3s ease-out, width 0.3s ease-out;
+  transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out;
 }
 
 
