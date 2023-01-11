@@ -85,7 +85,9 @@ function onMouseHover() {
     scale: 4
   });
   $bigBallCircle.style.fill = '#EACFD8'
-  document.querySelector('.cursor__ball').style.mixBlendMode = 'screen';
+  document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
+  $smallBallCircle.style.fill = 'black'
+  document.querySelector('.cursor__ball--small').style.mixBlendMode = 'normal';
 }
 
 function onMouseHoverOut() {
@@ -93,7 +95,9 @@ function onMouseHoverOut() {
     scale: 1
   });
   $bigBallCircle.style.fill = '#f7f8fa'
-  document.querySelector('.cursor__ball').style.mixBlendMode = 'difference';
+  document.querySelector('.cursor__ball--big').style.mixBlendMode = 'difference';
+  $smallBallCircle.style.fill = '#f7f8fa'
+  document.querySelector('.cursor__ball--small').style.mixBlendMode = 'difference';
 }
 
 function onTitleMouseHover(e) {
