@@ -68,7 +68,7 @@ for (let i = 0; i < $titleHoverables.length; i++) {
 
 // Listeners Other
 document.body.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $tagHoverables.length; i++) {
+for (let i = 0; i < $titleHoverables.length; i++) {
   $tagHoverables[i].addEventListener('mouseenter', onTagMouseHover);
   $tagHoverables[i].addEventListener('mouseleave', onTagMouseHoverOut);
 }
