@@ -84,8 +84,8 @@ function onMouseMove(e) {
 
 // Hover an element
 function onMouseHover() {
-  TweenMax.to($bigBall, .3, {
-    scale: 4
+  TweenMax.to($bigBall, .5, {
+    scale: 3
   });
   $bigBallCircle.style.background = '#EACFD8'
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
@@ -94,7 +94,7 @@ function onMouseHover() {
 }
 
 function onMouseHoverOut() {
-  TweenMax.to($bigBall, .3, {
+  TweenMax.to($bigBall, .5, {
     scale: 1
   });
   $bigBallCircle.style.background = '#f7f8fa'
@@ -109,7 +109,7 @@ function onTitleMouseHover(e) {
   if (tagLink) {
     tagLink.style.color = '#f2f2f2';
   }
-  TweenMax.to($bigBall, .3, {
+  TweenMax.to($bigBall, .5, {
     fill: 'transparent'
   })
 }
@@ -120,7 +120,7 @@ function onTitleMouseHoverOut(e) {
   if (tagLink) {
     tagLink.style.color = 'black';
   }
-  TweenMax.to($bigBall, .3, {
+  TweenMax.to($bigBall, .5, {
     fill: '#f7f8fa'
   });
 }
