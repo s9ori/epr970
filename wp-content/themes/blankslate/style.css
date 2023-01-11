@@ -361,8 +361,10 @@ a:-webkit-any-link {
   left: 0;
   z-index: 1000;
   mix-blend-mode: difference;
+  animation: none;
  
 }
+
 .shape--big {
   background: #f7f8fa;
   opacity: 1;
