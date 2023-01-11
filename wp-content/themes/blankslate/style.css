@@ -357,7 +357,6 @@ a:-webkit-any-link {
   fill: black;
   top: 0;
   left: 0;
-  mix-blend-mode: none;
 }
 
 .tag-link {
