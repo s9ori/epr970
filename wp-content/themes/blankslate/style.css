@@ -357,14 +357,12 @@ a:-webkit-any-link {
 .shape--big {
   background: #f7f8fa;
   opacity: 1;
+  top: 0;
+  left: 0;
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  position: absolute; /* The shape should be positioned relatively to its parent */
-  top: 50%; /* 50% of the parent's height */
-  left: 50%; /* 50% of the parent's width */
-  transform: translate(-50%, -50%); /* Move the shape to the center of the parent */
-  transition: all 0.5s ease; /* Transition for the width, height and position */
+  transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out, opacity 0.8s ease-out;
 }
 
 .shape--big--square {
@@ -389,14 +387,12 @@ a:-webkit-any-link {
 
 .shape--small {
   background: #f7f8fa;
+  top: 0;
+  left: 0;
   width: 10px;
   height: 10px;
   border-radius: 5px;
-    position: absolute; /* The shape should be positioned relatively to its parent */
-    top: 50%; /* 50% of the parent's height */
-    left: 50%; /* 50% of the parent's width */
-    transform: translate(-50%, -50%); /* Move the shape to the center of the parent */
-    transition: all 0.5s ease; /* Transition for the width, height and position */
+  transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out;
 }
 
 
