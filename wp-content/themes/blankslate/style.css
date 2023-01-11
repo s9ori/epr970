@@ -359,19 +359,18 @@ a:-webkit-any-link {
   opacity: 1;
   top: 0;
   left: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out, opacity 0.8s ease-out;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out, opacity 0.8s ease-out;
 }
 
 .shape--big--square {
   background: none;
-  opacity: 0;
-    width: 0px;
-    height: 0px;
-    border-radius: 0px;
-    transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out, opacity 0.8s ease-out;
+  width: 0px;
+  height: 0px;
+  border-radius: 0px;
+  transition: border-radius 0.8s ease-out, height 0.8s ease-out, width 0.8s ease-out, opacity 0.8s ease-out;
 }
 
 

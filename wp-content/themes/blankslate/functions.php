@@ -128,11 +128,13 @@ function onTitleMouseHoverOut(e) {
 function onTextMouseHover(e) {
   document.querySelector('.shape--big').classList.add('square');
   document.querySelector('.shape--small').classList.add('square');
+  $bigBallCircle.style.opacity = '0';
 }
 
 function onTextMouseOut(e) {
   document.querySelector('.shape--big').classList.add('square');
   document.querySelector('.shape--small').classList.remove('square');
+  $bigBallCircle.style.opacity = '1';
 }
 
 
