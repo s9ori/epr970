@@ -54,6 +54,11 @@ const $hoverables = document.querySelectorAll('a[href]:not(.latest-post-block__t
 const $titleHoverables = document.querySelectorAll('.latest-post-block__title');
 const $paragraphs = document.querySelectorAll('p');
 
+for (let i = 0; i < $paragraphs.length; i++) {
+  $paragraphs[i].addEventListener('mouseenter', onTextMouseHover);
+  $paragraphs[i].addEventListener('mouseleave', onTextMouseOut);
+}
+
 // Listeners
 document.body.addEventListener('mousemove', onMouseMove);
 for (let i = 0; i < $hoverables.length; i++) {
@@ -123,17 +128,12 @@ function onTitleMouseHoverOut(e) {
   });
 }
 
-for (let i = 0; i < $paragraphs.length; i++) {
-  $paragraphs[i].addEventListener('mouseenter', onTextMouseHover);
-  $paragraphs[i].addEventListener('mouseleave', onTextMouseOut);
-}
-
 function onTextMouseHover(e) {
-  $bigBallCircle.style.shapeOutside = 'inset(0 0 0 100%)';
+  $smallBallCircle.style.fill = 'transparent';
 }
 
 function onTextMouseOut(e) {
-  $bigBallCircle.style.shapeOutside = 'circle(50%)';
+  $smallBallCircle.style.fill = 'black';
 }
 
 
