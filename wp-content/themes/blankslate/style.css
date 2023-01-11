@@ -352,10 +352,6 @@ a:-webkit-any-link {
   }
 }
 
-.bigBall--hover {
-  animation: grow-big .5s ease-in-out infinite;
-}
-
 .cursor {
   pointer-events: none;
 }

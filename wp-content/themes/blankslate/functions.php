@@ -91,7 +91,7 @@ function onMouseHover() {
   document.querySelector('.cursor__ball--big').style.mixBlendMode = 'screen';
   $smallBallCircle.style.background = 'black'
   document.querySelector('.cursor__ball--small').style.mixBlendMode = 'normal';
-  $bigBall.classList.add('bigBall--hover');
+  $bigBall.style.animation = 'grow-big .5s ease-in-out infinite';
 }
 
 function onMouseHoverOut() {
