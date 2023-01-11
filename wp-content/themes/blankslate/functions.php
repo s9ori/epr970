@@ -131,7 +131,7 @@ function onTextMouseHover(e) {
 }
 
 function onTextMouseOut(e) {
-  $bigBallCircle.style.opacity = '0';
+  $bigBallCircle.style.opacity = '1';
   document.querySelector('.shape--small').classList.remove('square');
 }
 
