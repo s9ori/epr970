@@ -351,13 +351,14 @@ a:-webkit-any-link {
   top: 0;
   left: 0;
   z-index: 1000;
+  mix-blend-mode: difference;
  
 }
 .cursor__ball--big circle {
   fill: black;
   top: 0;
   left: 0;
-  mix-blend-mode: difference;
+
 }
 
 .tag-link {
@@ -368,7 +369,6 @@ a:-webkit-any-link {
   fill: #f7f8fa;
   top: 0;
   left: 0;
-  mix-blend-mode: difference;
 }
 
 
