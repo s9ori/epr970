@@ -127,10 +127,12 @@ function onTitleMouseHoverOut(e) {
 
 function onTextMouseHover(e) {
   $smallBallCircle.style.fill = 'transparent';
+  $bigBallCircle.style.borderRadius = '0';
 }
 
 function onTextMouseOut(e) {
   $smallBallCircle.style.fill = '#f7f8fa';
+  $bigBallCircle.style.borderRadius = '50%';
 }
 
 
