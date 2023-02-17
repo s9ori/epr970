@@ -3,9 +3,6 @@ var file_contents = file_data.file_contents;
 // Define an array of search terms to use for the Google image search
 
 jQuery(document).ready(function($) {
-$('#gif-container').attr('src', googleApiUrl);
-// Show the GIF container
-$('#gif-container').show();
 $("form.openai").submit(function(e) {
 e.preventDefault();
 var prompt = $("#prompt").val();
@@ -33,7 +30,6 @@ var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
 // Construct the Google image search URL using the Google Custom Search API key
 var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aaq=" + searchTerm + "&searchType=image&imgSize=medium&num=10&fileType=gif";
 // Send a request to the Google Custom Search API
-
 
 $.ajax({
   url: googleApiUrl,
