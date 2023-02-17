@@ -1,12 +1,12 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
 // Define an array of search terms to use for the Google image search
-var searchTerms = ["nct 127", "shinee", "aespa", "boys planet 999"];
+var searchTerms = ["lesserafim", "aoc girl boss", "nct 127", "shinee", "aespa", "boys planet 999"];
 // Choose a random search term
 var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
-// Construct the Google image search URL
-var googleImageUrl = "https://www.google.com/search?q=" + searchTerm + "&tbm=isch&source=lnms&sa=X&ved=0ahUKEwiGkYTG7JnzAhWLn-AKHVmjC-oQ_AUIBigB&biw=1366&bih=657&dpr=1#imgrc=_";
-// Set the source of the GIF container to the Google image search URL
+// Construct the Google image search URL using the Google Custom Search API key
+var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aaq=" + searchTerm + "&searchType=image&imgSize=medium&num=10";
+// Send a request to the Google Custom Search API
 
 jQuery(document).ready(function($) {
 $('#gif-container').attr('src', googleImageUrl);
@@ -32,6 +32,21 @@ var data = {
 "max_tokens": max_tokens,
 "temperature": temperature
 };
+
+$.ajax({
+  url: googleApiUrl,
+  dataType: "jsonp",
+  success: function(response) {
+    // Choose a random image from the search results
+    var imageIndex = Math.floor(Math.random() * response.items.length);
+    var imageUrl = response.items[imageIndex].link;
+    // Set the source of the GIF container to the random image URL
+    $('#gif-container').attr('src', imageUrl);
+    // Show the GIF container
+    $('#gif-container').show();
+  },
+});
+
 $.ajax({
 type: "POST",
 url: url,
