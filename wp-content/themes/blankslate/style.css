@@ -405,12 +405,12 @@ textarea {
 }
 
 #past-tense-btn:hover {
-  background: #ffd0c7;
+  background: rgb(252, 159, 141);
   transition: all 0.3s ease-in-out;
 }
 
 #present-tense-btn:hover {
-  background: #ffd0c7;
+  background: rgb(252, 159, 141);
   transition: all 0.3s ease-in-out; 
 }
 
