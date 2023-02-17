@@ -1,5 +1,16 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
+// Define an array of search terms to use for the Google image search
+var searchTerms = ["nct 127", "shinee", "aespa", "boys planet 999"];
+// Choose a random search term
+var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
+// Construct the Google image search URL
+var googleImageUrl = "https://www.google.com/search?q=" + searchTerm + "&tbm=isch&source=lnms&sa=X&ved=0ahUKEwiGkYTG7JnzAhWLn-AKHVmjC-oQ_AUIBigB&biw=1366&bih=657&dpr=1#imgrc=_";
+// Set the source of the GIF container to the Google image search URL
+$('#gif-container').attr('src', googleImageUrl);
+// Show the GIF container
+$('#gif-container').show();
+
 
 jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
@@ -7,7 +18,7 @@ e.preventDefault();
 var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
 var model = "text-davinci-003";
-var max_tokens = 300;
+var max_tokens = 420;
 var temperature = .78;
 var url = "https://api.openai.com/v1/completions";
 var cacheKey = prompt;
@@ -31,6 +42,7 @@ beforeSend: function(xhr) {
 xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('#loading-container').show();
 $('label').hide();
+$('#gif-container').show();
 $('.openai').css('background', '#121212b5');
 $('#prompt').hide();
 $('input').hide();
@@ -53,6 +65,7 @@ success: function(result) {
   $('label').show();
   $('#prompt').show();
   $('input').show();
+  $('#gif-container').hide();
   $('.openai-response').css({
       "opacity": "1",
       "display": "block"
@@ -62,6 +75,7 @@ error: function(jqXHR, textStatus, errorThrown) {
 $('#loading-container').hide();
 $('label').show();
 $('#prompt').show();
+$('#gif-container').hide();
 $('.openai').css('background', 'linear-gradient(180deg, #e4006dad 0%, #e6a600ba 100%)');
 $('input').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
