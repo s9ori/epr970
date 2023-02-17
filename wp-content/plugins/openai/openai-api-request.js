@@ -7,7 +7,7 @@ e.preventDefault();
 var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
 var model = "text-davinci-003";
-var max_tokens = 500;
+var max_tokens = 300;
 var temperature = .78;
 var url = "https://api.openai.com/v1/completions";
 var cacheKey = prompt;
