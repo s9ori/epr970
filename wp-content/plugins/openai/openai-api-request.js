@@ -35,20 +35,20 @@ var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vT
       url: googleApiUrl,
       dataType: "jsonp",
       success: function(response) {
-        // Filter the response to only include GIFs
-        var gifResults = response.items.filter(function(item) {
-          return item.mime == "image/gif";
-        });
-        // Choose a random image from the search results
-        var imageIndex = Math.floor(Math.random() * gifResults.length);
-        var imageUrl = gifResults[imageIndex].link;
-        // Set the source of the GIF container to the random image URL
+        // Find the first GIF image in the search results
+        var imageUrl = "";
+        for (var i = 0; i < response.items.length; i++) {
+          if (response.items[i].mime == "image/gif") {
+            imageUrl = response.items[i].link;
+            break;
+          }
+        }
+        // Set the source of the GIF container to the image URL
         $('#gif-container').attr('src', imageUrl);
         // Show the GIF container
         $('#gif-container').show();
-      },
+      },      
     });
-    
 $.ajax({
 type: "POST",
 url: url,
