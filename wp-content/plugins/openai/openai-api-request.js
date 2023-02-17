@@ -15,7 +15,7 @@ var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vT
 
 var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
-var model = "davinci:ft-personal-2023-02-17-18-44-12";
+var model = "text-davinci-003";
 var max_tokens = 420;
 var temperature = .8;
 var url = "https://api.openai.com/v1/completions";
@@ -27,7 +27,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Mimicing the structure, voice, and tone of these previous tweets from the Brian Lehrer Show:" + file_contents + ", here is a list of five engaging Tweets about:" + prompt,
+"prompt": "Mimicing the structure, voice, and tone of these previous tweets from the Brian Lehrer Show:" + file_contents + ", here is a list of five engaging Tweets with less than 280 characters and about:" + prompt,
 "max_tokens": max_tokens,
 "temperature": temperature
 };
