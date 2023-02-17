@@ -396,22 +396,27 @@ textarea {
   line-height: 1.5em;
 }
 
-.openai-input, #present-tense-btn, #past-tense-btn {
+.openai-input, #future-tense-btn, #present-tense-btn, #past-tense-btn {
   padding: 10px;
     text-transform: uppercase;
     background: pink;
     font-weight: bold;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 #past-tense-btn:hover {
   background: rgb(252, 159, 141);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #present-tense-btn:hover {
   background: rgb(252, 159, 141);
-  transition: all 0.3s ease-in-out; 
+  transition: all 0.2s ease-in-out; 
+}
+
+#future-tense-btn:hover {
+  background: rgb(252, 159, 141);
+  transition: all 0.2s ease-in-out; 
 }
 
 textarea:focus {

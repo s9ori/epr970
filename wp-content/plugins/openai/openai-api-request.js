@@ -5,11 +5,15 @@ var tense = "present"; // Default tense
 jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
-    tense = "past";
+    tense = "past tense";
   });
   
   $('#present-tense-btn').click(function() {
-    tense = "present";
+    tense = "present tense";
+  });
+
+  $('#future-tense-btn').click(function() {
+    tense = "future tense";
   });
   
 e.preventDefault();
