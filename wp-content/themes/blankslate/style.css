@@ -377,6 +377,11 @@ textarea {
   line-height: 1.5em;
 }
 
+
+textarea:focus {
+  outline: none;
+}
+
 @media screen and (min-width: 600px){
   #wrapper { 
   margin-left: 250px
