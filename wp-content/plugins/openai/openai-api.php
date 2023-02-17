@@ -22,14 +22,9 @@
      ob_start();
      ?>
      <form class="openai" action="#" method="post">
-         <div class="spinner-container" id="loading-container" style="display: none;">
-            <div class="spinner" id="spinner01"></div>
-            <div class="spinner" id="spinner02"></div>
-            <div class="spinner" id="spinner03"></div>
-            <div class="spinner" id="spinner04"></div>
-            <div class="spinner" id="spinner05"></div>
-          </div>
          <textarea name="prompt" id="prompt" placeholder="topic or summary of segment"></textarea>
+         <button id="past-tense-btn">Past Tense</button>
+<button id="present-tense-btn">Present Tense</button>
          <input class="openai-input" type="submit" name="submit" value="Submit">
      </form>
      <?php

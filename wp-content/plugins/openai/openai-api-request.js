@@ -1,8 +1,17 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
+var tense = "present"; // Default tense
 
 jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
+  $('#past-tense-btn').click(function() {
+    tense = "past";
+  });
+  
+  $('#present-tense-btn').click(function() {
+    tense = "present";
+  });
+  
 e.preventDefault();
 // Define an array of search terms to use for the Google image search
 var searchTerms = ["lesserafim", "cardi b", "attack on titan", "blackpink", "funny memes", "shinee", "newjeans", "rupauls dragrace", "nct 127", "shinee", "aespa", "boys planet 999"];
@@ -27,7 +36,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Mimicing the structure, voice, and tone of these previous tweets from the Brian Lehrer Show:" + file_contents + ", here is a list of five engaging Tweets with less than 280 characters and about:" + prompt + ":",
+"prompt": "Mimicking the structure, voice, and tone of these previous tweets from the Brian Lehrer Show: " + file_contents + ", here is a list of five engaging Tweets in " + tense + " with less than 280 characters and about: " + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
