@@ -1,12 +1,6 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
 // Define an array of search terms to use for the Google image search
-var searchTerms = ["lesserafim", "aoc girl boss", "nct 127", "shinee", "aespa", "boys planet 999"];
-// Choose a random search term
-var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
-// Construct the Google image search URL using the Google Custom Search API key
-var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aaq=" + searchTerm + "&searchType=image&imgSize=medium&num=10";
-// Send a request to the Google Custom Search API
 
 jQuery(document).ready(function($) {
 $('#gif-container').attr('src', googleImageUrl);
@@ -32,6 +26,14 @@ var data = {
 "max_tokens": max_tokens,
 "temperature": temperature
 };
+
+var searchTerms = ["lesserafim", "aoc girl boss", "nct 127", "shinee", "aespa", "boys planet 999"];
+// Choose a random search term
+var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
+// Construct the Google image search URL using the Google Custom Search API key
+var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aaq=" + searchTerm + "&searchType=image&imgSize=medium&num=10";
+// Send a request to the Google Custom Search API
+
 
 $.ajax({
   url: googleApiUrl,
