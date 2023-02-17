@@ -27,7 +27,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Mimicing the structure, voice, and tone of these previous tweets from the Brian Lehrer Show:" + file_contents + ", give me a list of five Tweets that don't exceed character limit about:" + prompt,
+"prompt": "Mimicing the structure, voice, and tone of these previous tweets from the Brian Lehrer Show:" + file_contents + ", give me a list of five engaging Tweets:" + prompt,
 "max_tokens": max_tokens,
 "temperature": temperature
 };
