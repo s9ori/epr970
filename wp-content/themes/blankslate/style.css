@@ -396,7 +396,7 @@ textarea {
   line-height: 1.5em;
 }
 
-.openai-input {
+.openai-input, #present-tense-btn, #past-tense-btn {
   padding: 10px;
     text-transform: uppercase;
     background: pink;
@@ -404,11 +404,16 @@ textarea {
     transition: all 1s ease-in-out;
 }
 
-openai-input:hover {
+#past-tense-btn:hover {
   background: #ffd0c7;
   transition: all 1s ease-in-out;
-
 }
+
+#present-tense-btn:hover {
+  background: #ffd0c7;
+  transition: all 1s ease-in-out; 
+}
+
 textarea:focus {
   outline: none;
 }

@@ -69,7 +69,7 @@ $('.navis-calling').show();
 $('label').hide();
 $('#gif-container').show();
 $('#prompt').hide();
-$('input').hide();
+$('.openai-input').hide();
 $('.openai-response').css({
     "opacity": "0",
     "display": "none"
@@ -87,7 +87,7 @@ var formattedText = tweets.join("<br>");
   $('.navis-calling').hide();
   $('label').show();
   $('#prompt').show();
-  $('input').show();
+  $('.openai-input').show();
   $('#gif-container').hide();
   $('.openai-response').css({
       "opacity": "1",
@@ -99,7 +99,7 @@ $('.navis-calling').hide();
 $('label').show();
 $('#prompt').show();
 $('#gif-container').hide();
-$('input').show();
+$('.openai-input').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
 $('.openai-response').css({
     "opacity": "1",
