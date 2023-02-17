@@ -369,10 +369,6 @@ transition: background-color .5s ease-in-out;
   margin-left: 250px
 }
 }
-@media screen and (max-width: 600px){
-.cursor {
-  display: none !important
-}
 .latest-post-block img, .latest-post-block__featured-image-container {
   border-radius: 0 !important;
 }
