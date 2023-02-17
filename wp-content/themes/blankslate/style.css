@@ -365,7 +365,7 @@ transition: background-color .5s ease-in-out;
 }
 
 textarea {
-  min-height: 220px;
+  min-height: 120px;
   font-size: 16px;
   font-family: basic-sans, sans-serif;
   font-weight: 400;
@@ -377,7 +377,12 @@ textarea {
   line-height: 1.5em;
 }
 
-
+.openai-input {
+  padding: 10px;
+    text-transform: uppercase;
+    background: pink;
+    font-weight: bold;
+}
 textarea:focus {
   outline: none;
 }
