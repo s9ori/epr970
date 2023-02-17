@@ -59,7 +59,6 @@ xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('#loading-container').show();
 $('label').hide();
 $('#gif-container').show();
-$('.openai').css('background', '#121212b5');
 $('#prompt').hide();
 $('input').hide();
 $('.openai-response').css({
@@ -72,9 +71,9 @@ success: function(result) {
   localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
   var text = result.choices[0].text;
   // Split the response into separate tweets by looking for instances of "\n\n"
-  var tweets = text.split("\n\n");
-  // Join the tweets back together with a line break between each one
-  var formattedText = tweets.join("<br><br>");
+  var tweets = text.split("\n");
+// Join the tweets back together with a line break between each one
+var formattedText = tweets.join("<br>");
   $(".openai-response").html("<p>" + formattedText + "</p>");
   $('#loading-container').hide();
   $('label').show();
