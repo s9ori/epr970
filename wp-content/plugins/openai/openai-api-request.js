@@ -77,7 +77,6 @@ success: function(result) {
   var formattedText = tweets.join("<br><br>");
   $(".openai-response").html("<p>" + formattedText + "</p>");
   $('#loading-container').hide();
-  $('.openai').css('background', 'linear-gradient(180deg, #e4006dad 0%, #e6a600ba 100%)');
   $('label').show();
   $('#prompt').show();
   $('input').show();
@@ -92,7 +91,6 @@ $('#loading-container').hide();
 $('label').show();
 $('#prompt').show();
 $('#gif-container').hide();
-$('.openai').css('background', 'linear-gradient(180deg, #e4006dad 0%, #e6a600ba 100%)');
 $('input').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
 $('.openai-response').css({
