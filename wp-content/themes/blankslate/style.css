@@ -401,17 +401,17 @@ textarea {
     text-transform: uppercase;
     background: pink;
     font-weight: bold;
-    transition: all 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 #past-tense-btn:hover {
   background: #ffd0c7;
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 #present-tense-btn:hover {
   background: #ffd0c7;
-  transition: all 1s ease-in-out; 
+  transition: all 0.3s ease-in-out; 
 }
 
 textarea:focus {
