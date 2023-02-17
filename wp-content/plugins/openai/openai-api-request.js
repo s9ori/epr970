@@ -31,20 +31,24 @@ var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
 var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aaq=" + searchTerm + "&searchType=image&imgSize=medium&num=10&fileType=gif";
 // Send a request to the Google Custom Search API
 
-$.ajax({
-  url: googleApiUrl,
-  dataType: "jsonp",
-  success: function(response) {
-    // Choose a random image from the search results
-    var imageIndex = Math.floor(Math.random() * response.items.length);
-    var imageUrl = response.items[imageIndex].link;
-    // Set the source of the GIF container to the random image URL
-    $('#gif-container').attr('src', imageUrl);
-    // Show the GIF container
-    $('#gif-container').show();
-  },
-});
-
+  $.ajax({
+      url: googleApiUrl,
+      dataType: "jsonp",
+      success: function(response) {
+        // Filter the response to only include GIFs
+        var gifResults = response.items.filter(function(item) {
+          return item.mime == "image/gif";
+        });
+        // Choose a random image from the search results
+        var imageIndex = Math.floor(Math.random() * gifResults.length);
+        var imageUrl = gifResults[imageIndex].link;
+        // Set the source of the GIF container to the random image URL
+        $('#gif-container').attr('src', imageUrl);
+        // Show the GIF container
+        $('#gif-container').show();
+      },
+    });
+    
 $.ajax({
 type: "POST",
 url: url,
