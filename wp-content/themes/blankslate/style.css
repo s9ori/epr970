@@ -364,8 +364,7 @@ transition: background-color .5s ease-in-out;
   gap: 25px;
 }
 
-#loading-container {
-  display: none
+.navis-calling {
   animation: loadingText 2000ms;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;

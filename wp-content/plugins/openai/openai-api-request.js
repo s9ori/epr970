@@ -56,7 +56,7 @@ data: JSON.stringify(data),
 contentType: "application/json",
 beforeSend: function(xhr) {
 xhr.setRequestHeader("Authorization", "Bearer " + api_key);
-$('#loading-container').show();
+$('.navis-calling').show();
 $('label').hide();
 $('#gif-container').show();
 $('#prompt').hide();
@@ -75,7 +75,7 @@ success: function(result) {
 // Join the tweets back together with a line break between each one
 var formattedText = tweets.join("<br>");
   $(".openai-response").html("<p>" + formattedText + "</p>");
-  $('#loading-container').hide();
+  $('.navis-calling').hide();
   $('label').show();
   $('#prompt').show();
   $('input').show();
@@ -86,7 +86,7 @@ var formattedText = tweets.join("<br>");
   });
 },
 error: function(jqXHR, textStatus, errorThrown) {
-$('#loading-container').hide();
+$('.navis-calling').hide();
 $('label').show();
 $('#prompt').show();
 $('#gif-container').hide();
