@@ -1,5 +1,9 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
+
+jQuery(document).ready(function($) {
+$("form.openai").submit(function(e) {
+e.preventDefault();
 // Define an array of search terms to use for the Google image search
 var searchTerms = ["lesserafim", "aoc girl boss", "nct 127", "shinee", "aespa", "boys planet 999"];
 
@@ -9,10 +13,6 @@ var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
 // Construct the Google image search URL using the Google Custom Search API key
 var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aa&searchType=image&imgSize=medium&num=10&fileType=gif&q=" + searchTerm;
 
-
-jQuery(document).ready(function($) {
-$("form.openai").submit(function(e) {
-e.preventDefault();
 var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
 var model = "text-davinci-003";
