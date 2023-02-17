@@ -7,12 +7,11 @@ var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
 // Construct the Google image search URL
 var googleImageUrl = "https://www.google.com/search?q=" + searchTerm + "&tbm=isch&source=lnms&sa=X&ved=0ahUKEwiGkYTG7JnzAhWLn-AKHVmjC-oQ_AUIBigB&biw=1366&bih=657&dpr=1#imgrc=_";
 // Set the source of the GIF container to the Google image search URL
+
+jQuery(document).ready(function($) {
 $('#gif-container').attr('src', googleImageUrl);
 // Show the GIF container
 $('#gif-container').show();
-
-
-jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
 e.preventDefault();
 var prompt = $("#prompt").val();
