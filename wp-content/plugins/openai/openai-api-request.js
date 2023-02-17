@@ -3,7 +3,7 @@ var file_contents = file_data.file_contents;
 // Define an array of search terms to use for the Google image search
 
 jQuery(document).ready(function($) {
-$('#gif-container').attr('src', googleImageUrl);
+$('#gif-container').attr('src', googleApiUrl);
 // Show the GIF container
 $('#gif-container').show();
 $("form.openai").submit(function(e) {
