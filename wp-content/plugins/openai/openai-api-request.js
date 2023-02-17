@@ -24,31 +24,6 @@ var data = {
 "temperature": temperature
 };
 
-var searchTerms = ["lesserafim", "aoc girl boss", "nct 127", "shinee", "aespa", "boys planet 999"];
-// Choose a random search term
-var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
-// Construct the Google image search URL using the Google Custom Search API key
-var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aaq=" + searchTerm + "&searchType=image&imgSize=medium&num=10&fileType=gif";
-// Send a request to the Google Custom Search API
-
-  $.ajax({
-      url: googleApiUrl,
-      dataType: "jsonp",
-      success: function(response) {
-        // Find the first GIF image in the search results
-        var imageUrl = "";
-        for (var i = 0; i < response.items.length; i++) {
-          if (response.items[i].mime == "image/gif") {
-            imageUrl = response.items[i].link;
-            break;
-          }
-        }
-        // Set the source of the GIF container to the image URL
-        $('#gif-container').attr('src', imageUrl);
-        // Show the GIF container
-        $('#gif-container').show();
-      },      
-    });
 $.ajax({
 type: "POST",
 url: url,
