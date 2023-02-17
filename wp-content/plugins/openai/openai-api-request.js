@@ -41,7 +41,7 @@ $.ajax({
           return item.mime == "image/gif";
       });
       // Use the first image from the filtered results
-      var imageUrl = gifResults[0].link;
+      var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
       // Set the source of the GIF container to the random image URL
       $('#gif-container').attr('src', imageUrl);
       // Show the GIF container
