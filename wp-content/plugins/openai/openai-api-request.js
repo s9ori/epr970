@@ -18,7 +18,7 @@ $("form.openai").submit(function(e) {
   
 e.preventDefault();
 // Define an array of search terms to use for the Google image search
-var searchTerms = ["lesserafim", "cardi b", "attack on titan", "blackpink", "funny memes", "shinee", "newjeans", "cute animals", "bernie sanders memes", "worldstarhipop", "nct 127", "shinee", "aespa", "boys planet 999"];
+var searchTerms = ["lesserafim", "cardi b", "attack on titan", "taemin", "tlc memes", "loona", "nyc memes", "", "blackpink", "funny memes", "shinee", "newjeans", "cute animals", "bernie sanders memes", "worldstarhipop", "nct 127", "shinee", "aespa", "boys planet 999"];
 
 // Choose a random search term
 var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
@@ -54,7 +54,7 @@ $.ajax({
           return item.mime == "image/gif";
       });
       // Use the first image from the filtered results
-      var imageUrl = gifResults[Math.floor(Math.random() * 15)].link;
+      var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
       // Set the source of the GIF container to the random image URL
       $('#gif-container').attr('src', imageUrl);
       // Show the GIF container
