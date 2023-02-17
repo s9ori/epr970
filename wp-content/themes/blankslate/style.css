@@ -402,6 +402,13 @@ textarea {
     text-transform: uppercase;
     background: pink;
     font-weight: bold;
+    transition: all 1s ease-in-out;
+}
+
+openai-input:hover {
+  background: #ffd0c7;
+  transition: all 1s ease-in-out;
+
 }
 textarea:focus {
   outline: none;
