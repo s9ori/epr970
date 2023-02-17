@@ -15,7 +15,7 @@ var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vT
 
 var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
-var model = "text-davinci-003";
+var model = "davinci:ft-personal-2023-02-17-18-44-12";
 var max_tokens = 420;
 var temperature = .8;
 var url = "https://api.openai.com/v1/completions";
