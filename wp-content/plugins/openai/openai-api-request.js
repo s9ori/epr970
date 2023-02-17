@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
 e.preventDefault();
 // Define an array of search terms to use for the Google image search
-var searchTerms = ["lesserafim", "aoc girl boss", "nct 127", "shinee", "aespa", "boys planet 999"];
+var searchTerms = ["lesserafim", "cardi b", "attack on titan", "blackpink", "funny memes", "shinee", "newjeans", "rupauls dragrace", "nct 127", "shinee", "aespa", "boys planet 999"];
 
 // Choose a random search term
 var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
@@ -17,7 +17,7 @@ var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
 var model = "text-davinci-003";
 var max_tokens = 420;
-var temperature = .78;
+var temperature = .8;
 var url = "https://api.openai.com/v1/completions";
 var cacheKey = prompt;
 var cachedResponse = localStorage.getItem(cacheKey);
@@ -27,7 +27,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Mimicing the structure, voice, and tone of these previous tweets from the Brian Lehrer Show:" + file_contents + ", give me a list of five Tweets about:" + prompt,
+"prompt": "Mimicing the structure, voice, and tone of these previous tweets from the Brian Lehrer Show:" + file_contents + ", give me a list of five Tweets that don't exceed character limit about:" + prompt,
 "max_tokens": max_tokens,
 "temperature": temperature
 };

@@ -29,7 +29,7 @@
             <div class="spinner" id="spinner04"></div>
             <div class="spinner" id="spinner05"></div>
           </div>
-         <textarea name="prompt" id="prompt" placeholder="kwangya"></textarea>
+         <textarea name="prompt" id="prompt" placeholder="topic or summary of segment"></textarea>
          <input class="openai-input" type="submit" name="submit" value="Submit">
      </form>
      <?php
