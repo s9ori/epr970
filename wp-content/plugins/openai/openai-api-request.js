@@ -40,18 +40,22 @@ $('.openai-response').css({
   });
 },
 success: function(result) {
-previousResponseArray.push(result.choices[0].text);
-localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
-var text = result.choices[0].text;
-$(".openai-response").html("<p>" + text + "</p>");
-$('#loading-container').hide();
-$('.openai').css('background', 'linear-gradient(180deg, #e4006dad 0%, #e6a600ba 100%)');
-$('label').show();
-$('#prompt').show();
-$('input').show();
-$('.openai-response').css({
-    "opacity": "1",
-    "display": "block"
+  previousResponseArray.push(result.choices[0].text);
+  localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
+  var text = result.choices[0].text;
+  // Split the response into separate tweets by looking for instances of "\n\n"
+  var tweets = text.split("\n\n");
+  // Join the tweets back together with a line break between each one
+  var formattedText = tweets.join("<br><br>");
+  $(".openai-response").html("<p>" + formattedText + "</p>");
+  $('#loading-container').hide();
+  $('.openai').css('background', 'linear-gradient(180deg, #e4006dad 0%, #e6a600ba 100%)');
+  $('label').show();
+  $('#prompt').show();
+  $('input').show();
+  $('.openai-response').css({
+      "opacity": "1",
+      "display": "block"
   });
 },
 error: function(jqXHR, textStatus, errorThrown) {
