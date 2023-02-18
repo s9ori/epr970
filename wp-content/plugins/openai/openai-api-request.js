@@ -1,10 +1,10 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
 var tense = "present tense"; // Default tense
-var previousResponseArray = [];
 
 
 jQuery(document).ready(function($) {
+  var cacheCounter = 0; // Initialize the counter
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past tense";
@@ -36,7 +36,8 @@ var model = "text-davinci-003";
 var max_tokens = 420;
 var temperature = .88;
 var url = "https://api.openai.com/v1/completions";
-var cacheKey = prompt;
+var cacheKey = prompt + '-' + cacheCounter; // Add the counter to the cache key
+cacheCounter++; // Increment the counter
 var cachedResponse = localStorage.getItem(cacheKey);
 var previousResponseArray = [];
 if (cachedResponse) {
@@ -137,10 +138,16 @@ $('.openai-response').css({
 });
 $('#rewrite-btn').click(function() {
   var input_variable = "more creative";
-  var prompt2 = previousResponseArray[previousResponseArray.length - 1];
+  var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
+  var cachedResponse = localStorage.getItem(cacheKey);
+  var prompt2 = "";
+  if (cachedResponse) {
+  var responseArray = JSON.parse(cachedResponse);
+  prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
+}
   var data2 = {
     "model": model,
-    "prompt": "Rewrite this tweet to make it " + input_variable + ": " + prompt2,
+    "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
     "max_tokens": max_tokens,
     "temperature": temperature
   };
