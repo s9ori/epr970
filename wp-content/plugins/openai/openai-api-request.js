@@ -18,7 +18,7 @@ $("form.openai").submit(function(e) {
   
 e.preventDefault();
 // Define an array of search terms to use for the Google image search
-var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "cute animals", "bernie sanders memes", "nct 127", "shinee", "aespa", "boys planet 999"];
+var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "cute animals", "bernie sanders memes", "nct 127", "aespa", "boys planet 999"];
 
 // Choose a random search term
 var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
