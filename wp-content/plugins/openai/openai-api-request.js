@@ -40,7 +40,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Mimicking the structure, voice, and tone of these previous tweets from the Brian Lehrer Show: " + file_contents + ", here is a list of five engaging Tweets in " + tense + " with less than 280 characters and about: " + prompt + ":",
+"prompt": "Mimicking the style, voice, and tone of these previous tweets from the Brian Lehrer Show: " + file_contents + ", here is a list of five engaging Tweets in " + tense + " with less than 280 characters and about: " + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
