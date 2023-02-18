@@ -40,7 +40,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Mimicking the structure, voice, and tone of these tweets from the Brian Lehrer Show: " + file_contents + ", here is a numbered list of five engaging Tweets with less than 280 characters in " + tense + " and about: " + prompt + ":",
+"prompt": "Drawing inspiration from the structure, voice, and tone of these tweets: " + file_contents + ", here is a numbered list of five engaging Tweets with less than 280 characters in " + tense + " about: " + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
@@ -54,6 +54,7 @@ beforeSend: function(xhr) {
 xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('.navis-calling').show();
 $('label').hide();
+$('.prompt-tuning').hide();
 $('#gif-container').show();
 $('#prompt').hide();
 $('.openai-input').hide();
@@ -74,6 +75,7 @@ var formattedText = tweets.join("<br>");
   $('.navis-calling').hide();
   $('label').show();
   $('#prompt').show();
+  $('.prompt-tuning').show();
   $('.openai-input').show();
   $('#gif-container').hide();
   $('.openai-response').css({
@@ -86,6 +88,7 @@ $('.navis-calling').hide();
 $('label').show();
 $('#prompt').show();
 $('#gif-container').hide();
+$('.prompt-tuning').show();
 $('.openai-input').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
 $('.openai-response').css({
