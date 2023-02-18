@@ -30,7 +30,7 @@ var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
 var model = "text-davinci-003";
 var max_tokens = 420;
-var temperature = .8;
+var temperature = .82;
 var url = "https://api.openai.com/v1/completions";
 var cacheKey = prompt;
 var cachedResponse = localStorage.getItem(cacheKey);
@@ -40,7 +40,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Drawing inspiration from the structure, voice, and tone of these tweets: " + file_contents + ", here is a numbered list of five engaging Tweets with less than 280 characters in " + tense + " about: " + prompt + ":",
+"prompt": "Drawing inspiration from the voice and style of these tweets: " + file_contents + ", here is a numbered list of five original Tweets with less than 280 characters in " + tense + " about: " + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
