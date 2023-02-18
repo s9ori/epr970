@@ -46,24 +46,6 @@ var data = {
 };
 
 $.ajax({
-  url: "https://api.giphy.com/v1/gifs/random",
-  data: {
-      api_key: "rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw",
-      tag: "kpop"
-  },
-  success: function(response) {
-      var gifUrl = response.data.image_url;
-      // Set the source of the GIF container to the Giphy URL
-      $('#gif-container').attr('src', gifUrl);
-      // Show the GIF container
-      $('#gif-container').show();
-  },
-  error: function(xhr, status, error) {
-      console.log("Error: " + error);
-  }
-});
-
-$.ajax({
 type: "POST",
 url: url,
 data: JSON.stringify(data),
@@ -115,6 +97,22 @@ $('.openai-response').css({
   });
 }
 });
+
+$.ajax({
+  url: "https://api.giphy.com/v1/gifs/random",
+  data: {
+      api_key: "rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw",
+      tag: "kpop"
+  },
+  success: function(response) {
+      var imageUrl = response.data.image_url;
+      // Set the source of the GIF container to the Giphy URL
+      $('#gif-container').attr('src', imageUrl);
+      // Show the GIF container
+      $('#gif-container').show();
+  },
+});
+
 
 });
 });
