@@ -102,12 +102,11 @@ $.ajax({
   url: googleApiUrl,
   dataType: "jsonp",
   success: function(response) {
+    if (gifResults && gifResults.length) {
       // Filter the response to only include GIFs
       var gifResults = response.items.filter(function(item) {
           return item.mime == "image/gif";
       });
-
-      if (gifResults && gifResults.length) {
         // Use the first image from the filtered results
         var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
         // Set the source of the GIF container to the random image URL
