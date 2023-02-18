@@ -46,23 +46,6 @@ var data = {
 };
 
 $.ajax({
-  url: googleApiUrl,
-  dataType: "jsonp",
-  success: function(response) {
-      // Filter the response to only include GIFs
-      var gifResults = response.items.filter(function(item) {
-          return item.mime == "image/gif";
-      });
-      // Use the first image from the filtered results
-      var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
-      // Set the source of the GIF container to the random image URL
-      $('#gif-container').attr('src', imageUrl);
-      // Show the GIF container
-      $('#gif-container').show();
-  },
-});
-
-$.ajax({
 type: "POST",
 url: url,
 data: JSON.stringify(data),
@@ -111,5 +94,23 @@ $('.openai-response').css({
   });
 }
 });
+
+$.ajax({
+  url: googleApiUrl,
+  dataType: "jsonp",
+  success: function(response) {
+      // Filter the response to only include GIFs
+      var gifResults = response.items.filter(function(item) {
+          return item.mime == "image/gif";
+      });
+      // Use the first image from the filtered results
+      var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
+      // Set the source of the GIF container to the random image URL
+      $('#gif-container').attr('src', imageUrl);
+      // Show the GIF container
+      $('#gif-container').show();
+  },
+});
+
 });
 });
