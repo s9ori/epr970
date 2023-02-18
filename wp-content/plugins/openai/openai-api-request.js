@@ -203,6 +203,7 @@ $('#rewrite-btn').click(function() {
       });
     }
   });
+  return false; // Prevent default action of button
 });
 });
 });
