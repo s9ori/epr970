@@ -107,14 +107,14 @@ $.ajax({
           return item.mime == "image/gif";
       });
 
-      if (gifResults.length > 0) {
-          // Use the first image from the filtered results
-          var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
-          // Set the source of the GIF container to the random image URL
-          $('#gif-container').attr('src', imageUrl);
-          // Show the GIF container
-          $('#gif-container').show();
-      } else {
+      if (gifResults && gifResults.length) {
+        // Use the first image from the filtered results
+        var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
+        // Set the source of the GIF container to the random image URL
+        $('#gif-container').attr('src', imageUrl);
+        // Show the GIF container
+        $('#gif-container').show();
+    } else {
           // If the Google Custom Search API doesn't return any GIFs, make a request to the Giphy API
           $.ajax({
               url: "https://api.giphy.com/v1/gifs/random",
