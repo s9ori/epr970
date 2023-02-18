@@ -19,6 +19,7 @@ $("form.openai").submit(function(e) {
   });
   
 e.preventDefault();
+e.stopPropagation(); // Prevent event propagation
 // Define an array of search terms to use for the Google image search
 var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "cute animals", "bernie sanders memes", "nct 127", "aespa", "boys planet 999"];
 
