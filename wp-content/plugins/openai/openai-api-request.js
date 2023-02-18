@@ -135,6 +135,7 @@ $('.openai-response').css({
   });
 }
 });
+});
 $('#rewrite-btn').click(function() {
   var input_variable = "more creative";
   var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
@@ -202,6 +203,5 @@ $('#rewrite-btn').click(function() {
       });
     }
   });
-});
 });
 });
