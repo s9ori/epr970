@@ -137,6 +137,11 @@ $('.openai-response').css({
 });
 });
 $('#rewrite-btn').click(function() {
+var api_key = openai_data.api_key;
+var model = "text-davinci-003";
+var max_tokens = 420;
+var temperature = .88;
+var url = "https://api.openai.com/v1/completions";
   var input_variable = "more creative";
   var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
   var cachedResponse = localStorage.getItem(cacheKey);
