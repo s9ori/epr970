@@ -72,6 +72,9 @@ xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('.navis-calling').show();
 $('label').hide();
 $('#gif-container').show();
+$('#future-tense-btn').hide();
+$('#present-tense-bt').hide();
+$('#past-tense-btn').hide();
 $('#prompt').hide();
 $('.openai-input').hide();
 $('.openai-response').css({
@@ -92,6 +95,9 @@ var formattedText = tweets.join("<br>");
   $('label').show();
   $('#prompt').show();
   $('.openai-input').show();
+  $('#future-tense-btn').show();
+  $('#present-tense-bt').show();
+  $('#past-tense-btn').show();
   $('#gif-container').hide();
   $('.openai-response').css({
       "opacity": "1",
@@ -102,6 +108,9 @@ error: function(jqXHR, textStatus, errorThrown) {
 $('.navis-calling').hide();
 $('label').show();
 $('#prompt').show();
+$('#future-tense-btn').show();
+$('#present-tense-bt').show();
+$('#past-tense-btn').show();
 $('#gif-container').hide();
 $('.openai-input').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
