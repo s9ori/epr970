@@ -49,15 +49,18 @@ $.ajax({
   url: googleApiUrl,
   dataType: "jsonp",
   success: function(response) {
-      // Use the first image from the results
-      var imageUrl = response.items[Math.floor(Math.random() * response.items.length)].link;
+      // Filter the response to only include GIFs
+      var gifResults = response.items.filter(function(item) {
+          return item.mime == "image/gif";
+      });
+      // Use the first image from the filtered results
+      var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
       // Set the source of the GIF container to the random image URL
       $('#gif-container').attr('src', imageUrl);
       // Show the GIF container
       $('#gif-container').show();
   },
 });
-
 
 $.ajax({
 type: "POST",
@@ -69,9 +72,6 @@ xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('.navis-calling').show();
 $('label').hide();
 $('#gif-container').show();
-$('#future-tense-btn').hide();
-$('#present-tense-bt').hide();
-$('#past-tense-btn').hide();
 $('#prompt').hide();
 $('.openai-input').hide();
 $('.openai-response').css({
@@ -92,9 +92,6 @@ var formattedText = tweets.join("<br>");
   $('label').show();
   $('#prompt').show();
   $('.openai-input').show();
-  $('#future-tense-btn').show();
-  $('#present-tense-bt').show();
-  $('#past-tense-btn').show();
   $('#gif-container').hide();
   $('.openai-response').css({
       "opacity": "1",
@@ -105,9 +102,6 @@ error: function(jqXHR, textStatus, errorThrown) {
 $('.navis-calling').hide();
 $('label').show();
 $('#prompt').show();
-$('#future-tense-btn').show();
-$('#present-tense-bt').show();
-$('#past-tense-btn').show();
 $('#gif-container').hide();
 $('.openai-input').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
