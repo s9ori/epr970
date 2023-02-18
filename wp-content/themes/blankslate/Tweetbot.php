@@ -1,7 +1,9 @@
 <?php
 /*
-Template Name: Saori Uchida tweetbot EPR970
+Template Name: Saori Uchida Homepage EPR970
 */
+
+get_header();
 ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
