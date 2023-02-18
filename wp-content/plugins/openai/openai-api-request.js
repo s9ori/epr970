@@ -25,6 +25,8 @@ var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
 
 // Construct the Google image search URL using the Google Custom Search API key
 var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aa&searchType=image&imgSize=medium&num=10&fileType=gif&q=" + searchTerm;
+// Construct the Giphy API URL
+var giphyApiUrl = "https://api.giphy.com/v1/gifs/random?api_key=rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw&tag=" + searchTerm + "&rating=pg-13";
 
 var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
@@ -45,21 +47,19 @@ var data = {
 "temperature": temperature
 };
 
+// Make a call to the Giphy API to retrieve a random GIF
 $.ajax({
-  url: "https://api.giphy.com/v1/gifs/random",
-  data: {
-      api_key: "rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw",
-      limit: 1,
-      tag: "kpop",
-      rating: "pg-13"
-  },
+  url: giphyApiUrl,
   success: function(response) {
-      var imageUrl = response.data[0].images.original.url;
-      // Set the source of the GIF container to the Giphy URL
-      $('#gif-container').attr('src', imageUrl);
-      // Show the GIF container
-      $('#gif-container').show();
+    var imageUrl = response.data.images.original.url;
+    // Set the source of the GIF container to the Giphy URL
+    $('#gif-container').attr('src', imageUrl);
+    // Show the GIF container
+    $('#gif-container').show();
   },
+  error: function() {
+    // Handle errors
+  }
 });
 
 $.ajax({
