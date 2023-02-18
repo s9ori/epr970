@@ -46,6 +46,24 @@ var data = {
 };
 
 $.ajax({
+  url: "https://api.giphy.com/v1/gifs/random",
+  data: {
+      api_key: "rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw",
+      tag: "kpop"
+  },
+  success: function(response) {
+      var gifUrl = response.data.image_url;
+      // Set the source of the GIF container to the Giphy URL
+      $('#gif-container').attr('src', gifUrl);
+      // Show the GIF container
+      $('#gif-container').show();
+  },
+  error: function(xhr, status, error) {
+      console.log("Error: " + error);
+  }
+});
+
+$.ajax({
 type: "POST",
 url: url,
 data: JSON.stringify(data),
@@ -97,65 +115,6 @@ $('.openai-response').css({
   });
 }
 });
-
-$.ajax({
-  url: googleApiUrl,
-  dataType: "jsonp",
-  success: function(response) {
-    if (gifResults && gifResults.length) {
-      // Filter the response to only include GIFs
-      var gifResults = response.items.filter(function(item) {
-          return item.mime == "image/gif";
-      });
-        // Use the first image from the filtered results
-        var imageUrl = gifResults[Math.floor(Math.random() * 10)].link;
-        // Set the source of the GIF container to the random image URL
-        $('#gif-container').attr('src', imageUrl);
-        // Show the GIF container
-        $('#gif-container').show();
-    } else {
-          // If the Google Custom Search API doesn't return any GIFs, make a request to the Giphy API
-          $.ajax({
-              url: "https://api.giphy.com/v1/gifs/random",
-              data: {
-                  api_key: "rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw",
-                  tag: "kpop"
-              },
-              success: function(response) {
-                  var gifUrl = response.data.image_url;
-                  // Set the source of the GIF container to the Giphy URL
-                  $('#gif-container').attr('src', gifUrl);
-                  // Show the GIF container
-                  $('#gif-container').show();
-              },
-              error: function(xhr, status, error) {
-                  console.log("Error: " + error);
-              }
-          });
-      }
-  },
-  error: function(xhr, status, error) {
-      // If there is an error with the Google Custom Search API, make a request to the Giphy API
-      $.ajax({
-          url: "https://api.giphy.com/v1/gifs/random",
-          data: {
-              api_key: "rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw",
-              tag: "kpop"
-          },
-          success: function(response) {
-              var gifUrl = response.data.image_url;
-              // Set the source of the GIF container to the Giphy URL
-              $('#gif-container').attr('src', gifUrl);
-              // Show the GIF container
-              $('#gif-container').show();
-          },
-          error: function(xhr, status, error) {
-              console.log("Error: " + error);
-          }
-      });
-  }
-});
-
 
 });
 });
