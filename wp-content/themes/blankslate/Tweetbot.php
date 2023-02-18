@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Saori Uchida Homepage EPR970
+Template Name: Saori Uchida tweetbot EPR970
 */
 ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
