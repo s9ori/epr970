@@ -23,9 +23,9 @@
      ?>
      <form class="openai" action="#" method="post">
          <textarea name="prompt" id="prompt" placeholder="topic or summary of segment"></textarea>
-         <button class="openai-input" id="past-tense-btn">Past</button>
-<button class="openai-input" id="present-tense-btn">Present</button>
-<button class="openai-input" id="future-tense-btn">Future</button>
+         <button id="past-tense-btn">Past</button>
+<button id="present-tense-btn">Present</button>
+<button id="future-tense-btn">Future</button>
      </form>
      <?php
      return ob_get_clean();
