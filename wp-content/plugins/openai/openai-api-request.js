@@ -119,8 +119,8 @@ $.ajax({
           $.ajax({
               url: "https://api.giphy.com/v1/gifs/random",
               data: {
-                  api_key: "YOUR_API_KEY",
-                  tag: "TAG_NAME"
+                  api_key: "rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw",
+                  tag: "kpop"
               },
               success: function(response) {
                   var gifUrl = response.data.image_url;
