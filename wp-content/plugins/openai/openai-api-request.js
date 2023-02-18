@@ -18,7 +18,7 @@ $("form.openai").submit(function(e) {
   
 e.preventDefault();
 // Define an array of search terms to use for the Google image search
-var searchTerms = ["lesserafim", "succession funny", "taemin", "kpop memes", "loona", "nct dream", "blackpink", "shinee kpop", "newjeans", "cute animals", "bernie sanders memes", "nct 127", "shinee", "aespa", "boys planet 999"];
+var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "cute animals", "bernie sanders memes", "nct 127", "shinee", "aespa", "boys planet 999"];
 
 // Choose a random search term
 var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
@@ -132,5 +132,67 @@ $('.openai-response').css({
   });
 }
 });
+});
+$('#rewrite-btn').click(function() {
+  var input_variable = "more creative";
+  var prompt2 = previousResponseArray[previousResponseArray.length - 1];
+  var data2 = {
+    "model": model,
+    "prompt": "Rewrite this tweet to make it " + input_variable + ": " + prompt2,
+    "max_tokens": max_tokens,
+    "temperature": temperature
+  };
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: JSON.stringify(data2),
+    contentType: "application/json",
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader("Authorization", "Bearer " + api_key);
+      $('.navis-calling').show();
+      $('label').hide();
+      $('.prompt-tuning').hide();
+      $('#gif-container').show();
+      $('#prompt').hide();
+      $('.openai-input').hide();
+      $('.openai-response').css({
+          "opacity": "0",
+          "display": "none"
+      });
+    },
+    success: function(result) {
+      previousResponseArray.push(result.choices[0].text);
+      localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
+      var text = result.choices[0].text;
+      // Split the response into separate tweets by looking for instances of "\n\n"
+      var tweets = text.split("\n");
+      // Join the tweets back together with a line break between each one
+      var formattedText = tweets.join("<br>");
+      $(".openai-response").html("<p>" + formattedText + "</p>");
+      $('.navis-calling').hide();
+      $('label').show();
+      $('#prompt').show();
+      $('.prompt-tuning').show();
+      $('.openai-input').show();
+      $('#gif-container').hide();
+      $('.openai-response').css({
+          "opacity": "1",
+          "display": "block"
+      });
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      $('.navis-calling').hide();
+      $('label').show();
+      $('#prompt').show();
+      $('#gif-container').hide();
+      $('.prompt-tuning').show();
+      $('.openai-input').show();
+      $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
+      $('.openai-response').css({
+          "opacity": "1",
+          "display": "block"
+      });
+    }
+  });
 });
 });
