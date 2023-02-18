@@ -146,10 +146,10 @@ $('#rewrite-btn').click(function() {
   prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
 }
   var data2 = {
-    "model": model,
+    "model": "text-davinci-003",
     "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
-    "max_tokens": max_tokens,
-    "temperature": temperature
+    "max_tokens": 420,
+    "temperature": .88
   };
   $.ajax({
     type: "POST",
