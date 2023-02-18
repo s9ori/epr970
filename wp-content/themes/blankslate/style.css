@@ -514,7 +514,8 @@ article .entry-content {
 }
 
 textarea {
-  width: 100%
+  width: 100%;
+  resize: none
 }
 
 .latest-post-block-container {
