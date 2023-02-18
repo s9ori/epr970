@@ -1,7 +1,18 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
 var tense = "present tense"; // Default tense
-
+var api_key = openai_data.api_key;
+var model = "text-davinci-003";
+var max_tokens = 420;
+var temperature = .88;
+var url = "https://api.openai.com/v1/completions";
+var cacheKey = prompt + '-' + cacheCounter; // Add the counter to the cache key
+cacheCounter++; // Increment the counter
+var cachedResponse = localStorage.getItem(cacheKey);
+var previousResponseArray = [];
+if (cachedResponse) {
+previousResponseArray = JSON.parse(cachedResponse);
+}
 
 jQuery(document).ready(function($) {
   var cacheCounter = 0; // Initialize the counter
@@ -31,18 +42,6 @@ var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vT
 var giphyApiUrl = "https://api.giphy.com/v1/gifs/random?api_key=rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw&tag=" + searchTerm + "&rating=pg-13";
 
 var prompt = $("#prompt").val();
-var api_key = openai_data.api_key;
-var model = "text-davinci-003";
-var max_tokens = 420;
-var temperature = .88;
-var url = "https://api.openai.com/v1/completions";
-var cacheKey = prompt + '-' + cacheCounter; // Add the counter to the cache key
-cacheCounter++; // Increment the counter
-var cachedResponse = localStorage.getItem(cacheKey);
-var previousResponseArray = [];
-if (cachedResponse) {
-previousResponseArray = JSON.parse(cachedResponse);
-}
 var data = {
 "model": model,
 "prompt": "Inspired by the voice and style of these tweets: " + file_contents + ", here is a numbered list of five original Tweets with less than 280 characters in " + tense + " about: " + prompt + ":",
@@ -137,11 +136,6 @@ $('.openai-response').css({
 });
 });
 $('#rewrite-btn').click(function() {
-var api_key = openai_data.api_key;
-var model = "text-davinci-003";
-var max_tokens = 420;
-var temperature = .88;
-var url = "https://api.openai.com/v1/completions";
   var input_variable = "more creative";
   var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
   var cachedResponse = localStorage.getItem(cacheKey);
