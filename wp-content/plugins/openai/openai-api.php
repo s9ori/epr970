@@ -28,6 +28,7 @@
 <button id="present-tense-btn">Present</button>
 <button id="future-tense-btn">Future</button>
  </div>
+ <button id="rewrite-btn">Rewrite</button>
      </form>
      <?php
      return ob_get_clean();
