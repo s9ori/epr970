@@ -40,7 +40,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Drawing inspiration from the voice and style of these tweets: " + file_contents + ", here is a numbered list of five original Tweets with less than 280 characters in " + tense + " about: " + prompt + ":",
+"prompt": "Inspired by the voice and style of these tweets: " + file_contents + ", here is a numbered list of five original Tweets with less than 280 characters in " + tense + " about: " + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
