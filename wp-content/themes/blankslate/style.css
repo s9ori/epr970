@@ -394,7 +394,7 @@ font-style: normal !important;
   display: block;
   gap: 20px;
   flex-direction: row;
-  flex-wrap: nowrap
+  flex-wrap: wrap
 }
 
 @media screen and (max-width: 1000px) {
