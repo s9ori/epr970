@@ -1,6 +1,7 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
 var tense = "live segment"; // Default tense
+var whatTense = "present tense";
 var previousResponseArray = [];
 const textarea = document.getElementById("prompt");
 
