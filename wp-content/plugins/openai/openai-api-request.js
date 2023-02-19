@@ -27,7 +27,9 @@ jQuery(document).ready(function($) {
       buttons.prop('disabled', true);
     }
   });
-  
+
+$("#prompt").focus();
+
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past segment";
