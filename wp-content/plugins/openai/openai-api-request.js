@@ -56,10 +56,10 @@ $.ajax({
   url: googleApiUrl,
   dataType: "jsonp",
   success: function(response) {
+    if (gifResults.length < 1) {
     var gifResults = response.items.filter(function(item) {
       return item.mime == "image/gif";
     });
-    if (gifResults.length < 1) {
       // Trigger the error function to fallback to Giphy API
       this.error();
     } else {
