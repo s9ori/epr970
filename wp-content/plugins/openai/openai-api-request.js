@@ -126,6 +126,7 @@ xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('.navis-calling').show();
 $('label').hide();
 $('.prompt-tuning').hide();
+$('.rewrites').hide();
 $('.input-btn').hide();
 $('.texted').hide();
 $('.input-btn').hide();
@@ -164,6 +165,7 @@ success: function(result) {
   $('label').show();
   $('#prompt').show();
   $('.prompt-tuning').show();
+  $('.rewrites').show();
   $('.input-btn').show();
   $('.openai-input').show();
   $('.texted').show();
@@ -179,6 +181,7 @@ $('.navis-calling').hide();
 $('label').show();
 $('#prompt').show();
 $('#gif-container').hide();
+$('.rewrites').hide();
 $('.prompt-tuning').show();
 $('.input-btn').show();
 $('.openai-input').show();
@@ -228,6 +231,7 @@ function runRewrite(inputVariable) {
         xhr.setRequestHeader("Authorization", "Bearer " + api_key);
         $('.navis-calling').show();
         $('label').hide();
+        $('.rewrites').hide();
         $('.prompt-tuning').hide();       
         $('.input-btn').hide();
         $('.texted').hide();
@@ -266,6 +270,7 @@ function runRewrite(inputVariable) {
   $(".tweet:empty").css("display", "none");
   $('.navis-calling').hide();
         $('label').show();
+        $('.rewrites').show();
         $('#prompt').show();
         $('.prompt-tuning').show();
         $('.texted').show();
@@ -285,6 +290,7 @@ function runRewrite(inputVariable) {
         $('.texted').show();
         $('.input-btn').show();
         $('#gif-container').hide();
+        $('.rewrites').hide();
         $('.prompt-tuning').show();
         $('.input-btn').show();
         $('.openai-input').show();
