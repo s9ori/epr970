@@ -32,7 +32,7 @@ $("form.openai").submit(function(e) {
   
 e.preventDefault();
 // Define an array of search terms to use for the Google image search
-var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "cute animals", "bernie sanders memes", "nct 127", "" , "aespa", "boys planet 999"];
+var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "nct 127", "aespa", "boys planet 999"];
 
 // Choose a random search term
 var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
@@ -57,7 +57,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a list of five original Tweets in" + whatTense + "with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
+"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a list of five original Tweets in " + whatTense + " with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
