@@ -33,6 +33,7 @@ header {
   gap: 25px;
   flex-direction: row;
   align-items: stretch;
+  justify-content: center;
 }
 
 figcaption {
