@@ -251,6 +251,10 @@ color: black;
   flex: 1;
 }
 
+#search {
+  display: none;
+}
+
 .tweet {
   padding: 15px;
   border: 1px solid #000000;
