@@ -53,7 +53,7 @@ article {
   display: block;
 }
 .logo {
-  max-width: 60%;
+  max-width: 200px;
 }
 
 body.home .entry-basics {
@@ -232,8 +232,8 @@ color: black;
 #branding {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-end;
+  justify-content: center;
   background-color: #f2f2f2;
   width: 100%;
   height: 100%;
