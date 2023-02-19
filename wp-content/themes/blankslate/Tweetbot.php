@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Saori Uchida Homepage EPR970
+Template Name: Saori Uchida Twitbot EPR970
 */
 
 get_header();
