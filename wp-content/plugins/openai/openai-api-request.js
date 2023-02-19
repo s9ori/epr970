@@ -4,6 +4,7 @@ var tense = "present tense"; // Default tense
 
 
 jQuery(document).ready(function($) {
+  var cacheCounter = 0; // Initialize the counter
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past tense";
