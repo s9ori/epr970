@@ -275,7 +275,9 @@ color: black;
   font-weight: 300;
 }
 
-
+.footer-s9ori {
+  font-family: "bitcount-mono-single-circle", sans-serif !important;
+}
 .wp-block-spotify:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
   transition: all 0.5s;
