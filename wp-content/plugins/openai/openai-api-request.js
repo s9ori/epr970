@@ -169,7 +169,7 @@ $('.openai-response').css({
 });
 });
  $('#rewrite-btn').click(function() {
-    var input_variable = "more creative";
+    var input_variable = "slightly more creative";
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
     var prompt2 = "";
     var api_key = openai_data.api_key;
