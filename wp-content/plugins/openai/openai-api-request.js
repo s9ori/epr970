@@ -70,7 +70,7 @@ $.ajax({
         $('#gif-container').show();
       } else {
         // No GIF images found in Google search results
-        console.log("No GIF images found in Google search results.");
+        this.error();
       }
     }
   },
@@ -181,7 +181,7 @@ $('.openai-response').css({
 
     var data2 = {
       "model": model,
-      "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
+      "prompt": "Rewrite this list of five tweets from the Brian Lehrer Show to make them " + input_variable + ": " + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
