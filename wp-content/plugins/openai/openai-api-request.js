@@ -16,14 +16,17 @@ jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past segment";
+    whatTense ="past tense"
   });
   
   $('#present-tense-btn').click(function() {
     tense = "live segment";
+    whatTense ="present tense"
   });
 
   $('#future-tense-btn').click(function() {
     tense = "upcoming segment";
+    whatTense ="future tense"
   });
   
 e.preventDefault();
@@ -53,7 +56,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a list of five original Tweets with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
+"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a list of five original Tweets in" + whatTense + "with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
