@@ -24,9 +24,11 @@
      <form class="openai" action="#" method="post">
          <textarea name="prompt" id="prompt" placeholder="topic or summary of segment"></textarea>
 
-<div class="prompt-tuning"> <button id="past-tense-btn">Past</button>
-<button id="present-tense-btn">Present</button>
-<button id="future-tense-btn">Future</button>
+<div class="prompt-tuning">
+<h2 class="segment">segment is:<h2>
+<button id="past-tense-btn">Past</button>
+<button id="present-tense-btn">Live</button>
+<button id="future-tense-btn">Upcoming</button>
  </div>
      </form>
      <?php
