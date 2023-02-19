@@ -480,13 +480,15 @@ textarea:focus {
 
 .input-btn {
   transition: all 0.2s ease-in-out;
-  text-transform: lowercase;
-  border: 1px solid black;
   font-family: 'bitcount-mono-single-circle';
   font-weight: 600;
   background: #a0d8ee;
-  font-size: 18px;
-  padding: 8px;
+  padding: 10px;
+  text-transform: uppercase;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
 }
 .latest-post-block img, .latest-post-block__featured-image-container {
   border-radius: 0 !important;
