@@ -28,7 +28,7 @@ var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink
 var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
 
 // Construct the Google image search URL using the Google Custom Search API key
-var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aa&searchType=image&imgSize=medium&num=10&fileType=gif&q=" + searchTerm;
+var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aa&searchType=image&imgSize=medium&num=20&fileType=gif&q=" + searchTerm;
 // Construct the Giphy API URL
 var giphyApiUrl = "https://api.giphy.com/v1/gifs/random?api_key=rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw&tag=" + searchTerm + "&rating=pg-13";
 
