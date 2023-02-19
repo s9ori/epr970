@@ -300,6 +300,12 @@ span[class$="img"]:hover {
   gap: 5px;
   margin-top: 15px;
 }
+
+.prompt-tuning {
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
 .tab {
   position: absolute;
   top: 5px;
