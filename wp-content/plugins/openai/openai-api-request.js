@@ -73,7 +73,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a list of five original Tweets in " + whatTense + " with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
+"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a numbereed list of five original Tweets in " + whatTense + " with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
