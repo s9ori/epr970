@@ -11,6 +11,11 @@ jQuery(document).ready(function($) {
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
     var cachedResponse = localStorage.getItem(cacheKey);
     var prompt2 = "";
+    var api_key = openai_data.api_key;
+    var model = "text-davinci-003";
+    var max_tokens = 420;
+    var temperature = .88;
+    var url = "https://api.openai.com/v1/completions";
 
     if (cachedResponse) {
       var responseArray = JSON.parse(cachedResponse);
