@@ -396,7 +396,7 @@ textarea {
   line-height: 1.5em;
 }
 
-.openai-input, #future-tense-btn, #present-tense-btn, #past-tense-btn {
+.openai-input, #future-tense-btn, #present-tense-btn, #past-tense-btn, #rewrite-btn {
   padding: 10px;
     text-transform: uppercase;
     background: pink;
@@ -422,6 +422,11 @@ textarea {
 textarea:focus {
   outline: none;
   resize: none
+}
+
+#rewrite-btn:hover {
+  background: rgb(252, 159, 141);
+  transition: all 0.2s ease-in-out; 
 }
 
 @media screen and (min-width: 600px){
