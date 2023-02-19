@@ -200,6 +200,9 @@ $('#rewrite-btn').click(function() {
           "opacity": "1",
           "display": "block"
       });
+    },
+    complete: function() {
+      cacheCounter = 1; // Set the counter back to 1 after the rewrite request is completed
     }
   });
 });
