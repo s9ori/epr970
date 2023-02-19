@@ -2,7 +2,7 @@
 <?php get_sidebar(); ?>
 </div>
 <footer id="footer" role="contentinfo">
-<a class="footer-s9ori" href="https://github.com/">by s9ori ♥︎</a>
+<a class="footer-s9ori" href="https://github.com/">by s ♥︎</a>
 </div>
 </footer>
 </div>
