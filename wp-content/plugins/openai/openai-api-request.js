@@ -136,7 +136,7 @@ $('.openai-response').css({
   });
 }
 });
-$('#rewrite-btn').off('click').on('click', function() {
+$('#rewrite-btn').click(function() {
   var input_variable = "more creative";
   var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
   var cachedResponse = localStorage.getItem(cacheKey);
@@ -204,5 +204,6 @@ $('#rewrite-btn').off('click').on('click', function() {
     }
   });
 });
+$("form.openai").off("submit");
 });
 });
