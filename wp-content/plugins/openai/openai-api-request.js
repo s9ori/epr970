@@ -1,7 +1,7 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
 var tense = "present tense"; // Default tense
-
+var lastCacheKey = "";
 
 jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
