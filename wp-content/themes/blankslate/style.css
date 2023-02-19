@@ -32,7 +32,6 @@ header {
   gap: 25px;
   flex-direction: row;
   align-items: stretch;
-  justify-content: space-between;
 }
 
 figcaption {
@@ -50,10 +49,7 @@ body.post-template-default #content {
 }
 
 article {
-  display: flex;
-  flex-direction: column;
-  max-height: 100vh;
-  overflow: scroll;
+  display: block;
 }
 .logo {
   max-width: 60%;
@@ -67,8 +63,6 @@ body.post-template-default article {
   z-index: 100; /* Add a higher z-index */
 display: flex;
   flex-direction: column;
-  max-height: 99vh;
-  overflow: scroll;
   padding: 25px;
   width: 100%;
   color: black;
@@ -320,7 +314,7 @@ transition: background-color .5s ease-in-out;
   flex-wrap: wrap;
   width: 100%;
   background: f2f2f2;
-  overflow: scroll;
+  overflow: auto;
   padding: 25px;
   box-shadow: 0px #ffffff00;
   transition: opacity 0.5s, transform 1s ease-in-out, box-shadow 0.5s;
