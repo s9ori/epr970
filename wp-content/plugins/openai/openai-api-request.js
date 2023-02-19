@@ -209,6 +209,11 @@ $('#serious-btn').click(function() {
   runRewrite(inputVariable);
 });
 
+$('#longer-btn').click(function() {
+  var inputVariable = "slightly longer and more descriptive but still less than 280 characters";
+  runRewrite(inputVariable);
+});
+
 function runRewrite(inputVariable) {
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
     var prompt2 = "";
