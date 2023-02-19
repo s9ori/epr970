@@ -13,7 +13,21 @@ textarea.addEventListener("input", () => {
 
 jQuery(document).ready(function($) {
   var cacheCounter = 0; // Initialize the counter
-
+  var buttons = $('#past-tense-btn, #present-tense-btn, #future-tense-btn');
+  buttons.prop('disabled', true);
+  
+  // Listen for text input event on the prompt textarea
+  $('#prompt').on('input', function() {
+    var prompt = $(this).val();
+    
+    // Enable/disable buttons based on the prompt length
+    if (prompt.trim().length > 0) {
+      buttons.prop('disabled', false);
+    } else {
+      buttons.prop('disabled', true);
+    }
+  });
+  
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past segment";
