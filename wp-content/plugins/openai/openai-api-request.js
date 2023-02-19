@@ -4,8 +4,7 @@ var tense = "present tense"; // Default tense
 
 
 jQuery(document).ready(function($) {
-  var cacheCounter = 0; // Initialize the counter
-$("form.openai").off().submit(function(e) {
+$("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past tense";
   });
@@ -19,7 +18,6 @@ $("form.openai").off().submit(function(e) {
   });
   
 e.preventDefault();
-e.stopPropagation(); // Prevent event propagation
 // Define an array of search terms to use for the Google image search
 var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "cute animals", "bernie sanders memes", "nct 127", "aespa", "boys planet 999"];
 
@@ -137,14 +135,18 @@ $('.openai-response').css({
 }
 });
 $('#rewrite-btn').click(function() {
-  var input_variable = "more creative";
-  var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
-  var cachedResponse = localStorage.getItem(cacheKey);
-  var prompt2 = "";
-  if (cachedResponse) {
-  var responseArray = JSON.parse(cachedResponse);
-  prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
-}
+  $('#rewrite-btn').click(function() {
+    var input_variable = "more creative";
+    var prompt2 = "";
+    var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
+    var cachedResponse = localStorage.getItem(cacheKey);
+    if (cachedResponse) {
+      var responseArray = JSON.parse(cachedResponse);
+      var previousResponse = responseArray[responseArray.length - 1]; // Get the last response from the array
+      prompt2 = previousResponse.split("\n").map(function(tweet) {
+        return tweet.trim(); // Remove any leading or trailing whitespace from the tweet
+      }).join(" "); // Join the tweets back together into a single string
+    }
   var data2 = {
     "model": model,
     "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
@@ -203,7 +205,6 @@ $('#rewrite-btn').click(function() {
       });
     }
   });
-  return false; // Prevent default action of button
 });
 });
 });
