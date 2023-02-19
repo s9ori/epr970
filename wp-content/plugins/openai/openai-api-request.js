@@ -29,14 +29,14 @@ var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
 var googleApiUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBJaO4vTUyyMacfdgK7Z2OoMRqNwfNQX1g&cx=b225efb1ed80c47aa&searchType=image&imgSize=medium&num=10&fileType=gif&q=" + searchTerm;
 // Construct the Giphy API URL
 var giphyApiUrl = "https://api.giphy.com/v1/gifs/random?api_key=rK1WsAXKWR1WXJMM5ODZdM3VNvhLWVxw&tag=" + searchTerm + "&rating=pg-13";
-var cacheCounter = 0; // reinitialize the counter
+
 var prompt = $("#prompt").val();
 var api_key = openai_data.api_key;
 var model = "text-davinci-003";
 var max_tokens = 420;
 var temperature = .88;
 var url = "https://api.openai.com/v1/completions";
-var cacheKey = prompt + '-' + cacheCounter; // Add the counter to the cache key
+var cacheKey = prompt; // Only use the prompt to construct the cache key
 cacheCounter++; // Increment the counter
 var cachedResponse = localStorage.getItem(cacheKey);
 var previousResponseArray = [];
@@ -137,7 +137,7 @@ $('.openai-response').css({
 });
 $('#rewrite-btn').click(function() {
   var input_variable = "more creative";
-  var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
+  var cacheKey = $('#prompt').val();
   var cachedResponse = localStorage.getItem(cacheKey);
   var prompt2 = "";
   if (cachedResponse) {
