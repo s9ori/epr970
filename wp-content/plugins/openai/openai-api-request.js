@@ -5,7 +5,76 @@ var tense = "present tense"; // Default tense
 
 jQuery(document).ready(function($) {
   var cacheCounter = 0; // Initialize the counter
-  $("form.openai").one("submit", function(e) {
+  $('#rewrite-btn').click(function() {
+    var input_variable = "more creative";
+    var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
+    var cachedResponse = localStorage.getItem(cacheKey);
+    var prompt2 = "";
+    if (cachedResponse) {
+    var responseArray = JSON.parse(cachedResponse);
+    prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
+  }
+    var data2 = {
+      "model": model,
+      "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
+      "max_tokens": max_tokens,
+      "temperature": temperature
+    };
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: JSON.stringify(data2),
+      contentType: "application/json",
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + api_key);
+        $('.navis-calling').show();
+        $('label').hide();
+        $('.prompt-tuning').hide();
+        $('#gif-container').show();
+        $('#prompt').hide();
+        $('.openai-input').hide();
+        $('.openai-response').css({
+            "opacity": "0",
+            "display": "none"
+        });
+      },
+      success: function(result) {
+        previousResponseArray.push(result.choices[0].text);
+        localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
+        var text = result.choices[0].text;
+        // Split the response into separate tweets by looking for instances of "\n\n"
+        var tweets = text.split("\n");
+        // Join the tweets back together with a line break between each one
+        var formattedText = tweets.join("<br>");
+        $(".openai-response").html("<p>" + formattedText + "</p>");
+        $('.navis-calling').hide();
+        $('label').show();
+        $('#prompt').show();
+        $('.prompt-tuning').show();
+        $('.openai-input').show();
+        $('#gif-container').hide();
+        $('.openai-response').css({
+            "opacity": "1",
+            "display": "block"
+        });
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        $('.navis-calling').hide();
+        $('label').show();
+        $('#prompt').show();
+        $('#gif-container').hide();
+        $('.prompt-tuning').show();
+        $('.openai-input').show();
+        $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
+        $('.openai-response').css({
+            "opacity": "1",
+            "display": "block"
+        });
+      }
+    });
+  });
+  });
+$("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past tense";
   });
@@ -135,74 +204,5 @@ $('.openai-response').css({
     "display": "block"
   });
 }
-});
-$('#rewrite-btn').click(function() {
-  var input_variable = "more creative";
-  var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
-  var cachedResponse = localStorage.getItem(cacheKey);
-  var prompt2 = "";
-  if (cachedResponse) {
-  var responseArray = JSON.parse(cachedResponse);
-  prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
-}
-  var data2 = {
-    "model": model,
-    "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
-    "max_tokens": max_tokens,
-    "temperature": temperature
-  };
-  $.ajax({
-    type: "POST",
-    url: url,
-    data: JSON.stringify(data2),
-    contentType: "application/json",
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader("Authorization", "Bearer " + api_key);
-      $('.navis-calling').show();
-      $('label').hide();
-      $('.prompt-tuning').hide();
-      $('#gif-container').show();
-      $('#prompt').hide();
-      $('.openai-input').hide();
-      $('.openai-response').css({
-          "opacity": "0",
-          "display": "none"
-      });
-    },
-    success: function(result) {
-      previousResponseArray.push(result.choices[0].text);
-      localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
-      var text = result.choices[0].text;
-      // Split the response into separate tweets by looking for instances of "\n\n"
-      var tweets = text.split("\n");
-      // Join the tweets back together with a line break between each one
-      var formattedText = tweets.join("<br>");
-      $(".openai-response").html("<p>" + formattedText + "</p>");
-      $('.navis-calling').hide();
-      $('label').show();
-      $('#prompt').show();
-      $('.prompt-tuning').show();
-      $('.openai-input').show();
-      $('#gif-container').hide();
-      $('.openai-response').css({
-          "opacity": "1",
-          "display": "block"
-      });
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      $('.navis-calling').hide();
-      $('label').show();
-      $('#prompt').show();
-      $('#gif-container').hide();
-      $('.prompt-tuning').show();
-      $('.openai-input').show();
-      $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
-      $('.openai-response').css({
-          "opacity": "1",
-          "display": "block"
-      });
-    }
-  });
-});
 });
 });
