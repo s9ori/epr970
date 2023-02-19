@@ -198,9 +198,13 @@ $('.openai-response').css({
         // Split the response into separate tweets by looking for instances of "\n\n"
         var tweets = text.split("\n");
 
-        // Join the tweets back together with a line break between each one
-        var formattedText = tweets.join("<br>");
-        $(".openai-response").html("<p>" + formattedText + "</p>");
+        var tweetDivs = tweets.map(function(tweet) {
+          return "<div class='tweet'>" + tweet + "</div>";
+        });
+        
+  // Join the tweet divs together and insert them into the DOM
+        var formattedText = tweetDivs.join("");
+        $(".openai-response").html(formattedText);
         $('.navis-calling').hide();
         $('label').show();
         $('#prompt').show();
