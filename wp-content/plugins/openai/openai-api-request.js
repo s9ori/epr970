@@ -205,7 +205,7 @@ $('.openai-response').css({
 
     var data2 = {
       "model": model,
-      "prompt": "Replace the @ handles in this list of five tweets from the Brian Lehrer Show with" + input_variable + ": " + prompt2,
+      "prompt": "Except for @WNYC, replace all the @ handles in this list of five tweets from the Brian Lehrer Show with" + input_variable + ": " + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
