@@ -16,17 +16,17 @@ jQuery(document).ready(function($) {
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past segment";
-    whatTense ="past tense"
+    whatTense = "past tense";
   });
   
   $('#present-tense-btn').click(function() {
     tense = "live segment";
-    whatTense ="present tense"
+    whatTense = "present tense";
   });
 
   $('#future-tense-btn').click(function() {
     tense = "upcoming segment";
-    whatTense ="future tense"
+    whatTense = "future tense";
   });
   
 e.preventDefault();
