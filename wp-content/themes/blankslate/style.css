@@ -263,11 +263,12 @@ color: black;
 }
 
 .tweet {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 2%;
-  border: 1px dashed #000000;
+  padding: 15px;
+  border: 1px solid #000000;
   background: white;
+  font-family: sans-serif;
+  line-height: 1.5em;
+  font-weight: 300;
 }
 
 
@@ -382,6 +383,19 @@ transition: background-color .5s ease-in-out;
   }
 }
 
+.openai-response {
+  opacity: 1;
+  display: block;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap
+}
+
+@media screen and (max-width: 1000px) {
+  .openai-response {
+  flex-wrap: wrap !important
+  }
+}
 
 textarea {
   min-height: 100px;
