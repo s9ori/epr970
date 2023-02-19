@@ -300,5 +300,4 @@ function runRewrite(inputVariable) {
         });
       }
     });
-  });
-});
+  }})
