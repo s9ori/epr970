@@ -193,19 +193,19 @@ $('.openai-response').css({
 });
 });
  $('#rewrite-btn').click(function() {
-    var input_variable = "@JohnnyDepp";
+    var input_variable = "slightly more creative";
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
     var prompt2 = "";
     var api_key = openai_data.api_key;
     var model = "text-davinci-003";
     var max_tokens = 420;
-    var temperature = .1;
+    var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
 
     var data2 = {
       "model": model,
-      "prompt": "Except for @WNYC, replace all the @ handles in this list of five tweets from the Brian Lehrer Show with" + input_variable + ": " + prompt2,
+      "prompt": "Rewrite this list of five tweets from the Brian Lehrer Show to make them " + input_variable + ": " + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
