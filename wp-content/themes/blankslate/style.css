@@ -368,9 +368,9 @@ transition: background-color .5s ease-in-out;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   text-align: center;
-  font-family: "bitcount-mono-single-circle", sans-serif;
-font-weight: 500;
-font-style: normal;
+  font-family: "bitcount-mono-single-circle", sans-serif !important;
+font-weight: 500 !important;
+font-style: normal !important;
 }
 
 @keyframes loadingText {
