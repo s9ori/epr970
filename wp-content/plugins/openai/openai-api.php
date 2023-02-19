@@ -29,7 +29,6 @@
 <button id="future-tense-btn">Future</button>
  </div>
      </form>
-     <button id="rewrite-btn">More Creative</button>
      <?php
      return ob_get_clean();
  }
