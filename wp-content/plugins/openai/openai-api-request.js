@@ -1,6 +1,6 @@
 var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
-var tense = "present tense"; // Default tense
+var tense = "live"; // Default tense
 var previousResponseArray = [];
 
 
@@ -9,15 +9,15 @@ jQuery(document).ready(function($) {
 
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
-    tense = "past tense";
+    tense = "past";
   });
   
   $('#present-tense-btn').click(function() {
-    tense = "present tense";
+    tense = "live";
   });
 
   $('#future-tense-btn').click(function() {
-    tense = "future tense";
+    tense = "upcoming";
   });
   
 e.preventDefault();
@@ -47,7 +47,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice and style of these tweets from the Brian Lehrer Show: " + file_contents + ", here is a numbered list of five original Tweets from the Brian Lehrer Show with less than 280 characters in " + tense + " about this segment: " + prompt + ":",
+"prompt": "Inspired by the voice and style of these tweets: " + file_contents + ", here is a numbered list of five original Tweets from the Brian Lehrer Show with less than 280 characters about this " + tense + " segment: " + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
