@@ -28,10 +28,11 @@ header {
 
 #container {
   display: flex;
-  margin: 2%;
+  margin: 10px;
   gap: 25px;
   flex-direction: row;
   align-items: stretch;
+  justify-content: center;
 }
 
 figcaption {
@@ -115,6 +116,7 @@ html {
 
 #content {
   gap: 25px;
+  max-width: 700px;
   display: grid;
   justify-items: stretch;
   align-content: stretch;
@@ -441,6 +443,7 @@ textarea:focus {
   font-weight: bold;
   transition: all 0.2s ease-in-out;
   padding: 10px;
+  margin-top: 15px;
   text-transform: uppercase;
 }
 .latest-post-block img, .latest-post-block__featured-image-container {
