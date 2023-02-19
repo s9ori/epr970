@@ -24,7 +24,8 @@ get_header();
     <img id="gif-container" style="display: none; width: 100%">
     <div class="openai-response"></div>
     <div class="tuning">
-        <button id="creative-btn" class="input-btn" style="display: none">Creative</button>
+<h2 class="navis-calling">make these more:<h2>
+    <button id="creative-btn" class="input-btn" style="display: none">Creative</button>
     <button id="serious-btn" class="input-btn" style="display: none">Serious</button></div>
     </div>
     </div>
