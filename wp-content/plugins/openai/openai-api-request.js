@@ -1,6 +1,6 @@
 var openai_data = window.openai_data || {};
-var jsonl_contents = jsonl_data.jsonl_content;
-var file_contents = jsonl_contents;
+var json_data = file_data.file_contents;
+var file_contents = json_data.join("\n");
 var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
