@@ -210,7 +210,7 @@ $('#serious-btn').click(function() {
 });
 
 $('#longer-btn').click(function() {
-  var inputVariable = "more descriptive, more detailed, and longer";
+  var inputVariable = "more descriptive, more detailed, and longer (but still less than 280 characters)";
   runRewrite(inputVariable);
 });
 
