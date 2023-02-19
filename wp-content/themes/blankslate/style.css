@@ -29,11 +29,9 @@ header {
 #container {
   display: flex;
   margin: 2%;
-  text-align: center;
   gap: 25px;
   flex-direction: row;
   align-items: stretch;
-  justify-content: center;
 }
 
 figcaption {
