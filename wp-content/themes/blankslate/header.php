@@ -13,6 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="https://use.typekit.net/ojo1har.css">
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
