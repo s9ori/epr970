@@ -120,13 +120,22 @@ success: function(result) {
   // Split the response into separate tweets by looking for instances of "\n\n"
   var tweets = text.split("\n");
 
+  // Create a div element for each tweet
   var tweetDivs = tweets.map(function(tweet) {
+    if (tweet.trim() === '') {
+      // If the tweet is empty, return an empty string
+      return '';
+    }
+    // Otherwise, create a div for the tweet
     return "<div class='tweet'>" + tweet + "</div>";
   });
-  
-// Join the tweet divs together and insert them into the DOM
+
+  // Join the tweet divs together and insert them into the DOM
   var formattedText = tweetDivs.join("");
   $(".openai-response").html(formattedText);
+  
+  // Hide any empty tweet elements
+  $(".tweet:empty").css("display", "none");
   $('.navis-calling').hide();
   $('label').show();
   $('#prompt').show();
