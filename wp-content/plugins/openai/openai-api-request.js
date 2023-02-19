@@ -192,16 +192,22 @@ $('.openai-response').css({
 }
 });
 });
- $('#rewrite-btn').click(function() {
-  var inputOption = $('#input-option').val();
-  var inputVariable = "";
-  if (inputOption === "creative") {
-    inputVariable = "slightly more creative";
-  } else if (inputOption === "funny") {
-    inputVariable = "slightly more funny";
-  } else if (inputOption === "serious") {
-    inputVariable = "slightly more serious";
-  }
+$('#creative-btn').click(function() {
+  var inputVariable = "slightly more creative";
+  runRewrite(inputVariable);
+});
+
+$('#funny-btn').click(function() {
+  var inputVariable = "slightly more funny";
+  runRewrite(inputVariable);
+});
+
+$('#serious-btn').click(function() {
+  var inputVariable = "slightly more serious";
+  runRewrite(inputVariable);
+});
+
+function runRewrite(inputVariable) {
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
     var prompt2 = "";
     var api_key = openai_data.api_key;
