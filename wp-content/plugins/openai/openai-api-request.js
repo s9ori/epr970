@@ -197,11 +197,6 @@ $('#creative-btn').click(function() {
   runRewrite(inputVariable);
 });
 
-$('#funny-btn').click(function() {
-  var inputVariable = "slightly more funny";
-  runRewrite(inputVariable);
-});
-
 $('#serious-btn').click(function() {
   var inputVariable = "slightly more serious";
   runRewrite(inputVariable);
