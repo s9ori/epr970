@@ -208,6 +208,10 @@ color: black;
   align-items: center;
 }
 
+footer {
+  text-align: center;
+}
+
 .entry-footer {
   max-width: 600px;
 }
