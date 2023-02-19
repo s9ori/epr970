@@ -12,10 +12,17 @@
      wp_enqueue_script( 'openai-api-request', plugin_dir_url(__FILE__) . '/openai-api-request.js', array( 'jquery' ), '1.0', true );
      $data = array(
          'api_key' => getenv('API_KEY')
-     );
-     wp_localize_script( 'openai-api-request', 'openai_data', $data );
-     $file_contents = file_get_contents(plugin_dir_url(__FILE__) . "/context.txt");
-     wp_localize_script( 'openai-api-request', 'file_data', array( 'file_contents' => $file_contents ) );}
+        );
+        wp_localize_script('openai-api-request', 'openai_data', $data);
+        $jsonl_file_path = plugin_dir_path(__FILE__) . '/context.jsonl';
+        $jsonl_file = fopen($jsonl_file_path, 'r');
+        $jsonl_contents = '';
+        while (!feof($jsonl_file)) {
+            $jsonl_contents .= fgets($jsonl_file);
+        }
+        fclose($jsonl_file);
+        wp_localize_script('openai-api-request', 'jsonl_data', array('jsonl_contents' => $jsonl_contents));
+    }
  
 
  function openai_api_request_form() {
