@@ -5,7 +5,7 @@ var tense = "present tense"; // Default tense
 
 jQuery(document).ready(function($) {
   var cacheCounter = 0; // Initialize the counter
-$("form.openai").submit(function(e) {
+  $("form.openai").one("submit", function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past tense";
   });
@@ -204,6 +204,5 @@ $('#rewrite-btn').click(function() {
     }
   });
 });
-$("form.openai").off("submit");
 });
 });
