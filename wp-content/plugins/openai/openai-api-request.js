@@ -47,7 +47,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice and style of these tweets: " + file_contents + ", here is a numbered list of five original Tweets from the Brian Lehrer Show with less than 280 characters about this " + tense + " segment: " + prompt + ":",
+"prompt": "Inspired by the voice and style of these tweets: " + file_contents + ", here is a numbered list of five original Tweets from the Brian Lehrer Show with less than 280 characters about this " + tense + " segment on:" + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
@@ -120,6 +120,7 @@ xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('.navis-calling').show();
 $('label').hide();
 $('.prompt-tuning').hide();
+$('#rewrite-btn').hide();
 $('.texted').hide();
 $('#rewrite-btn').hide();
 $('#gif-container').show();
@@ -157,6 +158,7 @@ success: function(result) {
   $('label').show();
   $('#prompt').show();
   $('.prompt-tuning').show();
+  $('#rewrite-btn').show();
   $('.openai-input').show();
   $('.texted').show();
   $('#rewrite-btn').show();
@@ -172,6 +174,7 @@ $('label').show();
 $('#prompt').show();
 $('#gif-container').hide();
 $('.prompt-tuning').show();
+$('#rewrite-btn').show();
 $('.openai-input').show();
 $('.texted').show();
 $('#rewrite-btn').show();
@@ -211,7 +214,7 @@ $('.openai-response').css({
         $('.navis-calling').show();
         $('label').hide();
         $('.prompt-tuning').hide();       
-        $('.prompt-tuning').hide();
+        $('#rewrite-btn').hide();
         $('.texted').hide();
         $('#rewrite-btn').hide();
         $('#gif-container').show();
@@ -253,6 +256,7 @@ $('.openai-response').css({
         $('.texted').show();
         $('#rewrite-btn').show();
         $('.openai-input').show();
+        $('#rewrite-btn').show();
         $('#gif-container').hide();
         $('.openai-response').css({
           "opacity": "1",
@@ -267,6 +271,7 @@ $('.openai-response').css({
         $('#rewrite-btn').show();
         $('#gif-container').hide();
         $('.prompt-tuning').show();
+        $('#rewrite-btn').show();
         $('.openai-input').show();
         $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
         $('.openai-response').css({
