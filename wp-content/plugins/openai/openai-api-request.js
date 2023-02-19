@@ -4,7 +4,10 @@ var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
 const textarea = document.getElementById("prompt");
-var buttons = $('#past-tense-btn, #present-tense-btn, #future-tense-btn');
+
+jQuery(document).ready(function($) {
+  var cacheCounter = 0; // Initialize the counter
+  var buttons = $('#past-tense-btn, #present-tense-btn, #future-tense-btn');
 buttons.prop('disabled', true);
 
 // Listen for text input event on the prompt textarea
@@ -26,9 +29,6 @@ textarea.addEventListener("input", () => {
   textarea.style.height = `${textarea.scrollHeight}px`;
 });
 
-
-jQuery(document).ready(function($) {
-  var cacheCounter = 0; // Initialize the counter
 
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
