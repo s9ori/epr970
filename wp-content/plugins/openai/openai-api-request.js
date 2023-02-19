@@ -1,10 +1,12 @@
 var openai_data = window.openai_data || {};
 var json_data = file_data.file_contents;
-var file_contents = json_data.join("\n");
+var tweets = json_data.tweets;
+var file_contents = tweets.join("\n");
 var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
 const textarea = document.getElementById("prompt");
+
 
 jQuery(document).ready(function($) {
   var cacheCounter = 0; // Initialize the counter
