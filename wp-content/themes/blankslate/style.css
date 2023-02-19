@@ -295,7 +295,11 @@ span[class$="img"]:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
   transition: all 0.5s;
 }
-
+.tuning {
+  display: flex;
+  gap: 5px;
+  margin-top: 15px;
+}
 .tab {
   position: absolute;
   top: 5px;
@@ -448,17 +452,16 @@ textarea:focus {
   resize: none
 }
 
-#rewrite-btn:hover {
+.input-btn:hover {
   background: #75bbc9;
   transition: all 0.2s ease-in-out; 
 }
 
-#rewrite-btn {
+.input-btn {
   background: #7fcddd;
   font-weight: bold;
   transition: all 0.2s ease-in-out;
   padding: 10px;
-  margin-top: 15px;
   text-transform: uppercase;
 }
 .latest-post-block img, .latest-post-block__featured-image-container {

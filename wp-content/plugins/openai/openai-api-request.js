@@ -126,9 +126,9 @@ xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('.navis-calling').show();
 $('label').hide();
 $('.prompt-tuning').hide();
-$('#rewrite-btn').hide();
+$('.input-btn').hide();
 $('.texted').hide();
-$('#rewrite-btn').hide();
+$('.input-btn').hide();
 $('#gif-container').show();
 $('#prompt').hide();
 $('.openai-input').hide();
@@ -164,10 +164,10 @@ success: function(result) {
   $('label').show();
   $('#prompt').show();
   $('.prompt-tuning').show();
-  $('#rewrite-btn').show();
+  $('.input-btn').show();
   $('.openai-input').show();
   $('.texted').show();
-  $('#rewrite-btn').show();
+  $('.input-btn').show();
   $('#gif-container').hide();
   $('.openai-response').css({
       "opacity": "1",
@@ -180,10 +180,10 @@ $('label').show();
 $('#prompt').show();
 $('#gif-container').hide();
 $('.prompt-tuning').show();
-$('#rewrite-btn').show();
+$('.input-btn').show();
 $('.openai-input').show();
 $('.texted').show();
-$('#rewrite-btn').show();
+$('.input-btn').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
 $('.openai-response').css({
     "opacity": "1",
@@ -234,9 +234,9 @@ function runRewrite(inputVariable) {
         $('.navis-calling').show();
         $('label').hide();
         $('.prompt-tuning').hide();       
-        $('#rewrite-btn').hide();
+        $('.input-btn').hide();
         $('.texted').hide();
-        $('#rewrite-btn').hide();
+        $('.input-btn').hide();
         $('#gif-container').show();
         $('#prompt').hide();
         $('.openai-input').hide();
@@ -274,9 +274,9 @@ function runRewrite(inputVariable) {
         $('#prompt').show();
         $('.prompt-tuning').show();
         $('.texted').show();
-        $('#rewrite-btn').show();
+        $('.input-btn').show();
         $('.openai-input').show();
-        $('#rewrite-btn').show();
+        $('.input-btn').show();
         $('#gif-container').hide();
         $('.openai-response').css({
           "opacity": "1",
@@ -288,10 +288,10 @@ function runRewrite(inputVariable) {
         $('label').show();
         $('#prompt').show();
         $('.texted').show();
-        $('#rewrite-btn').show();
+        $('.input-btn').show();
         $('#gif-container').hide();
         $('.prompt-tuning').show();
-        $('#rewrite-btn').show();
+        $('.input-btn').show();
         $('.openai-input').show();
         $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
         $('.openai-response').css({
@@ -300,4 +300,4 @@ function runRewrite(inputVariable) {
         });
       }
     });
-  }})
+  };})
