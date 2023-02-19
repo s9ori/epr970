@@ -12,7 +12,7 @@ $('#prompt').on('input', function() {
   var prompt = $(this).val();
   
   // Enable/disable buttons based on the prompt length
-  if (prompt.trim().length > 0) {
+  if (prompt.trim().length > 15) {
     buttons.prop('disabled', false);
   } else {
     buttons.prop('disabled', true);
