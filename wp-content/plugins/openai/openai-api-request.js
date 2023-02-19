@@ -75,23 +75,30 @@ $.ajax({
     }
   },
   error: function(jqXHR, textStatus, errorThrown) {
-    // Google API request failed, try Giphy API
-    $.ajax({
-      url: giphyApiUrl,
-      success: function(response) {
-        var imageUrl = response.data.images.original.url;
-        // Set the source of the GIF container to the Giphy URL
-        $('#gif-container').attr('src', imageUrl);
-        // Show the GIF container
-        $('#gif-container').show();
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        // Handle errors
-        console.log("Error: " + errorThrown);
-      }
-    });
+    // Handle errors
+    if (jqXHR.status === 429) {
+      // Google API quota has been exceeded, fallback to Giphy API
+      $.ajax({
+        url: giphyApiUrl,
+        success: function(response) {
+          var imageUrl = response.data.images.original.url;
+          // Set the source of the GIF container to the Giphy URL
+          $('#gif-container').attr('src', imageUrl);
+          // Show the GIF container
+          $('#gif-container').show();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          // Handle errors
+          console.log("Error: " + errorThrown);
+        }
+      });
+    } else {
+      // Other error occurred
+      console.log("Error: " + errorThrown);
+    }
   }
 });
+
 
 
 
