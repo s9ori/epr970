@@ -13,7 +13,7 @@ get_header();
 <div class="landing-container">
     <div class="landing">
     <div class="texted">
-    <h1>nævis... write me some <strong>hit baby</strong> tweets about:</h1>
+    <h1>nævis... write me some <strong>hit</strong> tweets about:</h1>
     </div>
     <div class="landing-frame">[openai_api_request_form]</div>
     </div>
