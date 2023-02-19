@@ -2,6 +2,12 @@ var openai_data = window.openai_data || {};
 var file_contents = file_data.file_contents;
 var tense = "live"; // Default tense
 var previousResponseArray = [];
+const textarea = document.getElementById("prompt");
+
+textarea.addEventListener("input", () => {
+  textarea.style.height = "auto";
+  textarea.style.height = `${textarea.scrollHeight}px`;
+});
 
 
 jQuery(document).ready(function($) {
