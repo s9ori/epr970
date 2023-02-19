@@ -468,16 +468,17 @@ textarea:focus {
 }
 
 .input-btn:hover {
-  background: #75bbc9;
+  background: #7fcddd;
   transition: all 0.2s ease-in-out; 
 }
 
 .input-btn {
-  background: #7fcddd;
-  font-weight: bold;
   transition: all 0.2s ease-in-out;
-  padding: 10px;
-  text-transform: uppercase;
+  text-transform: lowercase;
+  border: 1px solid black;
+  font-family: 'bitcount-mono-single-circle';
+  font-weight: 600;
+  font-size: 20px;
 }
 .latest-post-block img, .latest-post-block__featured-image-container {
   border-radius: 0 !important;
