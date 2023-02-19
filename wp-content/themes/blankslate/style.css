@@ -145,6 +145,11 @@ font-style: normal;
 text-decoration: none;
 color: black;
 }
+
+.texted h1 {
+  font-family:'bitcount-mono-single-circle' !important
+}
+
 .entry-me {
   padding: 50px;
   width: 600px;
@@ -389,11 +394,11 @@ font-style: normal !important;
 }
 
 .rewrites {
-font-family: "bitcount-mono-single-circle", sans-serif !important;
-font-weight: 600 !important;
-font-style: normal !important;
-font-size: 20px;
-text-align: left;
+  font-family: "bitcount-mono-single-circle", sans-serif !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  font-size: 18px;
+  text-align: left;
 }
 
 @keyframes loadingText {
@@ -442,23 +447,24 @@ textarea {
 .openai-input, #future-tense-btn, #present-tense-btn, #past-tense-btn {
   padding: 10px;
     text-transform: uppercase;
-    background: pink;
+    background: #feddde;
     font-weight: bold;
     transition: all 0.2s ease-in-out;
+    font-family: 'bitcount-mono-single-circle';
 }
 
 #past-tense-btn:hover {
-  background: rgb(252, 159, 141);
+  background: pink;
   transition: all 0.2s ease-in-out;
 }
 
 #present-tense-btn:hover {
-  background: rgb(252, 159, 141);
+  background: pink;
   transition: all 0.2s ease-in-out; 
 }
 
 #future-tense-btn:hover {
-  background: rgb(252, 159, 141);
+  background: pink;
   transition: all 0.2s ease-in-out; 
 }
 
@@ -478,7 +484,9 @@ textarea:focus {
   border: 1px solid black;
   font-family: 'bitcount-mono-single-circle';
   font-weight: 600;
-  font-size: 20px;
+  background: #a0d8ee;
+  font-size: 18px;
+  padding: 8px;
 }
 .latest-post-block img, .latest-post-block__featured-image-container {
   border-radius: 0 !important;
