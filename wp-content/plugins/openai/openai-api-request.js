@@ -1,12 +1,9 @@
 var openai_data = window.openai_data || {};
-var json_data = file_data.file_contents;
-var tweets = json_data.tweets;
-var file_contents = tweets.join("\n");
+var file_contents = file_data.file_contents;
 var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
 const textarea = document.getElementById("prompt");
-
 
 jQuery(document).ready(function($) {
   var cacheCounter = 0; // Initialize the counter
@@ -76,7 +73,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + json_data.map(obj => obj.text).join('\n') + ", here is a numbered list of five original Tweets in " + whatTense + " with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
+"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a numbered list of five original Tweets in " + whatTense + " with less than 280 characters and no hashtags about this " + tense + ":" + prompt + ":",
 "max_tokens": max_tokens,
 "temperature": temperature
 };

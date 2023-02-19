@@ -14,10 +14,9 @@
          'api_key' => getenv('API_KEY')
      );
      wp_localize_script( 'openai-api-request', 'openai_data', $data );
-     $file_contents = file_get_contents(plugin_dir_url(__FILE__) . "/context.json");
-     $json_data = json_decode($file_contents, true);
-     wp_localize_script( 'openai-api-request', 'file_data', array( 'file_contents' => $json_data ) );
- }
+     $file_contents = file_get_contents(plugin_dir_url(__FILE__) . "/context.txt");
+     wp_localize_script( 'openai-api-request', 'file_data', array( 'file_contents' => $file_contents ) );}
+ 
 
  function openai_api_request_form() {
      ob_start();
@@ -34,6 +33,6 @@
      <?php
      return ob_get_clean();
  }
-
+ 
  add_shortcode('openai_api_request_form', 'openai_api_request_form');
  ?>
