@@ -79,7 +79,6 @@ jQuery(document).ready(function($) {
       }
     });
   });
-});
 
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
@@ -211,5 +210,6 @@ $('.openai-response').css({
     "display": "block"
   });
 }
+});
 });
 });
