@@ -92,22 +92,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-image: url("https://www.en-vols.com/wp-content/uploads/afmm/2022/11/15.claude_monet_impression_soleil_levant_Soleil_Levant_Michelin.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 251, 251, 0.507);
-    z-index: -1;
-  }
+}
 html {
   height: 100%;
 }
