@@ -136,17 +136,13 @@ $('.openai-response').css({
 });
 $('#rewrite-btn').click(function() {
   var input_variable = "more creative";
-  var prompt2 = "";
   var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
   var cachedResponse = localStorage.getItem(cacheKey);
+  var prompt2 = "";
   if (cachedResponse) {
-    var responseArray = JSON.parse(cachedResponse);
-    var previousResponse = responseArray[responseArray.length - 1]; // Get the last response from the array
-    prompt2 = previousResponse.split("\n").map(function(tweet) {
-      return tweet.trim(); // Remove any leading or trailing whitespace from the tweet
-    }).join(" "); // Join the tweets back together into a single string
-  }
-
+  var responseArray = JSON.parse(cachedResponse);
+  prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
+}
   var data2 = {
     "model": model,
     "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
