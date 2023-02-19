@@ -396,7 +396,7 @@ textarea {
   line-height: 1.5em;
 }
 
-.openai-input, #future-tense-btn, #present-tense-btn, #past-tense-btn, #rewrite-btn {
+.openai-input, #future-tense-btn, #present-tense-btn, #past-tense-btn {
   padding: 10px;
     text-transform: uppercase;
     background: pink;
@@ -425,8 +425,16 @@ textarea:focus {
 }
 
 #rewrite-btn:hover {
-  background: rgb(252, 159, 141);
+  background: #75bbc9;
   transition: all 0.2s ease-in-out; 
+}
+
+#rewrite-btn {
+  background: #7fcddd;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  padding: 10px;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 600px){
