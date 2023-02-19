@@ -26,8 +26,9 @@ get_header();
     <div class="tuning">
 <h2 class="rewrites" style="display: none;">make these more:<h2>
     <button id="creative-btn" class="input-btn" style="display: none">Creative</button>
-    <button id="serious-btn" class="input-btn" style="display: none">Serious</button></div>
-    <button id="longer-btn" class="input-btn" style="display: none">Detailed</button></div>
+    <button id="serious-btn" class="input-btn" style="display: none">Serious</button>
+    <button id="longer-btn" class="input-btn" style="display: none">Detailed</button>
+</div>
     </div>
     </div>
 </div>
