@@ -4,7 +4,6 @@ var tense = "present tense"; // Default tense
 
 
 jQuery(document).ready(function($) {
-  var cacheCounter = 0; // Initialize the counter
 $("form.openai").submit(function(e) {
   $('#past-tense-btn').click(function() {
     tense = "past tense";
@@ -36,8 +35,7 @@ var model = "text-davinci-003";
 var max_tokens = 420;
 var temperature = .88;
 var url = "https://api.openai.com/v1/completions";
-var cacheKey = prompt + '-' + cacheCounter; // Add the counter to the cache key
-cacheCounter++; // Increment the counter
+var cacheKey = prompt;
 var cachedResponse = localStorage.getItem(cacheKey);
 var previousResponseArray = [];
 if (cachedResponse) {
@@ -137,19 +135,21 @@ $('.openai-response').css({
 });
 $('#rewrite-btn').click(function() {
   var input_variable = "more creative";
-  var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
-  var cachedResponse = localStorage.getItem(cacheKey);
+  var promptValue = $('#prompt').val();
+  var cachedResponse = localStorage.getItem(lastCacheKey);
   var prompt2 = "";
   if (cachedResponse) {
-  var responseArray = JSON.parse(cachedResponse);
-  prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
-}
+    var responseArray = JSON.parse(cachedResponse);
+    prompt2 = responseArray[responseArray.length - 1]; // Get the last response from the array
+  }
   var data2 = {
     "model": model,
     "prompt": "Rewrite this list of five tweets to make them " + input_variable + ": " + prompt2,
     "max_tokens": max_tokens,
     "temperature": temperature
   };
+  var cacheKey = promptValue + '-rewrite';
+  lastCacheKey = cacheKey;
   $.ajax({
     type: "POST",
     url: url,
@@ -201,9 +201,6 @@ $('#rewrite-btn').click(function() {
           "display": "block"
       });
     },
-    complete: function() {
-      cacheCounter = 1; // Set the counter back to 1 after the rewrite request is completed
-    }
   });
 });
 });
