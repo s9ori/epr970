@@ -193,7 +193,15 @@ $('.openai-response').css({
 });
 });
  $('#rewrite-btn').click(function() {
-    var input_variable = "slightly more creative";
+  var inputOption = $('#input-option').val();
+  var inputVariable = "";
+  if (inputOption === "creative") {
+    inputVariable = "slightly more creative";
+  } else if (inputOption === "funny") {
+    inputVariable = "slightly more funny";
+  } else if (inputOption === "serious") {
+    inputVariable = "slightly more serious";
+  }
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
     var prompt2 = "";
     var api_key = openai_data.api_key;
@@ -205,7 +213,7 @@ $('.openai-response').css({
 
     var data2 = {
       "model": model,
-      "prompt": "Rewrite this list of five tweets from the Brian Lehrer Show to make them " + input_variable + ": " + prompt2,
+      "prompt": "Rewrite this list of five tweets from the Brian Lehrer Show to make them " + inputVariable + ": " + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
