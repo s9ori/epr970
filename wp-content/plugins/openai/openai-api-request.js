@@ -210,7 +210,7 @@ $('#serious-btn').click(function() {
 });
 
 $('#longer-btn').click(function() {
-  var inputVariable = "longer and more descriptive and detailed, but within Twitter's 280 character limit";
+  var inputVariable = "more descriptive, more detailed, and longer";
   runRewrite(inputVariable);
 });
 
