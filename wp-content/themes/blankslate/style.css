@@ -369,7 +369,10 @@ transition: background-color .5s ease-in-out;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   text-align: center;
-  font-family: "bitcount-mono-single-circle", sans-serif !important;
+}
+
+.navis-calling h2 {
+font-family: "bitcount-mono-single-circle", sans-serif !important;
 font-weight: 500 !important;
 font-style: normal !important;
 }
