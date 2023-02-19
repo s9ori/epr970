@@ -103,6 +103,8 @@ xhr.setRequestHeader("Authorization", "Bearer " + api_key);
 $('.navis-calling').show();
 $('label').hide();
 $('.prompt-tuning').hide();
+$('.texted').hide();
+$('#rewrite-btn').hide();
 $('#gif-container').show();
 $('#prompt').hide();
 $('.openai-input').hide();
@@ -125,6 +127,8 @@ var formattedText = tweets.join("<br>");
   $('#prompt').show();
   $('.prompt-tuning').show();
   $('.openai-input').show();
+  $('.texted').show();
+  $('#rewrite-btn').show();
   $('#gif-container').hide();
   $('.openai-response').css({
       "opacity": "1",
@@ -138,6 +142,8 @@ $('#prompt').show();
 $('#gif-container').hide();
 $('.prompt-tuning').show();
 $('.openai-input').show();
+$('.texted').show();
+$('#rewrite-btn').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
 $('.openai-response').css({
     "opacity": "1",
@@ -173,7 +179,9 @@ $('.openai-response').css({
         xhr.setRequestHeader("Authorization", "Bearer " + api_key);
         $('.navis-calling').show();
         $('label').hide();
-        $('.prompt-tuning').hide();
+        $('.prompt-tuning').hide();        $('.prompt-tuning').hide();
+        $('.texted').hide();
+        $('#rewrite-btn').hide();
         $('#gif-container').show();
         $('#prompt').hide();
         $('.openai-input').hide();
@@ -197,6 +205,8 @@ $('.openai-response').css({
         $('label').show();
         $('#prompt').show();
         $('.prompt-tuning').show();
+        $('.texted').show();
+        $('#rewrite-btn').show();
         $('.openai-input').show();
         $('#gif-container').hide();
         $('.openai-response').css({
@@ -208,6 +218,8 @@ $('.openai-response').css({
         $('.navis-calling').hide();
         $('label').show();
         $('#prompt').show();
+        $('.texted').show();
+        $('#rewrite-btn').show();
         $('#gif-container').hide();
         $('.prompt-tuning').show();
         $('.openai-input').show();
