@@ -146,7 +146,7 @@ success: function(result) {
   $('#gif-container').hide();
   $('.openai-response').css({
       "opacity": "1",
-      "display": "block"
+      "display": "flex"
   });
 },
 error: function(jqXHR, textStatus, errorThrown) {
@@ -161,7 +161,7 @@ $('#rewrite-btn').show();
 $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
 $('.openai-response').css({
     "opacity": "1",
-    "display": "block"
+    "display": "flex"
   });
 }
 });
@@ -193,7 +193,8 @@ $('.openai-response').css({
         xhr.setRequestHeader("Authorization", "Bearer " + api_key);
         $('.navis-calling').show();
         $('label').hide();
-        $('.prompt-tuning').hide();        $('.prompt-tuning').hide();
+        $('.prompt-tuning').hide();       
+        $('.prompt-tuning').hide();
         $('.texted').hide();
         $('#rewrite-btn').hide();
         $('#gif-container').show();
@@ -201,7 +202,7 @@ $('.openai-response').css({
         $('.openai-input').hide();
         $('.openai-response').css({
           "opacity": "0",
-          "display": "none"
+          "display": "flex"
         });
       },
       success: function(result) {
@@ -209,17 +210,26 @@ $('.openai-response').css({
         localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
         var text = result.choices[0].text;
 
-        // Split the response into separate tweets by looking for instances of "\n\n"
+       // Split the response into separate tweets by looking for instances of "\n\n"
         var tweets = text.split("\n");
 
-        var tweetDivs = tweets.map(function(tweet) {
-          return "<div class='tweet'>" + tweet + "</div>";
-        });
-        
+       // Create a div element for each tweet
+      var tweetDivs = tweets.map(function(tweet) {
+      if (tweet.trim() === '') {
+      // If the tweet is empty, return an empty string
+      return '';
+    }
+    // Otherwise, create a div for the tweet
+    return "<div class='tweet'>" + tweet + "</div>";
+   });
+
   // Join the tweet divs together and insert them into the DOM
-        var formattedText = tweetDivs.join("");
-        $(".openai-response").html(formattedText);
-        $('.navis-calling').hide();
+  var formattedText = tweetDivs.join("");
+  $(".openai-response").html(formattedText);
+  
+  // Hide any empty tweet elements
+  $(".tweet:empty").css("display", "none");
+  $('.navis-calling').hide();
         $('label').show();
         $('#prompt').show();
         $('.prompt-tuning').show();
@@ -229,7 +239,7 @@ $('.openai-response').css({
         $('#gif-container').hide();
         $('.openai-response').css({
           "opacity": "1",
-          "display": "block"
+          "display": "flex"
         });
       },
       error: function(jqXHR, textStatus, errorThrown) {
@@ -244,7 +254,7 @@ $('.openai-response').css({
         $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
         $('.openai-response').css({
           "opacity": "1",
-          "display": "block"
+          "display": "flex"
         });
       }
     });
