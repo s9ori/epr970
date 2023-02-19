@@ -118,13 +118,14 @@ success: function(result) {
   localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
   var text = result.choices[0].text;
   // Split the response into separate tweets by looking for instances of "\n\n"
-  var tweets = text.split("\n");
+  var tweets = text.split(/\n{2,}/);
 
+  // Create a div element for each tweet
   var tweetDivs = tweets.map(function(tweet) {
     return "<div class='tweet'>" + tweet + "</div>";
   });
-  
-// Join the tweet divs together and insert them into the DOM
+
+  // Join the tweet divs together and insert them into the DOM
   var formattedText = tweetDivs.join("");
   $(".openai-response").html(formattedText);
   $('.navis-calling').hide();
