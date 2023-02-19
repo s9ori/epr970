@@ -37,6 +37,7 @@ var max_tokens = 420;
 var temperature = .88;
 var url = "https://api.openai.com/v1/completions";
 var cacheKey = prompt; // Only use the prompt to construct the cache key
+
 cacheCounter++; // Increment the counter
 var cachedResponse = localStorage.getItem(cacheKey);
 var previousResponseArray = [];
@@ -135,9 +136,9 @@ $('.openai-response').css({
   });
 }
 });
-$('#rewrite-btn').click(function() {
+$('#rewrite-btn').off('click').on('click', function() {
   var input_variable = "more creative";
-  var cacheKey = $('#prompt').val();
+  var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
   var cachedResponse = localStorage.getItem(cacheKey);
   var prompt2 = "";
   if (cachedResponse) {
