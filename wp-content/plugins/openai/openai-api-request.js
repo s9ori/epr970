@@ -74,7 +74,7 @@ $.ajax({
       }
     }
   },
-  error: function() {
+  error: function(jqXHR, textStatus, errorThrown) {
     // Google API request failed, try Giphy API
     $.ajax({
       url: giphyApiUrl,
@@ -85,12 +85,14 @@ $.ajax({
         // Show the GIF container
         $('#gif-container').show();
       },
-      error: function() {
+      error: function(jqXHR, textStatus, errorThrown) {
         // Handle errors
+        console.log("Error: " + errorThrown);
       }
     });
   }
 });
+
 
 
 $.ajax({
