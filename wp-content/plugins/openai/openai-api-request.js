@@ -56,22 +56,25 @@ $.ajax({
   url: googleApiUrl,
   dataType: "jsonp",
   success: function(response) {
-    if (gifResults.length < 1) {
-    var gifResults = response.items.filter(function(item) {
-      return item.mime == "image/gif";
-    });
-      // Trigger the error function to fallback to Giphy API
-      this.error();
-    } else {
-      // Use the first image from the filtered results
-      var imageUrl = gifResults[Math.floor(Math.random() * gifResults.length)].link;
-      // Set the source of the GIF container to the random image URL
-      $('#gif-container').attr('src', imageUrl);
-      // Show the GIF container
-      $('#gif-container').show();
+    if (response && response.items && response.items.length) {
+      // Filter the response to only include GIFs
+      var gifResults = response.items.filter(function(item) {
+        return item.mime == "image/gif";
+      });
+      if (gifResults.length) {
+        // Use the first image from the filtered results
+        var imageUrl = gifResults[Math.floor(Math.random() * gifResults.length)].link;
+        // Set the source of the GIF container to the random image URL
+        $('#gif-container').attr('src', imageUrl);
+        // Show the GIF container
+        $('#gif-container').show();
+      } else {
+        // No GIF images found in Google search results
+        console.log("No GIF images found in Google search results.");
+      }
     }
   },
-  error: function() {
+  error: function(jqXHR, textStatus, errorThrown) {
     // Google API request failed, try Giphy API
     $.ajax({
       url: giphyApiUrl,
@@ -82,14 +85,13 @@ $.ajax({
         // Show the GIF container
         $('#gif-container').show();
       },
-      error: function() {
+      error: function(jqXHR, textStatus, errorThrown) {
         // Handle errors
+        console.log("Error: " + errorThrown);
       }
     });
   }
 });
-
-
 
 
 
