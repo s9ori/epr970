@@ -406,7 +406,7 @@ font-style: normal !important;
 textarea {
   min-height: 100px;
   font-size: 16px;
-  font-family: basic-sans, sans-serif;
+  font-family: sans-serif;
   font-weight: 400;
   font-style: normal;
   text-decoration: none;
