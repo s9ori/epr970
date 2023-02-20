@@ -340,7 +340,7 @@ function runRewrite(inputVariable) {
   
     var data3 = {
       "model": model,
-      "prompt": "Here is a detailed summary of this article:\n " + prompt,
+      "prompt": "Here is a detailed summary of this article for use by a reporter:\n " + prompt,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
