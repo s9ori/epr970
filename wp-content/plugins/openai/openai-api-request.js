@@ -238,10 +238,12 @@ function runRewrite(inputVariable) {
     var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
+    var prompt3 = $("#prompt").val();
+
 
     var data2 = {
       "model": model,
-      "prompt": "Rewrite this list of five tweets to make them " + inputVariable + ": " + prompt2,
+      "prompt": "Rewrite this list of five tweets about this segment " + prompt3 + "to make them " + inputVariable + ": " + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
