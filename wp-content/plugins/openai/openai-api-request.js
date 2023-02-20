@@ -3,7 +3,6 @@ var file_contents = file_data.file_contents;
 var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
-var previousPromptArray = [];
 const textarea = document.getElementById("prompt");
 
 jQuery(document).ready(function($) {
@@ -71,10 +70,6 @@ cacheCounter++; // Increment the counter
 var cachedResponse = localStorage.getItem(cacheKey);
 if (cachedResponse) {
 previousResponseArray = JSON.parse(cachedResponse);
-}
-var cachedPrompt = localStorage.getItem(cacheKey);
-if (cachedPrompt) {
-previousPromptArray = JSON.parse(cachedPrompt);
 }
 var data = {
 "model": model,
@@ -166,8 +161,6 @@ $('.openai-response').css({
 success: function(result) {
   previousResponseArray.push(result.choices[0].text);
   localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
-  previousPromptArray.push($("#prompt").val());
-  localStorage.setItem(cacheKey + "-prompt", JSON.stringify(previousPromptArray));
   var text = result.choices[0].text;
   // Split the response into separate tweets by looking for instances of "\n\n"
   var tweets = text.split("\n");
@@ -239,18 +232,16 @@ $('#longer-btn').click(function() {
 
 function runRewrite(inputVariable) {
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
-    var prompt2 = "";
     var api_key = openai_data.api_key;
     var model = "text-davinci-003";
-    var max_tokens = 3200;
-    var temperature = .5;
+    var max_tokens = 420;
+    var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
-    var prompt3 = previousPromptArray[previousPromptArray.length - 1]; // Get the last prompt from the array
 
     var data2 = {
       "model": model,
-      "prompt": "Based on this summary of the segment\n" + prompt3 + "\nRewrite this list of five tweets to make them " + inputVariable + ":\n" + prompt2,
+      "prompt": "Rewrite this list of five tweets to make them " + inputVariable + ": " + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
