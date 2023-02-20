@@ -14,6 +14,10 @@ buttons.prop('disabled', true);
 $('#prompt').on('input', function() {
   var prompt = $(this).val();
   
+  $('#author').on('input', function() {
+    var author = $(this).val();
+});
+
   // Enable/disable buttons based on the prompt length
   if (prompt.trim().length > 15) {
     buttons.prop('disabled', false);
@@ -330,6 +334,7 @@ function runRewrite(inputVariable) {
     });
   };
 
+
   $('#summarizeArticle').click(function() {
     var api_key = openai_data.api_key;
     var model = "text-davinci-003";
@@ -337,10 +342,12 @@ function runRewrite(inputVariable) {
     var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt = $("#prompt").val();
+    var author = $("#author").val();
+
   
     var data3 = {
       "model": model,
-      "prompt": "Here is a detailed summary of this article for use by a reporter:\n " + prompt,
+      "prompt": "Here is a detailed journalistic summary of this article written by " + author + ":\n " + prompt,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
@@ -383,7 +390,7 @@ function runRewrite(inputVariable) {
         }
         var data4 = {
           "model": model,
-          "prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a numbered list of five original Tweets with less than 280 characters and no hashtags about this "  + text1 + ":",
+          "prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: " + file_contents + ", here is a numbered list of five original Tweets with less than 280 characters and no hashtags about this article written by our guest " + author + ": \n" + text1 + ": \n",
           "max_tokens": max_tokens,
           "temperature": temperature
         };
