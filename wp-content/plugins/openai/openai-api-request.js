@@ -231,7 +231,7 @@ $('#serious-btn').click(function() {
 
 $('#longer-btn').click(function() {
   var prompt3 = $("#prompt").val();
-  var inputVariable = " more descriptive, more detailed, and longer (with a maximum length of 280 characters) using this reference" + prompt3 + ":";
+  var inputVariable = " more descriptive, more detailed, and longer (with a maximum length of 280 characters) using this reference: \n" + prompt3 + ": \n";
   runRewrite(inputVariable);
 });
 
