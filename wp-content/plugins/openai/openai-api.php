@@ -30,7 +30,10 @@
 <button id="future-tense-btn">Upcoming</button>
  </div>
      </form>
-     <button id="summarizeArticle">Article</button>
+     <label>
+  <input type="checkbox" id="summarizeArticle">
+  Article
+</label>
      <textarea name="author" id="author" placeholder="author name"></textarea>
      <?php
      return ob_get_clean();
