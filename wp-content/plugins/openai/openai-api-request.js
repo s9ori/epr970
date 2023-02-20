@@ -166,8 +166,8 @@ $('.openai-response').css({
 success: function(result) {
   previousResponseArray.push(result.choices[0].text);
   localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
-  previousPromptArray.push(data.prompt);
-  localStorage.setItem(cacheKey, JSON.stringify(previousPromptArray));
+  previousPromptArray.push($("#prompt").val());
+  localStorage.setItem(cacheKey + "-prompt", JSON.stringify(previousPromptArray));
   var text = result.choices[0].text;
   // Split the response into separate tweets by looking for instances of "\n\n"
   var tweets = text.split("\n");
@@ -246,7 +246,7 @@ function runRewrite(inputVariable) {
     var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
-    var prompt3 = $("#prompt").val();
+    var prompt3 = previousPromptArray[previousPromptArray.length - 1]; // Get the last prompt from the array
 
     var data2 = {
       "model": model,
