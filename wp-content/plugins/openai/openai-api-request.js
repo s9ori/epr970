@@ -159,6 +159,9 @@ $('.openai-response').css({
   });
 },
 success: function(result) {
+var prompts = data.prompt.split(':');
+var lastPrompt = prompts[prompts.length - 1];
+localStorage.setItem('lastPrompt', lastPrompt);
   previousResponseArray.push(result.choices[0].text);
   localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
   var text = result.choices[0].text;
@@ -239,10 +242,11 @@ function runRewrite(inputVariable) {
     var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
+    var lastPrompt = localStorage.getItem('lastPrompt');
 
     var data2 = {
       "model": model,
-      "prompt": "Rewrite this list of five tweets to make them " + inputVariable + ": " + prompt2,
+      "prompt": "Rewrite this list of five tweets about this segment " + lastPrompt + " to make them " + inputVariable + ": " + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
