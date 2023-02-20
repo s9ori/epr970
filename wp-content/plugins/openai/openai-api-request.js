@@ -242,8 +242,8 @@ function runRewrite(inputVariable) {
     var prompt2 = "";
     var api_key = openai_data.api_key;
     var model = "text-davinci-003";
-    var max_tokens = 2200;
-    var temperature = .7;
+    var max_tokens = 3200;
+    var temperature = .5;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
     var prompt3 = previousPromptArray[previousPromptArray.length - 1]; // Get the last prompt from the array
