@@ -328,4 +328,84 @@ function runRewrite(inputVariable) {
         });
       }
     });
-  };})
+  };
+
+  $('#summarizeArticle').click(function() {
+      var api_key = openai_data.api_key;
+      var model = "text-davinci-003";
+      var max_tokens = 800;
+      var temperature = .7;
+      var url = "https://api.openai.com/v1/completions";
+      var prompt = $("#prompt").val();
+  
+      var data3 = {
+        "model": model,
+        "prompt": "Summarize this article including all key details:\n " + prompt,
+        "max_tokens": max_tokens,
+        "temperature": temperature
+      };
+  
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: JSON.stringify(data3),
+        contentType: "application/json",
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + api_key);
+          $('.navis-calling').show();
+          $('label').hide();
+          $('.rewrites').hide();
+          $('.prompt-tuning').hide();       
+          $('.input-btn').hide();
+          $('.texted').hide();
+          $('.input-btn').hide();
+          $('#gif-container').show();
+          $('#prompt').hide();
+          $('.openai-input').hide();
+          $('.openai-response').css({
+            "opacity": "0",
+            "display": "flex"
+          });
+        },
+        success: function(result) {
+          var text1 = result.choices[0].text;
+
+    $(".openai-response").html(text1);
+    
+    // Hide any empty tweet elements
+    $(".tweet:empty").css("display", "none");
+    $('.navis-calling').hide();
+          $('label').show();
+          $('.rewrites').show();
+          $('#prompt').show();
+          $('.prompt-tuning').show();
+          $('.texted').show();
+          $('.input-btn').show();
+          $('.openai-input').show();
+          $('.input-btn').show();
+          $('#gif-container').hide();
+          $('.openai-response').css({
+            "opacity": "1",
+            "display": "flex"
+          });
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          $('.navis-calling').hide();
+          $('label').show();
+          $('#prompt').show();
+          $('.texted').show();
+          $('.input-btn').show();
+          $('#gif-container').hide();
+          $('.rewrites').hide();
+          $('.prompt-tuning').show();
+          $('.input-btn').show();
+          $('.openai-input').show();
+          $('.openai-response').html("<p>Error: " + jqXHR.responseJSON.error.message + "</p>");
+          $('.openai-response').css({
+            "opacity": "1",
+            "display": "flex"
+          });
+        }
+      });
+    });
+  })

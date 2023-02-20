@@ -30,6 +30,7 @@
 <button id="future-tense-btn">Upcoming</button>
  </div>
      </form>
+     <button id="summarizeArticle">Summarize</button>
      <?php
      return ob_get_clean();
  }
