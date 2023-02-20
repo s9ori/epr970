@@ -28,7 +28,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 ?>
 </div>
 <div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?></div>
-<a id="logo-link" href="/"><img class="logo" src="https://www.pngkey.com/png/full/357-3570403_supercutekawaii-cinnamon-roll-from-hello-kitty.png"></a></div>
+<a id="logo-link" href="/"><img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif"></a></div>
 <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
 <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
 <div id="search"><?php get_search_form(); ?></div>
