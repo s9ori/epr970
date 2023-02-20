@@ -489,7 +489,7 @@ $('.openai-response').css({
             "opacity": "0",
             "display": "none"
           });
-        }, 1000); // Set timeout to 1s (1000ms)
+        }, 2000); // Set timeout to 1s (1000ms)
         },
         error: function(jqXHR, textStatus, errorThrown) {
           $('.navis-calling').hide();
