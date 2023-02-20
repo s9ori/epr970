@@ -10,6 +10,19 @@ jQuery(document).ready(function($) {
   var buttons = $('#past-tense-btn, #present-tense-btn, #future-tense-btn');
 buttons.prop('disabled', true);
 
+if (prompt.trim().length > 15) {
+  buttons.prop('disabled', false);
+} else {
+  buttons.prop('disabled', true);
+};
+
+$("#prompt").focus();
+
+textarea.addEventListener("input", () => {
+textarea.style.height = "auto";
+textarea.style.height = `${textarea.scrollHeight}px`;
+});
+
 // Listen for text input event on the prompt textarea
 $('#prompt').on('input', function() {
   var prompt = $(this).val();
@@ -21,18 +34,6 @@ $('#author').on('input', function() {
 
 $('#summarizeArticle').change(function() {
   // Enable/disable buttons based on the prompt length
-  if (prompt.trim().length > 15) {
-    buttons.prop('disabled', false);
-  } else {
-    buttons.prop('disabled', true);
-  };
-
-$("#prompt").focus();
-
-textarea.addEventListener("input", () => {
-  textarea.style.height = "auto";
-  textarea.style.height = `${textarea.scrollHeight}px`;
-});
 
   $('#past-tense-btn').click(function() {
     tense = "past segment";
@@ -70,7 +71,7 @@ if (this.checked) {
   var url = "https://api.openai.com/v1/completions";
   var prompt = $("#prompt").val();
   var author = $("#author").val();
-  
+
     var data3 = {
       "model": model,
       "prompt": "Here is a detailed journalistic summary of this article written by " + author + ":\n that credits " + author + " as the author: \n" + prompt,
