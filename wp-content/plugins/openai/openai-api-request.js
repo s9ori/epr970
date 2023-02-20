@@ -248,7 +248,7 @@ function runRewrite(inputVariable) {
 
     var data2 = {
       "model": model,
-      "prompt": "Make the tweets in this list\n " + prompt2 + "\n" + inputVariable,
+      "prompt": "Make the tweets in this list\n " + inputVariable + " \n" + prompt2 + ": \n",
       "max_tokens": max_tokens,
       "temperature": temperature
     };
@@ -390,7 +390,7 @@ function runRewrite(inputVariable) {
         }
         var data4 = {
           "model": model,
-          "prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: \n" + file_contents + "\n, here is a numbered list of five original Tweets\n with less than 280 characters and no hashtags \n about this article written by our guest " + author + ": \n" + text1 + ": \n",
+          "prompt": "Here is a numbered list of five original Tweets with less than 280 characters and no hashtags inspired by the voice and tone of these Tweets from The Brian Lehrer Show: \n" + file_contents + "\n, about this article written by the show's guest " + author + ": \n" + text1 + ": \n",
           "max_tokens": max_tokens,
           "temperature": temperature
         };
