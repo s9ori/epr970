@@ -246,7 +246,7 @@ function runRewrite(inputVariable) {
     var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
-    var prompt3 = previousPromptArray[previousPromptArray.length - 1]; // Get the last prompt from the array
+    var prompt3 = $("#prompt").val();
 
     var data2 = {
       "model": model,
