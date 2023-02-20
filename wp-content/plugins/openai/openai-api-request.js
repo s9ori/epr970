@@ -380,7 +380,7 @@ function runRewrite(inputVariable) {
         var api_key = openai_data.api_key;
         var model = "text-davinci-003";
         var max_tokens = 420;
-        var temperature = .85;
+        var temperature = .7;
         var url = "https://api.openai.com/v1/completions";
         var cacheKey = prompt; // Only use the prompt to construct the cache key
         cacheCounter++; // Increment the counter
