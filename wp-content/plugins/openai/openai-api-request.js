@@ -31,24 +31,29 @@ textarea.style.height = "auto";
 textarea.style.height = `${textarea.scrollHeight}px`;
 });
 
+$("form.openai").submit(function(e) {  
+  
+$('#past-tense-btn').click(function() {
+  tense = "past segment";
+  whatTense = "past tense";
+});
+
+$('#present-tense-btn').click(function() {
+  tense = "live segment";
+  whatTense = "present tense";
+});
+
+$('#future-tense-btn').click(function() {
+  tense = "upcoming segment";
+  whatTense = "future tense";
+});
+
+e.preventDefault();
+
+
 $('#summarizeArticle').change(function() {
   // Enable/disable buttons based on the prompt length
 
-  $('#past-tense-btn').click(function() {
-    tense = "past segment";
-    whatTense = "past tense";
-  });
-  
-  $('#present-tense-btn').click(function() {
-    tense = "live segment";
-    whatTense = "present tense";
-  });
-
-  $('#future-tense-btn').click(function() {
-    tense = "upcoming segment";
-    whatTense = "future tense";
-  });
-  
 e.preventDefault();
 // Define an array of search terms to use for the Google image search
 var searchTerms = ["lesserafim", "taemin", "kpop memes", "nct dream", "blackpink", "shinee kpop", "newjeans", "nct 127", "aespa", "boys planet 999"];
@@ -450,6 +455,7 @@ $.ajax({
 
     }
       })
+    });
 
 
 $('#creative-btn').click(function() {
