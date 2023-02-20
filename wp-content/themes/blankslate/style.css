@@ -447,7 +447,8 @@ font-style: normal !important;
 textarea {
   height: auto;
   min-height: 50px;
-  overflow: hidden;
+  max-height: 550px;
+  overflow: scroll;
   padding: 5px;
   font-size: 16px;
   font-size: 16px;
