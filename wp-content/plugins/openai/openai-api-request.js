@@ -250,7 +250,7 @@ function runRewrite(inputVariable) {
 
     var data2 = {
       "model": model,
-      "prompt": "Rewrite this list of five tweets about this segment " + prompt3 + " to make them " + inputVariable + ": " + prompt2,
+      "prompt": "Based on this summary of the segment\n" + prompt3 + "\nRewrite this list of five tweets to make them " + inputVariable + ":\n" + prompt2,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
