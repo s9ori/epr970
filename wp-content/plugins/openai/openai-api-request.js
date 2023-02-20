@@ -10,26 +10,25 @@ jQuery(document).ready(function($) {
   var buttons = $('#past-tense-btn, #present-tense-btn, #future-tense-btn');
 buttons.prop('disabled', true);
 
-if (prompt.trim().length > 15) {
-  buttons.prop('disabled', false);
-} else {
-  buttons.prop('disabled', true);
-};
+  // Listen for text input event on the prompt textarea
+  $('#prompt').on('input', function() {
+    var prompt = $(this).val();
+    if (prompt.trim().length > 15) {
+      buttons.prop('disabled', false);
+    } else {
+      buttons.prop('disabled', true);
+    };
+  });
+
+  $('#author').on('input', function() {
+    var author = $(this).val();
+  });
 
 $("#prompt").focus();
 
 textarea.addEventListener("input", () => {
 textarea.style.height = "auto";
 textarea.style.height = `${textarea.scrollHeight}px`;
-});
-
-// Listen for text input event on the prompt textarea
-$('#prompt').on('input', function() {
-  var prompt = $(this).val();
-});
-  
-$('#author').on('input', function() {
-    var author = $(this).val();
 });
 
 $('#summarizeArticle').change(function() {
