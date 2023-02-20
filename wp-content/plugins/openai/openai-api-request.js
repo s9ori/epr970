@@ -226,7 +226,8 @@ $('#serious-btn').click(function() {
 });
 
 $('#longer-btn').click(function() {
-  var inputVariable = "more descriptive, more detailed, and longer (with a maximum length of 280 characters)";
+  var prompt3 = $("#prompt").val();
+  var inputVariable = "more descriptive, more detailed, and longer (with a maximum length of 280 characters) using this reference" + prompt3;
   runRewrite(inputVariable);
 });
 
@@ -243,7 +244,7 @@ function runRewrite(inputVariable) {
 
     var data2 = {
       "model": model,
-      "prompt": prompt3 + inputVariable + ": " + prompt2,
+      "prompt": "Make the tweets in this list\n " + prompt2 + "\n" + inputVariable,
       "max_tokens": max_tokens,
       "temperature": temperature
     };
