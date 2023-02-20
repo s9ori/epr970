@@ -390,7 +390,7 @@ function runRewrite(inputVariable) {
         }
         var data4 = {
           "model": model,
-          "prompt": "Here is a numbered list of five original Tweets with less than 280 characters and no hashtags inspired by the voice and tone of these Tweets from The Brian Lehrer Show: \n" + file_contents + "\n, about this article written by the show's guest " + author + ": \n" + text1 + ": \n",
+          "prompt": "Inspired by the voice and tone of these tweets from the Brian Lehrer Show: \n\n" + file_contents + ", \n\nHere is a numbered list of five original Tweets with less than 280 characters and no hashtags about this article written by the show's guest " + author + ": \n" + text1 + ": \n",
           "max_tokens": max_tokens,
           "temperature": temperature
         };
