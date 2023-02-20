@@ -77,7 +77,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice of these tweets from WNYC: \n\n" + file_contents + ", \n\n here is a numbered list of five original Tweets with no hashtags and in " + whatTense + " about this " + tense + ":\n" + prompt + ": \n",
+"prompt": "Inspired by the voice and structure of these tweets from WNYC: \n\n" + file_contents + ", \n\n here is a numbered list of five original Tweets with no hashtags and in " + whatTense + " about this " + tense + ":\n" + prompt + ": \n",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
