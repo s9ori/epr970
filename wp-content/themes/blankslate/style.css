@@ -53,8 +53,11 @@ article {
   display: block;
 }
 .logo {
-  max-width: 200px;
-  padding: 15px;
+  max-width: 185px;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 20px
 }
 
 body.home .entry-basics {
@@ -105,7 +108,6 @@ html {
 }
 
 #site-description {
-  margin-bottom: 20px;
 font-family: "bitcount-mono-single-circle", sans-serif;
 font-weight: 500;
 font-style: normal;
