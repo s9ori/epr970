@@ -77,7 +77,7 @@ previousResponseArray = JSON.parse(cachedResponse);
 }
 var data = {
 "model": model,
-"prompt": "Inspired by the voice and tone of these tweets from The Brian Lehrer Show: \n" + file_contents + ", here is a numbered list of five original Tweets in " + whatTense + "\n with less than 280 characters and no hashtags about this " + tense + ":\n" + prompt + ": \n",
+"prompt": "Keeping each Tweet less than 280 characters, removing all hashtags, and inspired by the voice of these tweets from WNYC: \n\n" + file_contents + ", \n\n here is a numbered list of five original Tweets in " + whatTense + " about this " + tense + ":\n" + prompt + ": \n",
 "max_tokens": max_tokens,
 "temperature": temperature
 };
@@ -390,7 +390,7 @@ function runRewrite(inputVariable) {
         }
         var data4 = {
           "model": model,
-          "prompt": "Keeping each Tweet less than 280 characters, removing all hashtags, and inspired by the voice of these tweets from the Brian Lehrer Show: \n\n" + file_contents + ", \n\nhere is a numbered list of five original Tweets about this article written by " + author + ", who joined the show to speak about the article " + text1 + ":\n\n",
+          "prompt": "Keeping each Tweet less than 280 characters, removing all hashtags, and inspired by the voice of these tweets from WNYC: \n\n" + file_contents + ", \n\nhere is a numbered list of five original Tweets about this article written by " + author + ", who joined the show to speak about the article " + text1 + ":\n\n",
           "max_tokens": max_tokens,
           "temperature": temperature
         };
