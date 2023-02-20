@@ -216,18 +216,18 @@ $('.openai-response').css({
 });
 });
 $('#creative-btn').click(function() {
-  var inputVariable = "slightly more creative";
+  var inputVariable = " more creative:";
   runRewrite(inputVariable);
 });
 
 $('#serious-btn').click(function() {
-  var inputVariable = "slightly more serious";
+  var inputVariable = " more serious:";
   runRewrite(inputVariable);
 });
 
 $('#longer-btn').click(function() {
   var prompt3 = $("#prompt").val();
-  var inputVariable = "more descriptive, more detailed, and longer (with a maximum length of 280 characters) using this reference" + prompt3;
+  var inputVariable = " more descriptive, more detailed, and longer (with a maximum length of 280 characters) using this reference" + prompt3 + ":";
   runRewrite(inputVariable);
 });
 
