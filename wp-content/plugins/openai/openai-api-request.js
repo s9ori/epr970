@@ -333,7 +333,7 @@ function runRewrite(inputVariable) {
   $('#summarizeArticle').click(function() {
     var api_key = openai_data.api_key;
     var model = "text-davinci-003";
-    var max_tokens = 880;
+    var max_tokens = 700;
     var temperature = .7;
     var url = "https://api.openai.com/v1/completions";
     var prompt = $("#prompt").val();
@@ -368,11 +368,12 @@ function runRewrite(inputVariable) {
         });
       },
       success: function(result) {
+        setTimeout(function() {
         var text1 = result.choices[0].text;
         var api_key = openai_data.api_key;
         var model = "text-davinci-003";
         var max_tokens = 420;
-        var temperature = .88;
+        var temperature = .85;
         var url = "https://api.openai.com/v1/completions";
         var cacheKey = prompt; // Only use the prompt to construct the cache key
         cacheCounter++; // Increment the counter
@@ -481,6 +482,7 @@ $('.openai-response').css({
             "opacity": "0",
             "display": "none"
           });
+        }, 1000); // Set timeout to 1s (1000ms)
         },
         error: function(jqXHR, textStatus, errorThrown) {
           $('.navis-calling').hide();
