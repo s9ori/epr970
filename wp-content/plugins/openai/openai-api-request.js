@@ -333,14 +333,14 @@ function runRewrite(inputVariable) {
   $('#summarizeArticle').click(function() {
       var api_key = openai_data.api_key;
       var model = "text-davinci-003";
-      var max_tokens = 800;
+      var max_tokens = 880;
       var temperature = .7;
       var url = "https://api.openai.com/v1/completions";
       var prompt = $("#prompt").val();
   
       var data3 = {
         "model": model,
-        "prompt": "Summarize this article including all key details:\n " + prompt,
+        "prompt": "Here is a detailed summary of this article:\n " + prompt,
         "max_tokens": max_tokens,
         "temperature": temperature
       };
