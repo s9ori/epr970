@@ -432,19 +432,19 @@ function runRewrite(inputVariable) {
   
   // Hide any empty tweet elements
   $(".tweet:empty").css("display", "none");
-  $('.navis-calling').hide();
-  $('label').hide();
-  $('#prompt').hide();
-  $('.prompt-tuning').hide();
-  $('.rewrites').hide();
-  $('.input-btn').hide();
-  $('.openai-input').hide();
-  $('.texted').hide();
-  $('.input-btn').hide();
-  $('#gif-container').show();
-  $('.openai-response').css({
-      "opacity": "0",
-      "display": "none"
+    $('.navis-calling').hide();
+          $('label').show();
+          $('.rewrites').show();
+          $('#prompt').show();
+          $('.prompt-tuning').show();
+          $('.texted').show();
+          $('.input-btn').show();
+          $('.openai-input').show();
+          $('.input-btn').show();
+          $('#gif-container').hide();
+          $('.openai-response').css({
+            "opacity": "1",
+            "display": "flex"
   });
 },
 error: function(jqXHR, textStatus, errorThrown) {
@@ -467,19 +467,19 @@ $('.openai-response').css({
 }),
     // Hide any empty tweet elements
     $(".tweet:empty").css("display", "none");
-    $('.navis-calling').hide();
-          $('label').show();
-          $('.rewrites').show();
-          $('#prompt').show();
-          $('.prompt-tuning').show();
-          $('.texted').show();
-          $('.input-btn').show();
-          $('.openai-input').show();
-          $('.input-btn').show();
-          $('#gif-container').hide();
+    $('.navis-calling').show();
+          $('label').hide();
+          $('.rewrites').hide();
+          $('#prompt').hide();
+          $('.prompt-tuning').hide();
+          $('.texted').hide();
+          $('.input-btn').hide();
+          $('.openai-input').hide();
+          $('.input-btn').hide();
+          $('#gif-container').show();
           $('.openai-response').css({
-            "opacity": "1",
-            "display": "flex"
+            "opacity": "0",
+            "display": "none"
           });
         },
         error: function(jqXHR, textStatus, errorThrown) {
