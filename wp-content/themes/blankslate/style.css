@@ -444,6 +444,12 @@ font-style: normal !important;
   }
 }
 
+.advanced {
+  display: flex; 
+  flex-direction: row;
+  gap: 5px
+}
+
 textarea {
   border: 2px solid black;
   padding: 15px;
