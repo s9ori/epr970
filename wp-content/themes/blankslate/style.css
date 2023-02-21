@@ -327,6 +327,11 @@ span[class$="img"]:hover {
 .prompt-tuning {
   margin-bottom: 30px;
   margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
 }
 
 .tab {
@@ -453,8 +458,8 @@ font-style: normal !important;
 .prompt-tuning textarea {
   padding: 5px !important;
   width: auto !important;
-  min-height: 25px !important;
-  max-height: 30px !important;
+  min-height: none !important;
+  max-height: none !important;
   height: 100%;
 }
 
