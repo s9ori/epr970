@@ -297,27 +297,24 @@ $("form.openai").submit(function(e) {
 
 $('#creative-btn').click(function() {
   var inputVariable = " more creative:";
-  var max_tokens = 600;
   runRewrite(inputVariable);
 });
 
 $('#serious-btn').click(function() {
   var inputVariable = " more serious:";
-  var max_tokens = 600;
   runRewrite(inputVariable);
 });
 
 $('#longer-btn').click(function() {
   var prompt3 = $("#prompt").val();
   var inputVariable = " more descriptive, more detailed, and with a maximum of 280 characters, using this reference: \n" + prompt3 + ": \n";
-  var max_tokens = 800;
   runRewrite(inputVariable);
 });
 
 function runRewrite(inputVariable) {
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
     var api_key = openai_data.api_key;
-    var max_tokens = 520;
+    var max_tokens = 800;
     var model = "text-davinci-003";
     var temperature = .6;
     var url = "https://api.openai.com/v1/completions";
