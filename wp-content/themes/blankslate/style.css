@@ -458,7 +458,6 @@ font-style: normal !important;
 .prompt-tuning textarea {
   padding: 5px !important;
   width: auto !important;
-  width: auto !important;
   height: 42px;
 }
 
@@ -474,6 +473,10 @@ font-style: normal !important;
   flex-direction: row;
   border: 2px solid black;
   gap: 5px;
+}
+
+.prompt-tuning button {
+  border: 2px solid;
 }
 
 textarea {
