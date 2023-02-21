@@ -9,6 +9,11 @@ get_header();
 <div class="entry-basics">
 <h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
 </div>
+<style>
+  #content {
+    max-width: 562px !important
+  }
+  </style>
 <div class="entry-content" itemprop="mainContentOfPage">
 <div class="landing-container">
     <div class="landing">
