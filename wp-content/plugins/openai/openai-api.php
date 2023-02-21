@@ -28,13 +28,10 @@
 <button id="past-tense-btn">Past</button>
 <button id="present-tense-btn">Live</button>
 <button id="future-tense-btn">Upcoming</button>
+<label><input type="checkbox" id="summarizeArticle">Article?</label>
+<textarea name="author" id="author" placeholder="guest name and @"></textarea>
  </div>
      </form>
-<div class="advanced">
-<label>
-<input type="checkbox" id="summarizeArticle">Article?</label>
-<textarea name="author" id="author" placeholder="guest name and @"></textarea>
-</div>
      <?php
      return ob_get_clean();
  }
