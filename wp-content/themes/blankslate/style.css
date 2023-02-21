@@ -460,6 +460,9 @@ font-style: normal !important;
   width: auto !important;
   height: 42px;
   white-space: nowrap;
+  line-height: 28px;
+  font-family: 'bitcount-mono-single-circle';
+  background: #feddde;
 }
 
 .prompt-tuning label {

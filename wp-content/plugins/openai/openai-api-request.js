@@ -205,8 +205,6 @@ $("form.openai").submit(function(e) {
       var cacheKey = prompt; // Only use the prompt to construct the cache key
       var author = $("#author").val();
 
-
-
       cacheCounter++; // Increment the counter
       var cachedResponse = localStorage.getItem(cacheKey);
       if (cachedResponse) {
