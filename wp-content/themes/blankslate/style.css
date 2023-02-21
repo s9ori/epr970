@@ -450,6 +450,14 @@ font-style: normal !important;
   gap: 5px
 }
 
+#author {
+  padding: 5px !important;
+  width: auto !important;
+  min-height: 25px !important;
+  max-height: 30px !important;
+  height: 100%;
+}
+
 textarea {
   border: 2px solid black;
   padding: 15px;
