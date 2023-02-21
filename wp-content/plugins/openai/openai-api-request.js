@@ -203,6 +203,9 @@ $("form.openai").submit(function(e) {
       var temperature = .88;
       var url = "https://api.openai.com/v1/completions";
       var cacheKey = prompt; // Only use the prompt to construct the cache key
+      var author = $("#author").val();
+
+
 
       cacheCounter++; // Increment the counter
       var cachedResponse = localStorage.getItem(cacheKey);
@@ -323,7 +326,7 @@ function runRewrite(inputVariable) {
 
     var data2 = {
       "model": model,
-      "prompt": "Make the tweets in this list " + inputVariable + " \n" + prompt2 + ": \n",
+      "prompt": "Make the five tweets in this numbered list " + inputVariable + " \n" + prompt2 + ": \n",
       "max_tokens": max_tokens,
       "temperature": temperature
     };
