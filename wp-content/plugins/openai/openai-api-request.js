@@ -53,7 +53,7 @@ $("form.openai").submit(function(e) {
     
       var data = {
         "model": model,
-        "prompt": "Here is an explanation of all the key points in this article: \n " + prompt + ": \n\n",
+        "prompt": "Here is an explanation of all the key topics in this article: \n " + prompt + ": \n\n",
         "max_tokens": max_tokens,
         "temperature": temperature
       };
