@@ -463,6 +463,20 @@ font-style: normal !important;
   height: 100%;
 }
 
+.prompt-tuning label {
+  padding: 9.5px 9px;
+  background: #feddde;
+  font-family: 'bitcount-mono-single-circle';
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border: 2px solid black;
+  gap: 5px;
+}
+
 textarea {
   border: 2px solid black;
   padding: 15px;
