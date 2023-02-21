@@ -200,7 +200,7 @@ $("form.openai").submit(function(e) {
       var api_key = openai_data.api_key;
       var model = "text-davinci-003";
       var max_tokens = 420;
-      var temperature = .88;
+      var temperature = .82;
       var url = "https://api.openai.com/v1/completions";
       var cacheKey = prompt; // Only use the prompt to construct the cache key
       var author = $("#author").val();
@@ -309,7 +309,7 @@ $('#serious-btn').click(function() {
 
 $('#longer-btn').click(function() {
   var prompt3 = $("#prompt").val();
-  var inputVariable = " more descriptive, more detailed, and longer but with a maximum length of 280 characters, using this reference: \n" + prompt3 + ": \n";
+  var inputVariable = " more descriptive, more detailed, and with a maximum of 280 characters, using this reference: \n" + prompt3 + ": \n";
   runRewrite(inputVariable);
 });
 
@@ -318,7 +318,7 @@ function runRewrite(inputVariable) {
     var api_key = openai_data.api_key;
     var model = "text-davinci-003";
     var max_tokens = 420;
-    var temperature = .7;
+    var temperature = .6;
     var url = "https://api.openai.com/v1/completions";
     var prompt2 = previousResponseArray[previousResponseArray.length - 1]; // Get the last response from the array
     var prompt3 = $("#prompt").val();
