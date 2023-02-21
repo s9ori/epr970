@@ -440,7 +440,8 @@ font-style: normal !important;
   display: block;
   gap: 20px;
   flex-direction: row;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  transition: all 0.3s ease-in
 }
 
 @media screen and (max-width: 1000px) {
