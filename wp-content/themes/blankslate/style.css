@@ -459,6 +459,7 @@ font-style: normal !important;
   padding: 5px !important;
   width: auto !important;
   height: 42px;
+  white-space: nowrap;
 }
 
 .prompt-tuning label {
