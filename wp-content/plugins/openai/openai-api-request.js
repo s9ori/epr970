@@ -53,7 +53,7 @@ $("form.openai").submit(function(e) {
     
       var data = {
         "model": model,
-        "prompt": "Here is a detailed explanation of this article written by " + author + ":\n that credits " + author + " as the author: \n" + prompt,
+        "prompt": "Here is an explanation of all the key points in this article: \n " + prompt + ": \n\n",
         "max_tokens": max_tokens,
         "temperature": temperature
       };
