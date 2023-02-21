@@ -25,11 +25,11 @@
          <textarea name="prompt" id="prompt" placeholder="topic or summary of segment"></textarea>
 
 <div class="prompt-tuning">
+<textarea name="author" id="author" placeholder="guest name and @"></textarea>
+<label><input type="checkbox" id="summarizeArticle">Article?</label>
 <button id="past-tense-btn">Past</button>
 <button id="present-tense-btn">Live</button>
 <button id="future-tense-btn">Upcoming</button>
-<label><input type="checkbox" id="summarizeArticle">Article?</label>
-<textarea name="author" id="author" placeholder="guest name and @"></textarea>
  </div>
      </form>
      <?php
