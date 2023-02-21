@@ -450,7 +450,7 @@ font-style: normal !important;
   gap: 5px
 }
 
-#author {
+.prompt-tuning textarea {
   padding: 5px !important;
   width: auto !important;
   min-height: 25px !important;
