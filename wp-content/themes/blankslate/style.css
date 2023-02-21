@@ -458,9 +458,8 @@ font-style: normal !important;
 .prompt-tuning textarea {
   padding: 5px !important;
   width: auto !important;
-  min-height: none !important;
-  max-height: none !important;
-  height: 100%;
+  width: auto !important;
+  height: 42px;
 }
 
 .prompt-tuning label {
