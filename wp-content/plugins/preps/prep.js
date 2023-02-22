@@ -38,11 +38,36 @@ jQuery(document).ready(function($) {
         success: function(response) {
           // Get the generated text from the API response
           var text = response.choices[0].text;
-        
+          
+          // Split the generated text into sections
+          var sections = text.split('\n\n');
+          
           // Create a new div element to display the generated text
           var generatedText = document.createElement('div');
-          generatedText.textContent = text;
-        
+          
+          // Loop through each section and format it
+          for (var i = 0; i < sections.length; i++) {
+            // Add a line break before each section (except the first one)
+            if (i > 0) {
+              generatedText.appendChild(document.createElement('br'));
+            }
+            
+            // Check if the section is an intro, listener questions, or interviewer questions
+            var header = '';
+            if (sections[i].startsWith('Intro:')) {
+              header = '<b>Intro:</b> ';
+            } else if (sections[i].startsWith('Listener questions:')) {
+              header = '<b>Listener questions:</b> ';
+            } else if (sections[i].startsWith('Interviewer questions:')) {
+              header = '<b>Interviewer questions:</b> ';
+            }
+            
+            // Add the section to the generated text div with the header formatted in bold
+            var sectionText = document.createTextNode(sections[i].replace(/Intro:|Listener questions:|Interviewer questions:/, ''));
+            generatedText.innerHTML += header;
+            generatedText.appendChild(sectionText);
+          }
+          
           // Append the new div element to the openai-response div on the page
           $('.openai-response').append(generatedText);
         },        
