@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
     var prompt = JSON.stringify(file_contents);
     var api_key = openai_data.api_key;
       var model = "text-davinci-003";
-      var max_tokens = 1200;
+      var max_tokens = 1000;
       var prompts = $('#prompt').val();
       var temperature = .7;
       var url = "https://api.openai.com/v1/completions";
