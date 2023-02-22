@@ -1,13 +1,18 @@
 ﻿var openai_data = window.openai_data || {};
 
 
+
 jQuery(document).ready(function($) {
     // Listen for text input event on the prompt textarea
 
   $('form.prep-form').submit(function(event) {
     event.preventDefault();
     var api_key = openai_data.api_key;
-    var prompt = subjectData + '\n' + introData + '\n' + interviewerQuestionsData + '\n' + listenerQuestionsData;
+    var subject = openai_data.subject;
+    var intro = openai_data.intro;
+    var interviewer_questions = openai_data.interviewer_questions;
+    var listener_questions = openai_data.listener_questions;
+    var prompt = subject + "\n" + intro + "\n" + interviewer_questions + "\n" + listener_questions;
       var model = "text-davinci-003";
       var max_tokens = 500;
       var temperature = .7;
