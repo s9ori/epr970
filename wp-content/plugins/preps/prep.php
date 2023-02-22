@@ -1,6 +1,6 @@
 ﻿<?php
 /*
- * Plugin Name: OpenAI API Request
+ * Plugin Name: OpenAI API Preps
  * Description: A WordPress plugin that makes requests to the OpenAI API and displays the response on screen
  * Version: 1.0
  * Author: Saori Uchida
