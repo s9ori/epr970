@@ -20,7 +20,7 @@ get_header();
     <div class="texted">
     <h1>hey nævis, write some hit tweets about:</h1>
     </div>
-    <div class="landing-frame"><?php echo prep_openai_api_request_form(); ?></div>
+    <div class="landing-frame"><?php echo do_shortcode('[prep_openai_api_request_form]'); ?></div>
     </div>
     <div class="openai-response-container">
     <div class="navis-calling" id="loading-container" style="display: none;">
