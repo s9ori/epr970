@@ -11,7 +11,14 @@ jQuery(document).ready(function($) {
 
   $('form.prep-form').submit(function(event) {
     event.preventDefault();
-    var prompt = JSON.stringify(file_contents);
+    var subjectData = file_contents.subject;
+    var introData = file_contents.intro;
+    var brianData = file_contents.interviewer_questions;
+    var listenerData = file_contents.listener_questions;
+    var subjectString = JSON.stringify(subjectData);
+    var introString = JSON.stringify(introData);
+    var brianString = JSON.stringify(brianData);
+    var listenerString = JSON.stringify(listener_questions);
     var api_key = openai_data.api_key;
       var model = "text-davinci-003";
       var max_tokens = 500;
@@ -21,7 +28,7 @@ jQuery(document).ready(function($) {
     
       var data = {
         "model": model,
-        "prompt": prompt,
+        "prompt": subjectString + "\n" + introString + "\n" + brianString + "\n" + listenerString,
         "max_tokens": max_tokens,
         "temperature": temperature
       };
