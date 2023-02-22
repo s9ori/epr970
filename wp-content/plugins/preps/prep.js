@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
     
       var data = {
         "model": model,
-        "prompt": "Here is json file: \n " + prompts + prompt,
+        "prompt": prompt,
         "max_tokens": max_tokens,
         "temperature": temperature
       };
