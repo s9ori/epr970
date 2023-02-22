@@ -11,4 +11,5 @@ get_header();
   }
 </style>
 <div class="landing-frame"><?php echo prep_openai_api_request_form(); ?></div>
+<div class="openai-response"></div>
 <?php get_footer(); ?>
