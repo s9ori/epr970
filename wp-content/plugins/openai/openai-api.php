@@ -7,15 +7,15 @@
  */
 
  add_action('wp_enqueue_scripts', 'openai_api_request_form_enqueue_scripts');
- function prep_openai_api_request_form_enqueue_scripts() {
+ function openai_api_request_form_enqueue_scripts() {
      wp_enqueue_script( 'jquery' );
-     wp_enqueue_script( 'openai-api-request', plugin_dir_url(__FILE__) . '/openai-api-request.js', array( 'jquery' ), '1.0', true );
+     wp_enqueue_script( 'openai-api-request1', plugin_dir_url(__FILE__) . '/openai-api-request.js', array( 'jquery' ), '1.0', true );
      $data = array(
          'api_key' => getenv('API_KEY')
      );
-     wp_localize_script( 'openai-api-request', 'openai_data', $data );
+     wp_localize_script( 'openai-api-request1', 'openai_data', $data );
      $file_contents = file_get_contents(plugin_dir_url(__FILE__) . "/context.txt");
-     wp_localize_script( 'openai-api-request', 'file_data', array( 'file_contents' => $file_contents ) );}
+     wp_localize_script( 'openai-api-request1', 'file_data', array( 'file_contents' => $file_contents ) );}
  
 
  function openai_api_request_form() {
@@ -30,6 +30,7 @@
 <button id="past-tense-btn">Past</button>
 <button id="present-tense-btn">Live</button>
 <button id="future-tense-btn">Upcoming</button>
+
  </div>
      </form>
      <?php
