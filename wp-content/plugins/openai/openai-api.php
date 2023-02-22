@@ -18,7 +18,7 @@
      wp_localize_script( 'openai-api-request', 'file_data', array( 'file_contents' => $file_contents ) );}
  
 
- function prep_openai_api_request_form() {
+ function openai_api_request_form() {
      ob_start();
      ?>
      <form class="openai" action="#" method="post">
