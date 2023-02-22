@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
     var subjectString = JSON.stringify(subjectData);
     var introString = JSON.stringify(introData);
     var brianString = JSON.stringify(brianData);
-    var listenerString = JSON.stringify(listener_questions);
+    var listenerString = JSON.stringify(listenerData);
     var api_key = openai_data.api_key;
       var model = "text-davinci-003";
       var max_tokens = 500;
