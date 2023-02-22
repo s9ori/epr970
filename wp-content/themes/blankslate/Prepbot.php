@@ -23,7 +23,7 @@ get_header();
     <h2>nævis calling</h2>
     </div>
     <img id="gif-container" style="display: none; width: 100%">
-    <div class="openai-response"></div>
+    <div class="openai-response" id="prep-response"></div>
     </div>
     </div>
 <?php get_footer(); ?>

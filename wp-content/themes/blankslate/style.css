@@ -448,6 +448,15 @@ input[type="checkbox"]:checked {
   transition: all 0.3s ease-in
 }
 
+#prep-response {
+background: white;
+padding: 15px;
+border: 2px solid black;
+font-family: 'basic-sans';
+line-height: 1.5em;
+}
+
+
 @media screen and (max-width: 1000px) {
   .openai-response {
   flex-wrap: wrap !important
@@ -498,7 +507,7 @@ textarea {
   overflow: scroll;
   font-size: 16px;
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: basic-sans, sans-serif;
   font-weight: 400;
   font-style: normal;
   text-decoration: none;

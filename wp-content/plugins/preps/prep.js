@@ -77,7 +77,15 @@ jQuery(document).ready(function($) {
   
           // Append the new div element to the openai-response div on the page
           $('.openai-response').append(generatedText);
-        },
+          $('.navis-calling').hide();
+          $('.texted').show();
+          $('#gif-container').hide();
+          $('#prompt').show();
+          $('.openai-response').css({
+            "opacity": "1",
+            "display": "flex"
+          });
+        },        
       error: function(error) {
         // Display the error message in the console
         console.error(error);
