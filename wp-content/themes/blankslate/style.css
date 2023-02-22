@@ -445,16 +445,14 @@ input[type="checkbox"]:checked {
   gap: 20px;
   flex-direction: row;
   flex-wrap: wrap;
-  transition: all 0.3s ease-in
-}
-
-#prep-response {
+  transition: all 0.3s ease-in;
 background: white;
 padding: 15px;
 border: 2px solid black;
 font-family: 'basic-sans';
 line-height: 1.5em;
 }
+
 
 
 @media screen and (max-width: 1000px) {

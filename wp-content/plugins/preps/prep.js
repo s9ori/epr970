@@ -46,35 +46,36 @@ jQuery(document).ready(function($) {
         success: function(response) {
           // Get the generated text from the API response
           var text = response.choices[0].text;
-  
-          // Split the generated text into sections using the headers
-          var sections = text.split(/(Intro:|Listener Questions:|Interviewer Questions:)/);
-  
+          
+          // Split the generated text into sections
+          var sections = text.split('\n\n');
+          
           // Create a new div element to display the generated text
           var generatedText = document.createElement('div');
-  
-          // Loop through the sections and add them to the generated text element
+          
+          // Loop through each section and format it
           for (var i = 0; i < sections.length; i++) {
-            if (sections[i].startsWith('Intro:')) {
-              // Add the intro section to the generated text element
-              generatedText.innerHTML += '<br><b>Intro:</b> ' + sections[i].substr(6).trim() + '<br>';
-            } else if (sections[i].startsWith('Listener Questions:')) {
-              // Add the listener questions section to the generated text element
-              generatedText.innerHTML += '<br><b>Listener Questions:</b><br>';
-              var listenerQuestions = sections[i].substr(20).trim().split(/\n\d+\. /);
-              for (var j = 0; j < listenerQuestions.length; j++) {
-                generatedText.innerHTML += j + '. ' + listenerQuestions[j] + '<br>';
-              }
-            } else if (sections[i].startsWith('Interviewer Questions:')) {
-              // Add the interviewer questions section to the generated text element
-              generatedText.innerHTML += '<br><b>Interviewer Questions:</b><br>';
-              var interviewerQuestions = sections[i].substr(23).trim().split(/\n\d+\. /);
-              for (var k = 0; k < interviewerQuestions.length; k++) {
-                generatedText.innerHTML += k + '. ' + interviewerQuestions[k] + '<br>';
-              }
+            // Add a line break before each section (except the first one)
+            if (i > 0) {
+              generatedText.appendChild(document.createElement('br'));
             }
+            
+            // Check if the section is an intro, listener questions, or interviewer questions
+            var header = '';
+            if (sections[i].startsWith('Intro:')) {
+              header = '<br><b>Intro:</b><br> ';
+            } else if (sections[i].startsWith('Listener Questions:')) {
+              header = '<br><b>Listener Questions:</b><br> ';
+            } else if (sections[i].startsWith('Interviewer Questions:')) {
+              header = '<br><b>Interviewer Questions:</b><br> ';
+            }
+            
+            // Add the section to the generated text div with the header formatted in bold
+            var sectionText = document.createTextNode(sections[i].replace(/Intro:|Listener Questions:|Interviewer Questions:/, ''));
+            generatedText.innerHTML += header;
+            generatedText.appendChild(sectionText);
           }
-  
+          
           // Append the new div element to the openai-response div on the page
           $('.openai-response').append(generatedText);
           $('.navis-calling').hide();
