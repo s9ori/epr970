@@ -22,7 +22,7 @@ function prep_openai_api_request_form_enqueue_scripts() {
 function prep_openai_api_request_form() {
   ob_start();
   ?>
-  <form id="prep-form">
+  <form class="prep-form" id="prep-form">
     <div>
       <label for="prompt">Prompt:</label>
       <textarea name="prompt" id="prompt"></textarea>
