@@ -10,5 +10,5 @@ get_header();
     max-width: 562px !important
   }
 </style>
-<div class="landing-frame"><?php echo do_shortcode('[prep_openai_api_request_form]'); ?></div>
+<div class="landing-frame"><?php echo prep_openai_api_request_form(); ?></div>
 <?php get_footer(); ?>
