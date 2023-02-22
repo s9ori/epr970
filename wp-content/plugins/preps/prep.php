@@ -28,5 +28,5 @@ function prep_openai_api_request_form() {
   <?php
    return ob_get_clean();
 }
-add_shortcode('prep_openai_api_request_form', 'openai_api_request_form_shortcode');
+add_shortcode('prep_openai_api_request_form', 'prep_openai_api_request_form');
 ?>
