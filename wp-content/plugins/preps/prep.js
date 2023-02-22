@@ -32,10 +32,17 @@ jQuery(document).ready(function($) {
       beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", "Bearer " + api_key);
         },
-      success: function(response) {
-        // Display the generated text in the console
-        console.log(response.choices[0].text);
-      },
+        success: function(response) {
+          // Get the generated text from the API response
+          var text = response.choices[0].text;
+        
+          // Create a new div element to display the generated text
+          var generatedText = document.createElement('div');
+          generatedText.textContent = text;
+        
+          // Append the new div element to the openai-response div on the page
+          $('.openai-response').append(generatedText);
+        },        
       error: function(error) {
         // Display the error message in the console
         console.error(error);
