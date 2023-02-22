@@ -14,14 +14,14 @@ jQuery(document).ready(function($) {
     var prompt = JSON.stringify(file_contents);
     var api_key = openai_data.api_key;
       var model = "text-davinci-003";
-      var max_tokens = 500;
-      var prompts = $(this).val();
+      var max_tokens = 1200;
+      var prompts = $('#prompt').val();
       var temperature = .7;
       var url = "https://api.openai.com/v1/completions";
     
       var data = {
         "model": model,
-        "prompt": prompt,
+        "prompt": "Following the style and structure of the intro, listener questions, and interviewer questions for each subject here:/n/n" + prompt + "\n\n Here is an intro, a numbered list of listener questions, and a numbered list of interviewer questions based on this subject: " + prompts + ":\n",
         "max_tokens": max_tokens,
         "temperature": temperature
       };
