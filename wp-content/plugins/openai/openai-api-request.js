@@ -348,7 +348,7 @@ function runRewrite(inputVariable) {
         $('.openai-input').hide();
         $('.openai-response').css({
           "opacity": "0",
-          "display": "flex"
+          "display": "none"
         });
       },
       success: function(result) {

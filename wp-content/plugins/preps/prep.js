@@ -34,6 +34,14 @@ jQuery(document).ready(function($) {
       contentType: "application/json",
       beforeSend: function(xhr) {
       xhr.setRequestHeader("Authorization", "Bearer " + api_key);
+      $('.navis-calling').show();
+      $('.texted').hide();
+      $('#gif-container').show();
+      $('#prompt').hide();
+      $('.openai-response').css({
+        "opacity": "0",
+        "display": "none"
+      });
         },
         success: function(response) {
           // Get the generated text from the API response
@@ -70,6 +78,14 @@ jQuery(document).ready(function($) {
           
           // Append the new div element to the openai-response div on the page
           $('.openai-response').append(generatedText);
+          $('.navis-calling').hide();
+          $('.texted').show();
+          $('#gif-container').hide();
+          $('#prompt').show();
+          $('.openai-response').css({
+            "opacity": "1",
+            "display": "flex"
+          });
         },        
       error: function(error) {
         // Display the error message in the console
