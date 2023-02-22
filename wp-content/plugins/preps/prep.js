@@ -1,4 +1,7 @@
-﻿jQuery(document).ready(function($) {
+﻿var file_contents = file_data.prompt;
+var openai_data = window.openai_data || {};
+
+jQuery(document).ready(function($) {
     // Listen for text input event on the prompt textarea
     $('#prompt').on('input', function() {
       var prompts = $(this).val();
