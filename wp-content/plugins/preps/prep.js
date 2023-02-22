@@ -1,5 +1,7 @@
 ﻿var file_contents = file_data.prompt;
 var openai_data = window.openai_data || {};
+var prompts = '';
+
 
 jQuery(document).ready(function($) {
     // Listen for text input event on the prompt textarea
@@ -13,6 +15,7 @@ jQuery(document).ready(function($) {
     var api_key = openai_data.api_key;
       var model = "text-davinci-003";
       var max_tokens = 500;
+      var prompts = $(this).val();
       var temperature = .7;
       var url = "https://api.openai.com/v1/completions";
     
