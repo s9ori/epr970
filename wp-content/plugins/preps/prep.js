@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
       var prompts = $(this).val();
     });
 
-  $('#prep-form').submit(function(event) {
+  $('form.prep-form').submit(function(event) {
     event.preventDefault();
     var prompt = file_data.prompt;
     var api_key = openai_data.api_key;
