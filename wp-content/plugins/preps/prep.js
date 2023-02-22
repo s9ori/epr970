@@ -1,4 +1,9 @@
 ﻿jQuery(document).ready(function($) {
+    // Listen for text input event on the prompt textarea
+    $('#prompt').on('input', function() {
+      var prompts = $(this).val();
+    });
+
   $('#prep-form').submit(function(event) {
     event.preventDefault();
     var prompt = file_data.prompt;
@@ -10,7 +15,7 @@
     
       var data = {
         "model": model,
-        "prompt": "Here is json file: \n " + prompt + ": \n\n",
+        "prompt": "Here is json file: \n " + prompts + prompt,
         "max_tokens": max_tokens,
         "temperature": temperature
       };
