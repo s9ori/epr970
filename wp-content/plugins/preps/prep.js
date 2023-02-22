@@ -1,4 +1,5 @@
 ﻿var file_contents = file_data.prompt;
+var intro = file_contents.intro
 var openai_data = window.openai_data || {};
 var prompts = '';
 
@@ -11,7 +12,8 @@ jQuery(document).ready(function($) {
 
   $('form.prep-form').submit(function(event) {
     event.preventDefault();
-    var prompt = JSON.stringify(file_contents);
+    var prompting = JSON.stringify(file_contents);
+    var prompt = JSON.stringify(intro);
     var api_key = openai_data.api_key;
       var model = "text-davinci-003";
       var max_tokens = 500;
