@@ -1,5 +1,5 @@
-var openai_data = window.openai_data || {};
-var file_contents = file_data.file_contents;
+var openai_data1 = window.openai_data1 || {};
+var file_contents1 = file_data1.file_contents1;
 var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
@@ -43,7 +43,7 @@ $("form.openai").submit(function(e) {
   });
 
   if ($('#summarizeArticle').is(':checked')) {
-      var api_key = openai_data.api_key;
+      var api_key = openai_data1.api_key;
       var model = "text-davinci-003";
       var max_tokens = 500;
       var temperature = .7;
@@ -82,7 +82,7 @@ $("form.openai").submit(function(e) {
     
       success: function(result) {
         var text1 = result.choices[0].text;
-        var api_key = openai_data.api_key;
+        var api_key = openai_data1.api_key;
         var model = "text-davinci-003";
         var max_tokens = 420;
         var temperature = .7;
@@ -95,7 +95,7 @@ $("form.openai").submit(function(e) {
         }
         var data4 = {
           "model": model,
-          "prompt": "Inspired by the voice and structure of these tweets from WNYC: \n\n" + file_contents + ", \n\n here is a numbered list of five original Tweets with no hashtags and in " + whatTense + " about this " + tense + " with guest " + author + " on the topic of " + text1 + ": \n", 
+          "prompt": "Inspired by the voice and structure of these tweets from WNYC: \n\n" + file_contents1 + ", \n\n here is a numbered list of five original Tweets with no hashtags and in " + whatTense + " about this " + tense + " with guest " + author + " on the topic of " + text1 + ": \n", 
           "max_tokens": max_tokens,
           "temperature": temperature
         };
@@ -197,7 +197,7 @@ $("form.openai").submit(function(e) {
       }
     else {
       var prompt = $("#prompt").val();
-      var api_key = openai_data.api_key;
+      var api_key = openai_data1.api_key;
       var model = "text-davinci-003";
       var max_tokens = 420;
       var temperature = .82;
@@ -212,7 +212,7 @@ $("form.openai").submit(function(e) {
         }
       var data = {
         "model": model,
-        "prompt": "Inspired by the voice and structure of these tweets from WNYC: \n\n" + file_contents + ", \n\n here is a numbered list of five original Tweets with no hashtags and in " + whatTense + " about this " + tense + " with guest " + author + " on the topic of " + prompt + ": \n",
+        "prompt": "Inspired by the voice and structure of these tweets from WNYC: \n\n" + file_contents1 + ", \n\n here is a numbered list of five original Tweets with no hashtags and in " + whatTense + " about this " + tense + " with guest " + author + " on the topic of " + prompt + ": \n",
         "max_tokens": max_tokens,
         "temperature": temperature
       };
@@ -313,7 +313,7 @@ $('#longer-btn').click(function() {
 
 function runRewrite(inputVariable) {
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
-    var api_key = openai_data.api_key;
+    var api_key = openai_data1.api_key;
     var max_tokens = 800;
     var model = "text-davinci-003";
     var temperature = .6;

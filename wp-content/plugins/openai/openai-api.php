@@ -13,9 +13,9 @@
      $data = array(
          'api_key' => getenv('API_KEY')
      );
-     wp_localize_script( 'openai-api-request1', 'openai_data', $data );
-     $file_contents = file_get_contents(plugin_dir_url(__FILE__) . "/context.txt");
-     wp_localize_script( 'openai-api-request1', 'file_data', array( 'file_contents' => $file_contents ) );}
+     wp_localize_script( 'openai-api-request1', 'openai_data1', $data );
+     $file_contents1 = file_get_contents(plugin_dir_url(__FILE__) . "/context.txt");
+     wp_localize_script( 'openai-api-request1', 'file_data1', array( 'file_contents1' => $file_contents1 ) );}
  
 
  function openai_api_request_form() {
