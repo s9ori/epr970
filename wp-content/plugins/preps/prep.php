@@ -14,6 +14,7 @@ function openai_api_request_form_enqueue_scripts() {
 
 // Display the form that will trigger the API request
 function prep_openai_api_request_form() {
+  ob_start();
   ?>
   <form id="prep-form">
     <div>
@@ -25,4 +26,7 @@ function prep_openai_api_request_form() {
     </div>
   </form>
   <?php
+   return ob_get_clean();
 }
+add_shortcode('prep_openai_api_request_form', 'prep_openai_api_request_form');
+?>
