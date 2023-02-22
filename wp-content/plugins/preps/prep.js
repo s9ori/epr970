@@ -1,20 +1,17 @@
 ﻿var file_contents = file_data.prompt;
 var openai_data = window.openai_data || {};
-var prompts = '';
 
 
 jQuery(document).ready(function($) {
     // Listen for text input event on the prompt textarea
-    $('#prompt').on('input', function() {
-      var prompts = $(this).val();
-    });
 
-  $('form.prep-form').submit(function(event) {
-    event.preventDefault();
     var subjectData = file_contents.subject;
     var introData = file_contents.intro;
     var brianData = file_contents.interviewer_questions;
     var listenerData = file_contents.listener_questions;
+
+  $('form.prep-form').submit(function(event) {
+    event.preventDefault();
     var subjectString = JSON.stringify(subjectData);
     var introString = JSON.stringify(introData);
     var brianString = JSON.stringify(brianData);
@@ -22,7 +19,6 @@ jQuery(document).ready(function($) {
     var api_key = openai_data.api_key;
       var model = "text-davinci-003";
       var max_tokens = 500;
-      var prompts = $(this).val();
       var temperature = .7;
       var url = "https://api.openai.com/v1/completions";
     
@@ -31,7 +27,7 @@ jQuery(document).ready(function($) {
         "prompt": subjectString + "\n" + introString + "\n" + brianString + "\n" + listenerString,
         "max_tokens": max_tokens,
         "temperature": temperature
-      };
+      };      
 
     // Make the API request using the prompt
     $.ajax({
