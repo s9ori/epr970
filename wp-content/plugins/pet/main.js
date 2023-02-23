@@ -47,6 +47,8 @@ const INTERACTION_POINTS = {
     }
 };
 
+jQuery(document).ready(function($) {
+
 playButton.addEventListener("click", playWithPet);
 feedButton.addEventListener("click", feedPet);
 exerciseButton.addEventListener("click", exercisePet);
@@ -63,7 +65,35 @@ setInterval(() => {
     savePetState();
 }, 10000);
 
+function updateMoodState() {
+    if (pet.mood >= 80) {
+      pet.mood = MOOD_STATES.JOYFUL;
+    } else if (pet.mood >= 60) {
+      pet.mood = MOOD_STATES.EXCITED;
+    } else if (pet.mood >= 40) {
+      pet.mood = MOOD_STATES.SASSY;
+    } else if (pet.mood >= 20) {
+      pet.mood = MOOD_STATES.PENSIVE;
+    } else {
+      pet.mood = MOOD_STATES.SLEEPY;
+    }
+  }
+  
+  function updatePowerLevel() {
+    if (pet.powerLevel >= 80) {
+      pet.powerLevel = "supercharged";
+    } else if (pet.powerLevel >= 60) {
+      pet.powerLevel = "energized";
+    } else if (pet.powerLevel >= 40) {
+      pet.powerLevel = "ready to go";
+    } else if (pet.powerLevel >= 20) {
+      pet.powerLevel = "a little tired";
+    } else {
+      pet.powerLevel = "completely drained";
+    }
+  }
 
+  
 // Define function to update pet state and save to local storage
 function updatePetState(newState) {
     pet = { ...pet, ...newState };
@@ -151,3 +181,4 @@ function feedPet() {
 function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
   }
+})
