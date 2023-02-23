@@ -58,56 +58,6 @@ jQuery(document).ready(function ($) {
     updatePetState(pet);
   });
 
-  setInterval(() => {
-    updateMoodState();
-    updatePowerLevel();
-    updatePetState(pet);
-    savePetState();
-  }, 10000);
-
-  function updateMoodState() {
-    let moodDelta = 0;
-    moodDelta += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
-    moodDelta += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
-    moodDelta += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
-    pet.mood += moodDelta;
-    
-
-    if (pet.mood >= 80) {
-      pet.mood = MOOD_STATES.JOYFUL;
-    } else if (pet.mood >= 60) {
-      pet.mood = MOOD_STATES.EXCITED;
-    } else if (pet.mood >= 40) {
-      pet.mood = MOOD_STATES.SASSY;
-    } else if (pet.mood >= 20) {
-      pet.mood = MOOD_STATES.PENSIVE;
-    } else {
-      pet.mood = MOOD_STATES.SLEEPY;
-    }
-    document.getElementById("mood-state").textContent = pet.mood;
-  }
-
-  function updatePowerLevel() {
-    let powerLevelDelta = 0;
-    powerLevelDelta += parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
-    powerLevelDelta += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;
-    powerLevelDelta += parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
-    pet.powerLevel += powerLevelDelta;
-
-    if (pet.powerLevel >= 80) {
-      pet.powerLevel = "supercharged";
-    } else if (pet.powerLevel >= 60) {
-      pet.powerLevel = "energized";
-    } else if (pet.powerLevel >= 40) {
-      pet.powerLevel = "ready to go";
-    } else if (pet.powerLevel >= 20) {
-      pet.powerLevel = "a little tired";
-    } else {
-      pet.powerLevel = "completely drained";
-    }
-    document.getElementById("power-level").textContent = "Power Level: " + pet.powerLevel;
-}
-
   
 // Define function to update pet state and save to local storage
 function updatePetState(newState) {
