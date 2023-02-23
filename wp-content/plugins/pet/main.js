@@ -3,29 +3,10 @@ const playButton = document.getElementById("play");
 const feedButton = document.getElementById("feed");
 const exerciseButton = document.getElementById("exercise");
 
-// Define mood states
-const MOOD_STATES = {
-  SLEEPY: "sleepy",
-  HAPPY: "happy",
-  PENSIVE: "pensive",
-  SASSY: "sassy",
-  EXCITED: "excited",
-  JOYFUL: "joyful"
-};
-
-// Define fitness states
-const FITNESS_STATES = {
-  HUNGRY: "hungry",
-  CUTTING: "cutting",
-  FIT: "fit",
-  BULKING: "bulking",
-  FULL_BELLY: "full belly"
-};
-
 // Define pet object with default values
 let pet = {
-  mood: MOOD_STATES.HAPPY,
-  fitness: FITNESS_STATES.FIT,
+  mood: 25,
+  fitness: 25,
   powerLevel: 0
 };
 
@@ -67,45 +48,21 @@ jQuery(document).ready(function ($) {
 
   function updateMoodState() {
     let moodDelta = 0;
-    moodDelta = parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
-    moodDelta = parseInt(INTERACTION_POINTS.FEED.mood) || 0;
-    moodDelta = parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
     pet.mood += moodDelta;
     
-    let moodState = "";
-    if (pet.mood >= 80) {
-      moodState = MOOD_STATES.JOYFUL;
-    } else if (pet.mood >= 60) {
-      moodState = MOOD_STATES.EXCITED;
-    } else if (pet.mood >= 40) {
-      moodState = MOOD_STATES.SASSY;
-    } else if (pet.mood >= 20) {
-      moodState = MOOD_STATES.PENSIVE;
-    } else {
-      moodState = MOOD_STATES.SLEEPY;
-    }
     document.getElementById("mood-state").textContent = moodState;
   }
 
   function updatePowerLevel() {
     let powerLevelDelta = 0;
-    powerLevelDelta = parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
-    powerLevelDelta = parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;
-    powerLevelDelta = parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
-    pet.powerLevel = powerLevelDelta;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
+    pet.powerLevel += powerLevelDelta;
 
-    let powerLevelState = "";
-    if (pet.powerLevel >= 80) {
-      powerLevelState = "supercharged";
-    } else if (pet.powerLevel >= 60) {
-      powerLevelState = "energized";
-    } else if (pet.powerLevel >= 40) {
-      powerLevelState = "ready to go";
-    } else if (pet.powerLevel >= 20) {
-      powerLevelState = "a little tired";
-    } else {
-      powerLevelState = "completely drained";
-    }
     document.getElementById("power-level").textContent = powerLevelState;
 }
 
@@ -117,7 +74,7 @@ function updatePetState(newState) {
  // Update DOM elements with current state levels
  document.getElementById("mood-state").textContent = pet.mood;
  document.getElementById("fitness-state").textContent = pet.fitness;
- document.getElementById("power-level").textContent = "Power Level: " + pet.powerLevel;
+ document.getElementById("power-level").textContent = pet.powerLevel;
 }
 
 // Define function to retrieve pet state from local storage
@@ -129,7 +86,7 @@ function retrievePetState() {
  // Update DOM elements with current state levels
  document.getElementById("mood-state").textContent = pet.mood;
  document.getElementById("fitness-state").textContent = pet.fitness;
- document.getElementById("power-level").textContent = "Power Level: " + pet.powerLevel;
+ document.getElementById("power-level").textContent = pet.powerLevel;
 }
 
 function playWithPet() {
@@ -142,7 +99,7 @@ function playWithPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = `The pet is feeling ${pet.mood} and has a fitness level of ${pet.fitness} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
@@ -167,9 +124,9 @@ function playWithPet() {
     });
 }
 function feedPet() {
-    pet.fitness = parseInt(INTERACTION_POINTS.FEED.fitness);
-    pet.mood = parseInt(INTERACTION_POINTS.FEED.mood);
-    pet.powerLevel = parseInt(INTERACTION_POINTS.FEED.powerLevel);    
+    pet.fitness = parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
+    pet.mood = parseInt(INTERACTION_POINTS.FEED.mood) || 0;
+    pet.powerLevel = parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;    
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
@@ -177,7 +134,7 @@ function feedPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = `The pet is feeling ${pet.mood} and has a fitness level of ${pet.fitness} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
@@ -203,9 +160,9 @@ function feedPet() {
 }
 
 function exercisePet() {
-    pet.fitness = parseInt(INTERACTION_POINTS.FEED.fitness);
-    pet.mood = parseInt(INTERACTION_POINTS.FEED.mood);
-    pet.powerLevel = parseInt(INTERACTION_POINTS.FEED.powerLevel);    
+    pet.fitness = parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
+    pet.mood = parseInt(INTERACTION_POINTS.FEED.mood) || 0;
+    pet.powerLevel = parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;  
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
@@ -213,7 +170,7 @@ function exercisePet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = `The pet is feeling ${pet.mood} and has a fitness level of ${pet.fitness} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
