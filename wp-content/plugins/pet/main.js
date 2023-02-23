@@ -66,6 +66,10 @@ setInterval(() => {
 }, 10000);
 
 function updateMoodState() {
+    pet.mood += INTERACTION_POINTS.PLAY.mood || 0;
+    pet.mood += INTERACTION_POINTS.FEED.mood || 0;
+    pet.mood += INTERACTION_POINTS.EXERCISE.mood || 0;
+    
     if (pet.mood >= 80) {
       pet.mood = MOOD_STATES.JOYFUL;
     } else if (pet.mood >= 60) {
