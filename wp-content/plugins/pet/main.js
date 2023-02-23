@@ -72,9 +72,43 @@ function decreaseMoodAndFitness() {
     powerLevelDelta += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;
     powerLevelDelta += parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
     pet.powerLevel += powerLevelDelta;
-
+  
     document.getElementById("power-level").textContent = powerLevelState;
-}
+  
+    setInterval(() => {
+    if (pet.powerLevel % 60 === 0) {
+      // Make AJAX call to OpenAI API
+      var api_key = openai_data.api_key;
+      var model = "text-davinci-003";
+      var max_tokens = 200;
+      var temperature = 0.7;
+      var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+  
+      var data = {
+        "model": model,
+        "prompt": prompt,
+        "max_tokens": max_tokens,
+        "temperature": temperature
+      };
+  
+      $.ajax({
+        type: "POST",
+        url: "https://api.openai.com/v1/completions",
+        headers: {
+          "Authorization": "Bearer " + api_key,
+          "Content-Type": "application/json"
+        },
+        data: JSON.stringify(data),
+        success: function(response) {
+          var text = response.choices[0].text;
+          document.getElementById("response").textContent = text;
+          // Do something with the generated text
+        }
+      });
+    }
+  }
+    )
+  
 
   
 // Define function to update pet state and save to local storage
@@ -103,70 +137,12 @@ function playWithPet() {
     pet.mood += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
     pet.powerLevel += parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
     updatePetState(pet);
-
-    // Make AJAX call to OpenAI API
-    var api_key = openai_data2.api_key;
-    var model = "text-davinci-003";
-    var max_tokens = 300;
-    var temperature = 0.5;
-    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. Your mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
-
-    var data = {
-        "model": model,
-        "prompt": prompt,
-        "max_tokens": max_tokens,
-        "temperature": temperature
-    };
-
-    $.ajax({
-        type: "POST",
-        url: "https://api.openai.com/v1/completions",
-        headers: {
-            "Authorization": "Bearer " + api_key,
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify(data),
-        success: function(response) {
-            var text = response.choices[0].text;
-            document.getElementById("response").textContent = text;
-            // Do something with the generated text
-        }
-    });
 }
 function feedPet() {
     pet.fitness += parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
     pet.mood += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
     pet.powerLevel += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;    
     updatePetState(pet);
-
-    // Make AJAX call to OpenAI API
-    var api_key = openai_data2.api_key;
-    var model = "text-davinci-003";
-    var max_tokens = 300;
-    var temperature = 0.5;
-    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. Your mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
-
-    var data = {
-        "model": model,
-        "prompt": prompt,
-        "max_tokens": max_tokens,
-        "temperature": temperature
-    };
-
-    $.ajax({
-        type: "POST",
-        url: "https://api.openai.com/v1/completions",
-        headers: {
-            "Authorization": "Bearer " + api_key,
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify(data),
-        success: function(response) {
-            var text = response.choices[0].text;
-            document.getElementById("response").textContent = text;
-            // Do something with the generated text
-        }
-    });
 }
 
 function exercisePet() {
@@ -174,35 +150,6 @@ function exercisePet() {
     pet.mood += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
     pet.powerLevel += parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;  
     updatePetState(pet);
-
-    // Make AJAX call to OpenAI API
-    var api_key = openai_data2.api_key;
-    var model = "text-davinci-003";
-    var max_tokens = 300;
-    var temperature = 0.5;
-    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. Your mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
-
-    var data = {
-        "model": model,
-        "prompt": prompt,
-        "max_tokens": max_tokens,
-        "temperature": temperature
-    };
-
-    $.ajax({
-        type: "POST",
-        url: "https://api.openai.com/v1/completions",
-        headers: {
-            "Authorization": "Bearer " + api_key,
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify(data),
-        success: function(response) {
-            var text = response.choices[0].text;
-            document.getElementById("response").textContent = text;
-            // Do something with the generated text
-        }
-    });
 }
 
 function savePetState() {
