@@ -72,19 +72,19 @@ jQuery(document).ready(function ($) {
     moodDelta = parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
     pet.mood += moodDelta;
     
-
+    let moodState = "";
     if (pet.mood >= 80) {
-      pet.mood = MOOD_STATES.JOYFUL;
+      moodState = MOOD_STATES.JOYFUL;
     } else if (pet.mood >= 60) {
-      pet.mood = MOOD_STATES.EXCITED;
+      moodState = MOOD_STATES.EXCITED;
     } else if (pet.mood >= 40) {
-      pet.mood = MOOD_STATES.SASSY;
+      moodState = MOOD_STATES.SASSY;
     } else if (pet.mood >= 20) {
-      pet.mood = MOOD_STATES.PENSIVE;
+      moodState = MOOD_STATES.PENSIVE;
     } else {
-      pet.mood = MOOD_STATES.SLEEPY;
+      moodState = MOOD_STATES.SLEEPY;
     }
-    document.getElementById("mood-state").textContent = pet.mood;
+    document.getElementById("mood-state").textContent = moodState;
   }
 
   function updatePowerLevel() {
@@ -94,18 +94,19 @@ jQuery(document).ready(function ($) {
     powerLevelDelta = parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
     pet.powerLevel = powerLevelDelta;
 
+    let powerLevelState = "";
     if (pet.powerLevel >= 80) {
-      pet.powerLevel = "supercharged";
+      powerLevelState = "supercharged";
     } else if (pet.powerLevel >= 60) {
-      pet.powerLevel = "energized";
+      powerLevelState = "energized";
     } else if (pet.powerLevel >= 40) {
-      pet.powerLevel = "ready to go";
+      powerLevelState = "ready to go";
     } else if (pet.powerLevel >= 20) {
-      pet.powerLevel = "a little tired";
+      powerLevelState = "a little tired";
     } else {
-      pet.powerLevel = "completely drained";
+      powerLevelState = "completely drained";
     }
-    document.getElementById("power-level").textContent = "Power Level: " + pet.powerLevel;
+    document.getElementById("power-level").textContent = powerLevelState;
 }
 
   
