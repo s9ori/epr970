@@ -1,150 +1,44 @@
-﻿* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: helvetica, arial, sans-serif;
-    font-size: 16px;
-    margin: 25px;
-}
-
-main {
-    padding-top: 1rem;
-}
-
-header {
-    border-bottom: 1px solid black;
-}
-
-h1 {
-    font-weight: bold;
-    color: #000;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-p {
-    max-width: 600px;
-}
-
-
-li {
-    margin-bottom: 5px;
-}
-
-footer {
-    padding-top: 25px;
-    border-top: 1px solid black;
-}
-
-footer a {
-    margin:5px;
-}
-
-.pet {
-    background-color: rgb(235, 235, 235);
-    border: 0.75rem solid rgb(25, 25, 25);
-    border-radius: 1rem;
-    display: inline-flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 18rem;
-    padding: 1rem;
-}
-
-.pet > * {
-    display: block;
-    width: 100%;
-}
-
-.pet-image-container {
-    position: relative;
-}
-
-.pet-image {
-    position: relative;
-    height: 250px;
-}
-
-.pet-state-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.actions {
-    background-color: rgb(200, 200, 200);
-    position: relative;
-    padding: 0.5rem;
-}
-
-.button-container {
-    display: none;
-}
-
-.button-container.active {
+﻿.pet {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-top: 0.5rem;
-}
-
-.button-container.active button {
-    width: 100px;
-    margin: 0 0.25rem 0.25rem 0;
-    text-align: center;
-    display: inline-block;
-    background-color: #1e2835;
-    border-color: #404853;
-    cursor:pointer;
-    background-image: linear-gradient(to bottom,rgba(246,246,246,.1)0%,rgba(30,40,53,0)66%);
-    color: #fafafa;
-}
-
-.button-container.active > .adopt-button {
-    background-color: rgb(15, 115, 35);
-}
-
-.button-container.active > .abandon-button {
-    background-color: rgb(105, 35, 15);
-}
-
-/* Status Colors  */
-.green {
-    color: green;
-}
-
-.orange {
-    color: darkorange;
-}
-
-.purple {
-    color: purple;
-}
-
-.red {
-    color: red;
-}
-
-.teal {
-    color: teal;
-}
-
-.bg-drop {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.bg-drop button {
-    background-color: #1e2835;
-    border-color: #404853;
-    color: #fafafa;
-    cursor:pointer;
-    width: 100px;
-    margin-left: 0.25rem;
-}
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .pet-image {
+    margin-bottom: 20px;
+  }
+  
+  .pet-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .pet-stats span {
+    font-weight: bold;
+  }
+  
+  .pet-interactions {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .pet-interactions button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .pet-interactions button:hover {
+    background-color: #005F6B;
+  }
+  
