@@ -124,9 +124,9 @@ function playWithPet() {
     });
 }
 function feedPet() {
-    pet.fitness = parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
-    pet.mood = parseInt(INTERACTION_POINTS.FEED.mood) || 0;
-    pet.powerLevel = parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;    
+    pet.fitness += parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
+    pet.mood += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
+    pet.powerLevel += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;    
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
@@ -160,9 +160,9 @@ function feedPet() {
 }
 
 function exercisePet() {
-    pet.fitness = parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
-    pet.mood = parseInt(INTERACTION_POINTS.FEED.mood) || 0;
-    pet.powerLevel = parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;  
+    pet.fitness += parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
+    pet.mood += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
+    pet.powerLevel += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;  
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
