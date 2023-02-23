@@ -4,7 +4,8 @@ Entry Point
 
 
 // Inital load (Document)
-$(() => {
+jQuery(document).ready(function($) {
+    $(() => {
     // Inital call to update pet info
     checkAndUpdatePetInfoInHtml()
 
@@ -322,3 +323,4 @@ function itsAlive () {
     checkAndUpdatePetInfoInHtml()
     }, tick_alive_timer )
 }
+})
