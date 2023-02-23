@@ -77,6 +77,7 @@ function updateMoodState() {
     } else {
       pet.mood = MOOD_STATES.SLEEPY;
     }
+    document.getElementById("mood").textContent = "Mood: " + pet.mood;
   }
   
   function updatePowerLevel() {
@@ -91,6 +92,7 @@ function updateMoodState() {
     } else {
       pet.powerLevel = "completely drained";
     }
+    document.getElementById("mood").textContent = "Mood: " + pet.mood;
   }
 
   
@@ -118,7 +120,7 @@ function playWithPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = "The pet is feeling " + pet.mood + " and has a power level of " + pet.powerLevel + ". Write a sentence or two based on this state in the voice and tone of a cute virtual pet.";
+    var prompt = `The pet is feeling ${pet.mood} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
@@ -137,7 +139,7 @@ function playWithPet() {
         data: JSON.stringify(data),
         success: function(response) {
             var text = response.choices[0].text;
-            console.log(text);
+            document.getElementById("response").textContent = text;
             // Do something with the generated text
         }
     });
@@ -153,7 +155,7 @@ function feedPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = "The pet is feeling " + pet.mood + " and has a fitness level of " + pet.fitness + ". Write a sentence or two based on this state in the voice and tone of a cute virtual pet.";
+    var prompt = `The pet is feeling ${pet.mood} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
@@ -172,7 +174,7 @@ function feedPet() {
         data: JSON.stringify(data),
         success: function(response) {
             var text = response.choices[0].text;
-            console.log(text);
+            document.getElementById("response").textContent = text;
             // Do something with the generated text
         }
     });
