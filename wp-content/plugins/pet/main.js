@@ -37,7 +37,7 @@ const INTERACTION_POINTS = {
     },
     FEED: {
         fitness: -5,
-        mood: -5,
+        mood: 1,
         powerLevel: 1
     },
     EXERCISE: {
@@ -77,8 +77,8 @@ function updateMoodState() {
     } else {
       pet.mood = MOOD_STATES.SLEEPY;
     }
-    document.getElementById("mood").textContent = "Mood: " + pet.mood;
-  }
+    document.getElementById("mood-state").textContent = pet.mood;
+}
   
   function updatePowerLevel() {
     if (pet.powerLevel >= 80) {
@@ -92,8 +92,8 @@ function updateMoodState() {
     } else {
       pet.powerLevel = "completely drained";
     }
-    document.getElementById("mood").textContent = "Mood: " + pet.mood;
-  }
+    document.getElementById("power-level").textContent = "Power Level: " + pet.powerLevel;
+}
 
   
 // Define function to update pet state and save to local storage
@@ -120,7 +120,7 @@ function playWithPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = `The pet is feeling ${pet.mood} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `The pet is feeling ${pet.mood} and has a fitness level of ${pet.fitness} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
@@ -155,7 +155,43 @@ function feedPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = `The pet is feeling ${pet.mood} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `The pet is feeling ${pet.mood} and has a fitness level of ${pet.fitness} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+
+    var data = {
+        "model": model,
+        "prompt": prompt,
+        "max_tokens": max_tokens,
+        "temperature": temperature
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "https://api.openai.com/v1/completions",
+        headers: {
+            "Authorization": "Bearer " + api_key,
+            "Content-Type": "application/json"
+        },
+        data: JSON.stringify(data),
+        success: function(response) {
+            var text = response.choices[0].text;
+            document.getElementById("response").textContent = text;
+            // Do something with the generated text
+        }
+    });
+}
+
+function exercisePet() {
+    pet.fitness += INTERACTION_POINTS.FEED.fitness;
+    pet.mood += INTERACTION_POINTS.FEED.mood;
+    pet.powerLevel += INTERACTION_POINTS.FEED.powerLevel;
+    updatePetState(pet);
+
+    // Make AJAX call to OpenAI API
+    var api_key = openai_data.api_key;
+    var model = "text-davinci-003";
+    var max_tokens = 1000;
+    var temperature = 0.5;
+    var prompt = `The pet is feeling ${pet.mood} and has a fitness level of ${pet.fitness} and has a power level of ${pet.powerLevel}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,

@@ -55,9 +55,6 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
   <div id="mood">Mood: </div>
     <div id="fitness">Fitness: </div>
     <div id="power-level">Power Level: </div>
-    <button id="play">Play</button>
-    <button id="feed">Feed</button>
-    <button id="exercise">Exercise</button>
     <div id="response"></div>
 </div>
 
