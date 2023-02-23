@@ -13,9 +13,8 @@
   .pet-stats {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    margin-bottom: 20px;
   }
   
   .pet-stats span {
@@ -40,5 +39,11 @@
   
   .pet-interactions button:hover {
     background-color: #005F6B;
+  }
+
+  #response {
+    font-family: 'bitcount-mono-single-circle';
+    font-size: 12px;
+    font-weight: bold;
   }
   

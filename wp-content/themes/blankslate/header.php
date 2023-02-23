@@ -27,9 +27,8 @@ echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_blog
 if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 ?>
 </div>
-<div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?></div>
-<a id="logo-link" href="/"><img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image"></a>
-  <div class="pet-stats">
+<div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?>
+<div class="pet-stats">
     <div class="mood">
       <span>Mood: </span>
       <span id="mood-state"></span>
@@ -43,14 +42,15 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
       <span id="power-level"></span>
     </div>
   </div>
-  <div class="pet-interactions">
+</div>
+<a id="logo-link" href="/"><img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image"></a>
+</div>
+<div class="pet-interactions">
     <button id="play">Play</button>
     <button id="feed">Feed</button>
     <button id="exercise">Exercise</button>
   </div>
     <div id="response"></div>
-</div>
-
   </div>
 <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
 <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
