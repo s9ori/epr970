@@ -18,8 +18,8 @@ const INTERACTION_POINTS = {
   },
   FEED: {
     fitness: -5,
-    mood: 1,
-    powerLevel: 1
+    mood: 5,
+    powerLevel: 10
   },
   EXERCISE: {
     fitness: 10,
@@ -50,7 +50,7 @@ function decreaseMoodAndFitness() {
     decreaseMoodAndFitness();
     updatePetState(pet);
   }, 10000);
-  
+
   setInterval(() => {
     updatePetState(pet);
     savePetState();
@@ -105,11 +105,11 @@ function playWithPet() {
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
-    var api_key = openai_data.api_key;
+    var api_key = openai_data2.api_key;
     var model = "text-davinci-003";
-    var max_tokens = 1000;
+    var max_tokens = 300;
     var temperature = 0.5;
-    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. Your mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
@@ -140,11 +140,11 @@ function feedPet() {
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
-    var api_key = openai_data.api_key;
+    var api_key = openai_data2.api_key;
     var model = "text-davinci-003";
-    var max_tokens = 1000;
+    var max_tokens = 300;
     var temperature = 0.5;
-    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. Your mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
@@ -176,11 +176,11 @@ function exercisePet() {
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
-    var api_key = openai_data.api_key;
+    var api_key = openai_data2.api_key;
     var model = "text-davinci-003";
-    var max_tokens = 1000;
+    var max_tokens = 300;
     var temperature = 0.5;
-    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+    var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. Your mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
 
     var data = {
         "model": model,
