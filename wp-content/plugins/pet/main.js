@@ -67,9 +67,9 @@ jQuery(document).ready(function ($) {
 
   function updateMoodState() {
     let moodDelta = 0;
-    moodDelta = parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
-    moodDelta = parseInt(INTERACTION_POINTS.FEED.mood) || 0;
-    moodDelta = parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
     pet.mood += moodDelta;
     
 
@@ -89,10 +89,10 @@ jQuery(document).ready(function ($) {
 
   function updatePowerLevel() {
     let powerLevelDelta = 0;
-    powerLevelDelta = parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
-    powerLevelDelta = parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;
-    powerLevelDelta = parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
-    pet.powerLevel = powerLevelDelta;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
+    pet.powerLevel += powerLevelDelta;
 
     if (pet.powerLevel >= 80) {
       pet.powerLevel = "supercharged";
