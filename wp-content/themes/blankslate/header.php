@@ -28,11 +28,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 ?>
 </div>
 <div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?></div>
-<a id="logo-link" href="/"><img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif"></a>
-<div class="pet">
-  <div class="pet-image">
-    <img src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image">
-  </div>
+<a id="logo-link" href="/"><img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image"></a>
   <div class="pet-stats">
     <div class="mood">
       <span>Mood: </span>
