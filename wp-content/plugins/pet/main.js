@@ -67,10 +67,11 @@ jQuery(document).ready(function ($) {
 
   function updateMoodState() {
     let moodDelta = 0;
-    moodDelta += INTERACTION_POINTS.PLAY.mood || 0;
-    moodDelta += INTERACTION_POINTS.FEED.mood || 0;
-    moodDelta += INTERACTION_POINTS.EXERCISE.mood || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
+    moodDelta += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
     pet.mood += moodDelta;
+    
 
     if (pet.mood >= 80) {
       pet.mood = MOOD_STATES.JOYFUL;
@@ -88,9 +89,9 @@ jQuery(document).ready(function ($) {
 
   function updatePowerLevel() {
     let powerLevelDelta = 0;
-    powerLevelDelta += INTERACTION_POINTS.PLAY.powerLevel || 0;
-    powerLevelDelta += INTERACTION_POINTS.FEED.powerLevel || 0;
-    powerLevelDelta += INTERACTION_POINTS.EXERCISE.powerLevel || 0;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.FEED.powerLevel) || 0;
+    powerLevelDelta += parseInt(INTERACTION_POINTS.EXERCISE.powerLevel) || 0;
     pet.powerLevel += powerLevelDelta;
 
     if (pet.powerLevel >= 80) {
@@ -131,8 +132,8 @@ function retrievePetState() {
 }
 
 function playWithPet() {
-    pet.mood += INTERACTION_POINTS.PLAY.mood;
-    pet.powerLevel += INTERACTION_POINTS.PLAY.powerLevel;
+    pet.mood += parseInt(INTERACTION_POINTS.FEED.mood);
+    pet.powerLevel += parseInt(INTERACTION_POINTS.FEED.powerLevel);    
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
@@ -165,9 +166,9 @@ function playWithPet() {
     });
 }
 function feedPet() {
-    pet.fitness += INTERACTION_POINTS.FEED.fitness;
-    pet.mood += INTERACTION_POINTS.FEED.mood;
-    pet.powerLevel += INTERACTION_POINTS.FEED.powerLevel;
+    pet.fitness += parseInt(INTERACTION_POINTS.FEED.fitness);
+    pet.mood += parseInt(INTERACTION_POINTS.FEED.mood);
+    pet.powerLevel += parseInt(INTERACTION_POINTS.FEED.powerLevel);    
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
@@ -201,9 +202,9 @@ function feedPet() {
 }
 
 function exercisePet() {
-    pet.fitness += INTERACTION_POINTS.FEED.fitness;
-    pet.mood += INTERACTION_POINTS.FEED.mood;
-    pet.powerLevel += INTERACTION_POINTS.FEED.powerLevel;
+    pet.fitness += parseInt(INTERACTION_POINTS.FEED.fitness);
+    pet.mood += parseInt(INTERACTION_POINTS.FEED.mood);
+    pet.powerLevel += parseInt(INTERACTION_POINTS.FEED.powerLevel);    
     updatePetState(pet);
 
     // Make AJAX call to OpenAI API
