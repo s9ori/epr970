@@ -31,7 +31,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 <a id="logo-link" href="/"><img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif"></a>
 <div class="pet">
         <div class="pet-image-container">
-            <img class="pet-image" src="">
+            <img class="pet-image" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif">
             <img class="pet-state" src="">
         </div>
         <h2 class="name"></h2>
