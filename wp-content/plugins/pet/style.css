@@ -24,12 +24,13 @@
   }
   
   .pet-interactions button {
-    padding: 10px;
+    padding: 3px;
     text-transform: uppercase;
     background: #feddde;
     font-weight: bold;
     transition: all 0.2s ease-in-out;
     font-family: 'bitcount-mono-single-circle';
+    font-size: 10px;
   }
   
   .pet-interactions button:hover {
@@ -40,6 +41,7 @@
   #response {
     font-family: 'bitcount-mono-single-circle';
     font-size: 12px;
-    font-weight: bold;
+    width: 200px;
+    line-height: 1.25;
   }
   

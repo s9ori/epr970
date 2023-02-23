@@ -112,6 +112,10 @@ font-family: "bitcount-mono-single-circle", sans-serif;
 font-weight: 500;
 font-style: normal;
 text-align: right;
+display: flex;
+flex-direction: column;
+gap: 5px;
+text-align: right;
 }
 
 .entry-title {
