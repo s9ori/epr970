@@ -3,15 +3,6 @@ const playButton = document.getElementById("play");
 const feedButton = document.getElementById("feed");
 const exerciseButton = document.getElementById("exercise");
 
-playButton.addEventListener("click", playWithPet);
-feedButton.addEventListener("click", feedPet);
-exerciseButton.addEventListener("click", exercisePet);
-
-window.addEventListener("load", () => {
-    retrievePetState();
-    updatePetState(pet);
-});
-
 // Define mood states
 const MOOD_STATES = {
     SLEEPY: "sleepy",
@@ -56,17 +47,22 @@ const INTERACTION_POINTS = {
     }
 };
 
-function savePetState() {
-    localStorage.setItem("petState", JSON.stringify(pet));
-  }
+playButton.addEventListener("click", playWithPet);
+feedButton.addEventListener("click", feedPet);
+exerciseButton.addEventListener("click", exercisePet);
 
-  
+window.addEventListener("load", () => {
+    retrievePetState();
+    updatePetState(pet);
+});
+
 setInterval(() => {
     updateMoodState();
     updatePowerLevel();
     updatePetState(pet);
     savePetState();
 }, 10000);
+
 
 // Define function to update pet state and save to local storage
 function updatePetState(newState) {
@@ -92,7 +88,7 @@ function playWithPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = "The pet is feeling " + pet.mood + " and has a power level of " + pet.powerLevel + ". Write a sentence or two based on this state.";
+    var prompt = "The pet is feeling " + pet.mood + " and has a power level of " + pet.powerLevel + ". Write a sentence or two based on this state in the voice and tone of a cute virtual pet.";
 
     var data = {
         "model": model,
@@ -127,7 +123,7 @@ function feedPet() {
     var model = "text-davinci-003";
     var max_tokens = 1000;
     var temperature = 0.5;
-    var prompt = "The pet is feeling " + pet.mood + " and has a fitness level of " + pet.fitness + ". Write a sentence or two based on this state.";
+    var prompt = "The pet is feeling " + pet.mood + " and has a fitness level of " + pet.fitness + ". Write a sentence or two based on this state in the voice and tone of a cute virtual pet.";
 
     var data = {
         "model": model,
@@ -151,3 +147,7 @@ function feedPet() {
         }
     });
 }
+
+function savePetState() {
+    localStorage.setItem("petState", JSON.stringify(pet));
+  }
