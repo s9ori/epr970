@@ -249,12 +249,6 @@ function playWithPet() {
     pet.powerPoints += parseInt(INTERACTION_POINTS.PLAY.powerPoints()) || 0;
     updatePetState(pet);
 }
-function feedPet() {
-    pet.fitness += parseInt(INTERACTION_POINTS.FEED.fitness) || 0;
-    pet.mood += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
-    pet.powerPoints += parseInt(INTERACTION_POINTS.FEED.powerPoints) || 0;    
-    updatePetState(pet);
-}
 
 function exercisePet() {
     pet.fitness += parseInt(INTERACTION_POINTS.EXERCISE.fitness) || 0;
