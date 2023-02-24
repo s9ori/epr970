@@ -271,6 +271,10 @@ function adventurePet() {
     const randomIncrement = Math.floor(Math.random() * 11); // random value between 0 and 10
     powerPointsDelta = randomIncrement + fitnessModifier + moodModifier;
   
+    if (powerPointsDelta < 0) {
+      powerPointsDelta = 0;
+    }
+  
     // Decrease mood and fitness levels by random amount
     const moodDecrease = Math.floor(Math.random() * -101);
     const fitnessDecrease = Math.floor(Math.random() * -101);
@@ -279,8 +283,8 @@ function adventurePet() {
   
     pet.powerPoints += powerPointsDelta;
     updatePetState(pet);
-  }  
-
+  }
+  
 function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
   }
