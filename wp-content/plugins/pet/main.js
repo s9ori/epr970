@@ -71,10 +71,14 @@ function decreaseMoodAndFitness() {
   
     document.getElementById("power-level").textContent = powerLevelState;
   }
+
+  setInterval(() => {
+    const powerLevel = pet.powerLevel;
+    const storedPowerLevel = localStorage.getItem("powerLevel");
+    
+    if (powerLevel % 50 === 0 && powerLevel !== storedPowerLevel) {
+      localStorage.setItem("powerLevel", powerLevel);
   
-    setInterval(() => {
-    if (pet.powerLevel % 50 === 0 && !ajaxCalled) {
-     ajaxCalled = true;        
       // Make AJAX call to OpenAI API
       var api_key = openai_data2.api_key;
       var model = "text-davinci-003";
@@ -103,9 +107,7 @@ function decreaseMoodAndFitness() {
           // Do something with the generated text
         }
       });
-   } else if (pet.powerLevel % 60 !== 0) {
-        ajaxCalled = false;
-      }
+   }
     }, 1000);
   
 
