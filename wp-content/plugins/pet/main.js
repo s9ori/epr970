@@ -251,33 +251,41 @@ function playWithPet() {
 }
 
 function exercisePet() {
-    pet.fitness += parseInt(INTERACTION_POINTS.EXERCISE.fitness) || 0;
-    pet.mood += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
-    pet.powerPoints += parseInt(INTERACTION_POINTS.EXERCISE.powerPoints) || 0;  
-    updatePetState(pet);
-}
-
-function adventurePet() {
-    // Determine power level increment based on mood and fitness levels
-    let powerPointsDelta = 0;
-    const fitnessModifier = Math.floor(pet.fitness / 10); // value between -10 and 10
-    const moodModifier = Math.floor(pet.mood / 10); // value between -10 and 10
-    const randomIncrement = Math.floor(Math.random() * 11); // random value between 0 and 10
-    powerPointsDelta = randomIncrement + fitnessModifier + moodModifier;
-  
-    if (powerPointsDelta < 0) {
-      powerPointsDelta = 0;
+    if (pet.mood >= 0) {
+      pet.fitness += parseInt(INTERACTION_POINTS.EXERCISE.fitness) || 0;
+      pet.mood += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
+      pet.powerPoints += parseInt(INTERACTION_POINTS.EXERCISE.powerPoints) || 0;  
+      updatePetState(pet);
+    }
     }
   
-    // Decrease mood and fitness levels by random amount
-    const moodDecrease = Math.floor(Math.random() * -101);
-    const fitnessDecrease = Math.floor(Math.random() * -101);
-    pet.mood += moodDecrease;
-    pet.fitness += fitnessDecrease;
-  
-    pet.powerPoints += powerPointsDelta;
-    updatePetState(pet);
-  }
+
+    function adventurePet() {
+        if (pet.mood > 0 && pet.fitness > 0) {
+          // Determine power level increment based on mood and fitness levels
+          let powerPointsDelta = 0;
+          const fitnessModifier = Math.floor(pet.fitness / 10); // value between -10 and 10
+          const moodModifier = Math.floor(pet.mood / 10); // value between -10 and 10
+          const randomIncrement = Math.floor(Math.random() * 11); // random value between 0 and 10
+          powerPointsDelta = randomIncrement + fitnessModifier + moodModifier;
+      
+          if (powerPointsDelta < 0) {
+            powerPointsDelta = 0;
+          }
+      
+          // Decrease mood and fitness levels by random amount
+          const moodDecrease = Math.floor(Math.random() * -101);
+          const fitnessDecrease = Math.floor(Math.random() * -101);
+          pet.mood += moodDecrease;
+          pet.fitness += fitnessDecrease;
+      
+          pet.powerPoints += powerPointsDelta;
+          updatePetState(pet);
+        } else {
+          console.log("Pet's mood or fitness level is too low for an adventure.");
+        }
+      }
+      
   
 function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
