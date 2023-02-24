@@ -48,8 +48,8 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
     <button id="exercise">Exercise</button>
   </div>
 </div>
-<a id="logo-link" href="/"><img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image"></a>
-<div id="level"></div>
+<a id="logo-link" href="/"><div id="level"></div>
+<img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image"></a>
 <div id="response"></div>
 </div>
   </div>
