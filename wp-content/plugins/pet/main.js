@@ -155,4 +155,5 @@ function exercisePet() {
 function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
   }
+}
 })
