@@ -65,6 +65,7 @@ jQuery(document).ready(function ($) {
     retrievePetState();
     pet.level = getLevel(pet.powerPoints);
     updatePetState(pet);
+    updateLevel();
   });
   
 
@@ -100,6 +101,17 @@ function decreaseMoodAndFitness() {
   
     document.getElementById("power-level").textContent = powerPointsState;
   }
+
+  function updateLevel() {
+    const newLevel = getLevel(pet.powerPoints);
+    if (newLevel !== pet.level) {
+      pet.level = newLevel;
+      document.getElementById("level").textContent = `Level: ${pet.level}`;
+    }
+  }
+  
+  setInterval(updateLevel, 1000);
+  
 
   setInterval(() => {
     const powerPoints = pet.powerPoints;
