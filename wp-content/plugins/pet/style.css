@@ -45,3 +45,9 @@
     line-height: 1.25;
   }
   
+  #level {
+    font-weight: bold;
+    font-family: 'bitcount-mono-single-circle';
+    font-size: 13px;
+    margin-bottom: -20px;
+  }
