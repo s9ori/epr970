@@ -74,6 +74,7 @@ function decreaseMoodAndFitness() {
     pet.powerLevel += powerLevelDelta;
   
     document.getElementById("power-level").textContent = powerLevelState;
+  }
   
     setInterval(() => {
     if (pet.powerLevel % 60 === 0) {
@@ -156,4 +157,4 @@ function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
   }
 }
-})
+);
