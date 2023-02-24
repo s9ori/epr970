@@ -79,7 +79,7 @@ function decreaseMoodAndFitness() {
     setInterval(() => {
     if (pet.powerLevel % 60 === 0) {
       // Make AJAX call to OpenAI API
-      var api_key = openai_data.api_key;
+      var api_key = openai_data2.api_key;
       var model = "text-davinci-003";
       var max_tokens = 200;
       var temperature = 0.7;
