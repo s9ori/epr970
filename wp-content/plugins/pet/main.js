@@ -15,7 +15,7 @@ let pet = {
 const INTERACTION_POINTS = {
   PLAY: {
     mood: 10,
-    powerLevel: Math.floor(Math.random() * 2) * 5
+    powerLevel: () => getRandomPowerLevel()
 
   },
   FEED: {
@@ -29,6 +29,10 @@ const INTERACTION_POINTS = {
     powerLevel: 10
   }
 };
+
+function getRandomPowerLevel() {
+    return Math.floor(Math.random() * 2) * 5;
+  }
 
 jQuery(document).ready(function ($) {
 
@@ -138,7 +142,7 @@ function retrievePetState() {
 
 function playWithPet() {
     pet.mood += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
-    pet.powerLevel += parseInt(INTERACTION_POINTS.PLAY.powerLevel) || 0;
+    pet.powerLevel += parseInt(INTERACTION_POINTS.PLAY.powerLevel()) || 0;
     updatePetState(pet);
 }
 function feedPet() {
