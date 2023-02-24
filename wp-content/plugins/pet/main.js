@@ -264,49 +264,28 @@ function exercisePet() {
     pet.powerPoints += parseInt(INTERACTION_POINTS.EXERCISE.powerPoints) || 0;  
     updatePetState(pet);
 }
+
 function adventurePet() {
-    const fitnessDelta = INTERACTION_POINTS.ADVENTURE.fitness;
-    const moodDelta = INTERACTION_POINTS.ADVENTURE.mood;
-    const powerPointsDelta = INTERACTION_POINTS.ADVENTURE.powerPoints;
+    const powerLevel = pet.powerPoints;
+    const fitnessDelta = getRandomDelta(INTERACTION_POINTS.ADVENTURE.fitness, powerLevel);
+    const moodDelta = getRandomDelta(INTERACTION_POINTS.ADVENTURE.mood, powerLevel);
     
-    let fitnessIncrement;
-    let moodIncrement;
+    pet.fitness += fitnessDelta;
+    pet.mood += moodDelta;
     
-    if (typeof fitnessDelta === 'function') {
-      fitnessIncrement = fitnessDelta();
-    } else {
-      fitnessIncrement = parseInt(fitnessDelta) || 0;
-    }
-    
-    if (typeof moodDelta === 'function') {
-      moodIncrement = moodDelta();
-    } else {
-      moodIncrement = parseInt(moodDelta) || 0;
-    }
-    
-    // Calculate probability of higher fitness and mood
-    const level = getLevel(pet.powerPoints);
-    const fitnessProb = Math.min(level / LEVEL_CAP, 0.9); // maximum probability is 0.9
-    const moodProb = Math.min(level / LEVEL_CAP, 0.9);
-    
-    // Roll for higher fitness and mood
-    if (Math.random() < fitnessProb) {
-      fitnessIncrement += getRandomFitness();
-    }
-    if (Math.random() < moodProb) {
-      moodIncrement += getRandomMood();
-    }
-    
-    pet.fitness = Math.max(-100, Math.min(100, pet.fitness + fitnessIncrement));
-    pet.mood = Math.max(-100, Math.min(100, pet.mood + moodIncrement));
-    
-    if (typeof powerPointsDelta === 'function') {
-      pet.powerPoints += powerPointsDelta();
-    } else {
-      pet.powerPoints += parseInt(powerPointsDelta) || 0;
+    if (fitnessDelta >= 0 && moodDelta >= 0) {
+      pet.powerPoints += Math.floor(Math.sqrt(fitnessDelta * moodDelta));
     }
     
     updatePetState(pet);
+  }
+  
+  function getRandomDelta(baseDelta, powerLevel) {
+    const delta = typeof baseDelta === 'function' ? baseDelta() : parseInt(baseDelta) || 0;
+    const probability = Math.min(1, Math.sqrt(powerLevel / 10000));
+    const sign = Math.random() < 0.5 ? -1 : 1;
+    const value = sign * Math.floor(Math.random() * 101);
+    return Math.floor(delta * probability * value / 100);
   }
   
   
