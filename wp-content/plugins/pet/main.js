@@ -49,10 +49,6 @@ function decreaseMoodAndFitness() {
   setInterval(() => {
     decreaseMoodAndFitness();
     updatePetState(pet);
-  }, 10000);
-
-  setInterval(() => {
-    updatePetState(pet);
     savePetState();
   }, 10000);
 
@@ -77,13 +73,14 @@ function decreaseMoodAndFitness() {
   }
   
     setInterval(() => {
-    if (pet.powerLevel % 60 === 0) {
+    if (pet.powerLevel % 60 === 0 && !ajaxCalled) {
+     ajaxCalled = true;        
       // Make AJAX call to OpenAI API
       var api_key = openai_data2.api_key;
       var model = "text-davinci-003";
       var max_tokens = 200;
-      var temperature = 0.7;
-      var prompt = `Imagine you are a cute virtual pet owned by Espe. Your owner Espe is a 25 year old radio producer who loves anime, kpop, and fashion. \n\n When your mood state is over 80 you feel joyful, when it is above 60 you feel excited, when it is above 40 you feel saddy, and when it is below 20 you feel pensive. When your fitness level is above 80 you feel sore, when it is above 60 you feel strong, when it is above 40 you feel fit, and when it is below 40 you feel weak. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Write a sentence or two based on this state in the voice and tone of a cute virtual pet.`;
+      var temperature = 0.8;
+      var prompt = `Imagine you are a cute virtual pet owned by a young radio producer names Espe who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. \n\nYour mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Here are ten words or less in the tone of a cute animal that express the virtual pet fitness and mood states:\n\n`;
   
       var data = {
         "model": model,
@@ -106,9 +103,10 @@ function decreaseMoodAndFitness() {
           // Do something with the generated text
         }
       });
-    }
-  }
-    )
+   } else if (pet.powerLevel % 60 !== 0) {
+        ajaxCalled = false;
+      }
+    }, 1000);
   
 
   
