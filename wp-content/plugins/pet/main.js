@@ -166,7 +166,7 @@ function addElement() {
       // Make AJAX call to OpenAI API
       var api_key = openai_data2.api_key;
       var model = "text-davinci-003";
-      var max_tokens = 200;
+      var max_tokens = 100;
       var temperature = 0.7;
       var prompt = `Imagine you are a cute virtual pet owned by me, a young girl named Espe. \n\n Your mood and fitness level ranges from 0 to 5000, the higher they are the happier and more fit you are, but the lower they are the sleepier and weaker you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like an animal anime character, here is a sentence with less than 10 words and basic sentence that expresses the virtual pet fitness and mood states:\n\n`;
   
