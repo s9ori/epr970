@@ -6,18 +6,7 @@ const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
 const adventureButton = document.getElementById("adventure");
 const foodsDiv = document.getElementById("foods");
-
-window.addEventListener("load", () => {
-    retrievePetState();
-    pet.level = getLevel(pet.powerPoints);
-    updatePetState(pet);
-    const levelElement = document.getElementById("level");
-    levelElement.textContent = `Level: ${pet.level}`;
-    updateLevel();
-  });
   
-
-
 // Define pet object with default values
 let pet = {
   mood: 25,
@@ -84,6 +73,15 @@ function getRandompowerPoints() {
 
   
 jQuery(document).ready(function ($) {
+
+    window.addEventListener("load", () => {
+        retrievePetState();
+        pet.level = getLevel(pet.powerPoints);
+        updatePetState(pet);
+        const levelElement = document.getElementById("level");
+        levelElement.textContent = `Level: ${pet.level}`;
+        updateLevel();
+      });
 
   playButton.addEventListener("click", playWithPet);
   feedButton.addEventListener("click", feedPet);
