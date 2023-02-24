@@ -6,14 +6,6 @@ const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
 const foodsDiv = document.getElementById("foods");
 
-window.addEventListener("load", () => {
-    retrievePetState();
-    pet.level = getLevel(pet.powerPoints);
-    updatePetState(pet);
-    const levelElement = document.getElementById("level");
-    levelElement.textContent = `Level: ${pet.level}`;
-    updateLevel();
-  });
 
 // Define pet object with default values
 let pet = {
@@ -132,23 +124,11 @@ function addElement() {
     img.alt = 'Image';
     img.width = 38;
   
-    // Create new element to contain the image
-    const imgContainer = document.createElement('div');
-    imgContainer.appendChild(img);
-  
-    // Create new text element
-    const text = document.createElement('p');
-    text.textContent = 'Click to increase pet mood by 50';
-  
-    // Create new element to contain the text
-    const textContainer = document.createElement('div');
-    textContainer.appendChild(text);
-  
-    // Create new element to contain both image and text elements
+    // Create new element and add image and text
     const newElement = document.createElement('div');
-    newElement.classList.add('food');
-    newElement.appendChild(imgContainer);
-    document.body.appendChild(newElement);
+    newElement.appendChild(img);
+    newElement.classList.add("food"); // add class "food" to the new element
+
   
     // Add event listener to increase pet mood by 50 when clicked
     newElement.addEventListener('click', () => {
@@ -156,11 +136,17 @@ function addElement() {
       updatePetState(pet);
       newElement.remove();
     });
+
+        // Add new element to the "foods" div
+        const foodsDiv = document.getElementById("foods");
+        foodsDiv.appendChild(newElement);
+  
   }
   
   // Set interval to add new elements with a 1/30 chance every second
   setInterval(() => {
-    if (Math.random() < 1/30) {
+    const foodsDiv = document.getElementById("foods");
+    if (foodsDiv && Math.random() < 1/30) {
       addElement();
     }
   }, 1000);
@@ -182,7 +168,7 @@ function addElement() {
       var model = "text-davinci-003";
       var max_tokens = 200;
       var temperature = 0.7;
-      var prompt = `Imagine you are a cute virtual pet owned by me, a young girl named Espe. \n\n Your mood and fitness levels change when I interact with you. \n\nYour mood and fitness level ranges on a scale from 0 to 5000, the higher they are the happier and more fit you are, the lower the sleepier and unhealthier your are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like a cute animal anime character, here is a six word sentence in cute character voice that express the virtual pet fitness and mood states and general comments about the topics in ${file_contents2}:\n\n`;
+      var prompt = `Imagine you are a cute virtual pet owned by me, a young girl named Espe. \n\n As my pet, you must learn about Boys Planet 999, the South Korean boy group reality survival show to form a global pop music boy group, from this fan discussion on the latets episode: \n" ${file_contents2}. \n\n Your mood and fitness levels change when I interact with you. \n\nYour mood and fitness level ranges from 0 to 5000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like an animal anime character, tell me a short and basic sentence that express the virtual pet fitness and mood states and references Boy Planet 999:\n\n`;
   
       var data = {
         "model": model,
