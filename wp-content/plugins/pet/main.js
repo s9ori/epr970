@@ -114,6 +114,43 @@ function decreaseMoodAndFitness() {
       document.getElementById("level").textContent = `Level: ${pet.level}`;
     }
   }
+
+// Define function to create new element and add event listener
+function addElement() {
+    // Create new image element
+    const img = document.createElement('img');
+    img.src = 'https://lowfemme.com/wp-content/uploads/2023/02/228733961fa9fb474132fdd4a089efbc.gif';
+    img.alt = 'Image';
+    img.width = 100;
+  
+    // Create new text element
+    const text = document.createElement('p');
+    text.textContent = 'Click to increase pet mood by 50';
+  
+    // Create new element and add image and text
+    const newElement = document.createElement('div');
+    newElement.appendChild(img);
+    newElement.appendChild(text);
+  
+    // Add event listener to increase pet mood by 50 when clicked
+    newElement.addEventListener('click', () => {
+      pet.mood += 50;
+      updatePetState(pet);
+      newElement.remove();
+    });
+  
+    // Add new element to the screen
+    document.body.appendChild(newElement);
+  }
+  
+  // Set interval to add new elements with a 1/30 chance every second
+  setInterval(() => {
+    if (Math.random() < 1/30) {
+      addElement();
+    }
+  }, 1000);
+  
+  
   
   setInterval(updateLevel, 1000);
   
@@ -130,7 +167,7 @@ function decreaseMoodAndFitness() {
       var model = "text-davinci-003";
       var max_tokens = 200;
       var temperature = 0.7;
-      var prompt = `Imagine you are a cute virtual pet owned by a young girl named Espe. \n\n As her pet, you must learn about Boys Planet 999, the South Korean boy group reality survival show to form a global pop music boy group, from this fan discussion on the latets episode: \n" ${file_contents2}. \n\n Your mood and fitness levels change when Espe interacts with you. \n\nYour mood and fitness level ranges from 0 to 5000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like an animal anime character, here is a short sentence that express the virtual pet fitness and mood states and references Boy Planet 999:\n\n`;
+      var prompt = `Imagine you are a cute virtual pet owned by me, a young girl named Espe. \n\n As my pet, you must learn about Boys Planet 999, the South Korean boy group reality survival show to form a global pop music boy group, from this fan discussion on the latets episode: \n" ${file_contents2}. \n\n Your mood and fitness levels change when I interact with you. \n\nYour mood and fitness level ranges from 0 to 5000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like an animal anime character, tell me a short and basic sentence that express the virtual pet fitness and mood states and references Boy Planet 999:\n\n`;
   
       var data = {
         "model": model,
