@@ -42,8 +42,8 @@ const INTERACTION_POINTS = {
     powerPoints: 10
   },
   ADVENTURE: {
-    fitness: () => getRandomFitness(),
-    mood: () => getRandomMood(),
+    fitness: 10,
+    mood: 10,
     powerPoints: () => getRandompowerPoints()
   }
 };
@@ -72,14 +72,6 @@ function getRandompowerPoints() {
     return Math.floor(Math.random() * 2) * 5;
   }
 
-  function getRandomFitness() {
-    return Math.floor(Math.random() * 201) - 100;
-  }
-  
-  function getRandomMood() {
-    return Math.floor(Math.random() * 201) - 100;
-  }
-  
   
 jQuery(document).ready(function ($) {
 
@@ -266,29 +258,22 @@ function exercisePet() {
 }
 
 function adventurePet() {
-    const powerLevel = pet.powerPoints;
-    const fitnessDelta = getRandomDelta(INTERACTION_POINTS.ADVENTURE.fitness, powerLevel);
-    const moodDelta = getRandomDelta(INTERACTION_POINTS.ADVENTURE.mood, powerLevel);
-    
-    pet.fitness += fitnessDelta;
-    pet.mood += moodDelta;
-    
-    if (fitnessDelta >= 0 && moodDelta >= 0) {
-      pet.powerPoints += Math.floor(Math.sqrt(fitnessDelta * moodDelta));
-    }
-    
+    // Determine power level increment based on mood and fitness levels
+    let powerPointsDelta = 0;
+    const fitnessModifier = Math.floor(pet.fitness / 10); // value between -10 and 10
+    const moodModifier = Math.floor(pet.mood / 10); // value between -10 and 10
+    const randomIncrement = Math.floor(Math.random() * 11); // random value between 0 and 10
+    powerPointsDelta = randomIncrement + fitnessModifier + moodModifier;
+  
+    // Decrease mood and fitness levels by random amount
+    const moodDecrease = Math.floor(Math.random() * -101);
+    const fitnessDecrease = Math.floor(Math.random() * -101);
+    pet.mood += moodDecrease;
+    pet.fitness += fitnessDecrease;
+  
+    pet.powerPoints += powerPointsDelta;
     updatePetState(pet);
-  }
-  
-  function getRandomDelta(baseDelta, powerLevel) {
-    const delta = typeof baseDelta === 'function' ? baseDelta() : parseInt(baseDelta) || 0;
-    const probability = Math.min(1, Math.sqrt(powerLevel / 10000));
-    const sign = Math.random() < 0.5 ? -1 : 1;
-    const value = sign * Math.floor(Math.random() * 101);
-    return Math.floor(delta * probability * value / 100);
-  }
-  
-  
+  }  
 
 function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
