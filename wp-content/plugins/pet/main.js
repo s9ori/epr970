@@ -73,14 +73,14 @@ function decreaseMoodAndFitness() {
   }
   
     setInterval(() => {
-    if (pet.powerLevel % 60 === 0 && !ajaxCalled) {
+    if (pet.powerLevel % 50 === 0 && !ajaxCalled) {
      ajaxCalled = true;        
       // Make AJAX call to OpenAI API
       var api_key = openai_data2.api_key;
       var model = "text-davinci-003";
       var max_tokens = 200;
       var temperature = 0.8;
-      var prompt = `Imagine you are a cute virtual pet owned by a young radio producer names Espe who loves anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. \n\nYour mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Here are ten words or less in the tone of a cute animal that express the virtual pet fitness and mood states:\n\n`;
+      var prompt = `Imagine you are a cute virtual pet owned by a young radio producer names Espe with interests in anime, kpop, and fashion. \n\n Your mood and fitness levels change when Espe interacts with you. \n\nYour mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like a little anime animal, here are ten words or less that express the virtual pet fitness and mood states and references to Espe's interests:\n\n`;
   
       var data = {
         "model": model,
