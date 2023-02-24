@@ -3,6 +3,8 @@ var file_contents2 = file_data2.file_contents2;
 const playButton = document.getElementById("play");
 const feedButton = document.getElementById("feed");
 const exerciseButton = document.getElementById("exercise");
+const levelElement = document.getElementById("level");
+
 
 // Define pet object with default values
 let pet = {
