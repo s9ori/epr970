@@ -10,7 +10,6 @@ let pet = {
   fitness: 25,
   powerPoints: 0
 };
-const LEVEL_CAP = 99;
 
 // Define point values for interactions
 const INTERACTION_POINTS = {
