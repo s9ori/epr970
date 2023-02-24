@@ -86,7 +86,7 @@ function decreaseMoodAndFitness() {
       var model = "text-davinci-003";
       var max_tokens = 200;
       var temperature = 0.8;
-      var prompt = `Imagine you are a cute virtual pet owned by a young radio producer names Espe with interests in anime, kpop, and fashion. \n\n Learn about Boys Planet 999, the South Korean boy group reality survival show to form a global K-pop boy group, from this discussion on the latets episode among fans: \n" ${file_contents2}. \n\n Your mood and fitness levels change when Espe interacts with you. \n\nYour mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like a little anime animal, here are ten words or less that express the virtual pet fitness and mood states and references Boy Planet 999:\n\n`;
+      var prompt = `Imagine you are a cute virtual pet owned by a young radio producer names Espe with interests in anime, kpop, and fashion. \n\n Learn about Boys Planet 999, the South Korean boy group reality survival show to form a global K-pop boy group, from this discussion on the latets episode among fans: \n" ${file_contents2}. \n\n Your mood and fitness levels change when Espe interacts with you. \n\nYour mood and fitness level ranges from 0 to 1000, the higher they are the happier and more fit you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like a little anime animal, here is one sentence that expresses the virtual pet fitness and mood states and references Boy Planet 999:\n\n`;
   
       var data = {
         "model": model,
