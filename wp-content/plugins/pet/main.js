@@ -74,6 +74,11 @@ function getRandompowerPoints() {
     return Math.floor(Math.random() * 2) * 5;
   }
 
+  function getRandomFitness() {
+    return Math.floor(Math.random() * 20);
+  }
+
+  
 jQuery(document).ready(function ($) {
 
   playButton.addEventListener("click", playWithPet);
