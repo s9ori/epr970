@@ -2,6 +2,7 @@
 var file_contents2 = file_data2.file_contents2;
 const playButton = document.getElementById("play");
 const feedButton = document.getElementById("feed");
+const adventureButton = document.getElementById("adventure");
 const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
 const foodsDiv = document.getElementById("foods");
@@ -31,6 +32,11 @@ const INTERACTION_POINTS = {
     fitness: 10,
     mood: -5,
     powerPoints: 10
+  },
+  ADVENTURE: {
+    fitness: () => getRandomFitness(),
+    mood: () => getRandomMood(),
+    powerPoints: () => getRandompowerPoints()
   }
 };
 
@@ -58,11 +64,36 @@ function getRandompowerPoints() {
     return Math.floor(Math.random() * 2) * 5;
   }
 
+  function getRandomFitness() {
+    const currentFitness = pet.fitness;
+    const lowerBound = -50;
+    const upperBound = 100;
+    const range = upperBound - lowerBound;
+    const rand = Math.random();
+    const likelihood = currentFitness / 100;
+    const value = lowerBound + Math.floor(rand * rand * range * likelihood);
+    return value;
+  }
+  
+  function getRandomMood() {
+    const currentMood = pet.mood;
+    const lowerBound = -50;
+    const upperBound = 100;
+    const range = upperBound - lowerBound;
+    const rand = Math.random();
+    const likelihood = currentMood / 100;
+    const value = lowerBound + Math.floor(rand * rand * range * likelihood);
+    return value;
+  }
+  
+
 jQuery(document).ready(function ($) {
 
   playButton.addEventListener("click", playWithPet);
   feedButton.addEventListener("click", feedPet);
   exerciseButton.addEventListener("click", exercisePet);
+  adventureButton.addEventListener("click", adventureWithPet);
+
   
 
   window.addEventListener("load", () => {
@@ -168,7 +199,7 @@ function addElement() {
       var model = "text-davinci-003";
       var max_tokens = 100;
       var temperature = 0.7;
-      var prompt = `Imagine you are a cute virtual pet owned by me, a young girl named Espe. \n\n Your mood and fitness level ranges from 0 to 5000, the higher they are the happier and more fit you are, but the lower they are the sleepier and weaker you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like a cute animal character, here is a sentence with less than 10 words that expresses how you feel about your current fitness and moodw:\n\n`;
+      var prompt = `Imagine you are a cute virtual pet owned by me, a young girl named Espe. \n\n Your mood and fitness level ranges from 0 to 5000, the higher they are the happier and more fit you are, but the lower they are the sleepier and weaker you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like a cute animal character, here is a sentence with less than 10 words that expresses how you feel about your current fitness and mood:\n\n`;
   
       var data = {
         "model": model,

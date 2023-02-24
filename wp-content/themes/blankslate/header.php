@@ -44,8 +44,9 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
   </div>
   <div class="pet-interactions">
     <button id="play">Play</button>
-    <button id="adventure">Adventure</button>
-    <button id="exercise">Exercise</button>
+    <button id="feed">Feed</button>
+    <button id="adventure">Adv</button>
+    <button id="exercise">Exc</button>
   </div>
 </div>
 <a id="logo-link" href="/"><div id="level"></div>
