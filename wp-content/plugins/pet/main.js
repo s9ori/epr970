@@ -2,7 +2,6 @@
 var file_contents2 = file_data2.file_contents2;
 const playButton = document.getElementById("play");
 const feedButton = document.getElementById("feed");
-const adventureButton = document.getElementById("adventure");
 const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
 const foodsDiv = document.getElementById("foods");
@@ -32,11 +31,6 @@ const INTERACTION_POINTS = {
     fitness: 10,
     mood: -5,
     powerPoints: 10
-  },
-  ADVENTURE: {
-    fitness: () => getRandomFitness(),
-    mood: () => getRandomMood(),
-    powerPoints: () => getRandompowerPoints()
   }
 };
 
@@ -64,36 +58,11 @@ function getRandompowerPoints() {
     return Math.floor(Math.random() * 2) * 5;
   }
 
-  function getRandomFitness() {
-    const currentFitness = pet.fitness;
-    const lowerBound = -50;
-    const upperBound = 100;
-    const range = upperBound - lowerBound;
-    const rand = Math.random();
-    const likelihood = currentFitness / 100;
-    const value = lowerBound + Math.floor(rand * rand * range * likelihood);
-    return value;
-  }
-  
-  function getRandomMood() {
-    const currentMood = pet.mood;
-    const lowerBound = -50;
-    const upperBound = 100;
-    const range = upperBound - lowerBound;
-    const rand = Math.random();
-    const likelihood = currentMood / 100;
-    const value = lowerBound + Math.floor(rand * rand * range * likelihood);
-    return value;
-  }
-  
-
 jQuery(document).ready(function ($) {
 
   playButton.addEventListener("click", playWithPet);
   feedButton.addEventListener("click", feedPet);
   exerciseButton.addEventListener("click", exercisePet);
-  adventureButton.addEventListener("click", adventureWithPet);
-
   
 
   window.addEventListener("load", () => {
