@@ -4,6 +4,7 @@ const playButton = document.getElementById("play");
 const feedButton = document.getElementById("feed");
 const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
+const foodsDiv = document.getElementById("foods");
 
 
 // Define pet object with default values
@@ -121,7 +122,7 @@ function addElement() {
     const img = document.createElement('img');
     img.src = 'https://lowfemme.com/wp-content/uploads/2023/02/228733961fa9fb474132fdd4a089efbc.gif';
     img.alt = 'Image';
-    img.width = 100;
+    img.width = 38;
   
     // Create new text element
     const text = document.createElement('p');
@@ -131,6 +132,8 @@ function addElement() {
     const newElement = document.createElement('div');
     newElement.appendChild(img);
     newElement.appendChild(text);
+    newElement.classList.add("food"); // add class "food" to the new element
+
   
     // Add event listener to increase pet mood by 50 when clicked
     newElement.addEventListener('click', () => {
@@ -138,14 +141,17 @@ function addElement() {
       updatePetState(pet);
       newElement.remove();
     });
+
+        // Add new element to the "foods" div
+        const foodsDiv = document.getElementById("foods");
+        foodsDiv.appendChild(newElement);
   
-    // Add new element to the screen
-    document.body.appendChild(newElement);
   }
   
   // Set interval to add new elements with a 1/30 chance every second
   setInterval(() => {
-    if (Math.random() < 1/30) {
+    const foodsDiv = document.getElementById("foods");
+    if (foodsDiv && Math.random() < 1/30) {
       addElement();
     }
   }, 1000);

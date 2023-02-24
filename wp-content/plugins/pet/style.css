@@ -41,7 +41,7 @@
   #response {
     font-family: 'bitcount-mono-single-circle';
     font-size: 12px;
-    width: 200px;
+    width: 126px;
     line-height: 1.25;
   }
   
@@ -50,4 +50,11 @@
     font-family: 'bitcount-mono-single-circle';
     font-size: 13px;
     margin-bottom: -20px;
+  }
+
+  #food, #foods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -20px;
   }
