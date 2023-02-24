@@ -36,7 +36,7 @@ const INTERACTION_POINTS = {
   ADVENTURE: {
     fitness: () => getRandomFitness(),
     mood: () => getRandomMood(),
-    powerPoints: () => getRandompowerPointsA()
+    powerPoints: () => getRandompowerPoints()
   }
 };
 
@@ -62,10 +62,6 @@ function getExperienceForLevel(level) {
 
 function getRandompowerPoints() {
     return Math.floor(Math.random() * 2) * 5;
-  }
-
-function getRandompowerPointsA() {
-    return Math.floor(Math.random() * 10) * 25;
   }
 
 function getRandomFitness() {
