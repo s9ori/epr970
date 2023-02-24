@@ -132,12 +132,23 @@ function addElement() {
     img.alt = 'Image';
     img.width = 38;
   
-    // Create new element and add image and text
+    // Create new element to contain the image
+    const imgContainer = document.createElement('div');
+    imgContainer.appendChild(img);
+  
+    // Create new text element
+    const text = document.createElement('p');
+    text.textContent = 'Click to increase pet mood by 50';
+  
+    // Create new element to contain the text
+    const textContainer = document.createElement('div');
+    textContainer.appendChild(text);
+  
+    // Create new element to contain both image and text elements
     const newElement = document.createElement('div');
-    newElement.appendChild(img);
-    newElement.appendChild(text);
-    newElement.classList.add("food"); // add class "food" to the new element
-
+    newElement.classList.add('food');
+    newElement.appendChild(imgContainer);
+    document.body.appendChild(newElement);
   
     // Add event listener to increase pet mood by 50 when clicked
     newElement.addEventListener('click', () => {
@@ -145,17 +156,11 @@ function addElement() {
       updatePetState(pet);
       newElement.remove();
     });
-
-        // Add new element to the "foods" div
-        const foodsDiv = document.getElementById("foods");
-        foodsDiv.appendChild(newElement);
-  
   }
   
   // Set interval to add new elements with a 1/30 chance every second
   setInterval(() => {
-    const foodsDiv = document.getElementById("foods");
-    if (foodsDiv && Math.random() < 1/30) {
+    if (Math.random() < 1/30) {
       addElement();
     }
   }, 1000);
