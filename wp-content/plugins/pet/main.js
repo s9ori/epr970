@@ -8,7 +8,8 @@ const exerciseButton = document.getElementById("exercise");
 let pet = {
   mood: 25,
   fitness: 25,
-  powerPoints: 0
+  powerPoints: 0,
+  level: 1
 };
 
 const LEVEL_CAP = 99;
@@ -64,8 +65,10 @@ jQuery(document).ready(function ($) {
 
   window.addEventListener("load", () => {
     retrievePetState();
+    pet.level = getLevel(pet.powerPoints);
     updatePetState(pet);
   });
+  
 
   // Define function to decrease pet's mood and fitness levels by random amount
 function decreaseMoodAndFitness() {
