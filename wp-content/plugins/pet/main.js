@@ -62,11 +62,14 @@ jQuery(document).ready(function ($) {
   playButton.addEventListener("click", playWithPet);
   feedButton.addEventListener("click", feedPet);
   exerciseButton.addEventListener("click", exercisePet);
+  
 
   window.addEventListener("load", () => {
     retrievePetState();
     pet.level = getLevel(pet.powerPoints);
     updatePetState(pet);
+    const levelElement = document.getElementById("level");
+    levelElement.textContent = `Level: ${pet.level}`;
     updateLevel();
   });
   
