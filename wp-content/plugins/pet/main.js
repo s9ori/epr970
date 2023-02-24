@@ -78,6 +78,10 @@ function getRandompowerPoints() {
     return Math.floor(Math.random() * 20);
   }
 
+  function getRandomMood() {
+    return Math.floor(Math.random() * 20);
+  }
+
   
 jQuery(document).ready(function ($) {
 
