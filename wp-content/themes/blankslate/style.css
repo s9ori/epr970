@@ -766,17 +766,12 @@ figcaption {
   /* Other style rules */
   font-size: 14px;
 }
-.header {
-  display: none;
-}
 .entry-content p {
   /* Other style rules */
   max-width: 100%;
 }
 /* Hide the fixed side menu on mobile devices */
-header {
-  display: none;
-}
+
 
 /* Add a hamburger menu button */
 .menu-button {
