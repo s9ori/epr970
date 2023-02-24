@@ -6,6 +6,14 @@ const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
 const foodsDiv = document.getElementById("foods");
 
+window.addEventListener("load", () => {
+    retrievePetState();
+    pet.level = getLevel(pet.powerPoints);
+    updatePetState(pet);
+    const levelElement = document.getElementById("level");
+    levelElement.textContent = `Level: ${pet.level}`;
+    updateLevel();
+  });
 
 // Define pet object with default values
 let pet = {
