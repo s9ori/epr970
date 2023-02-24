@@ -124,10 +124,6 @@ function addElement() {
     img.alt = 'Image';
     img.width = 38;
   
-    // Create new text element
-    const text = document.createElement('p');
-    text.textContent = 'Click to increase pet mood by 50';
-  
     // Create new element and add image and text
     const newElement = document.createElement('div');
     newElement.appendChild(img);
