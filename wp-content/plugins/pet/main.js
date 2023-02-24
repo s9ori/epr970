@@ -4,6 +4,7 @@ const playButton = document.getElementById("play");
 const feedButton = document.getElementById("feed");
 const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
+const adventureButton = document.getElementById("adventure");
 const foodsDiv = document.getElementById("foods");
 
 
@@ -31,6 +32,11 @@ const INTERACTION_POINTS = {
     fitness: 10,
     mood: -5,
     powerPoints: 10
+  },
+  ADVENTURE: {
+    fitness: () => getRandomFitness(),
+    mood: () => getRandomMood(),
+    powerPoints: () => getRandompowerPoints()
   }
 };
 
@@ -63,6 +69,7 @@ jQuery(document).ready(function ($) {
   playButton.addEventListener("click", playWithPet);
   feedButton.addEventListener("click", feedPet);
   exerciseButton.addEventListener("click", exercisePet);
+  adventureButton.addEventListener("click", adventurePet);
   
 
   window.addEventListener("load", () => {
@@ -137,7 +144,7 @@ function addElement() {
       newElement.remove();
     });
 
-        // Add new element to the "foods" div
+        // Add adve element to the "foods" div
         const foodsDiv = document.getElementById("foods");
         foodsDiv.appendChild(newElement);
   
@@ -241,6 +248,33 @@ function exercisePet() {
     pet.powerPoints += parseInt(INTERACTION_POINTS.EXERCISE.powerPoints) || 0;  
     updatePetState(pet);
 }
+
+function adventurePet() {
+    const fitnessDelta = INTERACTION_POINTS.ADVENTURE.fitness;
+    const moodDelta = INTERACTION_POINTS.ADVENTURE.mood;
+    const powerPointsDelta = INTERACTION_POINTS.ADVENTURE.powerPoints;
+    
+    if (typeof fitnessDelta === 'function') {
+      pet.fitness += fitnessDelta();
+    } else {
+      pet.fitness += parseInt(fitnessDelta) || 0;
+    }
+    
+    if (typeof moodDelta === 'function') {
+      pet.mood += moodDelta();
+    } else {
+      pet.mood += parseInt(moodDelta) || 0;
+    }
+    
+    if (typeof powerPointsDelta === 'function') {
+      pet.powerPoints += powerPointsDelta();
+    } else {
+      pet.powerPoints += parseInt(powerPointsDelta) || 0;
+    }
+    
+    updatePetState(pet);
+  }
+  
 
 function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
