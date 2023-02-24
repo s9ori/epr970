@@ -73,13 +73,13 @@ function getRandompowerPoints() {
   }
 
   function getRandomFitness() {
-    return Math.floor(Math.random() * 20);
+    return Math.floor(Math.random() * 201) - 100;
   }
-
+  
   function getRandomMood() {
-    return Math.floor(Math.random() * 20);
+    return Math.floor(Math.random() * 201) - 100;
   }
-
+  
   
 jQuery(document).ready(function ($) {
 
@@ -183,7 +183,7 @@ function addElement() {
     const powerPoints = pet.powerPoints;
     const storedpowerPoints = parseInt(localStorage.getItem("powerPoints"));
     
-    if (powerPoints % 100 === 0 && powerPoints !== storedpowerPoints) {
+    if (powerPoints % 50 === 0 && powerPoints !== storedpowerPoints) {
       localStorage.setItem("powerPoints", powerPoints);
   
       // Make AJAX call to OpenAI API
@@ -264,23 +264,41 @@ function exercisePet() {
     pet.powerPoints += parseInt(INTERACTION_POINTS.EXERCISE.powerPoints) || 0;  
     updatePetState(pet);
 }
-
 function adventurePet() {
     const fitnessDelta = INTERACTION_POINTS.ADVENTURE.fitness;
     const moodDelta = INTERACTION_POINTS.ADVENTURE.mood;
     const powerPointsDelta = INTERACTION_POINTS.ADVENTURE.powerPoints;
     
+    let fitnessIncrement;
+    let moodIncrement;
+    
     if (typeof fitnessDelta === 'function') {
-      pet.fitness += fitnessDelta();
+      fitnessIncrement = fitnessDelta();
     } else {
-      pet.fitness += parseInt(fitnessDelta) || 0;
+      fitnessIncrement = parseInt(fitnessDelta) || 0;
     }
     
     if (typeof moodDelta === 'function') {
-      pet.mood += moodDelta();
+      moodIncrement = moodDelta();
     } else {
-      pet.mood += parseInt(moodDelta) || 0;
+      moodIncrement = parseInt(moodDelta) || 0;
     }
+    
+    // Calculate probability of higher fitness and mood
+    const level = getLevel(pet.powerPoints);
+    const fitnessProb = Math.min(level / LEVEL_CAP, 0.9); // maximum probability is 0.9
+    const moodProb = Math.min(level / LEVEL_CAP, 0.9);
+    
+    // Roll for higher fitness and mood
+    if (Math.random() < fitnessProb) {
+      fitnessIncrement += getRandomFitness();
+    }
+    if (Math.random() < moodProb) {
+      moodIncrement += getRandomMood();
+    }
+    
+    pet.fitness = Math.max(-100, Math.min(100, pet.fitness + fitnessIncrement));
+    pet.mood = Math.max(-100, Math.min(100, pet.mood + moodIncrement));
     
     if (typeof powerPointsDelta === 'function') {
       pet.powerPoints += powerPointsDelta();
@@ -290,6 +308,7 @@ function adventurePet() {
     
     updatePetState(pet);
   }
+  
   
 
 function savePetState() {
