@@ -1,7 +1,6 @@
 ﻿var openai_data2 = window.openai_data2 || {};
 var file_contents2 = file_data2.file_contents2;
 const playButton = document.getElementById("play");
-const feedButton = document.getElementById("feed");
 const exerciseButton = document.getElementById("exercise");
 const levelElement = document.getElementById("level");
 const adventureButton = document.getElementById("adventure");
@@ -15,6 +14,14 @@ window.addEventListener("load", () => {
     levelElement.textContent = `Level: ${pet.level}`;
     updateLevel();
   });
+
+  // Define function to retrieve pet state from local storage
+function retrievePetState() {
+    const storedPetState = localStorage.getItem("petState");
+    if (storedPetState) {
+        pet = JSON.parse(storedPetState);
+    }
+}
   
 // Define pet object with default values
 let pet = {
@@ -85,7 +92,6 @@ jQuery(document).ready(function ($) {
       });
 
   playButton.addEventListener("click", playWithPet);
-  feedButton.addEventListener("click", feedPet);
   exerciseButton.addEventListener("click", exercisePet);
   adventureButton.addEventListener("click", adventurePet);
   
