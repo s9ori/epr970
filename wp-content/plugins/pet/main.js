@@ -19,7 +19,6 @@ const INTERACTION_POINTS = {
   PLAY: {
     mood: 10,
     powerPoints: () => getRandompowerPoints()
-
   },
   FEED: {
     fitness: -5,
