@@ -19,6 +19,7 @@ function pokemon_tamagotchi_enqueue_scripts() {
         'api_key' => getenv('API_KEY')
     );
     wp_localize_script('pokemon-tamagotchi-script', 'openai_data2', $data );
-}
+    $file_contents2 = file_get_contents(plugin_dir_url(__FILE__) . "/b99.txt");
+    wp_localize_script( 'pokemon-tamagotchi-script', 'file_data2', array( 'file_contents2' => $file_contents2 ) );}
 
 add_action('wp_enqueue_scripts', 'pokemon_tamagotchi_enqueue_scripts');
