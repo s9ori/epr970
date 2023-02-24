@@ -14,17 +14,18 @@ let pet = {
 const INTERACTION_POINTS = {
   PLAY: {
     mood: 10,
-    powerLevel: 5
+    powerLevel: Math.floor(Math.random() * 2) * 5
+
   },
   FEED: {
     fitness: -5,
     mood: 5,
-    powerLevel: 10
+    powerLevel: 5
   },
   EXERCISE: {
     fitness: 10,
     mood: -5,
-    powerLevel: 5
+    powerLevel: 10
   }
 };
 
@@ -108,7 +109,7 @@ function decreaseMoodAndFitness() {
         }
       });
    }
-    }, 1000);
+    }, 100);
   
 
   
