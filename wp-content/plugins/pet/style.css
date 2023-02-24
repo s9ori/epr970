@@ -58,3 +58,13 @@
     align-items: center;
     margin-top: -20px;
   }
+
+  #food p {
+    display: none;
+    transition: all 0.2s ease-in-out 
+  }
+
+  #foods:hover p {
+    display: block;
+    transition: all 0.2s ease-in-out 
+  }
