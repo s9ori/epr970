@@ -7,6 +7,16 @@ const levelElement = document.getElementById("level");
 const adventureButton = document.getElementById("adventure");
 const foodsDiv = document.getElementById("foods");
 
+window.addEventListener("load", () => {
+    retrievePetState();
+    pet.level = getLevel(pet.powerPoints);
+    updatePetState(pet);
+    const levelElement = document.getElementById("level");
+    levelElement.textContent = `Level: ${pet.level}`;
+    updateLevel();
+  });
+  
+
 
 // Define pet object with default values
 let pet = {
@@ -70,16 +80,6 @@ jQuery(document).ready(function ($) {
   feedButton.addEventListener("click", feedPet);
   exerciseButton.addEventListener("click", exercisePet);
   adventureButton.addEventListener("click", adventurePet);
-  
-
-  window.addEventListener("load", () => {
-    retrievePetState();
-    pet.level = getLevel(pet.powerPoints);
-    updatePetState(pet);
-    const levelElement = document.getElementById("level");
-    levelElement.textContent = `Level: ${pet.level}`;
-    updateLevel();
-  });
   
 
   // Define function to decrease pet's mood and fitness levels by random amount
