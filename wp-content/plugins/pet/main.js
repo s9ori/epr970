@@ -75,7 +75,7 @@ function decreaseMoodAndFitness() {
 
   setInterval(() => {
     const powerLevel = pet.powerLevel;
-    const storedPowerLevel = localStorage.getItem("powerLevel");
+    const storedPowerLevel = parseInt(localStorage.getItem("powerLevel"));
     
     if (powerLevel % 50 === 0 && powerLevel !== storedPowerLevel) {
       localStorage.setItem("powerLevel", powerLevel);
