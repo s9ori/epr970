@@ -235,10 +235,11 @@ setInterval(() => {
           updatePetState(pet);
           const drop = generateDrop();
           if (drop) {
-            const dropElement = document.createElement("div");
-            dropElement.innerText = `${drop.name} +${drop.value}`;
+            const dropElement = document.createElement("img");
+            dropElement.src = drop.image;
+            dropElement.alt = drop.name;
             dropElement.classList.add("drop");
-            dropsDiv.appendChild(dropElement);
+            dropsDiv.appendChild(dropElement);            
             pet.drops.push(drop);
             localStorage.setItem("pet", JSON.stringify(pet));
           }
