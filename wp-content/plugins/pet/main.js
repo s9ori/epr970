@@ -189,6 +189,7 @@ function addElement(type) {
       pet.mood += moodBoost;
       updatePetState(pet);
       newElement.remove();
+      localStorage.setItem("drops", dropsDiv.innerHTML);
     });
   
     const foodsDiv = document.getElementById('foods');
@@ -237,6 +238,7 @@ function dropElement(type) {
     pet.fitness += fitnessBoost;
     updatePetState(pet);
     newElement.remove();
+    localStorage.setItem("drops", dropsDiv.innerHTML);
   });
 
   const dropsDiv = document.getElementById('drops');
@@ -320,6 +322,7 @@ function dropElement(type) {
       pet.fitness += fitnessBoost;
       updatePetState(pet);
       newElement.remove();
+      localStorage.setItem("drops", dropsDiv.innerHTML);
     });
   
     monstersDiv.appendChild(newElement);
@@ -391,6 +394,10 @@ function retrievePetState() {
     const storedPetState = localStorage.getItem("petState");
     if (storedPetState) {
         pet = JSON.parse(storedPetState);
+    }
+    const savedDrops = localStorage.getItem("drops");
+    if (savedDrops) {
+    dropsDiv.innerHTML = savedDrops; 
     }
  // Update DOM elements with current state levels
  document.getElementById("mood-state").textContent = pet.mood;
