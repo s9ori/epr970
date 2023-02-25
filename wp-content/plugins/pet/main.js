@@ -2,6 +2,7 @@
 var file_contents2 = file_data2.file_contents2;
 const playButton = document.getElementById("play");
 const exerciseButton = document.getElementById("exercise");
+const dropsDiv = document.getElementById("drops");
 window.addEventListener("load", () => {
     retrievePetState();
     pet.level = getLevel(pet.powerPoints);
