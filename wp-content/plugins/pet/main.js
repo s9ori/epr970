@@ -16,21 +16,6 @@ window.addEventListener("load", () => {
     }
   });
 
-
-function dropElement(type) {
-  let fitnessBoost, imageSrc;
-  if (type === "ribbon1") {
-    fitnessBoost = 300;
-    imageSrc = ' https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
-  } else if (type === "ribbon2") {
-    fitnessBoost = 600;
-    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
-  } else if (type === "ribbon3") {
-    fitnessBoost = 900;
-    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
-  }
-}
-
   const interactBtns = document.querySelectorAll('.interaction button');
 
 interactBtns.forEach((btn) => {
@@ -85,6 +70,25 @@ const INTERACTION_POINTS = {
     powerPoints: () => getRandompowerPoints()
   }
 };
+
+function attachDropEventListeners(dropElement) {
+  dropElement.addEventListener('click', () => {
+    pet.fitness += fitnessBoost;
+    updatePetState(pet);
+    dropElement.remove();
+    localStorage.setItem("drops", dropsDiv.innerHTML);
+  });
+}
+
+const savedDrops = localStorage.getItem("drops");
+if (savedDrops) {
+  dropsDiv.innerHTML = savedDrops;
+  const dropElements = dropsDiv.querySelectorAll('.drop');
+  dropElements.forEach((dropElement) => {
+    attachDropEventListeners(dropElement);
+  });
+}
+
 
 // Define function to calculate experience required for a given level
 function getExperienceForLevel(level) {
