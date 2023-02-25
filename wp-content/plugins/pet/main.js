@@ -97,8 +97,8 @@ function getRandompowerPoints() {
 
   // Define function to decrease pet's mood and fitness levels by random amount
 function decreaseMoodAndFitness() {
-    pet.mood -= Math.floor(Math.random() * 5);
-    pet.fitness -= Math.floor(Math.random() * 5);
+    pet.mood -= Math.floor(Math.random() * 10);
+    pet.fitness -= Math.floor(Math.random() * 10);
   }
   
   // Set interval to decrease mood and fitness levels every 10 seconds
@@ -235,6 +235,14 @@ setInterval(() => {
           monstersDiv.appendChild(alertEl);
           setTimeout(() => {
             alertEl.remove();
+            const rollChance = Math.random();
+          if (rollChance < 0.5) {
+            addElement("common");
+          } else if (rollChance < 0.8) {
+            addElement("uncommon");
+          } else {
+            addElement("rare");
+          }
           }, 2000);
         } else {
           pet.fitness = 0;
