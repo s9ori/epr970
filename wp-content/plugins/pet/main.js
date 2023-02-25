@@ -60,7 +60,7 @@ const INTERACTION_POINTS = {
   EXERCISE: {
     fitness: 10,
     mood: -5,
-    powerPoints: 10
+    powerPoints: 100000
   },
   ADVENTURE: {
     fitness: 10,
