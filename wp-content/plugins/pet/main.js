@@ -188,7 +188,7 @@ setInterval(() => {
       var max_tokens = 100;
       var temperature = 0.7;
       
-      var prompt = `Imagine you are a kawaii virtual pet owned by me, a young girl named Espe. When she plays with you, your power level goes up to a maximum of 13 million. Your power level is ${powerPoints} right now. Using less than 10 words and in your most adorable voice, tell me a fun fact about political theory, k-pop music, anime, or fashion:\n\n`;
+      var prompt = `You're a cute virtual pet owned by a young girl named Espe. You love to learn and explore the world around you. Tell me, in your most adorable voice, what you're most excited about today!:\n\n`;
       var data = {
         "model": model,
         "prompt": prompt,
