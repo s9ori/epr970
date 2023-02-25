@@ -47,7 +47,6 @@ interactBtns.forEach((btn) => {
   });
 });
 
-  
 const levelElement = document.getElementById("level");
 const adventureButton = document.getElementById("adventure");
 const foodsDiv = document.getElementById("foods");
