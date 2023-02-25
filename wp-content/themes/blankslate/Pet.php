@@ -103,3 +103,4 @@ get_header();
 
   </style>
   </article>
+<?php get_footer(); ?>
