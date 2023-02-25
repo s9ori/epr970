@@ -5,6 +5,7 @@ Template Name: Saori Uchida Pet EPR970
 
 get_header();
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 <style>
   body {
@@ -76,3 +77,5 @@ get_header();
 }
 
   </style>
+  </article>
+<?php get_footer(); ?>
