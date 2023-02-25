@@ -215,6 +215,9 @@ setInterval(() => {
           alertEl.innerText = `You won the dance battle! You gained ${powerPointsWon} power points.`;
           alertEl.classList.add('alert');
           monstersDiv.appendChild(alertEl);
+          setTimeout(() => {
+            alertEl.remove();
+          }, 2000);
         } else {
           pet.fitness = 0;
           pet.mood = 0;
@@ -224,8 +227,15 @@ setInterval(() => {
           alertEl.innerText = 'You lost the dance battle! Your fitness and mood are drained to 0.';
           alertEl.classList.add('alert');
           monstersDiv.appendChild(alertEl);
+          setTimeout(() => {
+            alertEl.remove();
+          }, 2000);
         }
       });
+      // Remove any existing monster elements
+      while (monstersDiv.firstChild) {
+        monstersDiv.removeChild(monstersDiv.firstChild);
+      }
       monstersDiv.appendChild(monsterElement);
       return;
     }
@@ -247,7 +257,7 @@ setInterval(() => {
   
     monstersDiv.appendChild(newElement);
   }
-  
+
   
   
   setInterval(updateLevel, 1000);
