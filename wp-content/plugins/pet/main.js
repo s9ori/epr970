@@ -199,7 +199,6 @@ setInterval(() => {
       newElement.remove();
     });
   
-    const foodsDiv = document.getElementById('foods');
     foodsDiv.appendChild(newElement);
   
   
