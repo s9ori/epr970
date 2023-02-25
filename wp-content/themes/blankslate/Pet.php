@@ -154,7 +154,7 @@ get_header();
     top: 120px!important;
 }
 
-.footer-s9ori {
+.footer-s9ori, #site-title {
 display: none
 }
 

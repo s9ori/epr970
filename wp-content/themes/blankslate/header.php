@@ -28,6 +28,7 @@ echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_blog
 if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 ?>
 </div>
+<div id="drops"></div>
 <div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?>
 <div class="pet-stats">
     <div class="mood">
@@ -54,7 +55,6 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 <div id="response"></div>
 </div>
 <div id="monsters"></div>
-<div id="drops"></div>
 <div id="foods"></div>
 <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
 <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
