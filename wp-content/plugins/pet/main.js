@@ -137,41 +137,59 @@ function decreaseMoodAndFitness() {
     }
   }
 
-// Define function to create new element and add event listener
-function addElement() {
-    // Create new image element
-    const img = document.createElement('img');
-    img.src = 'https://lowfemme.com/wp-content/uploads/2023/02/228733961fa9fb474132fdd4a089efbc.gif';
-    img.alt = 'Image';
-    img.width = 38;
-  
-    // Create new element and add image and text
-    const newElement = document.createElement('div');
-    newElement.appendChild(img);
-    newElement.classList.add("food"); // add class "food" to the new element
-
-  
-    // Add event listener to increase pet mood by 50 when clicked
-    newElement.addEventListener('click', () => {
-      pet.mood += 50;
-      updatePetState(pet);
-      newElement.remove();
-    });
-
-        // Add adve element to the "foods" div
-        const foodsDiv = document.getElementById("foods");
-        foodsDiv.appendChild(newElement);
-  
-  }
-  
-  // Set interval to add new elements with a 1/30 chance every second
-  setInterval(() => {
+// Set interval to add new elements with a probability that depends on the pet's level
+setInterval(() => {
     const foodsDiv = document.getElementById("foods");
-    if (foodsDiv && Math.random() < 1/20) {
-      addElement();
+    const level = pet.level;
+  
+    // Define probabilities for each type of food as a function of the pet's level
+    let rareProbability = level / (500);  // Becomes rarer as level goes up
+    let uncommonProbability = level / (250);  // Becomes rarer as level goes up
+    let commonProbability = level / (100);  // Becomes rarer as level goes up
+  
+    // Generate a random number and add a food element based on the probability
+    let rand = Math.random();
+    if (rand < rareProbability) {
+      addElement("rare");
+    } else if (rand < uncommonProbability) {
+      addElement("uncommon");
+    } else if (rand < commonProbability) {
+      addElement("common");
     }
   }, 1000);
   
+  function addElement(type) {
+    let moodBoost, imageSrc;
+    if (type === "rare") {
+      moodBoost = 100;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_m9qbvdeW1e1r90k20.png';
+    } else if (type === "uncommon") {
+      moodBoost = 50;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_m9qbw9z6u71r90k20540.gif';
+    } else {
+      moodBoost = 25;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_m9qbvuIuyI1r90k20540.gif';
+    }
+  
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = 'Image';
+    img.width = 38;
+  
+    const newElement = document.createElement('div');
+    newElement.appendChild(img);
+    newElement.classList.add('food');
+  
+    newElement.addEventListener('click', () => {
+      pet.mood += moodBoost;
+      updatePetState(pet);
+      newElement.remove();
+    });
+  
+    const foodsDiv = document.getElementById('foods');
+    foodsDiv.appendChild(newElement);
+  }  
+
   
   
   setInterval(updateLevel, 1000);
