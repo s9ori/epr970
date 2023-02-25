@@ -64,7 +64,7 @@ get_header();
     flex-direction: row;
     align-items: center;
     position: absolute;
-    bottom: 65px;
+    bottom: 150px;
     max-width: 300px;
     flex-wrap: wrap;
     justify-content: center;
@@ -79,7 +79,10 @@ get_header();
     font-weight: bold!important;
     transition: all 0.2s ease-in-out!important;
     font-family: 'bitcount-mono-single-circle'!important;
-    font-size: 10px!important;
+    font-size: 14px!important;
+    color: black !important;
+    border: black !important;
+
   }
 
   #branding {
