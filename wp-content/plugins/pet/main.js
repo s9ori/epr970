@@ -177,7 +177,7 @@ setInterval(() => {
     const level = pet.level;
   
     // Define probabilities for each type of food as a function of the pet's level
-    let monsterProbability = level / (100);  // Becomes rarer as level goes up
+    let monsterProbability = level / (1000);  // Becomes rarer as level goes up
   
     // Generate a random number and add a food element based on the probability
     let rand = Math.random();
@@ -212,7 +212,7 @@ setInterval(() => {
           updatePetState(pet);
           monsterElement.remove();
           const alertEl = document.createElement('p');
-          alertEl.innerText = `You won the dance battle! You gained ${powerPointsWon} power points.`;
+          alertEl.innerText = `You won the dance battle! + ${powerPointsWon} power points.`;
           alertEl.classList.add('alert');
           monstersDiv.appendChild(alertEl);
           setTimeout(() => {

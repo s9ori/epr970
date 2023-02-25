@@ -20,6 +20,7 @@ get_header();
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    gap: 20px !important
   }
 
   .pet-interactions {
@@ -64,10 +65,14 @@ get_header();
     flex-direction: row;
     align-items: center;
     position: absolute;
-    bottom: 150px;
+    bottom: 100px;
     max-width: 300px;
     justify-content: center;
     gap: 5px;
+}
+
+#site-title {
+  display: none;
 }
 
   
@@ -95,6 +100,19 @@ get_header();
     background-color: #f2f2f2!important;
     width: 100%!important;
     height: 100%!important;
+}
+
+#monsters, .monster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#monsters p {
+  font-family: 'bitcount-mono-single-circle'!important;
+    font-size: 10px!important;
+    font-weight: bold;
+    text-align: center;
 }
 
 #response {
