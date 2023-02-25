@@ -2,10 +2,6 @@
 var file_contents2 = file_data2.file_contents2;
 const playButton = document.getElementById("play");
 const exerciseButton = document.getElementById("exercise");
-const levelElement = document.getElementById("level");
-const adventureButton = document.getElementById("adventure");
-const foodsDiv = document.getElementById("foods");
-
 window.addEventListener("load", () => {
     retrievePetState();
     pet.level = getLevel(pet.powerPoints);
@@ -14,15 +10,11 @@ window.addEventListener("load", () => {
     levelElement.textContent = `Level: ${pet.level}`;
     updateLevel();
   });
-
-  // Define function to retrieve pet state from local storage
-function retrievePetState() {
-    const storedPetState = localStorage.getItem("petState");
-    if (storedPetState) {
-        pet = JSON.parse(storedPetState);
-    }
-}
   
+const levelElement = document.getElementById("level");
+const adventureButton = document.getElementById("adventure");
+const foodsDiv = document.getElementById("foods");
+
 // Define pet object with default values
 let pet = {
   mood: 25,
@@ -78,18 +70,6 @@ function getExperienceForLevel(level) {
 function getRandompowerPoints() {
     return Math.floor(Math.random() * 2) * 5;
   }
-
-  
-jQuery(document).ready(function ($) {
-
-    window.addEventListener("load", () => {
-        retrievePetState();
-        pet.level = getLevel(pet.powerPoints);
-        updatePetState(pet);
-        const levelElement = document.getElementById("level");
-        levelElement.textContent = `Level: ${pet.level}`;
-        updateLevel();
-      });
 
   playButton.addEventListener("click", playWithPet);
   exerciseButton.addEventListener("click", exercisePet);
@@ -308,5 +288,3 @@ function exercisePet() {
 function savePetState() {
     localStorage.setItem("petState", JSON.stringify(pet));
   }
-}
-);
