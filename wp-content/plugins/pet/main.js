@@ -222,7 +222,7 @@ function dropElement(type) {
   const img = document.createElement('img');
   img.src = imageSrc;
   img.alt = 'Ribbon';
-  img.width = 20;
+  img.width = 18;
 
   const newElement = document.createElement('div');
   newElement.appendChild(img);

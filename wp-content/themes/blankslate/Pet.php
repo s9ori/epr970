@@ -109,6 +109,7 @@ get_header();
     align-items: center!important;
     background-color: transparent!important;
     width: 100%!important;
+    gap: 15px !important;
     height: 100%!important;
 }
 
