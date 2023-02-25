@@ -161,14 +161,14 @@ setInterval(() => {
   function addElement(type) {
     let moodBoost, imageSrc;
     if (type === "rare") {
-      moodBoost = 100;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_m9qbvdeW1e1r90k20.png';
+      moodBoost = 150;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-2.png';
     } else if (type === "uncommon") {
-      moodBoost = 50;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_m9qbw9z6u71r90k20540.gif';
+      moodBoost = 100;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-1.png';
     } else {
-      moodBoost = 25;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_m9qbvuIuyI1r90k20540.gif';
+      moodBoost = 50;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-3.png';
     }
   
     const img = document.createElement('img');
