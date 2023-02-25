@@ -65,7 +65,7 @@ get_header();
     flex-direction: row;
     align-items: center;
     position: absolute;
-    bottom: 100px;
+    bottom: 60px;
     max-width: 300px;
     justify-content: center;
     gap: 5px;
