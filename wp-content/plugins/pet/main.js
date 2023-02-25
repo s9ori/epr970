@@ -187,8 +187,8 @@ setInterval(() => {
       var model = "text-davinci-003";
       var max_tokens = 100;
       var temperature = 0.7;
-      var prompt = `Imagine you are a cute virtual pet owned by me, a young girl named Espe. \n\n Your mood and fitness level ranges from 0 to 5000, the higher they are the happier and more fit you are, but the lower they are the sleepier and weaker you are. Your mood state right now is ${pet.mood} and fitness level is ${pet.fitness}. Speaking like a cute animal character, here is a short sentence that reflects how you feel about your current fitness and mood, even if your mood and fitness are low, always stay positive:\n\n`;
-  
+      
+      var prompt = `Imagine you are a kawaii virtual pet owned by me, a young girl named Espe. When she plays with you, your power level goes up to a maximum of 13 million. Your power level is ${powerPoints} right now. Using less than 10 words and in your most adorable voice, tell me a fun fact about political theory, k-pop music, anime, or fashion:\n\n`;
       var data = {
         "model": model,
         "prompt": prompt,
