@@ -143,9 +143,9 @@ setInterval(() => {
     const level = pet.level;
   
     // Define probabilities for each type of food as a function of the pet's level
-    let rareProbability = level / (500);  // Becomes rarer as level goes up
-    let uncommonProbability = level / (250);  // Becomes rarer as level goes up
-    let commonProbability = level / (100);  // Becomes rarer as level goes up
+    let rareProbability = level / (700);  // Becomes rarer as level goes up
+    let uncommonProbability = level / (300);  // Becomes rarer as level goes up
+    let commonProbability = level / (200);  // Becomes rarer as level goes up
   
     // Generate a random number and add a food element based on the probability
     let rand = Math.random();
