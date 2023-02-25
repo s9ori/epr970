@@ -58,6 +58,20 @@ get_header();
     font-size: 12px!important;
 
   }
+
+  #foods {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 65px;
+    max-width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+  
   .pet-interactions button {
     padding: 10px!important;
     text-transform: uppercase!important;
@@ -89,4 +103,3 @@ get_header();
 
   </style>
   </article>
-<?php get_footer(); ?>
