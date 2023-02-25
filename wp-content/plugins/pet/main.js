@@ -274,9 +274,8 @@ setInterval(() => {
         if (rand < winChance) {
           const powerPointsWon = monsterLevel * 4;
           pet.powerPoints += powerPointsWon;
-          monsterElement.remove();
-          const drop = generateDrop();
           updatePetState(pet);
+          const drop = generateDrop();
           if (drop) {
             const dropElement = document.createElement("img");
             dropElement.src = drop.image;
