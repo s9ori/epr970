@@ -145,9 +145,6 @@ setInterval(() => {
     let rareProbability = level / (700);  // Becomes rarer as level goes up
     let uncommonProbability = level / (300);  // Becomes rarer as level goes up
     let commonProbability = level / (200);  // Becomes rarer as level goes up
-    let ribbon1Probability = level / (10);
-    let ribbon2Probability = level / (100);
-    let ribbon3Probability = level / (500);
 
   
     // Generate a random number and add a food element based on the probability
@@ -158,12 +155,6 @@ setInterval(() => {
       addElement("uncommon");
     } else if (rand < commonProbability) {
       addElement("common");
-    } else if (rand < ribbon1Probability) {
-      addElement("ribbon1");
-    } else if (rand < ribbon2Probability) {
-      addElement("ribbon2");
-    } else if (rand < ribbon3Probability) {
-      addElement("ribbon3");
     }    
   }, 1000);
   
