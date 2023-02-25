@@ -179,7 +179,7 @@ setInterval(() => {
     const powerPoints = pet.powerPoints;
     const storedpowerPoints = parseInt(localStorage.getItem("powerPoints"));
     
-    if (powerPoints % 200 === 0 && powerPoints !== storedpowerPoints) {
+    if (powerPoints % 300 === 0 && powerPoints !== storedpowerPoints) {
       localStorage.setItem("powerPoints", powerPoints);
   
       // Make AJAX call to OpenAI API
@@ -188,7 +188,7 @@ setInterval(() => {
       var max_tokens = 100;
       var temperature = 0.7;
       
-      var prompt = `You're a cute virtual pet owned by a young girl named Espe. You love to learn and explore the world around you. Tell me, in your most adorable voice, what you're most excited about today!:\n\n`;
+      var prompt = `You're a cute virtual pet owned by a young girl named Espe. You love to learn and explore the world around you. Tell me how you feel with your power level being ${powerPoints} out of a maximum of 13,000,000 in your most adorable animcal character voice and noises:\n\n`;
       var data = {
         "model": model,
         "prompt": prompt,
