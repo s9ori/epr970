@@ -165,6 +165,15 @@ setInterval(() => {
     } else if (type === "uncommon") {
       moodBoost = 100;
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-1.png';
+    } else if (type === "ribbon1") {
+      moodBoost = 300;
+      imageSrc = ' https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
+    } else if (type === "ribbon2") {
+      moodBoost = 600;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
+    } else if (type === "ribbon3") {
+      moodBoost = 900;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
     } else {
       moodBoost = 50;
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-3.png';
@@ -237,11 +246,11 @@ setInterval(() => {
             alertEl.remove();
             const rollChance = Math.random();
           if (rollChance < 0.5) {
-            addElement("common");
+            addElement("ribbon1");
           } else if (rollChance < 0.8) {
-            addElement("uncommon");
+            addElement("ribbon2");
           } else {
-            addElement("rare");
+            addElement("ribbon3");
           }
           }, 2000);
         } else {
