@@ -108,9 +108,21 @@ get_header();
   justify-content: center;
 }
 
+#monsters {
+  position: absolute;
+    bottom: 110px;
+}
+
 #monsters p {
   font-family: 'bitcount-mono-single-circle'!important;
     font-size: 10px!important;
+    font-weight: bold;
+    text-align: center;
+}
+
+.monster-level {
+  font-family: 'bitcount-mono-single-circle'!important;
+    font-size: 8px!important;
     font-weight: bold;
     text-align: center;
 }
