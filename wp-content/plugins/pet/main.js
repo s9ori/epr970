@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
 const levelElement = document.getElementById("level");
 const adventureButton = document.getElementById("adventure");
 const foodsDiv = document.getElementById("foods");
+const monstersDiv = document.getElementById("monsters");
 
 // Define pet object with default values
 let pet = {
@@ -172,7 +173,7 @@ setInterval(() => {
 
   // Set interval to add new monsters with a probability that depends on the pet's level
 setInterval(() => {
-    const foodsDiv = document.getElementById("foods");
+    const monstersDiv = document.getElementById("monsters");
     const level = pet.level;
   
     // Define probabilities for each type of food as a function of the pet's level
@@ -182,7 +183,7 @@ setInterval(() => {
     let rand = Math.random();
     if (rand < monsterProbability) {
       addMonster("monster");
-     }
+    }
   }, 1000);
   
   function addMonster(type) {
@@ -193,8 +194,14 @@ setInterval(() => {
       monsterImg.src = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_inline_p7gi2483iO1qfc9y0_75sq.gif';
       monsterImg.alt = 'Monster';
       monsterImg.width = 38;
+  
+      const monsterLevelEl = document.createElement('p');
+      monsterLevelEl.innerText = `Level: ${monsterLevel}`;
+      monsterLevelEl.classList.add('monster-level');
+  
       const monsterElement = document.createElement('div');
       monsterElement.appendChild(monsterImg);
+      monsterElement.appendChild(monsterLevelEl);
       monsterElement.classList.add('monster');
       monsterElement.addEventListener('click', () => {
         const winChance = pet.level / monsterLevel;
@@ -204,16 +211,22 @@ setInterval(() => {
           pet.powerPoints += powerPointsWon;
           updatePetState(pet);
           monsterElement.remove();
-          alert(`You won the dance battle! You gained ${powerPointsWon} power points.`);
+          const alertEl = document.createElement('p');
+          alertEl.innerText = `You won the dance battle! You gained ${powerPointsWon} power points.`;
+          alertEl.classList.add('alert');
+          monstersDiv.appendChild(alertEl);
         } else {
           pet.fitness = 0;
           pet.mood = 0;
           updatePetState(pet);
           monsterElement.remove();
-          alert('You lost the dance battle! Your fitness and mood are drained to 0.');
+          const alertEl = document.createElement('p');
+          alertEl.innerText = 'You lost the dance battle! Your fitness and mood are drained to 0.';
+          alertEl.classList.add('alert');
+          monstersDiv.appendChild(alertEl);
         }
       });
-      foodsDiv.appendChild(monsterElement);
+      monstersDiv.appendChild(monsterElement);
       return;
     }
   
@@ -232,7 +245,7 @@ setInterval(() => {
       newElement.remove();
     });
   
-    foodsDiv.appendChild(newElement);
+    monstersDiv.appendChild(newElement);
   }
   
   
