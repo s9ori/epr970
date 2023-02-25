@@ -9,6 +9,11 @@ window.addEventListener("load", () => {
     const levelElement = document.getElementById("level");
     levelElement.textContent = `Level: ${pet.level}`;
     updateLevel();
+    const dropsDiv = document.getElementById("drops");
+    const savedDrops = localStorage.getItem("drops");
+    if (savedDrops) {
+      dropsDiv.innerHTML = savedDrops;
+    }
   });
 
   const interactBtns = document.querySelectorAll('.interaction button');
@@ -196,7 +201,7 @@ setInterval(() => {
     const level = pet.level;
   
     // Define probabilities for each type of food as a function of the pet's level
-    let monsterProbability = (1) / (20);  // Becomes rarer as level goes up
+    let monsterProbability = (1) / (10);  // Becomes rarer as level goes up
   
     // Generate a random number and add a food element based on the probability
     let rand = Math.random();
@@ -277,7 +282,8 @@ function dropElement(type) {
           } else {
             dropElement("ribbon3");
           }
-          }, 2000);
+          localStorage.setItem("drops", dropsDiv.innerHTML);
+          }, 1000);
         } else {
           pet.fitness = 0;
           pet.mood = 0;
