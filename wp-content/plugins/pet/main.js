@@ -207,28 +207,35 @@ setInterval(() => {
         const winChance = pet.level / monsterLevel;
         const rand = Math.random();
         if (rand < winChance) {
-          const powerPointsWon = monsterLevel * 4;
-          pet.powerPoints += powerPointsWon;
-          updatePetState(pet);
-          monsterElement.remove();
-          const alertEl = document.createElement('p');
-          alertEl.innerText = `You won the dance battle! You gained ${powerPointsWon} power points.`;
-          alertEl.classList.add('alert');
-          monstersDiv.appendChild(alertEl);
-        } else {
-          pet.fitness = 0;
-          pet.mood = 0;
-          updatePetState(pet);
-          monsterElement.remove();
-          const alertEl = document.createElement('p');
-          alertEl.innerText = 'You lost the dance battle! Your fitness and mood are drained to 0.';
-          alertEl.classList.add('alert');
-          monstersDiv.appendChild(alertEl);
-        }
-      });
-      monstersDiv.appendChild(monsterElement);
-      return;
-    }
+            const powerPointsWon = monsterLevel * 4;
+            pet.powerPoints += powerPointsWon;
+            updatePetState(pet);
+            monsterElement.remove();
+            const message = `You won the dance battle! You gained ${powerPointsWon} power points.`;
+            const messageElement = document.createElement('p');
+            messageElement.innerText = message;
+            monsterElement.appendChild(messageElement);
+            setTimeout(() => {
+              messageElement.remove();
+            }, 2000);
+          } else {
+            pet.fitness = 0;
+            pet.mood = 0;
+            updatePetState(pet);
+            monsterElement.remove();
+            const message = 'You lost the dance battle! Your fitness and mood are drained to 0.';
+            const messageElement = document.createElement('p');
+            messageElement.innerText = message;
+            monsterElement.appendChild(messageElement);
+            setTimeout(() => {
+              messageElement.remove();
+            }, 2000);
+          }
+        });
+        monstersDiv.appendChild(monsterElement);
+        return;
+      }
+    
   
     const img = document.createElement('img');
     img.src = imageSrc;
