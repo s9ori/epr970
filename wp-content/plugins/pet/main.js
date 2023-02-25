@@ -60,7 +60,7 @@ const INTERACTION_POINTS = {
   EXERCISE: {
     fitness: 10,
     mood: -5,
-    powerPoints: 100000
+    powerPoints: 10
   },
   ADVENTURE: {
     fitness: 10,
@@ -220,6 +220,48 @@ setInterval(() => {
       const monsterLevelEl = document.createElement("p");
       monsterLevelEl.innerText = `Level: ${monsterLevel}`;
       monsterLevelEl.classList.add("monster-level");
+
+
+      const monsterElement = document.createElement('div');
+      monsterElement.appendChild(monsterImg);
+      monsterElement.appendChild(monsterLevelEl);
+      monsterElement.classList.add('monster');
+      monsterElement.addEventListener('click', () => {
+        const winChance = pet.level / monsterLevel;
+        const rand = Math.random();
+        if (rand < winChance) {
+          const powerPointsWon = monsterLevel * 4;
+          pet.powerPoints += powerPointsWon;
+          updatePetState(pet);
+          monsterElement.remove();
+          const alertEl = document.createElement('p');
+          alertEl.innerText = `You won the dance battle! + ${powerPointsWon} power points.`;
+          alertEl.classList.add('alert');
+          monstersDiv.appendChild(alertEl);
+          setTimeout(() => {
+            alertEl.remove();
+          }, 2000);
+        } else {
+          pet.fitness = 0;
+          pet.mood = 0;
+          updatePetState(pet);
+          monsterElement.remove();
+          const alertEl = document.createElement('p');
+          alertEl.innerText = 'You lost the dance battle! Your fitness and mood are drained to 0.';
+          alertEl.classList.add('alert');
+          monstersDiv.appendChild(alertEl);
+          setTimeout(() => {
+            alertEl.remove();
+          }, 2000);
+        }
+      });
+      // Remove any existing monster elements
+      while (monstersDiv.firstChild) {
+        monstersDiv.removeChild(monstersDiv.firstChild);
+      }
+      monstersDiv.appendChild(monsterElement);
+      return;
+    }
   
       const monsterElement = document.createElement("div");
       monsterElement.appendChild(monsterImg);
@@ -232,8 +274,9 @@ setInterval(() => {
         if (rand < winChance) {
           const powerPointsWon = monsterLevel * 4;
           pet.powerPoints += powerPointsWon;
-          updatePetState(pet);
+          monsterElement.remove();
           const drop = generateDrop();
+          updatePetState(pet);
           if (drop) {
             const dropElement = document.createElement("img");
             dropElement.src = drop.image;
