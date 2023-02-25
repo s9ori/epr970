@@ -10,6 +10,24 @@ window.addEventListener("load", () => {
     levelElement.textContent = `Level: ${pet.level}`;
     updateLevel();
   });
+
+  const interactBtns = document.querySelectorAll('.interaction button');
+
+interactBtns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    btn.classList.add('clicked');
+    // Your interaction logic here
+  });
+  
+  btn.addEventListener('touchstart', () => {
+    btn.classList.add('clicked');
+  });
+  
+  btn.addEventListener('touchend', () => {
+    btn.classList.remove('clicked');
+  });
+});
+
   
 const levelElement = document.getElementById("level");
 const adventureButton = document.getElementById("adventure");
