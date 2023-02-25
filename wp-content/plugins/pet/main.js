@@ -2,6 +2,8 @@
 var file_contents2 = file_data2.file_contents2;
 const playButton = document.getElementById("play");
 const exerciseButton = document.getElementById("exercise");
+const dropsDiv = document.getElementById("drops");
+
 window.addEventListener("load", () => {
     retrievePetState();
     pet.level = getLevel(pet.powerPoints);
@@ -39,6 +41,7 @@ let pet = {
   mood: 25,
   fitness: 25,
   powerPoints: 0,
+  drops: [],
 };
 
 const LEVEL_CAP = 99;
@@ -208,66 +211,59 @@ setInterval(() => {
     let moodBoost, imageSrc;
     if (type === "monster") {
       let monsterLevel = Math.floor(Math.random() * 50) + 1;
-      const monsterImg = document.createElement('img');
-      monsterImg.src = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_inline_p7gi2483iO1qfc9y0_75sq.gif';
-      monsterImg.alt = 'Monster';
+      const monsterImg = document.createElement("img");
+      monsterImg.src =
+        "https://lowfemme.com/wp-content/uploads/2023/02/tumblr_inline_p7gi2483iO1qfc9y0_75sq.gif";
+      monsterImg.alt = "Monster";
       monsterImg.width = 38;
   
-      const monsterLevelEl = document.createElement('p');
+      const monsterLevelEl = document.createElement("p");
       monsterLevelEl.innerText = `Level: ${monsterLevel}`;
-      monsterLevelEl.classList.add('monster-level');
+      monsterLevelEl.classList.add("monster-level");
   
-      const monsterElement = document.createElement('div');
+      const monsterElement = document.createElement("div");
       monsterElement.appendChild(monsterImg);
       monsterElement.appendChild(monsterLevelEl);
-      monsterElement.classList.add('monster');
-      monsterElement.addEventListener('click', () => {
+      monsterElement.classList.add("monster");
+      monsterElement.setAttribute("data-level", monsterLevel);
+      monsterElement.addEventListener("click", () => {
         const winChance = pet.level / monsterLevel;
         const rand = Math.random();
         if (rand < winChance) {
-          const powerPointsWon = monsterLevel * 15;
+          const powerPointsWon = monsterLevel * 4;
           pet.powerPoints += powerPointsWon;
           updatePetState(pet);
+          const drop = generateDrop();
+          if (drop) {
+            const dropElement = document.createElement("div");
+            dropElement.innerText = `${drop.name} +${drop.value}`;
+            dropElement.classList.add("drop");
+            dropsDiv.appendChild(dropElement);
+            pet.drops.push(drop);
+            localStorage.setItem("pet", JSON.stringify(pet));
+          }
           monsterElement.remove();
-          const alertEl = document.createElement('p');
-          alertEl.innerText = `You won the dance battle! + ${powerPointsWon} power points.`;
-          alertEl.classList.add('alert');
-          monstersDiv.appendChild(alertEl);
-          setTimeout(() => {
-            alertEl.remove();
-          }, 2000);
         } else {
           pet.fitness = 0;
           pet.mood = 0;
           updatePetState(pet);
           monsterElement.remove();
-          const alertEl = document.createElement('p');
-          alertEl.innerText = 'You lost the dance battle! Your fitness and mood are drained to 0.';
-          alertEl.classList.add('alert');
-          monstersDiv.appendChild(alertEl);
-          setTimeout(() => {
-            alertEl.remove();
-          }, 2000);
         }
       });
-      // Remove any existing monster elements
-      while (monstersDiv.firstChild) {
-        monstersDiv.removeChild(monstersDiv.firstChild);
-      }
       monstersDiv.appendChild(monsterElement);
       return;
     }
   
-    const img = document.createElement('img');
+    const img = document.createElement("img");
     img.src = imageSrc;
-    img.alt = 'Image';
+    img.alt = "Image";
     img.width = 38;
   
-    const newElement = document.createElement('div');
+    const newElement = document.createElement("div");
     newElement.appendChild(img);
-    newElement.classList.add('monster');
+    newElement.classList.add("monster");
   
-    newElement.addEventListener('click', () => {
+    newElement.addEventListener("click", () => {
       pet.mood += moodBoost;
       updatePetState(pet);
       newElement.remove();
@@ -275,6 +271,17 @@ setInterval(() => {
   
     monstersDiv.appendChild(newElement);
   }
+  
+
+  const dropsEl = document.getElementById("drops");
+  dropsEl.innerHTML = "";
+  for (const drop of pet.drops) {
+    const dropElement = document.createElement("div");
+    dropElement.innerText = `${drop.name} +${drop.value}`;
+    dropElement.classList.add("drop");
+    dropsEl.appendChild(dropElement);
+  }
+  
 
   
   
@@ -343,6 +350,9 @@ function retrievePetState() {
     if (storedPetState) {
         pet = JSON.parse(storedPetState);
     }
+    if (!pet.drops) {
+        pet.drops = [];
+      }
  // Update DOM elements with current state levels
  document.getElementById("mood-state").textContent = pet.mood;
  document.getElementById("fitness-state").textContent = pet.fitness;
