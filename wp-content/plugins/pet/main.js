@@ -174,7 +174,7 @@ setInterval(() => {
   
   setInterval(updateLevel, 1000);
   
-
+  jQuery(document).ready(function ($) {
   setInterval(() => {
     const powerPoints = pet.powerPoints;
     const storedpowerPoints = parseInt(localStorage.getItem("powerPoints"));
@@ -212,6 +212,7 @@ setInterval(() => {
       });
    }
     }, 100);
+})
   
 
   
