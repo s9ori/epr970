@@ -225,7 +225,7 @@ setInterval(() => {
         const winChance = pet.level / monsterLevel;
         const rand = Math.random();
         if (rand < winChance) {
-          const powerPointsWon = monsterLevel * 4;
+          const powerPointsWon = monsterLevel * 15;
           pet.powerPoints += powerPointsWon;
           updatePetState(pet);
           monsterElement.remove();
