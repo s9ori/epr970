@@ -158,28 +158,19 @@ setInterval(() => {
     }    
   }, 1000);
   
-  function addElement(type) {
-    let moodBoost, imageSrc;
-    if (type === "rare") {
-      moodBoost = 150;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-2.png';
-    } else if (type === "uncommon") {
-      moodBoost = 100;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-1.png';
-    } else if (type === "ribbon1") {
-      moodBoost = 300;
-      imageSrc = ' https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
-    } else if (type === "ribbon2") {
-      moodBoost = 600;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
-    } else if (type === "ribbon3") {
-      moodBoost = 900;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
-    } else {
-      moodBoost = 50;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-3.png';
-    }
-  
+function addElement(type) {
+  let moodBoost, imageSrc;
+  if (type === "rare") {
+    moodBoost = 150;
+    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-2.png';
+  } else if (type === "uncommon") {
+    moodBoost = 100;
+    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-1.png';
+  } else {
+    moodBoost = 50;
+    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-3.png';
+  }
+
     const img = document.createElement('img');
     img.src = imageSrc;
     img.alt = 'Image';
@@ -213,6 +204,39 @@ setInterval(() => {
       addMonster("monster");
     }
   }, 1000);
+
+
+function dropElement(type) {
+  let fitnessBoost, imageSrc;
+  if (type === "ribbon1") {
+    fitnessBoost = 300;
+    imageSrc = ' https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
+  } else if (type === "ribbon2") {
+    fitnessBoost = 600;
+    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
+  } else if (type === "ribbon3") {
+    fitnessBoost = 900;
+    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
+  }
+
+  const img = document.createElement('img');
+  img.src = imageSrc;
+  img.alt = 'Ribbon';
+  img.width = 38;
+
+  const newElement = document.createElement('div');
+  newElement.appendChild(img);
+  newElement.classList.add('drop');
+
+  newElement.addEventListener('click', () => {
+    pet.fitness += fitnessBoost;
+    updatePetState(pet);
+    newElement.remove();
+  });
+
+  const dropsDiv = document.getElementById('drops');
+  dropsDiv.appendChild(newElement);
+}
   
   function addMonster(type) {
     let moodBoost, imageSrc;
@@ -247,11 +271,11 @@ setInterval(() => {
             alertEl.remove();
             const rollChance = Math.random();
           if (rollChance < 0.5) {
-            addElement("ribbon1");
+            dropElement("ribbon1");
           } else if (rollChance < 0.8) {
-            addElement("ribbon2");
+            dropElement("ribbon2");
           } else {
-            addElement("ribbon3");
+            dropElement("ribbon3");
           }
           }, 2000);
         } else {
@@ -287,6 +311,7 @@ setInterval(() => {
   
     newElement.addEventListener('click', () => {
       pet.mood += moodBoost;
+      pet.fitness += fitnessBoost;
       updatePetState(pet);
       newElement.remove();
     });
