@@ -4,6 +4,17 @@ const playButton = document.getElementById("play");
 const exerciseButton = document.getElementById("exercise");
 const dropsDiv = document.getElementById("drops");
 
+function attachDropListeners() {
+  const dropElements = document.querySelectorAll('.drop');
+  dropElements.forEach((dropElement) => {
+    dropElement.addEventListener('click', () => {
+      pet.fitness += parseInt(dropElement.getAttribute('data-fitness-boost'));
+      updatePetState(pet);
+      dropElement.remove();
+      localStorage.setItem("drops", dropsDiv.innerHTML);
+    });
+  });
+}
 
 window.addEventListener("load", () => {
     retrievePetState();
