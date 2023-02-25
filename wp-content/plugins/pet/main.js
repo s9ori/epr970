@@ -13,6 +13,15 @@ window.addEventListener("load", () => {
     const savedDrops = localStorage.getItem("drops");
     if (savedDrops) {
       dropsDiv.innerHTML = savedDrops;
+      const drops = dropsDiv.querySelectorAll(".drop");
+      drops.forEach(drop => {
+        drop.addEventListener('click', () => {
+          pet.fitness += fitnessBoost;
+          updatePetState(pet);
+          drop.remove();
+          localStorage.setItem("drops", dropsDiv.innerHTML);
+        });
+      });
     }
   });
 
@@ -70,25 +79,6 @@ const INTERACTION_POINTS = {
     powerPoints: () => getRandompowerPoints()
   }
 };
-
-function attachDropEventListeners(dropElement) {
-  dropElement.addEventListener('click', () => {
-    pet.fitness += fitnessBoost;
-    updatePetState(pet);
-    dropElement.remove();
-    localStorage.setItem("drops", dropsDiv.innerHTML);
-  });
-}
-
-const savedDrops = localStorage.getItem("drops");
-if (savedDrops) {
-  dropsDiv.innerHTML = savedDrops;
-  const dropElements = dropsDiv.querySelectorAll('.drop');
-  dropElements.forEach((dropElement) => {
-    attachDropEventListeners(dropElement);
-  });
-}
-
 
 // Define function to calculate experience required for a given level
 function getExperienceForLevel(level) {
