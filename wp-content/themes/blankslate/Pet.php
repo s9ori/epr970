@@ -107,7 +107,7 @@ get_header();
     display: flex!important;
     flex-direction: column-reverse!important;
     align-items: center!important;
-    background-color: #f2f2f2!important;
+    background-color: transparent!important;
     width: 100%!important;
     height: 100%!important;
 }
