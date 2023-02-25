@@ -98,8 +98,8 @@ jQuery(document).ready(function ($) {
 
   // Define function to decrease pet's mood and fitness levels by random amount
 function decreaseMoodAndFitness() {
-    pet.mood -= Math.floor(Math.random() * 11);
-    pet.fitness -= Math.floor(Math.random() * 11);
+    pet.mood -= Math.floor(Math.random() * 5);
+    pet.fitness -= Math.floor(Math.random() * 5);
   }
   
   // Set interval to decrease mood and fitness levels every 10 seconds
