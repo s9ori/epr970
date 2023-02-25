@@ -101,6 +101,10 @@ get_header();
     top: 40px!important;
 }
 
+.footer-s9ori {
+display: none
+}
+
   </style>
   </article>
 <?php get_footer(); ?>
