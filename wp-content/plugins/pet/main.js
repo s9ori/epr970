@@ -247,9 +247,11 @@ function dropElement(type) {
   const newElement = document.createElement('div');
   newElement.appendChild(img);
   newElement.classList.add('drop');
+  newElement.setAttribute('data-fitness-boost', fitnessBoost); // Add the data-fitness-boost attribute to the drop element
+
 
   newElement.addEventListener('click', () => {
-    pet.fitness += fitnessBoost;
+    pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
     updatePetState(pet);
     newElement.remove();
     localStorage.setItem("drops", dropsDiv.innerHTML);
@@ -333,7 +335,7 @@ function dropElement(type) {
   
     newElement.addEventListener('click', () => {
       pet.mood += moodBoost;
-      pet.fitness += fitnessBoost;
+      pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
       updatePetState(pet);
       newElement.remove();
       localStorage.setItem("drops", dropsDiv.innerHTML);
