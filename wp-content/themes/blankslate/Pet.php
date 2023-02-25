@@ -66,7 +66,6 @@ get_header();
     position: absolute;
     bottom: 150px;
     max-width: 300px;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
 }
@@ -81,7 +80,7 @@ get_header();
     font-family: 'bitcount-mono-single-circle'!important;
     font-size: 14px!important;
     color: black !important;
-    border: black !important;
+    border: 2px solid black !important;
 
   }
 
