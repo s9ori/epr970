@@ -13,6 +13,7 @@ get_header();
     align-items: center !important;
     flex-direction: column !important;
     justify-content: center !important;
+    touch-action: manipulation !important;
   }
 
   header {
@@ -74,6 +75,16 @@ get_header();
     background-color: #f2f2f2!important;
     width: 100%!important;
     height: 100%!important;
+}
+
+#response {
+    font-family: 'bitcount-mono-single-circle'!important;
+    font-size: 12px!important;
+    width: 250px!important;
+    line-height: 1.25!important;
+    text-align: center!important;
+    position: absolute !important;
+    top: 40px!important;
 }
 
   </style>
