@@ -126,6 +126,8 @@ setInterval(() => {
     let rareProbability = level / (700);  // Becomes rarer as level goes up
     let uncommonProbability = level / (300);  // Becomes rarer as level goes up
     let commonProbability = level / (200);  // Becomes rarer as level goes up
+    let monsterProbability = level / (1000);  // Becomes rarer as level goes up
+
   
     // Generate a random number and add a food element based on the probability
     let rand = Math.random();
@@ -135,6 +137,8 @@ setInterval(() => {
       addElement("uncommon");
     } else if (rand < commonProbability) {
       addElement("common");
+    } else if (rand < monsterProbability) {
+      addElement("monster");
     }
   }, 1000);
   
@@ -146,9 +150,38 @@ setInterval(() => {
     } else if (type === "uncommon") {
       moodBoost = 100;
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-1.png';
-    } else {
-      moodBoost = 50;
-      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-3.png';
+    } else if (type === "monster") {
+        let monsterLevel = Math.floor(Math.random() * 50) + 1;
+        const monsterImg = document.createElement('img');
+        monsterImg.src = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_inline_p7gi2483iO1qfc9y0_75sq.gif';
+        monsterImg.alt = 'Monster';
+        monsterImg.width = 38;
+        const monsterElement = document.createElement('div');
+        monsterElement.appendChild(monsterImg);
+        monsterElement.classList.add('monster');
+        monsterElement.addEventListener('click', () => {
+          const winChance = pet.level / monsterLevel;
+          const rand = Math.random();
+          if (rand < winChance) {
+            const powerPointsWon = monsterLevel * 4;
+            pet.powerPoints += powerPointsWon;
+            updatePetState(pet);
+            monsterElement.remove();
+            alert(`You won the dance battle! You gained ${powerPointsWon} power points.`);
+          } else {
+            pet.fitness = 0;
+            pet.mood = 0;
+            updatePetState(pet);
+            monsterElement.remove();
+            alert('You lost the dance battle! Your fitness and mood are drained to 0.');
+          }
+        });
+        foodsDiv.appendChild(monsterElement);
+        return;
+      } else {
+        moodBoost = 50;
+        imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/Asset-3.png';
+      }
     }
   
     const img = document.createElement('img');
@@ -168,8 +201,6 @@ setInterval(() => {
   
     const foodsDiv = document.getElementById('foods');
     foodsDiv.appendChild(newElement);
-  }  
-
   
   
   setInterval(updateLevel, 1000);
