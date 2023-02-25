@@ -81,7 +81,7 @@ get_header();
     text-transform: uppercase!important;
     background: #feddde!important;
     font-weight: bold!important;
-    transition: all 0.2s ease-in-out!important;
+    transition: all 0.1s ease-in-out!important;
     font-family: 'bitcount-mono-single-circle'!important;
     font-size: 14px!important;
     color: black !important;
@@ -89,8 +89,15 @@ get_header();
 
   }
 
+  .pet-interactions button:active {
+  transform: scale(0.9);
+  transition: all 0.1s ease-in-out!important;
+  }
+
+
   .pet-interactions button:hover {
     background: #5ECEFF !important;
+    transition: all 0.1s ease-in-out!important;
   }
 
   #branding {
@@ -106,6 +113,7 @@ get_header();
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 #monsters {
