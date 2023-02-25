@@ -179,7 +179,7 @@ setInterval(() => {
     const powerPoints = pet.powerPoints;
     const storedpowerPoints = parseInt(localStorage.getItem("powerPoints"));
     
-    if (powerPoints % 50 === 0 && powerPoints !== storedpowerPoints) {
+    if (powerPoints % 200 === 0 && powerPoints !== storedpowerPoints) {
       localStorage.setItem("powerPoints", powerPoints);
   
       // Make AJAX call to OpenAI API
