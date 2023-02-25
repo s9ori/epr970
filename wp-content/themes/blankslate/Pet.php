@@ -5,10 +5,7 @@ Template Name: Saori Uchida Pet EPR970
 
 get_header();
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<div class="entry-basics">
-<h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
-</div>
+
 <style>
   body {
     display: flex !important;
@@ -29,6 +26,26 @@ get_header();
     gap: 10px!important;
   }
 
+  .pet-stats {
+    display: flex!important;
+    flex-direction: column!important;
+    align-items: center!important;
+    justify-content: center!important;
+    font-size: 14px!important;
+    gap: 4px!important;
+}
+
+#site-description {
+    font-family: "bitcount-mono-single-circle", sans-serif!important;
+    font-weight: 500!important;
+    font-style: normal!important;
+    display: flex!important;
+    flex-direction: column!important;
+    gap: 20px!important;
+    text-align: center!important;
+    align-items: center!important;
+}
+
   .pet-interactions button {
     padding: 10px!important;
     text-transform: uppercase!important;
@@ -36,7 +53,7 @@ get_header();
     font-weight: bold!important;
     transition: all 0.2s ease-in-out!important;
     font-family: 'bitcount-mono-single-circle'!important;
-    font-size: 10px!important;
+    font-size: 12px!important;
 
   }
   .pet-interactions button {
@@ -59,4 +76,3 @@ get_header();
 }
 
   </style>
-</article>
