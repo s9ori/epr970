@@ -84,6 +84,10 @@ get_header();
 
   }
 
+  .pet-interactions button:hover {
+    background: #5ECEFF !important;
+  }
+
   #branding {
     display: flex!important;
     flex-direction: column-reverse!important;
