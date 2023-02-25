@@ -8,7 +8,7 @@ function attachDropListeners() {
   const dropElements = document.querySelectorAll('.drop');
   dropElements.forEach((dropElement) => {
     dropElement.addEventListener('click', () => {
-      pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost'));
+      pet.fitness += parseInt(dropElement.getAttribute('data-fitness-boost'));
       updatePetState(pet);
       dropElement.remove();
       localStorage.setItem("drops", dropsDiv.innerHTML);
