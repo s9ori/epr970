@@ -142,7 +142,7 @@ get_header();
     line-height: 1.25!important;
     text-align: center!important;
     position: absolute !important;
-    top: 40px!important;
+    top: 120px!important;
 }
 
 .footer-s9ori {
