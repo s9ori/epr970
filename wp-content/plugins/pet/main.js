@@ -8,7 +8,7 @@ function attachDropListeners() {
   const dropElements = document.querySelectorAll('.drop');
   dropElements.forEach((dropElement) => {
     dropElement.addEventListener('click', () => {
-      pet.fitness += parseInt(dropElement.getAttribute('data-fitness-boost'));
+      pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost'));
       updatePetState(pet);
       dropElement.remove();
       localStorage.setItem("drops", dropsDiv.innerHTML);
@@ -251,7 +251,7 @@ function dropElement(type) {
 
 
   newElement.addEventListener('click', () => {
-    pet.fitness += parseInt(dropElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
+    pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
     updatePetState(pet);
     newElement.remove();
     localStorage.setItem("drops", dropsDiv.innerHTML);
@@ -335,7 +335,7 @@ function dropElement(type) {
   
     newElement.addEventListener('click', () => {
       pet.mood += moodBoost;
-      pet.fitness += parseInt(dropElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
+      pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
       updatePetState(pet);
       newElement.remove();
       localStorage.setItem("drops", dropsDiv.innerHTML);
