@@ -250,17 +250,14 @@ setInterval(() => {
           monsterElement.remove();
         }
       });
-      monstersDiv.appendChild(monsterElement);
-      return;
-    }
 
-    function generateDrop() {
+    const generateDrop = () => {
         const possibleDrops = [
-          { name: "Carrot", value: 10, image: "https://example.com/carrot.png" },
-          { name: "Apple", value: 5, image: "https://example.com/apple.png" },
-          { name: "Bone", value: 15, image: "https://example.com/bone.png" }
+          { name: "Carrot", value: 10, image: "https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp" },
+          { name: "Apple", value: 5, image: "https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp" },
+          { name: "Bone", value: 15, image: "https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp" },
         ];
-      
+  
         const dropChance = Math.random();
         if (dropChance < 0.2) {
           const dropIndex = Math.floor(Math.random() * possibleDrops.length);
@@ -269,8 +266,10 @@ setInterval(() => {
         } else {
           return null;
         }
-      }
-      
+      };
+      monstersDiv.appendChild(monsterElement);
+      return;
+    }
   
     const img = document.createElement("img");
     img.src = imageSrc;
