@@ -12,6 +12,8 @@ get_header();
     display: flex !important;
     align-items: center !important;
     flex-direction: column !important;
+    background: #1d1d1d;
+    color: #fff8f4;
     justify-content: center !important;
     touch-action: manipulation !important;
   }
@@ -20,6 +22,7 @@ get_header();
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    background-color: #1d1d1d;
     gap: 20px !important
   }
 
@@ -85,7 +88,7 @@ get_header();
     font-family: 'bitcount-mono-single-circle'!important;
     font-size: 14px!important;
     color: black !important;
-    border: 2px solid black !important;
+    border: none !important;
 
   }
 
@@ -121,10 +124,15 @@ get_header();
     bottom: 110px;
 }
 
+#level {
+  color: #b5ffff
+}
+
 #monsters p {
   font-family: 'bitcount-mono-single-circle'!important;
     font-size: 10px!important;
     font-weight: bold;
+    color: #fff8b2;
     text-align: center;
 }
 
@@ -133,6 +141,7 @@ get_header();
     font-size: 8px!important;
     font-weight: bold;
     text-align: center;
+    color: #f2f2f2
 }
 
 #response {
