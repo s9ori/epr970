@@ -154,7 +154,16 @@ get_header();
     top: 120px!important;
 }
 
-.footer-s9ori, #site-description {
+#drops {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    top: 308px;
+}
+
+.footer-s9ori, #forespe {
 display: none
 }
 

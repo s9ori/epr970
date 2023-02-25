@@ -29,7 +29,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
 ?>
 </div>
 <div id="drops"></div>
-<div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?>
+<div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><div id="forespe"><?php bloginfo( 'description' ); ?></div>
 <div class="pet-stats">
     <div class="mood">
       <span>Mood: </span>
