@@ -56,7 +56,7 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
     </div>
     <div class="adventureRibbon">
       <span>Adventure ribbon: </span>
-      <span id="advenuteRibbon-state"></span>
+      <span id="adventureRibbon-state"></span>
     </div>
   </div>
   <div class="pet-interactions">
