@@ -1,20 +1,6 @@
-﻿var openai_data2 = window.openai_data2 || {};
-var file_contents2 = file_data2.file_contents2;
-const playButton = document.getElementById("play");
+﻿const playButton = document.getElementById("play");
 const exerciseButton = document.getElementById("exercise");
 const dropsDiv = document.getElementById("drops");
-
-function attachDropListeners() {
-  const dropElements = document.querySelectorAll('.drop');
-  dropElements.forEach((dropElement) => {
-    dropElement.addEventListener('click', () => {
-      pet.fitness += parseInt(dropElement.getAttribute('data-fitness-boost'));
-      updatePetState(pet);
-      dropElement.remove();
-      localStorage.setItem("drops", dropsDiv.innerHTML);
-    });
-  });
-}
 
 window.addEventListener("load", () => {
     retrievePetState();
@@ -23,29 +9,7 @@ window.addEventListener("load", () => {
     const levelElement = document.getElementById("level");
     levelElement.textContent = `Level: ${pet.level}`;
     updateLevel();
-    const savedDrops = localStorage.getItem("drops");
-    if (savedDrops) {
-      dropsDiv.innerHTML = savedDrops;
-      attachDropListeners();
-    }
   });
-
-  const interactBtns = document.querySelectorAll('.interaction button');
-
-interactBtns.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    btn.classList.add('clicked');
-    // Your interaction logic here
-  });
-  
-  btn.addEventListener('touchstart', () => {
-    btn.classList.add('clicked');
-  });
-  
-  btn.addEventListener('touchend', () => {
-    btn.classList.remove('clicked');
-  });
-});
 
 const levelElement = document.getElementById("level");
 const adventureButton = document.getElementById("adventure");
@@ -57,6 +21,9 @@ let pet = {
   mood: 25,
   fitness: 25,
   powerPoints: 0,
+  moodRibbon: 0,
+  fitnessRibbon: 0,
+  adventureRibbon: 0
 };
 
 const LEVEL_CAP = 99;
@@ -160,9 +127,9 @@ setInterval(() => {
     const level = pet.level;
   
     // Define probabilities for each type of food as a function of the pet's level
-    let rareProbability = level / (700);  // Becomes rarer as level goes up
+    let rareProbability = level / (1000);  // Becomes rarer as level goes up
     let uncommonProbability = (1) / (30);  // Becomes rarer as level goes up
-    let commonProbability = (1) / (10);  // Becomes rarer as level goes up
+    let commonProbability = (1) / (15);  // Becomes rarer as level goes up
 
   
     // Generate a random number and add a food element based on the probability
@@ -202,7 +169,6 @@ function addElement(type) {
       pet.mood += moodBoost;
       updatePetState(pet);
       newElement.remove();
-      localStorage.setItem("drops", dropsDiv.innerHTML);
     });
   
     const foodsDiv = document.getElementById('foods');
@@ -225,36 +191,50 @@ setInterval(() => {
   }, 1000);
 
 
-function dropElement(type) {
-  let fitnessBoost, imageSrc;
-  if (type === "ribbon1") {
-    fitnessBoost = 300;
-    imageSrc = ' https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
-  } else if (type === "ribbon2") {
-    fitnessBoost = 600;
-    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
-  } else if (type === "ribbon3") {
-    fitnessBoost = 900;
-    imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
-  }
 
-  const img = document.createElement('img');
-  img.src = imageSrc;
-  img.alt = 'Ribbon';
-  img.width = 18;
-
-  const newElement = document.createElement('div');
-  newElement.appendChild(img);
-  newElement.classList.add('drop');
-  newElement.setAttribute('data-fitness-boost', fitnessBoost); // Add the data-fitness-boost attribute to the drop element
-
-
-  newElement.addEventListener('click', () => {
-    pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
-    updatePetState(pet);
-    newElement.remove();
-    localStorage.setItem("drops", dropsDiv.innerHTML);
-  });
+  function dropElement(type) {
+    let ribbonBoost, imageSrc;
+    if (type === "ribbon1") {
+      ribbonBoost = 1;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
+      pet.fitnessRibbon += 1; // add 1 to the fitnessRibbon stat when ribbon1 is dropped
+    } else if (type === "ribbon2") {
+      ribbonBoost = 1;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
+      pet.moodRibbon += 1; // add 1 to the moodRibbon stat when ribbon2 is dropped
+    } else if (type === "ribbon3") {
+      ribbonBoost = 1;
+      imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
+      pet.adventureRibbon += 1; // add 1 to the adventureRibbon stat when ribbon3 is dropped
+    }
+  
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = 'Ribbon';
+    img.width = 18;
+  
+    const newElement = document.createElement('div');
+    newElement.appendChild(img);
+    newElement.classList.add('drop');
+    newElement.setAttribute('data-ribbon-boost', ribbonBoost); // Add the data-ribbon-boost attribute to the drop element
+  
+    newElement.addEventListener('click', () => {
+      const ribbonBoost = parseInt(newElement.getAttribute('data-ribbon-boost')); // Retrieve the data-ribbon-boost attribute and parse it to an integer
+      if (ribbonBoost) {
+        if (type === "ribbon1") {
+          pet.fitnessRibbon += ribbonBoost;
+        } else if (type === "ribbon2") {
+          pet.moodRibbon += ribbonBoost;
+        } else if (type === "ribbon3") {
+          pet.adventureRibbon += ribbonBoost;
+        }
+      } else {
+        pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
+      }
+  
+      updatePetState(pet);
+      newElement.remove();
+    });
 
   const dropsDiv = document.getElementById('drops');
   dropsDiv.appendChild(newElement);
@@ -299,7 +279,6 @@ function dropElement(type) {
           } else {
             dropElement("ribbon3");
           }
-          localStorage.setItem("drops", dropsDiv.innerHTML);
           }, 1000);
         } else {
           pet.fitness = 0;
@@ -337,58 +316,12 @@ function dropElement(type) {
       pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
       updatePetState(pet);
       newElement.remove();
-      localStorage.setItem("drops", dropsDiv.innerHTML);
     });
   
     monstersDiv.appendChild(newElement);
   }
 
-  
-  
   setInterval(updateLevel, 1000);
-  
-  jQuery(document).ready(function ($) {
-  setInterval(() => {
-    const powerPoints = pet.powerPoints;
-    const storedpowerPoints = parseInt(localStorage.getItem("powerPoints"));
-    
-    if (powerPoints % 300 === 0 && powerPoints !== storedpowerPoints) {
-      localStorage.setItem("powerPoints", powerPoints);
-  
-      // Make AJAX call to OpenAI API
-      var api_key = openai_data2.api_key;
-      var model = "text-davinci-003";
-      var max_tokens = 100;
-      var temperature = 0.7;
-      
-      var prompt = `You're a cute virtual pet owned by a young girl named Espe. You love to learn and explore the world around you. Tell me how you feel with your power level being ${powerPoints}/13,000,000 in less than ten words in your most adorable animal character voice and noises:\n\n`;
-      var data = {
-        "model": model,
-        "prompt": prompt,
-        "max_tokens": max_tokens,
-        "temperature": temperature
-      };
-  
-      $.ajax({
-        type: "POST",
-        url: "https://api.openai.com/v1/completions",
-        headers: {
-          "Authorization": "Bearer " + api_key,
-          "Content-Type": "application/json"
-        },
-        data: JSON.stringify(data),
-        success: function(response) {
-          var text = response.choices[0].text;
-          document.getElementById("response").textContent = text;
-          // Do something with the generated text
-        }
-      });
-   }
-    }, 100);
-})
-  
-
-  
 // Define function to update pet state and save to local storage
 function updatePetState(newState) {
     pet = { ...pet, ...newState };
@@ -402,6 +335,9 @@ function updatePetState(newState) {
  document.getElementById("mood-state").textContent = pet.mood;
  document.getElementById("fitness-state").textContent = pet.fitness;
  document.getElementById("power-level").textContent = pet.powerPoints;
+ document.getElementById("moodRibbon-state").textContent = pet.moodRibbon;
+ document.getElementById("fitnessRibbon-state").textContent = pet.fitnessRibbon;
+ document.getElementById("adventureRibbon-state").textContent = pet.adventureRibbon;
 }
 
 // Define function to retrieve pet state from local storage
@@ -410,14 +346,13 @@ function retrievePetState() {
     if (storedPetState) {
         pet = JSON.parse(storedPetState);
     }
-    const savedDrops = localStorage.getItem("drops");
-    if (savedDrops) {
-    dropsDiv.innerHTML = savedDrops; 
-    }
  // Update DOM elements with current state levels
  document.getElementById("mood-state").textContent = pet.mood;
  document.getElementById("fitness-state").textContent = pet.fitness;
  document.getElementById("power-level").textContent = pet.powerPoints;
+ document.getElementById("moodRibbon-state").textContent = pet.moodRibbon;
+ document.getElementById("fitnessRibbon-state").textContent = pet.fitnessRibbon;
+ document.getElementById("adventureRibbon-state").textContent = pet.adventureRibbon;
 }
 
 function playWithPet() {
