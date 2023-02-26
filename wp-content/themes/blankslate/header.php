@@ -45,6 +45,20 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo ''; }
       <span id="power-level"></span>
     </div>
   </div>
+  <div class="drop-stats">
+    <div class="moodRibbon">
+      <span>Mood ribbon: </span>
+      <span id="moodRibbon-state"></span>
+    </div>
+    <div class="fitnessRibbon">
+      <span>Fitness ribbon: </span>
+      <span id="fitnessRibbon-state"></span>
+    </div>
+    <div class="adventureRibbon">
+      <span>Adventure ribbon: </span>
+      <span id="advenuteRibbon-state"></span>
+    </div>
+  </div>
   <div class="pet-interactions">
     <button id="play">Play</button>
     <button id="exercise">Train</button>
