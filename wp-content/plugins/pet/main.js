@@ -219,19 +219,6 @@ setInterval(() => {
     newElement.setAttribute('data-ribbon-boost', ribbonBoost); // Add the data-ribbon-boost attribute to the drop element
   
     newElement.addEventListener('click', () => {
-      const ribbonBoost = parseInt(newElement.getAttribute('data-ribbon-boost')); // Retrieve the data-ribbon-boost attribute and parse it to an integer
-      if (ribbonBoost) {
-        if (type === "ribbon1") {
-          pet.fitnessRibbon += ribbonBoost;
-        } else if (type === "ribbon2") {
-          pet.moodRibbon += ribbonBoost;
-        } else if (type === "ribbon3") {
-          pet.adventureRibbon += ribbonBoost;
-        }
-      } else {
-        pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
-      }
-  
       updatePetState(pet);
       newElement.remove();
     });
