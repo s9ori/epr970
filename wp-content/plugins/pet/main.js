@@ -119,26 +119,6 @@ function decreaseMoodAndFitness() {
     savePetState();
   }, 10000);
 
-  function updateMoodState() {
-    let moodDelta = 0;
-    moodDelta += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
-    moodDelta += parseInt(INTERACTION_POINTS.FEED.mood) || 0;
-    moodDelta += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
-    pet.mood += moodDelta;
-    
-    document.getElementById("mood-state").textContent = moodState;
-  }
-
-  function updatepowerPoints() {
-    let powerPointsDelta = 0;
-    powerPointsDelta += parseInt(INTERACTION_POINTS.PLAY.powerPoints) || 0;
-    powerPointsDelta += parseInt(INTERACTION_POINTS.FEED.powerPoints) || 0;
-    powerPointsDelta += parseInt(INTERACTION_POINTS.EXERCISE.powerPoints) || 0;
-    pet.powerPoints += powerPointsDelta;
-  
-    document.getElementById("power-level").textContent = powerPointsState;
-  }
-
   function updateLevel() {
     const newLevel = getLevel(pet.powerPoints);
     if (newLevel !== pet.level) {
