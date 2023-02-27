@@ -199,17 +199,14 @@ setInterval(() => {
 
 
   function dropElement(type) {
-    let ribbonBoost, imageSrc;
+    let imageSrc;
     if (type === "ribbon1") {
-      ribbonBoost = 1;
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
       pet.fitnessRibbon += 1; // add 1 to the fitnessRibbon stat when ribbon1 is dropped
     } else if (type === "ribbon2") {
-      ribbonBoost = 1;
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
       pet.moodRibbon += 1; // add 1 to the moodRibbon stat when ribbon2 is dropped
     } else if (type === "ribbon3") {
-      ribbonBoost = 1;
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
       pet.adventureRibbon += 1; // add 1 to the adventureRibbon stat when ribbon3 is dropped
     }
@@ -222,7 +219,6 @@ setInterval(() => {
     const newElement = document.createElement('div');
     newElement.appendChild(img);
     newElement.classList.add('drop');
-    newElement.setAttribute('data-ribbon-boost', ribbonBoost); // Add the data-ribbon-boost attribute to the drop element
   
     newElement.addEventListener('click', () => {
       updatePetState(pet);
