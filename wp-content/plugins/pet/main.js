@@ -299,14 +299,7 @@ setInterval(() => {
     const newElement = document.createElement('div');
     newElement.appendChild(img);
     newElement.classList.add('monster');
-  
-    newElement.addEventListener('click', () => {
-      pet.mood += moodBoost;
-      pet.fitness += parseInt(newElement.getAttribute('data-fitness-boost')); // Retrieve the data-fitness-boost attribute and parse it to an integer before adding it to pet fitness
-      updatePetState(pet);
-      newElement.remove();
-    });
-  
+
     monstersDiv.appendChild(newElement);
   }
 
