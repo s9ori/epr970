@@ -202,13 +202,10 @@ setInterval(() => {
     let imageSrc;
     if (type === "ribbon1") {
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_2dd2dd3e0bc9407e8e0d1a3b01c67b38_4b38d417_75.webp';
-      pet.fitnessRibbon += 1; // add 1 to the fitnessRibbon stat when ribbon1 is dropped
     } else if (type === "ribbon2") {
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_bd16179ec8017844f4175a144f1b6a2c_5a6b991f_75.webp';
-      pet.moodRibbon += 1; // add 1 to the moodRibbon stat when ribbon2 is dropped
     } else if (type === "ribbon3") {
       imageSrc = 'https://lowfemme.com/wp-content/uploads/2023/02/tumblr_9acc2ace0bf9920ded8a4ef9a1be77ee_c56fb2cd_75.webp';
-      pet.adventureRibbon += 1; // add 1 to the adventureRibbon stat when ribbon3 is dropped
     }
   
     const img = document.createElement('img');
@@ -221,6 +218,13 @@ setInterval(() => {
     newElement.classList.add('drop');
   
     newElement.addEventListener('click', () => {
+      if (type === "ribbon1") {
+        pet.fitnessRibbon += 1; // add 1 to the fitnessRibbon stat when ribbon1 is clicked
+      } else if (type === "ribbon2") {
+        pet.moodRibbon += 1; // add 1 to the moodRibbon stat when ribbon2 is clicked
+      } else if (type === "ribbon3") {
+        pet.adventureRibbon += 1; // add 1 to the adventureRibbon stat when ribbon3 is clicked
+      }
       updatePetState(pet);
       newElement.remove();
     });
