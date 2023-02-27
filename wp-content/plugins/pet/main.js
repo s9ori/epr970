@@ -31,7 +31,7 @@ const LEVEL_CAP = 99;
 // Define point values for interactions
 const INTERACTION_POINTS = {
   PLAY: {
-    mood: 10,
+    mood: 10 + pet.moodRibbon,
     powerPoints: () => getRandompowerPoints()
   },
   FEED: {
@@ -40,7 +40,7 @@ const INTERACTION_POINTS = {
     powerPoints: 5
   },
   EXERCISE: {
-    fitness: 10,
+    fitness: 10 + pet.fitnessRibbon,
     mood: -5,
     powerPoints: 10
   },
@@ -50,6 +50,32 @@ const INTERACTION_POINTS = {
     powerPoints: () => getRandompowerPoints()
   }
 };
+
+function getInteractionPoints() {
+    const updatedPoints = {
+      PLAY: {
+        mood: 10 + pet.moodRibbon,
+        powerPoints: () => getRandompowerPoints(),
+      },
+      FEED: {
+        fitness: -5,
+        mood: 5,
+        powerPoints: 5
+      },
+      EXERCISE: {
+        fitness: 10 + pet.fitnessRibbon,
+        mood: -5,
+        powerPoints: 10
+      },
+      ADVENTURE: {
+        fitness: 10,
+        mood: 10,
+        powerPoints: () => getRandompowerPoints()
+      }
+    };
+    return updatedPoints;
+  }
+  
 
 // Define function to calculate experience required for a given level
 function getExperienceForLevel(level) {
@@ -343,16 +369,18 @@ function retrievePetState() {
 }
 
 function playWithPet() {
-    pet.mood += parseInt(INTERACTION_POINTS.PLAY.mood) || 0;
-    pet.powerPoints += parseInt(INTERACTION_POINTS.PLAY.powerPoints()) || 0;
+    const points = getInteractionPoints();
+    pet.mood += parseInt(points.PLAY.mood) || 0;
+    pet.powerPoints += parseInt(points.PLAY.powerPoints()) || 0;
     updatePetState(pet);
 }
 
 function exercisePet() {
+    const points = getInteractionPoints();
     if (pet.mood >= 0) {
-      pet.fitness += parseInt(INTERACTION_POINTS.EXERCISE.fitness) || 0;
-      pet.mood += parseInt(INTERACTION_POINTS.EXERCISE.mood) || 0;
-      pet.powerPoints += parseInt(INTERACTION_POINTS.EXERCISE.powerPoints) || 0;  
+      pet.fitness += parseInt(points.EXERCISE.fitness) || 0;
+      pet.mood += parseInt(points.EXERCISE.mood) || 0;
+      pet.powerPoints += parseInt(points.EXERCISE.powerPoints) || 0;  
       updatePetState(pet);
     }
     }
