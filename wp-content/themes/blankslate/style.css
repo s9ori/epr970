@@ -41,9 +41,6 @@ font-weight: 400;
 font-style: normal;
 }
 
-.header {
-  display: none;
-}
 
 body.post-template-default #content {
   gap: 0px !important
