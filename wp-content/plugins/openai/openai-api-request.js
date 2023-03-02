@@ -1,5 +1,5 @@
-var file_contents = file_data.prompt;
-var openai_data = window.openai_data || {};
+var file_contents1 = file_data1.prompt;
+var openai_data1 = window.openai_data1 || {};
 var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
