@@ -94,7 +94,7 @@ $("form.openai").submit(function(e) {
           previousResponseArray = JSON.parse(cachedResponse);
         }
         messages = [
-          {"role": "system", "content": "You are a helpful assistant that writes Tweets for past, live, and upcoming segments of The Brian Lehrer Show on WNYC."},
+          {"role": "system", "content": "You are a helpful assistant that writes journalistically objective and detailed Tweets about past, live, and upcoming segments of The Brian Lehrer Show on WNYC."},
           {"role": "user", "content": "Create an original Tweet about this upcoming segment of the show: Anne Williams-Isom, New York City deputy mayor for health and human services, defends Mayor Adams plan to hospitalize people experiencing mental illness in public, and explains in more detail how the administration plans for it to work."},
           {"role": "assistant", "content": "Up first: Deputy Mayor for Health and Human Services AWilliamsIsom discusses Mayor Adams plan to hospitalize New Yorkers experiencing episodes of mental illness in public, and how that plan might be implemented. Listen LIVE on WNYC https://t.co/20NQjvN7re,"},
           {"role": "user", "content": "Create an original Tweet about this live segment of the show: Jennifer Kingson, chief correspondent for Axios Whats Next newsletter, talks about the trend of consciously eating to minimize climate impact."},
@@ -251,7 +251,7 @@ $("form.openai").submit(function(e) {
       var cacheKey = prompt; // Only use the prompt to construct the cache key
       var author = $("#author").val();
       messages = [
-        {"role": "system", "content": "You are a helpful assistant that writes Tweets for The Brian Lehrer Show on WNYC."},
+        {"role": "system", "content": "You are a helpful assistant that writes journalistically objective and detailed Tweets about past, live, and upcoming segments of The Brian Lehrer Show on WNYC."},
         {"role": "user", "content": "Create an original Tweet about this upcoming segment of the show: Anne Williams-Isom, New York City deputy mayor for health and human services, defends Mayor Adams plan to hospitalize people experiencing mental illness in public, and explains in more detail how the administration plans for it to work."},
         {"role": "assistant", "content": "Up first: Deputy Mayor for Health and Human Services AWilliamsIsom discusses Mayor Adams plan to hospitalize New Yorkers experiencing episodes of mental illness in public, and how that plan might be implemented. Listen LIVE on WNYC https://t.co/20NQjvN7re,"},
         {"role": "user", "content": "Create an original Tweet about this live segment of the show: Jennifer Kingson, chief correspondent for Axios Whats Next newsletter, talks about the trend of consciously eating to minimize climate impact."},
