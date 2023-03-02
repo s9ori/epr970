@@ -1,5 +1,5 @@
 var file_contents1 = file_data1.prompt;
-var openai_data1 = window.openai_data1 || {};
+var openai_data11 = window.openai_data11 || {};
 var tense = "live segment"; // Default tense
 var whatTense = "present tense";
 var previousResponseArray = [];
@@ -43,7 +43,7 @@ $("form.openai").submit(function(e) {
   });
 
   if ($('#summarizeArticle').is(':checked')) {
-      var api_key = openai_data.api_key;
+      var api_key = openai_data1.api_key;
       var model = "text-davinci-003";
       var max_tokens = 500;
       var temperature = .7;
@@ -82,7 +82,7 @@ $("form.openai").submit(function(e) {
     
       success: function(result) {
         var text1 = result.choices[0].text;
-        var api_key = openai_data.api_key;
+        var api_key = openai_data1.api_key;
         var model = "gpt-3.5-turbo";
         var max_tokens = 300;
         var temperature = .7;
@@ -253,7 +253,7 @@ $("form.openai").submit(function(e) {
       }
     else {
       var prompt = $("#prompt").val();
-      var api_key = openai_data.api_key;
+      var api_key = openai_data1.api_key;
       var model = "gpt-3.5-turbo";
       var max_tokens = 420;
       var temperature = .7;
@@ -424,7 +424,7 @@ $('#longer-btn').click(function() {
 
 function runRewrite(inputVariable) {
     var cacheKey = $('#prompt').val() + '-' + (cacheCounter - 1); // Get the cache key from the previous request
-    var api_key = openai_data.api_key;
+    var api_key = openai_data1.api_key;
     var max_tokens = 800;
     var model = "text-davinci-003";
     var temperature = .6;
