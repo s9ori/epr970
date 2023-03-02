@@ -19,7 +19,7 @@ get_header();
   }
 
   header {
-    display: flex !important;
+    display: none !important;
     flex-direction: column !important;
     align-items: center !important;
     background-color: #1d1d1d;
@@ -172,6 +172,13 @@ get_header();
     top: 120px!important;
 }
 
+#pet {
+  max-width: 185px;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 20px
+}
 #drops {
     display: flex;
     align-items: center;
