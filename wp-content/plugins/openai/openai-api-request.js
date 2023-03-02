@@ -95,8 +95,6 @@ $("form.openai").submit(function(e) {
         }
         messages = [
           {"role": "system", "content": "You are a helpful assistant that writes Tweets for The Brian Lehrer Show on WNYC."},
-          {"role": "user", "content": "The NYC Marathon is Sunday, November 6th. Runners will cover 26.1 miles on a path through all 5 boroughs. Listeners who ran call-in to discuss how they performed, what their run means to them, and how they fared in the unusually warm November weather."},
-          {"role": "assistant", "content": "LISTEN: Yesterday, runners covered 26.1 miles on a path through all 5 boroughs. Today, listeners who ran the NYC Marathon called in to discuss how they performed, what their run means to them, and how they fared in the unusually warm November weather. https://t.co/fkA2IYpI1O,"},
           {"role": "user", "content": "Anne Williams-Isom, New York City deputy mayor for health and human services, defends Mayor Adams plan to hospitalize people experiencing mental illness in public, and explains in more detail how the administration plans for it to work."},
           {"role": "assistant", "content": "Up first: Deputy Mayor for Health and Human Services AWilliamsIsom discusses Mayor Adams plan to hospitalize New Yorkers experiencing episodes of mental illness in public, and how that plan might be implemented. Listen LIVE on WNYC https://t.co/20NQjvN7re,"},
           {"role": "user", "content": "Jennifer Kingson, chief correspondent for Axios Whats Next newsletter, talks about the trend of consciously eating to minimize climate impact."},
@@ -260,8 +258,6 @@ $("form.openai").submit(function(e) {
       var author = $("#author").val();
       messages = [
         {"role": "system", "content": "You are a helpful assistant that writes Tweets for The Brian Lehrer Show on WNYC."},
-        {"role": "user", "content": "The NYC Marathon is Sunday, November 6th. Runners will cover 26.1 miles on a path through all 5 boroughs. Listeners who ran call-in to discuss how they performed, what their run means to them, and how they fared in the unusually warm November weather."},
-        {"role": "assistant", "content": "LISTEN: Yesterday, runners covered 26.1 miles on a path through all 5 boroughs. Today, listeners who ran the NYC Marathon called in to discuss how they performed, what their run means to them, and how they fared in the unusually warm November weather. https://t.co/fkA2IYpI1O,"},
         {"role": "user", "content": "Anne Williams-Isom, New York City deputy mayor for health and human services, defends Mayor Adams plan to hospitalize people experiencing mental illness in public, and explains in more detail how the administration plans for it to work."},
         {"role": "assistant", "content": "Up first: Deputy Mayor for Health and Human Services AWilliamsIsom discusses Mayor Adams plan to hospitalize New Yorkers experiencing episodes of mental illness in public, and how that plan might be implemented. Listen LIVE on WNYC https://t.co/20NQjvN7re,"},
         {"role": "user", "content": "Jennifer Kingson, chief correspondent for Axios Whats Next newsletter, talks about the trend of consciously eating to minimize climate impact."},
