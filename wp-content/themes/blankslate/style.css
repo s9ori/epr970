@@ -451,11 +451,6 @@ input[type="checkbox"]:checked {
   flex-direction: row;
   flex-wrap: wrap;
   transition: all 0.3s ease-in;
-background: white;
-padding: 15px;
-border: 2px solid black;
-font-family: 'basic-sans';
-line-height: 1.5em;
 }
 
 
