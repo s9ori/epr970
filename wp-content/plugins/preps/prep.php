@@ -16,7 +16,7 @@ function prep_openai_api_request_form_enqueue_scripts() {
   wp_localize_script( 'prep', 'openai_data', $data );
   $file_contents = file_get_contents( plugin_dir_path( __FILE__ ) . 'prep.json' );
   $prompt = json_decode( $file_contents );
-  wp_localize_script( 'prep', 'file_data', array( 'prompt' => $prompt ) );
+  wp_localize_script( 'prep', 'file_data', array( 'messages' => $prompt ) );
 }
 
 // Display the form that will trigger the API request
