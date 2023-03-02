@@ -26,6 +26,9 @@ get_header();
     gap: 20px !important
   }
 
+  .branding {
+    display: none !important;
+  }
   .pet-interactions {
     display: flex!important;
     flex-direction: row!important;
