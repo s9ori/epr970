@@ -8,7 +8,7 @@ const textarea = document.getElementById("prompt");
 jQuery(document).ready(function($) {
   var cacheCounter = 0; // Initialize the counter
 
-  // Listen for text input event on the prompt textarea
+  // Listen for text input event on the prompt textara
   $('#prompt').on('input', function() {
     var prompt = $(this).val();
   });
