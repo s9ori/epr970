@@ -52,7 +52,7 @@ body.post-template-default #content {
 article {
   display: block;
 }
-.logo {
+.pet {
   max-width: 185px;
   padding-left: 20px;
   padding-top: 0px;
@@ -453,6 +453,9 @@ input[type="checkbox"]:checked {
   transition: all 0.3s ease-in;
 }
 
+#branding {
+  display: none;
+}
 
 
 @media screen and (max-width: 1000px) {
