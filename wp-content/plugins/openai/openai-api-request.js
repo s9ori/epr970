@@ -143,7 +143,7 @@ $("form.openai").submit(function(e) {
           {"role": "assistant", "content": "Inside the plan to involuntarily hospitalize some New Yorkers suffering the effects of mental illness. We speak with andylocal about Mayor Adams announcement. https://t.co/lTNh981tSf,"},
           {"role": "user", "content": "The flu, RSV, and COVID are all circulating at high levels, and the CDC and some municipalities (including NYC) are now recommending indoor masking. Jessica Malaty Rivera, infectious disease epidemiologist and research fellow at Boston Childrens Hospital and The Johns Hopkins Center for Health Security, and senior advisor at Pandemic Prevention Initiative, discusses the state of all the respiratory viruses, how they are affecting hospital capacity and more related health news."},
           {"role": "assistant", "content": "ICYMI: jessicamalaty, an infectious disease epidemiologist, discussed the three-pronged crisis in public health, as severe cases of the #flu, #COVID and #RSV continue to fill up hospital beds in our area and around the country. https://t.co/hrdVl4O83k,"},
-          {"role": "user", "content": "Create a numbered list of five original Tweets without hashtags in" + whatTense + " about this " + tense + " with guest " + author + " about " + text1}
+          {"role": "user", "content": "Create a numbered list of five original Tweets without hashtags in " + whatTense + " about this " + tense + " with guest " + author + " about " + text1}
           ]
         var data4 = {
           "model": model,
@@ -306,7 +306,7 @@ $("form.openai").submit(function(e) {
         {"role": "assistant", "content": "Inside the plan to involuntarily hospitalize some New Yorkers suffering the effects of mental illness. We speak with andylocal about Mayor Adams announcement. https://t.co/lTNh981tSf,"},
         {"role": "user", "content": "The flu, RSV, and COVID are all circulating at high levels, and the CDC and some municipalities (including NYC) are now recommending indoor masking. Jessica Malaty Rivera, infectious disease epidemiologist and research fellow at Boston Childrens Hospital and The Johns Hopkins Center for Health Security, and senior advisor at Pandemic Prevention Initiative, discusses the state of all the respiratory viruses, how they are affecting hospital capacity and more related health news."},
         {"role": "assistant", "content": "ICYMI: jessicamalaty, an infectious disease epidemiologist, discussed the three-pronged crisis in public health, as severe cases of the #flu, #COVID and #RSV continue to fill up hospital beds in our area and around the country. https://t.co/hrdVl4O83k,"},
-        {"role": "user", "content": "Create a numbered list of five original Tweets without hashtags in" + whatTense + " about this " + tense + " with guest " + author + " about " + prompt + ":"}
+        {"role": "user", "content": "Create a numbered list of five original Tweets without hashtags in " + whatTense + " about this " + tense + " with guest " + author + " about " + prompt + ":"}
         ];
       cacheCounter++; // Increment the counter
       var cachedResponse = localStorage.getItem(cacheKey);
