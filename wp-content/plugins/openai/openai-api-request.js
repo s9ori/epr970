@@ -85,7 +85,7 @@ $("form.openai").submit(function(e) {
         var api_key = openai_data1.api_key;
         var model = "gpt-3.5-turbo";
         var max_tokens = 350;
-        var temperature = .7;
+        var temperature = .6;
         var url = "https://api.openai.com/v1/chat/completions";
         var cacheKey = prompt; // Only use the prompt to construct the cache key
         cacheCounter++; // Increment the counter
@@ -246,7 +246,7 @@ $("form.openai").submit(function(e) {
       var api_key = openai_data1.api_key;
       var model = "gpt-3.5-turbo";
       var max_tokens = 350;
-      var temperature = .7;
+      var temperature = .6;
       var url = "https://api.openai.com/v1/chat/completions";
       var cacheKey = prompt; // Only use the prompt to construct the cache key
       var author = $("#author").val();
