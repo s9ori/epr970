@@ -174,9 +174,9 @@ $("form.openai").submit(function(e) {
             });
           },
           success: function(result) {
-          previousResponseArray.push(response.choices[0].message.content);
+          previousResponseArray.push(result.choices[0].message.content);
           localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
-          var text = response.choices[0].message.content;
+          var text = result.choices[0].message.content;
           // Split the response into separate tweets by looking for instances of "\n\n"
           var tweets = text.split("\n");
     
@@ -342,9 +342,9 @@ $("form.openai").submit(function(e) {
           });
         },
         success: function(result) {
-          previousResponseArray.push(response.choices[0].message.content);
+          previousResponseArray.push(result.choices[0].message.content);
           localStorage.setItem(cacheKey, JSON.stringify(previousResponseArray));
-          var text = response.choices[0].message.content;
+          var text = result.choices[0].message.content;
           // Split the response into separate tweets by looking for instances of "\n\n"
           var tweets = text.split("\n");
           // Create a div element for each tweet
