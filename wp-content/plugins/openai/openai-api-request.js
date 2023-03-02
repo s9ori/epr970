@@ -85,7 +85,7 @@ $("form.openai").submit(function(e) {
         var api_key = openai_data1.api_key;
         var model = "gpt-3.5-turbo";
         var max_tokens = 350;
-        var temperature = .6;
+        var temperature = .67;
         var url = "https://api.openai.com/v1/chat/completions";
         var cacheKey = prompt; // Only use the prompt to construct the cache key
         cacheCounter++; // Increment the counter
@@ -94,7 +94,7 @@ $("form.openai").submit(function(e) {
           previousResponseArray = JSON.parse(cachedResponse);
         }
         messages = [
-          {"role": "system", "content": "You are a helpful assistant that writes Tweets for The Brian Lehrer Show on WNYC."},
+          {"role": "system", "content": "You are a helpful assistant that writes Tweets for past, live, and upcoming segments of The Brian Lehrer Show on WNYC."},
           {"role": "user", "content": "Create an original Tweet about this upcoming segment of the show: Anne Williams-Isom, New York City deputy mayor for health and human services, defends Mayor Adams plan to hospitalize people experiencing mental illness in public, and explains in more detail how the administration plans for it to work."},
           {"role": "assistant", "content": "Up first: Deputy Mayor for Health and Human Services AWilliamsIsom discusses Mayor Adams plan to hospitalize New Yorkers experiencing episodes of mental illness in public, and how that plan might be implemented. Listen LIVE on WNYC https://t.co/20NQjvN7re,"},
           {"role": "user", "content": "Create an original Tweet about this live segment of the show: Jennifer Kingson, chief correspondent for Axios Whats Next newsletter, talks about the trend of consciously eating to minimize climate impact."},
@@ -137,7 +137,7 @@ $("form.openai").submit(function(e) {
           {"role": "assistant", "content": "With congestion pricing looming in NYC, suburban Congress members lawler4ny and; RepJoshG are joining forces from across the isle in opposition to extra costs on their constituents. Hear their arguments from this mornings show: https://t.co/gPZ4WbgNou,"},
           {"role": "user", "content": "Create an original Tweet about this past segment of the show: Last week, the mayors office announced an increase of $14.5 million in funding for citywide cleaning operations. The Get Stuff Clean initiative includes funding to clean up No Mans Land areas, increase litter basket maintenance, and bolster rat mitigation. Meera Joshi, deputy mayor for operations, joins to talk about the plans for cleaning up the city."},
           {"role": "assistant", "content": "NYC deputy mayor for operations Meera Joshi spoke with us about the Get Stuff Clean initiative, which includes funding to clean up long-neglected areas, increase litter basket maintenance and bolster rat mitigation. https://t.co/Nhj5iRTCZF,"},
-          {"role": "user", "content": "Create a numbered list of five different journalistically objective Tweets without hashtags and replacing the guest's name with their Twitter handle " + author + " about this " + tense + " of the show: " + text1}
+          {"role": "user", "content": "Create a numbered list of five different journalistically objective and detailed Tweets without hashtags and replacing the guest's name with their Twitter handle " + author + " about this " + tense + " of the show: " + text1}
         ]
         var data4 = {
           "model": model,
@@ -246,7 +246,7 @@ $("form.openai").submit(function(e) {
       var api_key = openai_data1.api_key;
       var model = "gpt-3.5-turbo";
       var max_tokens = 350;
-      var temperature = .6;
+      var temperature = .67;
       var url = "https://api.openai.com/v1/chat/completions";
       var cacheKey = prompt; // Only use the prompt to construct the cache key
       var author = $("#author").val();
@@ -294,7 +294,7 @@ $("form.openai").submit(function(e) {
         {"role": "assistant", "content": "With congestion pricing looming in NYC, suburban Congress members lawler4ny and; RepJoshG are joining forces from across the isle in opposition to extra costs on their constituents. Hear their arguments from this mornings show: https://t.co/gPZ4WbgNou,"},
         {"role": "user", "content": "Create an original Tweet about this past segment of the show: Last week, the mayors office announced an increase of $14.5 million in funding for citywide cleaning operations. The Get Stuff Clean initiative includes funding to clean up No Mans Land areas, increase litter basket maintenance, and bolster rat mitigation. Meera Joshi, deputy mayor for operations, joins to talk about the plans for cleaning up the city."},
         {"role": "assistant", "content": "NYC deputy mayor for operations Meera Joshi spoke with us about the Get Stuff Clean initiative, which includes funding to clean up long-neglected areas, increase litter basket maintenance and bolster rat mitigation. https://t.co/Nhj5iRTCZF,"},
-        {"role": "user", "content": "Create a numbered list of five different journalistically objective Tweets without hashtags and replacing the guest's name with their Twitter handle " + author + " about this " + tense + " of the show: " + prompt}
+        {"role": "user", "content": "Create a numbered list of five different journalistically objective and detailed Tweets without hashtags and replacing the guest's name with their Twitter handle " + author + " about this " + tense + " of the show: " + prompt}
         ];
       cacheCounter++; // Increment the counter
       var cachedResponse = localStorage.getItem(cacheKey);
