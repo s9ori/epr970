@@ -387,12 +387,12 @@ $("form.openai").submit(function(e) {
   });
 
 $('#creative-btn').click(function() {
-  var inputVariable = " more creative:";
+  var inputVariable = "more creative:";
   runRewrite(inputVariable);
 });
 
 $('#serious-btn').click(function() {
-  var inputVariable = " more serious:";
+  var inputVariable = "more journalisically objective and without opinion:";
   runRewrite(inputVariable);
 });
 
