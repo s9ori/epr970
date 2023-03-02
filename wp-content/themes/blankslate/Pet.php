@@ -120,7 +120,7 @@ get_header();
     transition: all 0.1s ease-in-out!important;
   }
 
-  #branding {
+  #pet-box {
     display: flex!important;
     flex-direction: column-reverse!important;
     align-items: center!important;
@@ -221,8 +221,10 @@ display: none
     <button id="adventure">Adventure</button>
   </div>
 </div>
-<a id="logo-link" href="/pet"><div id="level"></div>
-<img class="logo" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image"></a>
+<div id="pet-box">
+<div id="level"></div>
+<img class="pet" src="https://lowfemme.com/wp-content/uploads/2023/02/tumblr_neqyicWGSs1u1nuzeo1_500.gif" alt="Pet Image">
+</div>
 <div id="response"></div>
 </div>
 <div id="monsters"></div>
