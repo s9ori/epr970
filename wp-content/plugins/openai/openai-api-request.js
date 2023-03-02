@@ -137,7 +137,7 @@ $("form.openai").submit(function(e) {
           {"role": "assistant", "content": "With congestion pricing looming in NYC, suburban Congress members lawler4ny and; RepJoshG are joining forces from across the isle in opposition to extra costs on their constituents. Hear their arguments from this mornings show: https://t.co/gPZ4WbgNou,"},
           {"role": "user", "content": "Create an original Tweet for WNYC about this past segment: Last week, the mayors office announced an increase of $14.5 million in funding for citywide cleaning operations. The Get Stuff Clean initiative includes funding to clean up No Mans Land areas, increase litter basket maintenance, and bolster rat mitigation. Meera Joshi, deputy mayor for operations, joins to talk about the plans for cleaning up the city."},
           {"role": "assistant", "content": "NYC deputy mayor for operations Meera Joshi spoke with us about the Get Stuff Clean initiative, which includes funding to clean up long-neglected areas, increase litter basket maintenance and bolster rat mitigation. https://t.co/Nhj5iRTCZF,"},
-          {"role": "user", "content": "Create a numbered list of five original Tweets for WNYC without hashtags and including the guest's Twitter handle " + author + " about this " + tense + ": " + text1}
+          {"role": "user", "content": "Create a numbered list of five different Tweets for WNYC without hashtags and including the guest's Twitter handle " + author + " about this " + tense + ": " + text1}
         ]
         var data4 = {
           "model": model,
@@ -294,7 +294,7 @@ $("form.openai").submit(function(e) {
         {"role": "assistant", "content": "With congestion pricing looming in NYC, suburban Congress members lawler4ny and; RepJoshG are joining forces from across the isle in opposition to extra costs on their constituents. Hear their arguments from this mornings show: https://t.co/gPZ4WbgNou,"},
         {"role": "user", "content": "Create an original Tweet for WNYC about this past segment: Last week, the mayors office announced an increase of $14.5 million in funding for citywide cleaning operations. The Get Stuff Clean initiative includes funding to clean up No Mans Land areas, increase litter basket maintenance, and bolster rat mitigation. Meera Joshi, deputy mayor for operations, joins to talk about the plans for cleaning up the city."},
         {"role": "assistant", "content": "NYC deputy mayor for operations Meera Joshi spoke with us about the Get Stuff Clean initiative, which includes funding to clean up long-neglected areas, increase litter basket maintenance and bolster rat mitigation. https://t.co/Nhj5iRTCZF,"},
-        {"role": "user", "content": "Create a numbered list of five original Tweets for WNYC without hashtags and including the guest's Twitter handle " + author + " about this " + tense + ": " + prompt}
+        {"role": "user", "content": "Create a numbered list of five different Tweets for WNYC without hashtags and including the guest's Twitter handle " + author + " about this " + tense + ": " + prompt}
         ];
       cacheCounter++; // Increment the counter
       var cachedResponse = localStorage.getItem(cacheKey);
